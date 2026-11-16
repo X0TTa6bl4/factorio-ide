@@ -1,0 +1,4 @@
+[
+  {"hidden": true, "icon": {"layers": [{"icon": "__core__/graphics/icons/unknown.png", "icon_size": 64}], "source": "icon"}, "id": "space-location/space-location-unknown", "label": {"en": "space-location-unknown", "ru": "space-location-unknown"}, "labelSource": {"en": "unresolved", "ru": "unresolved"}, "name": "space-location-unknown", "parameter": false, "prototypeType": "space-location", "role": "internal", "type": "space-location"},
+  {"hidden": false, "icon": {"layers": [{"icon": "__base__/graphics/icons/nauvis.png", "icon_size": 64}], "source": "icon"}, "id": "space-location/nauvis", "label": {"en": "Nauvis", "ru": "Наувис"}, "labelSource": {"en": "space-location-name.nauvis", "ru": "space-location-name.nauvis"}, "name": "nauvis", "order": "a[nauvis]", "parameter": false, "prototypeType": "planet", "role": "signal", "type": "space-location"}
+]

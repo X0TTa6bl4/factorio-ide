@@ -1,0 +1,4 @@
+[
+  {"hidden": true, "icon": {"layers": [{"icon": "__core__/graphics/icons/unknown.png", "scale": 0.5}], "source": "icons"}, "id": "quality/quality-unknown", "label": {"en": "Unknown", "ru": "Неизвестно"}, "labelSource": {"en": "quality-name.quality-unknown", "ru": "quality-name.quality-unknown"}, "level": 0, "name": "quality-unknown", "order": "z", "parameter": false, "prototypeType": "quality", "role": "internal", "type": "quality"},
+  {"hidden": true, "icon": {"layers": [{"icon": "__base__/graphics/icons/quality-normal.png", "icon_size": 64}], "source": "icon"}, "id": "quality/normal", "label": {"en": "normal", "ru": "normal"}, "labelSource": {"en": "unresolved", "ru": "unresolved"}, "level": 0, "name": "normal", "next_probability": 1, "order": "a", "parameter": false, "prototypeType": "quality", "role": "internal", "subgroup": "qualities", "type": "quality"}
+]

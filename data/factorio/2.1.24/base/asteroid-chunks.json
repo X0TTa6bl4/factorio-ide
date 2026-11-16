@@ -1,0 +1,3 @@
+[
+  {"hidden": true, "icon": {"layers": [{"icon": "__core__/graphics/icons/unknown.png", "icon_size": 64}], "source": "icon"}, "id": "asteroid-chunk/asteroid-chunk-unknown", "label": {"en": "asteroid-chunk-unknown", "ru": "asteroid-chunk-unknown"}, "labelSource": {"en": "unresolved", "ru": "unresolved"}, "name": "asteroid-chunk-unknown", "parameter": false, "prototypeType": "asteroid-chunk", "role": "internal", "type": "asteroid-chunk"}
+]

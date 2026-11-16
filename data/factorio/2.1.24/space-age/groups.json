@@ -1,0 +1,1054 @@
+{
+  "groups": [
+    {
+      "base_type": "item-group",
+      "icon": "__base__/graphics/item-group/logistics.png",
+      "icon_size": 128,
+      "name": "logistics",
+      "order": "a",
+      "type": "item-group"
+    },
+    {
+      "base_type": "item-group",
+      "icon": "__base__/graphics/item-group/production.png",
+      "icon_size": 128,
+      "name": "production",
+      "order": "b",
+      "type": "item-group"
+    },
+    {
+      "base_type": "item-group",
+      "icon": "__base__/graphics/item-group/intermediate-products.png",
+      "icon_size": 128,
+      "name": "intermediate-products",
+      "order": "c",
+      "type": "item-group"
+    },
+    {
+      "base_type": "item-group",
+      "icon": "__space-age__/graphics/item-group/space.png",
+      "icon_size": 128,
+      "name": "space",
+      "order": "d",
+      "type": "item-group"
+    },
+    {
+      "base_type": "item-group",
+      "icon": "__base__/graphics/item-group/military.png",
+      "icon_size": 128,
+      "name": "combat",
+      "order": "e",
+      "type": "item-group"
+    },
+    {
+      "base_type": "item-group",
+      "icon": "__base__/graphics/item-group/fluids.png",
+      "icon_size": 128,
+      "name": "fluids",
+      "order": "f",
+      "type": "item-group"
+    },
+    {
+      "base_type": "item-group",
+      "icon": "__base__/graphics/item-group/signals.png",
+      "icon_size": 128,
+      "name": "signals",
+      "order": "g",
+      "type": "item-group"
+    },
+    {
+      "base_type": "item-group",
+      "icon": "__core__/graphics/icons/category/enemies.png",
+      "icon_size": 128,
+      "name": "enemies",
+      "order": "h",
+      "type": "item-group"
+    },
+    {
+      "base_type": "item-group",
+      "icon": "__core__/graphics/icons/category/tiles-editor.png",
+      "icon_size": 128,
+      "name": "tiles",
+      "order": "i",
+      "type": "item-group"
+    },
+    {
+      "base_type": "item-group",
+      "icon": "__core__/graphics/icons/category/environment.png",
+      "icon_size": 128,
+      "name": "environment",
+      "order": "l",
+      "type": "item-group"
+    },
+    {
+      "base_type": "item-group",
+      "icon": "__base__/graphics/item-group/effects.png",
+      "icon_size": 128,
+      "name": "effects",
+      "order": "y",
+      "type": "item-group"
+    },
+    {
+      "base_type": "item-group",
+      "icon": "__core__/graphics/icons/category/unsorted.png",
+      "icon_size": 128,
+      "name": "other",
+      "order": "z",
+      "type": "item-group"
+    }
+  ],
+  "subgroups": [
+    {
+      "base_type": "item-subgroup",
+      "group": "tiles",
+      "name": "artificial-tiles",
+      "order": "a",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "cliffs",
+      "order": "a",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "creatures",
+      "order": "a",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "enemies",
+      "name": "enemies",
+      "order": "a",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "fluids",
+      "name": "fluid",
+      "order": "a",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "intermediate-products",
+      "name": "fluid-recipes",
+      "order": "a",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "combat",
+      "name": "gun",
+      "order": "a",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "other",
+      "name": "parameters",
+      "order": "a",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "space",
+      "name": "space-interactors",
+      "order": "a",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "space",
+      "name": "space-platform",
+      "order": "a",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "logistics",
+      "name": "storage",
+      "order": "a",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "production",
+      "name": "tool",
+      "order": "a",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "signals",
+      "name": "virtual-signal-special",
+      "order": "a",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "storage-explosions",
+      "order": "aa",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "trees",
+      "order": "aa",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "belt-explosions",
+      "order": "ab",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "inserter-explosions",
+      "order": "ac",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "energy-pipe-distribution-explosions",
+      "order": "ad",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "train-transport-explosions",
+      "order": "ae",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "transport-explosions",
+      "order": "af",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "logistic-network-explosions",
+      "order": "ag",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "circuit-network-explosions",
+      "order": "ah",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "combat",
+      "name": "ammo",
+      "order": "b",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "logistics",
+      "name": "belt",
+      "order": "b",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "production",
+      "name": "energy",
+      "order": "b",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "grass",
+      "order": "b",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "tiles",
+      "name": "nauvis-tiles",
+      "order": "b",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "other",
+      "name": "qualities",
+      "order": "b",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "intermediate-products",
+      "name": "raw-resource",
+      "order": "b",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "space",
+      "name": "space-rocket",
+      "order": "b",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "signals",
+      "name": "virtual-signal-number",
+      "order": "b",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "energy-explosions",
+      "order": "ba",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "mineable-fluids",
+      "order": "ba",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "extraction-machine-explosions",
+      "order": "bb",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "obstacles",
+      "order": "bb",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "smelting-machine-explosions",
+      "order": "bc",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "agriculture-explosions",
+      "order": "bca",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "production-machine-explosions",
+      "order": "bd",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "environmental-protection-explosions",
+      "order": "bdb",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "module-explosions",
+      "order": "be",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "campaign-explosions",
+      "order": "bf",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "combat",
+      "name": "capsule",
+      "order": "c",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "corpses",
+      "order": "c",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "production",
+      "name": "extraction-machine",
+      "order": "c",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "logistics",
+      "name": "inserter",
+      "order": "c",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "intermediate-products",
+      "name": "raw-material",
+      "order": "c",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "space-platform-explosions",
+      "order": "c",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "other",
+      "name": "spawnables",
+      "order": "c",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "signals",
+      "name": "virtual-signal-letter",
+      "order": "c",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "tiles",
+      "name": "vulcanus-tiles",
+      "order": "c",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "gun-explosions",
+      "order": "ca",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "defensive-structure-explosions",
+      "order": "cb",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "signals",
+      "name": "virtual-signal-punctuation",
+      "order": "cb",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "capsule-explosions",
+      "order": "cc",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "tree-explosions",
+      "order": "cd",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "signals",
+      "name": "virtual-signal-math",
+      "order": "cd",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "combat",
+      "name": "armor",
+      "order": "d",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "intermediate-products",
+      "name": "barrel",
+      "order": "d",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "logistics",
+      "name": "energy-pipe-distribution",
+      "order": "d",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "other",
+      "name": "other",
+      "order": "d",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "production",
+      "name": "smelting-machine",
+      "order": "d",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "signals",
+      "name": "virtual-signal-color",
+      "order": "d",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "tiles",
+      "name": "gleba-water-tiles",
+      "order": "d-a",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "tiles",
+      "name": "gleba-tiles",
+      "order": "d-b",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "production",
+      "name": "agriculture",
+      "order": "da",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "rock-explosions",
+      "order": "da",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "storage-remnants",
+      "order": "da",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "belt-remnants",
+      "order": "db",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "ground-explosions",
+      "order": "db",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "decorative-explosions",
+      "order": "dc",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "inserter-remnants",
+      "order": "dc",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "energy-pipe-distribution-remnants",
+      "order": "dd",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "enemy-death-explosions",
+      "order": "de",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "train-transport-remnants",
+      "order": "de",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "fluid-explosions",
+      "order": "df",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "transport-remnants",
+      "order": "df",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "explosions",
+      "order": "dg",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "logistic-network-remnants",
+      "order": "dg",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "circuit-network-remnants",
+      "order": "dh",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "energy-remnants",
+      "order": "di",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "extraction-machine-remnants",
+      "order": "di",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "smelting-machine-remnants",
+      "order": "dj",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "agriculture-remnants",
+      "order": "dja",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "production-machine-remnants",
+      "order": "dk",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "environmental-protection-remnants",
+      "order": "dkb",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "defensive-structure-remnants",
+      "order": "dl",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "generic-remnants",
+      "order": "dl",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "scorchmarks",
+      "order": "dm",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "remnants",
+      "order": "dz",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "combat",
+      "name": "equipment",
+      "order": "e",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "intermediate-products",
+      "name": "fill-barrel",
+      "order": "e",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "tiles",
+      "name": "fulgora-tiles",
+      "order": "e",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "hit-effects",
+      "order": "e",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "effects",
+      "name": "particles",
+      "order": "e",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "production",
+      "name": "production-machine",
+      "order": "e",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "space",
+      "name": "space-related",
+      "order": "e",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "logistics",
+      "name": "train-transport",
+      "order": "e",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "signals",
+      "name": "virtual-signal",
+      "order": "e",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "wrecks",
+      "order": "e",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "environment",
+      "name": "space-platform-remnants",
+      "order": "eb",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "tiles",
+      "name": "aquilo-tiles",
+      "order": "f",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "intermediate-products",
+      "name": "empty-barrel",
+      "order": "f",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "production",
+      "name": "environmental-protection",
+      "order": "f",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "signals",
+      "name": "shapes",
+      "order": "f",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "space",
+      "name": "space-environment",
+      "order": "f",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "logistics",
+      "name": "transport",
+      "order": "f",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "combat",
+      "name": "utility-equipment",
+      "order": "f",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "signals",
+      "name": "arrows",
+      "order": "g",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "intermediate-products",
+      "name": "intermediate-product",
+      "order": "g",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "logistics",
+      "name": "logistic-network",
+      "order": "g",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "combat",
+      "name": "military-equipment",
+      "order": "g",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "production",
+      "name": "module",
+      "order": "g",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "space",
+      "name": "space-material",
+      "order": "g",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "tiles",
+      "name": "special-tiles",
+      "order": "g",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "signals",
+      "name": "arrows-misc",
+      "order": "h",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "logistics",
+      "name": "circuit-network",
+      "order": "h",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "combat",
+      "name": "defensive-structure",
+      "order": "h",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "intermediate-products",
+      "name": "intermediate-recipe",
+      "order": "h",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "space",
+      "name": "space-crushing",
+      "order": "h",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "signals",
+      "name": "pictographs",
+      "order": "i",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "space",
+      "name": "space-processing",
+      "order": "i",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "logistics",
+      "name": "terrain",
+      "order": "i",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "combat",
+      "name": "turret",
+      "order": "i",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "intermediate-products",
+      "name": "uranium-processing",
+      "order": "i",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "combat",
+      "name": "ammo-category",
+      "order": "j",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "signals",
+      "name": "bullets",
+      "order": "j",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "space",
+      "name": "planets",
+      "order": "j",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "space",
+      "name": "planet-connections",
+      "order": "k",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "intermediate-products",
+      "name": "vulcanus-processes",
+      "order": "k",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "intermediate-products",
+      "name": "fulgora-processes",
+      "order": "l",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "intermediate-products",
+      "name": "agriculture-processes",
+      "order": "m",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "intermediate-products",
+      "name": "agriculture-products",
+      "order": "n",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "intermediate-products",
+      "name": "nauvis-agriculture",
+      "order": "o",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "intermediate-products",
+      "name": "aquilo-processes",
+      "order": "p",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "intermediate-products",
+      "name": "science-pack",
+      "order": "y",
+      "type": "item-subgroup"
+    },
+    {
+      "base_type": "item-subgroup",
+      "group": "intermediate-products",
+      "name": "internal-process",
+      "order": "z",
+      "type": "item-subgroup"
+    }
+  ]
+}

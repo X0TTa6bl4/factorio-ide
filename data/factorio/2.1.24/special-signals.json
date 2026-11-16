@@ -1,0 +1,46 @@
+[
+  {
+    "alias": "Everything",
+    "id": "virtual/signal-everything",
+    "kind": "logic-selector",
+    "name": "signal-everything",
+    "profiles": [
+      "base",
+      "space-age"
+    ],
+    "transmittable": false
+  },
+  {
+    "alias": "Anything",
+    "id": "virtual/signal-anything",
+    "kind": "logic-selector",
+    "name": "signal-anything",
+    "profiles": [
+      "base",
+      "space-age"
+    ],
+    "transmittable": false
+  },
+  {
+    "alias": "Each",
+    "id": "virtual/signal-each",
+    "kind": "logic-selector",
+    "name": "signal-each",
+    "profiles": [
+      "base",
+      "space-age"
+    ],
+    "transmittable": false
+  },
+  {
+    "alias": "Any quality",
+    "id": "virtual/signal-any-quality",
+    "kind": "quality-selector",
+    "name": "signal-any-quality",
+    "note": "Context-specific quality selector; ordinary-channel use is not engine-validated.",
+    "profiles": [
+      "space-age"
+    ],
+    "transmittable": null
+  }
+]
