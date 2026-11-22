@@ -1,0 +1,70 @@
+{
+  "gameVersion": "2.1.24",
+  "activeMods": {
+    "base": "2.1.24",
+    "elevated-rails": "2.1.24",
+    "recycler": "2.1.24",
+    "quality": "2.1.24",
+    "space-age": "2.1.24",
+    "f-logic-blueprint-check": "0.1.0"
+  },
+  "importCode": 0,
+  "entities": 1,
+  "sections": 10,
+  "signals": 873,
+  "groups": [
+    {
+      "index": 1,
+      "name": "01 Логистика",
+      "signals": 73
+    },
+    {
+      "index": 2,
+      "name": "02 Производство",
+      "signals": 54
+    },
+    {
+      "index": 3,
+      "name": "03 Компоненты",
+      "signals": 149
+    },
+    {
+      "index": 4,
+      "name": "04 Космос",
+      "signals": 51
+    },
+    {
+      "index": 5,
+      "name": "05 Вооружение",
+      "signals": 68
+    },
+    {
+      "index": 6,
+      "name": "06 Жидкости",
+      "signals": 22
+    },
+    {
+      "index": 7,
+      "name": "07 Сигналы",
+      "signals": 146
+    },
+    {
+      "index": 8,
+      "name": "08 Враги",
+      "signals": 31
+    },
+    {
+      "index": 9,
+      "name": "09 Окружение",
+      "signals": 264
+    },
+    {
+      "index": 10,
+      "name": "10 Несортированное",
+      "signals": 15
+    }
+  ],
+  "menuConfirmed": false,
+  "signalKeysPreserved": true,
+  "sectionNamesPreserved": true
+}

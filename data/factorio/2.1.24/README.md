@@ -39,6 +39,6 @@ python3 tools/factorio-catalog/build.py --data-root /путь/к/factorio/data -
 
 Нужны Python 3.9+ и Lua 5.4. Сборщик не использует Docker, не запускает игровой сервер и не скачивает данные. Он выполняет Lua data stages официальных пакетов с детерминированным обходом таблиц; это не полная эмуляция C++-валидации Factorio. Загружать только доверенные официальные данные. Существующий результат не перезаписывается. Две независимые сборки текущего снимка совпали побайтно.
 
-Для браузера загружать только нужный профиль и категории, а не оба каталога целиком.
+Для браузера загружать только нужный профиль и категории, а не оба каталога целиком. Производная таблица имён Signal лежит отдельно в `data/signal-catalog/2.1.24` и эти сырые файлы не заменяет.
 
 Источники: [официальная сборка](https://factorio.com/get-download/2.1.24/headless/linux64), [публичные исходники данных Wube](https://github.com/wube/factorio-data), [типы SignalID](https://lua-api.factorio.com/latest/concepts/SignalIDType.html), [скрытие рецептов](https://lua-api.factorio.com/latest/prototypes/RecipePrototype.html#hide_from_signal_gui).

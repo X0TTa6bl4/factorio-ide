@@ -1,0 +1,246 @@
+{
+  "appliedRules": [
+    "Ведущий цифровой блок до дефиса переносится в конец перед заменой дефисов.",
+    "Предмет бочки сохраняет путь. Рецепты fill-barrel и empty-barrel с ключами recipe-name.fill-barrel и recipe-name.empty-filled-barrel становятся .fill и .empty этого предмета. Плоский путь тем же рецептам не назначается.",
+    "entity/captive-biter-spawner не экспортируется. Причина project-item-only — решение проекта, не флаг скрытия и не вкладка врагов.",
+    "entity/biolab не экспортируется. Причина chooser-observation-item-only — наблюдение пользователя, что отдельного entity-сигнала в меню нет. Версия наблюдения не указана, это не runtime-флаг.",
+    "Четыре пары item/asteroid-chunk из blueprint постоянного комбинатора: путь получает предмет, asteroid-chunk остаётся с причиной chooser-blueprint-item. hide_from_signal_gui и item_signal_alias из снимка не подставляются."
+  ],
+  "blocking": {
+    "base": {
+      "collisionPaths": 0,
+      "collisionRows": 0,
+      "propertyRows": 0
+    },
+    "space-age": {
+      "collisionPaths": 0,
+      "collisionRows": 0,
+      "propertyRows": 0
+    }
+  },
+  "gameVersion": "2.1.24",
+  "keywords": {
+    "base": [],
+    "space-age": []
+  },
+  "namingRule": "prototype.name: ведущий цифровой блок до дефиса переносится в конец, затем '-' → '_'. Рецепты бочек получают .fill/.empty предмета. entity/captive-biter-spawner, entity/biolab и четыре asteroid-chunk из blueprint остаются без пути.",
+  "profiles": {
+    "base": [],
+    "space-age": []
+  },
+  "propertyAccess": {
+    "base": [],
+    "space-age": []
+  },
+  "proposal": "Имя из prototype.name: ведущий цифровой блок до дефиса переносится в конец, затем дефис заменяется подчёркиванием; регистр сохраняется. Суффиксы _item/_recipe и ветви Recipe/Entity не добавляются. Пока коллизия не разрешена, publicPath не назначается ни одной записи с общим candidatePath. Учётные строки сохраняются. Принято для бочек: предмет получает путь, recipe наполнения — .fill, recipe опустошения — .empty. Имена листьев взяты из действий Fill и Empty. Рецепт пустой бочки и скрытый recycling этим действием не становятся. Принято для захваченного улья: публичный путь только у item/captive-biter-spawner. entity/captive-biter-spawner хранится с причиной project-item-only. Принято для биолаборатории: публичный путь только у item/biolab по наблюдению пользователя от 18.11.2026. entity/biolab хранится с причиной chooser-observation-item-only. Версия наблюдения не указана. Принято для четырёх кусков астероида: публичный путь у item/metallic-asteroid-chunk, item/carbonic-asteroid-chunk, item/oxide-asteroid-chunk и item/promethium-asteroid-chunk. Парный asteroid-chunk хранится с причиной chooser-blueprint-item. hide_from_signal_gui и item_signal_alias из снимка не получены и не подставлены. Принято 18.11.2026: entity/1x2-remnants экспортируется как Signal.Environment.remnants_1x2. Исходный игровой name остаётся 1x2-remnants.",
+  "resolved": true,
+  "schemaVersion": 1,
+  "signals": {
+    "asteroidNote": "Четыре сигнала кусков сопоставлены с item по blueprint data/evidence/constant-combinator-asteroid-chunks-2026-11-18.blueprint.txt. blueprint.version 562954249961473 декодируется как 2.1.24, младшие 16 бит равны 1. В секции кусков поле type отсутствует; у entity-фильтров той же выгрузки type записан. По SignalID отсутствующий type означает item, поэтому путь получает предмет, а asteroid-chunk остаётся без пути с причиной chooser-blueprint-item. Снимок не содержит hide_from_signal_gui и item_signal_alias; эти поля не выведены из blueprint и не записаны как false. Пакеты и настройки видимости в blueprint нет. menuConfirmed не ставится: выгрузка не покрывает все вкладки.",
+    "asteroids": {
+      "base": [],
+      "space-age": [
+        {
+          "left": {
+            "hidden": false,
+            "hideFromSignalGui": {
+              "level": "snapshot",
+              "status": "not-applicable",
+              "value": null
+            },
+            "itemSignalAlias": {
+              "itemName": null,
+              "level": "snapshot",
+              "status": "not-applicable"
+            },
+            "pathReason": null,
+            "prototypeId": "item/metallic-asteroid-chunk",
+            "publicPath": "Signal.Space.metallic_asteroid_chunk",
+            "signalSelection": "selectable",
+            "subgroup": "space-material"
+          },
+          "name": "metallic-asteroid-chunk",
+          "right": {
+            "hidden": false,
+            "hideFromSignalGui": {
+              "level": "snapshot",
+              "status": "absent",
+              "value": null
+            },
+            "itemSignalAlias": {
+              "itemName": null,
+              "level": "snapshot",
+              "status": "absent"
+            },
+            "pathReason": "chooser-blueprint-item",
+            "prototypeId": "asteroid-chunk/metallic-asteroid-chunk",
+            "publicPath": null,
+            "signalSelection": "selectable",
+            "subgroup": "space-material"
+          }
+        },
+        {
+          "left": {
+            "hidden": false,
+            "hideFromSignalGui": {
+              "level": "snapshot",
+              "status": "not-applicable",
+              "value": null
+            },
+            "itemSignalAlias": {
+              "itemName": null,
+              "level": "snapshot",
+              "status": "not-applicable"
+            },
+            "pathReason": null,
+            "prototypeId": "item/carbonic-asteroid-chunk",
+            "publicPath": "Signal.Space.carbonic_asteroid_chunk",
+            "signalSelection": "selectable",
+            "subgroup": "space-material"
+          },
+          "name": "carbonic-asteroid-chunk",
+          "right": {
+            "hidden": false,
+            "hideFromSignalGui": {
+              "level": "snapshot",
+              "status": "absent",
+              "value": null
+            },
+            "itemSignalAlias": {
+              "itemName": null,
+              "level": "snapshot",
+              "status": "absent"
+            },
+            "pathReason": "chooser-blueprint-item",
+            "prototypeId": "asteroid-chunk/carbonic-asteroid-chunk",
+            "publicPath": null,
+            "signalSelection": "selectable",
+            "subgroup": "space-material"
+          }
+        },
+        {
+          "left": {
+            "hidden": false,
+            "hideFromSignalGui": {
+              "level": "snapshot",
+              "status": "not-applicable",
+              "value": null
+            },
+            "itemSignalAlias": {
+              "itemName": null,
+              "level": "snapshot",
+              "status": "not-applicable"
+            },
+            "pathReason": null,
+            "prototypeId": "item/oxide-asteroid-chunk",
+            "publicPath": "Signal.Space.oxide_asteroid_chunk",
+            "signalSelection": "selectable",
+            "subgroup": "space-material"
+          },
+          "name": "oxide-asteroid-chunk",
+          "right": {
+            "hidden": false,
+            "hideFromSignalGui": {
+              "level": "snapshot",
+              "status": "absent",
+              "value": null
+            },
+            "itemSignalAlias": {
+              "itemName": null,
+              "level": "snapshot",
+              "status": "absent"
+            },
+            "pathReason": "chooser-blueprint-item",
+            "prototypeId": "asteroid-chunk/oxide-asteroid-chunk",
+            "publicPath": null,
+            "signalSelection": "selectable",
+            "subgroup": "space-material"
+          }
+        },
+        {
+          "left": {
+            "hidden": false,
+            "hideFromSignalGui": {
+              "level": "snapshot",
+              "status": "not-applicable",
+              "value": null
+            },
+            "itemSignalAlias": {
+              "itemName": null,
+              "level": "snapshot",
+              "status": "not-applicable"
+            },
+            "pathReason": null,
+            "prototypeId": "item/promethium-asteroid-chunk",
+            "publicPath": "Signal.Space.promethium_asteroid_chunk",
+            "signalSelection": "selectable",
+            "subgroup": "space-material"
+          },
+          "name": "promethium-asteroid-chunk",
+          "right": {
+            "hidden": false,
+            "hideFromSignalGui": {
+              "level": "snapshot",
+              "status": "absent",
+              "value": null
+            },
+            "itemSignalAlias": {
+              "itemName": null,
+              "level": "snapshot",
+              "status": "absent"
+            },
+            "pathReason": "chooser-blueprint-item",
+            "prototypeId": "asteroid-chunk/promethium-asteroid-chunk",
+            "publicPath": null,
+            "signalSelection": "selectable",
+            "subgroup": "space-material"
+          }
+        }
+      ]
+    },
+    "biolab": {
+      "base": null,
+      "space-age": {
+        "left": {
+          "hidden": false,
+          "hideFromSignalGui": {
+            "level": "snapshot",
+            "status": "not-applicable",
+            "value": null
+          },
+          "itemSignalAlias": {
+            "itemName": null,
+            "level": "snapshot",
+            "status": "not-applicable"
+          },
+          "pathReason": null,
+          "prototypeId": "item/biolab",
+          "publicPath": "Signal.Production.biolab",
+          "signalSelection": "selectable",
+          "subgroup": "production-machine"
+        },
+        "name": "biolab",
+        "right": {
+          "hidden": false,
+          "hideFromSignalGui": {
+            "level": "snapshot",
+            "status": "not-applicable",
+            "value": null
+          },
+          "itemSignalAlias": {
+            "itemName": null,
+            "level": "snapshot",
+            "status": "not-applicable"
+          },
+          "pathReason": "chooser-observation-item-only",
+          "prototypeId": "entity/biolab",
+          "publicPath": null,
+          "signalSelection": "selectable",
+          "subgroup": "production-machine"
+        }
+      }
+    },
+    "biolabNote": "По наблюдению пользователя 18.11.2026 отдельного сигнала entity/biolab в меню постоянного комбинатора нет. Signal.Production.biolab назначен item/biolab. entity/biolab сохранена в учёте без публичного пути, причина chooser-observation-item-only. Версия, активные пакеты и настройки этого наблюдения не указаны. Это не извлечённый runtime-флаг скрытия и не подтверждение всего меню. В снимке обе записи hidden: false и лежат в production-machine.",
+    "menuConfirmed": false
+  }
+}

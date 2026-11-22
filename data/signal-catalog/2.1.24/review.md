@@ -1,0 +1,1622 @@
+# Таблица Signal 2.1.24
+
+Производные файлы собраны из одного снимка. Подписи и порядок не задают publicPath.
+Состав игрового меню не подтверждён клиентом: `menuConfirmed` остаётся false.
+Разрешение коллизий имён: `collisionsResolved` = true.
+
+## Возвращённая пользовательская сверка Space Age
+
+Применён исправленный пользователем blueprint: 693 ordinary-сигналов. Источник: data/evidence/constant-combinator-review-2026-11-18/returned.blueprint.txt.
+Удалённые из чертежа записи сохранены в исходном учёте с chooser-review-removed. Добавленные ключи получили отдельные публичные пути. Это ручная сверка; сам успешный импорт не является доказательством полного состава GUI во всех режимах.
+
+## Применённые правила
+
+- Ведущий цифровой блок до дефиса переносится в конец перед заменой дефисов.
+- Предмет бочки сохраняет путь. Рецепты fill-barrel и empty-barrel с ключами recipe-name.fill-barrel и recipe-name.empty-filled-barrel становятся .fill и .empty этого предмета. Плоский путь тем же рецептам не назначается.
+- entity/captive-biter-spawner не экспортируется. Причина project-item-only — решение проекта, не флаг скрытия и не вкладка врагов.
+- entity/biolab не экспортируется. Причина chooser-observation-item-only — наблюдение пользователя, что отдельного entity-сигнала в меню нет. Версия наблюдения не указана, это не runtime-флаг.
+- Четыре пары item/asteroid-chunk из blueprint постоянного комбинатора: путь получает предмет, asteroid-chunk остаётся с причиной chooser-blueprint-item. hide_from_signal_gui и item_signal_alias из снимка не подставляются.
+
+## Учёт
+
+### base
+
+- Учётных строк: 1218, входных ID: 1218.
+- Экспортированных путей: 570. Это не число кнопок меню.
+- Без пути, blueprint-parameter: 40.
+- Без пути, not-selectable: 176.
+- Без пути, subgroup-absent: 100.
+- Без пути, technical: 332.
+- Неразрешённые подписи en/ru: 80/80.
+- Обычные уровни качества: нет.
+- Пропущенные уровни между наблюдаемыми: нет.
+
+### space-age
+
+- Учётных строк: 2249, входных ID: 2249.
+- Экспортированных путей: 697. Это не число кнопок меню.
+- Без пути, blueprint-parameter: 50.
+- Без пути, chooser-blueprint-item: 4.
+- Без пути, chooser-observation-item-only: 1.
+- Без пути, chooser-review-removed: 185.
+- Без пути, not-selectable: 251.
+- Без пути, project-item-only: 1.
+- Без пути, subgroup-absent: 127.
+- Без пути, technical: 933.
+- Неразрешённые подписи en/ru: 173/173.
+- Обычные уровни качества: 0, 1, 2, 3, 5.
+- Пропущенные уровни между наблюдаемыми: 4.
+
+## Коллизии
+
+Имя из prototype.name: ведущий цифровой блок до дефиса переносится в конец, затем дефис заменяется подчёркиванием; регистр сохраняется. Суффиксы _item/_recipe и ветви Recipe/Entity не добавляются. Пока коллизия не разрешена, publicPath не назначается ни одной записи с общим candidatePath. Учётные строки сохраняются. Принято для бочек: предмет получает путь, recipe наполнения — .fill, recipe опустошения — .empty. Имена листьев взяты из действий Fill и Empty. Рецепт пустой бочки и скрытый recycling этим действием не становятся. Принято для захваченного улья: публичный путь только у item/captive-biter-spawner. entity/captive-biter-spawner хранится с причиной project-item-only. Принято для биолаборатории: публичный путь только у item/biolab по наблюдению пользователя от 18.11.2026. entity/biolab хранится с причиной chooser-observation-item-only. Версия наблюдения не указана. Принято для четырёх кусков астероида: публичный путь у item/metallic-asteroid-chunk, item/carbonic-asteroid-chunk, item/oxide-asteroid-chunk и item/promethium-asteroid-chunk. Парный asteroid-chunk хранится с причиной chooser-blueprint-item. hide_from_signal_gui и item_signal_alias из снимка не получены и не подставлены. Принято 18.11.2026: entity/1x2-remnants экспортируется как Signal.Environment.remnants_1x2. Исходный игровой name остаётся 1x2-remnants.
+
+### base
+
+- нет
+
+### space-age
+
+- нет
+
+## Астероиды и биолаборатория
+
+Четыре сигнала кусков сопоставлены с item по blueprint data/evidence/constant-combinator-asteroid-chunks-2026-11-18.blueprint.txt. blueprint.version 562954249961473 декодируется как 2.1.24, младшие 16 бит равны 1. В секции кусков поле type отсутствует; у entity-фильтров той же выгрузки type записан. По SignalID отсутствующий type означает item, поэтому путь получает предмет, а asteroid-chunk остаётся без пути с причиной chooser-blueprint-item. Снимок не содержит hide_from_signal_gui и item_signal_alias; эти поля не выведены из blueprint и не записаны как false. Пакеты и настройки видимости в blueprint нет. menuConfirmed не ставится: выгрузка не покрывает все вкладки.
+
+По наблюдению пользователя 18.11.2026 отдельного сигнала entity/biolab в меню постоянного комбинатора нет. Signal.Production.biolab назначен item/biolab. entity/biolab сохранена в учёте без публичного пути, причина chooser-observation-item-only. Версия, активные пакеты и настройки этого наблюдения не указаны. Это не извлечённый runtime-флаг скрытия и не подтверждение всего меню. В снимке обе записи hidden: false и лежат в production-machine.
+
+### base
+
+- нет
+- biolab: нет
+
+### space-age
+
+- `metallic-asteroid-chunk`: item/metallic-asteroid-chunk → Signal.Space.metallic_asteroid_chunk; asteroid-chunk/metallic-asteroid-chunk → chooser-blueprint-item; hide absent; alias absent
+- `carbonic-asteroid-chunk`: item/carbonic-asteroid-chunk → Signal.Space.carbonic_asteroid_chunk; asteroid-chunk/carbonic-asteroid-chunk → chooser-blueprint-item; hide absent; alias absent
+- `oxide-asteroid-chunk`: item/oxide-asteroid-chunk → Signal.Space.oxide_asteroid_chunk; asteroid-chunk/oxide-asteroid-chunk → chooser-blueprint-item; hide absent; alias absent
+- `promethium-asteroid-chunk`: item/promethium-asteroid-chunk → Signal.Space.promethium_asteroid_chunk; asteroid-chunk/promethium-asteroid-chunk → chooser-blueprint-item; hide absent; alias absent
+- biolab: item/biolab → Signal.Production.biolab; entity/biolab → chooser-observation-item-only
+
+## Имена без точечного доступа
+
+### base
+
+- нет
+
+### space-age
+
+- нет
+
+## Профили
+
+Удалены в Space Age: item/satellite, recipe/satellite.
+Добавлено ID: 1033. Полный список — в profile-diff.json.
+Изменены общие ID: 173.
+
+- `entity/1x2-remnants`: channel, publicPath
+- `entity/accumulator-remnants`: channel, publicPath
+- `entity/active-provider-chest-remnants`: channel, publicPath
+- `entity/arithmetic-combinator-remnants`: channel, publicPath
+- `entity/artillery-turret-remnants`: channel, publicPath
+- `entity/artillery-wagon-remnants`: channel, publicPath
+- `entity/assembling-machine-1-remnants`: channel, publicPath
+- `entity/assembling-machine-2-remnants`: channel, publicPath
+- `entity/assembling-machine-3-remnants`: channel, publicPath
+- `entity/beacon-remnants`: channel, publicPath
+- `entity/behemoth-biter-corpse`: channel, publicPath
+- `entity/behemoth-spitter-corpse`: channel, publicPath
+- `entity/behemoth-worm-corpse`: channel, publicPath
+- `entity/behemoth-worm-corpse-burrowed`: channel, publicPath
+- `entity/big-biter-corpse`: channel, publicPath
+- `entity/big-electric-pole-remnants`: channel, publicPath
+- `entity/big-remnants`: channel, publicPath
+- `entity/big-scorchmark`: channel, publicPath
+- `entity/big-scorchmark-tintable`: channel, publicPath
+- `entity/big-spitter-corpse`: channel, publicPath
+- `entity/big-worm-corpse`: channel, publicPath
+- `entity/big-worm-corpse-burrowed`: channel, publicPath
+- `entity/biter-spawner-corpse`: channel, publicPath
+- `entity/boiler-remnants`: channel, publicPath
+- `entity/buffer-chest-remnants`: channel, publicPath
+- `entity/bulk-inserter-remnants`: channel, publicPath
+- `entity/burner-inserter-remnants`: channel, publicPath
+- `entity/burner-mining-drill-remnants`: channel, publicPath
+- `entity/car-remnants`: channel, publicPath
+- `entity/cargo-landing-pad-remnants`: channel, publicPath
+- `entity/cargo-pod`: channel, publicPath, publicSection, group, subgroup
+- `entity/cargo-pod-container`: channel, publicPath, publicSection, group, subgroup
+- `entity/cargo-pod-container-remnants`: channel, publicPath
+- `entity/cargo-wagon-remnants`: channel, publicPath
+- `entity/centrifuge-remnants`: channel, publicPath
+- `entity/chemical-plant-remnants`: channel, publicPath
+- `entity/constant-combinator-remnants`: channel, publicPath
+- `entity/construction-robot-remnants`: channel, publicPath
+- `entity/curved-rail-a-remnants`: channel, publicPath
+- `entity/curved-rail-b-remnants`: channel, publicPath
+- `entity/decider-combinator-remnants`: channel, publicPath
+- `entity/defender-remnants`: channel, publicPath
+- `entity/destroyer-remnants`: channel, publicPath
+- `entity/display-panel-remnants`: channel, publicPath
+- `entity/distractor-remnants`: channel, publicPath
+- `entity/electric-furnace-remnants`: channel, publicPath
+- `entity/electric-mining-drill-remnants`: channel, publicPath
+- `entity/entity-ghost`: channel, publicPath, publicSection
+- `entity/express-splitter-remnants`: channel, publicPath
+- `entity/express-transport-belt-remnants`: channel, publicPath
+- `entity/express-underground-belt-remnants`: channel, publicPath
+- `entity/factorio-logo-11tiles`: icon
+- `entity/fast-inserter-remnants`: channel, publicPath
+- `entity/fast-splitter-remnants`: channel, publicPath
+- `entity/fast-transport-belt-remnants`: channel, publicPath
+- `entity/fast-underground-belt-remnants`: channel, publicPath
+- `entity/flamethrower-turret-remnants`: channel, publicPath
+- `entity/fluid-wagon-remnants`: channel, publicPath
+- `entity/gate-remnants`: channel, publicPath
+- `entity/gun-turret-remnants`: channel, publicPath
+- `entity/half-diagonal-rail-remnants`: channel, publicPath
+- `entity/heat-exchanger-remnants`: channel, publicPath
+- `entity/heat-pipe-remnants`: channel, publicPath
+- `entity/huge-scorchmark`: channel, publicPath
+- `entity/huge-scorchmark-tintable`: channel, publicPath
+- `entity/inserter-remnants`: channel, publicPath
+- `entity/iron-chest-remnants`: channel, publicPath
+- `entity/item-on-ground`: channel, publicPath, publicSection
+- `entity/item-request-proxy`: channel, publicPath, publicSection
+- `entity/lab-remnants`: channel, publicPath
+- `entity/lamp-remnants`: channel, publicPath
+- `entity/land-mine-remnants`: channel, publicPath
+- `entity/laser-turret-remnants`: channel, publicPath
+- `entity/legacy-curved-rail-remnants`: channel, publicPath
+- `entity/legacy-straight-rail-remnants`: channel, publicPath
+- `entity/locomotive-remnants`: channel, publicPath
+- `entity/logistic-robot-remnants`: channel, publicPath
+- `entity/long-handed-inserter-remnants`: channel, publicPath
+- `entity/medium-biter-corpse`: channel, publicPath
+- `entity/medium-electric-pole-remnants`: channel, publicPath
+- `entity/medium-remnants`: channel, publicPath
+- `entity/medium-scorchmark`: channel, publicPath
+- `entity/medium-scorchmark-tintable`: channel, publicPath
+- `entity/medium-small-remnants`: channel, publicPath
+- `entity/medium-spitter-corpse`: channel, publicPath
+- `entity/medium-worm-corpse`: channel, publicPath
+- `entity/medium-worm-corpse-burrowed`: channel, publicPath
+- `entity/nuclear-reactor-remnants`: channel, publicPath
+- `entity/offshore-pump-remnants`: channel, publicPath
+- `entity/oil-refinery-remnants`: channel, publicPath
+- `entity/passive-provider-chest-remnants`: channel, publicPath
+- `entity/pipe-remnants`: channel, publicPath
+- `entity/pipe-to-ground-remnants`: channel, publicPath
+- `entity/power-switch-remnants`: channel, publicPath
+- `entity/programmable-speaker-remnants`: channel, publicPath
+- `entity/pump-remnants`: channel, publicPath
+- `entity/pumpjack-remnants`: channel, publicPath
+- `entity/radar-remnants`: channel, publicPath
+- `entity/rail-chain-signal-remnants`: channel, publicPath
+- `entity/rail-ending-remnants`: channel, publicPath
+- `entity/rail-signal-remnants`: channel, publicPath
+- `entity/requester-chest-remnants`: channel, publicPath
+- `entity/roboport-remnants`: channel, publicPath
+- `entity/rocket-silo-remnants`: channel, publicPath
+- `entity/selector-combinator-remnants`: channel, publicPath
+- `entity/small-biter-corpse`: channel, publicPath
+- `entity/small-electric-pole-remnants`: channel, publicPath
+- `entity/small-remnants`: channel, publicPath
+- `entity/small-scorchmark`: channel, publicPath
+- `entity/small-scorchmark-tintable`: channel, publicPath
+- `entity/small-spitter-corpse`: channel, publicPath
+- `entity/small-worm-corpse`: channel, publicPath
+- `entity/small-worm-corpse-burrowed`: channel, publicPath
+- `entity/solar-panel-remnants`: channel, publicPath
+- `entity/spidertron-remnants`: channel, publicPath
+- `entity/spitter-spawner-corpse`: channel, publicPath
+- `entity/splitter-remnants`: channel, publicPath
+- `entity/steam-engine-remnants`: channel, publicPath
+- `entity/steam-turbine-remnants`: channel, publicPath
+- `entity/steel-chest-remnants`: channel, publicPath
+- `entity/steel-furnace-remnants`: channel, publicPath
+- `entity/stone-furnace-remnants`: channel, publicPath
+- `entity/storage-chest-remnants`: channel, publicPath
+- `entity/storage-tank-remnants`: channel, publicPath
+- `entity/straight-rail-remnants`: channel, publicPath
+- `entity/substation-remnants`: channel, publicPath
+- `entity/tank-remnants`: channel, publicPath
+- `entity/tile-ghost`: channel, publicPath, publicSection
+- `entity/train-stop-remnants`: channel, publicPath
+- `entity/transport-belt-remnants`: channel, publicPath
+- `entity/tree-01-stump`: channel, publicPath
+- `entity/tree-02-stump`: channel, publicPath
+- `entity/tree-03-stump`: channel, publicPath
+- `entity/tree-04-stump`: channel, publicPath
+- `entity/tree-05-stump`: channel, publicPath
+- `entity/tree-06-stump`: channel, publicPath
+- `entity/tree-07-stump`: channel, publicPath
+- `entity/tree-08-stump`: channel, publicPath
+- `entity/tree-09-stump`: channel, publicPath
+- `entity/underground-belt-remnants`: channel, publicPath
+- `entity/wall-remnants`: channel, publicPath
+- `entity/wooden-chest-remnants`: channel, publicPath
+- `item/beacon`: subgroup
+- `item/cargo-landing-pad`: publicPath, publicSection, group, subgroup
+- `item/efficiency-module`: subgroup
+- `item/efficiency-module-2`: subgroup
+- `item/efficiency-module-3`: subgroup
+- `item/empty-module-slot`: subgroup
+- `item/productivity-module`: subgroup
+- `item/productivity-module-2`: subgroup
+- `item/productivity-module-3`: subgroup
+- `item/rocket-part`: group, subgroup, prototypeOrder
+- `item/rocket-silo`: publicPath, publicSection, group, subgroup
+- `item/space-science-pack`: stackSize
+- `item/speed-module`: subgroup
+- `item/speed-module-2`: subgroup
+- `item/speed-module-3`: subgroup
+- `quality/normal`: role, channel, publicPath, publicSection, label, hidden, signalSelection
+- `recipe/beacon`: subgroup
+- `recipe/cargo-landing-pad`: group, subgroup
+- `recipe/coal-liquefaction`: prototypeOrder
+- `recipe/efficiency-module`: subgroup
+- `recipe/efficiency-module-2`: subgroup
+- `recipe/efficiency-module-3`: subgroup
+- `recipe/productivity-module`: subgroup
+- `recipe/productivity-module-2`: subgroup
+- `recipe/productivity-module-3`: subgroup
+- `recipe/rocket-part`: publicPath, publicSection, group, subgroup, prototypeOrder
+- `recipe/rocket-silo`: group, subgroup
+- `recipe/speed-module`: subgroup
+- `recipe/speed-module-2`: subgroup
+- `recipe/speed-module-3`: subgroup
+- `space-location/nauvis`: channel, publicPath, publicSection, group, subgroup
+
+## Предыдущая версия
+
+Предыдущей таблицы signal-catalog нет. Этот выпуск — baseline 2.1.24. Следующая версия должна показать добавления, удаления и смену пути; старый publicPath нельзя отдать другому prototypeId.
+
+## Экспортируемые пути
+
+### base
+
+#### Combat
+
+- `Signal.Combat.pistol` → `item/pistol` (channel)
+- `Signal.Combat.submachine_gun` → `item/submachine-gun` (channel)
+- `Signal.Combat.shotgun` → `item/shotgun` (channel)
+- `Signal.Combat.combat_shotgun` → `item/combat-shotgun` (channel)
+- `Signal.Combat.rocket_launcher` → `item/rocket-launcher` (channel)
+- `Signal.Combat.flamethrower` → `item/flamethrower` (channel)
+- `Signal.Combat.firearm_magazine` → `item/firearm-magazine` (channel)
+- `Signal.Combat.piercing_rounds_magazine` → `item/piercing-rounds-magazine` (channel)
+- `Signal.Combat.uranium_rounds_magazine` → `item/uranium-rounds-magazine` (channel)
+- `Signal.Combat.shotgun_shell` → `item/shotgun-shell` (channel)
+- `Signal.Combat.piercing_shotgun_shell` → `item/piercing-shotgun-shell` (channel)
+- `Signal.Combat.cannon_shell` → `item/cannon-shell` (channel)
+- `Signal.Combat.explosive_cannon_shell` → `item/explosive-cannon-shell` (channel)
+- `Signal.Combat.uranium_cannon_shell` → `item/uranium-cannon-shell` (channel)
+- `Signal.Combat.explosive_uranium_cannon_shell` → `item/explosive-uranium-cannon-shell` (channel)
+- `Signal.Combat.artillery_shell` → `item/artillery-shell` (channel)
+- `Signal.Combat.rocket` → `item/rocket` (channel)
+- `Signal.Combat.explosive_rocket` → `item/explosive-rocket` (channel)
+- `Signal.Combat.atomic_bomb` → `item/atomic-bomb` (channel)
+- `Signal.Combat.flamethrower_ammo` → `item/flamethrower-ammo` (channel)
+- `Signal.Combat.grenade` → `item/grenade` (channel)
+- `Signal.Combat.cluster_grenade` → `item/cluster-grenade` (channel)
+- `Signal.Combat.poison_capsule` → `item/poison-capsule` (channel)
+- `Signal.Combat.slowdown_capsule` → `item/slowdown-capsule` (channel)
+- `Signal.Combat.defender` → `entity/defender` (channel)
+- `Signal.Combat.defender_capsule` → `item/defender-capsule` (channel)
+- `Signal.Combat.distractor` → `entity/distractor` (channel)
+- `Signal.Combat.distractor_capsule` → `item/distractor-capsule` (channel)
+- `Signal.Combat.destroyer` → `entity/destroyer` (channel)
+- `Signal.Combat.destroyer_capsule` → `item/destroyer-capsule` (channel)
+- `Signal.Combat.light_armor` → `item/light-armor` (channel)
+- `Signal.Combat.heavy_armor` → `item/heavy-armor` (channel)
+- `Signal.Combat.modular_armor` → `item/modular-armor` (channel)
+- `Signal.Combat.power_armor` → `item/power-armor` (channel)
+- `Signal.Combat.power_armor_mk2` → `item/power-armor-mk2` (channel)
+- `Signal.Combat.solar_panel_equipment` → `item/solar-panel-equipment` (channel)
+- `Signal.Combat.fission_reactor_equipment` → `item/fission-reactor-equipment` (channel)
+- `Signal.Combat.battery_equipment` → `item/battery-equipment` (channel)
+- `Signal.Combat.battery_mk2_equipment` → `item/battery-mk2-equipment` (channel)
+- `Signal.Combat.belt_immunity_equipment` → `item/belt-immunity-equipment` (channel)
+- `Signal.Combat.exoskeleton_equipment` → `item/exoskeleton-equipment` (channel)
+- `Signal.Combat.personal_roboport_equipment` → `item/personal-roboport-equipment` (channel)
+- `Signal.Combat.personal_roboport_mk2_equipment` → `item/personal-roboport-mk2-equipment` (channel)
+- `Signal.Combat.night_vision_equipment` → `item/night-vision-equipment` (channel)
+- `Signal.Combat.energy_shield_equipment` → `item/energy-shield-equipment` (channel)
+- `Signal.Combat.energy_shield_mk2_equipment` → `item/energy-shield-mk2-equipment` (channel)
+- `Signal.Combat.personal_laser_defense_equipment` → `item/personal-laser-defense-equipment` (channel)
+- `Signal.Combat.discharge_defense_equipment` → `item/discharge-defense-equipment` (channel)
+- `Signal.Combat.stone_wall` → `item/stone-wall` (channel)
+- `Signal.Combat.gate` → `item/gate` (channel)
+- `Signal.Combat.radar` → `item/radar` (channel)
+- `Signal.Combat.land_mine` → `item/land-mine` (channel)
+- `Signal.Combat.gun_turret` → `item/gun-turret` (channel)
+- `Signal.Combat.laser_turret` → `item/laser-turret` (channel)
+- `Signal.Combat.flamethrower_turret` → `item/flamethrower-turret` (channel)
+- `Signal.Combat.artillery_turret` → `item/artillery-turret` (channel)
+
+#### Enemies
+
+- `Signal.Enemies.small_biter` → `entity/small-biter` (channel)
+- `Signal.Enemies.medium_biter` → `entity/medium-biter` (channel)
+- `Signal.Enemies.big_biter` → `entity/big-biter` (channel)
+- `Signal.Enemies.behemoth_biter` → `entity/behemoth-biter` (channel)
+- `Signal.Enemies.small_spitter` → `entity/small-spitter` (channel)
+- `Signal.Enemies.medium_spitter` → `entity/medium-spitter` (channel)
+- `Signal.Enemies.big_spitter` → `entity/big-spitter` (channel)
+- `Signal.Enemies.behemoth_spitter` → `entity/behemoth-spitter` (channel)
+- `Signal.Enemies.small_worm_turret` → `entity/small-worm-turret` (channel)
+- `Signal.Enemies.medium_worm_turret` → `entity/medium-worm-turret` (channel)
+- `Signal.Enemies.big_worm_turret` → `entity/big-worm-turret` (channel)
+- `Signal.Enemies.behemoth_worm_turret` → `entity/behemoth-worm-turret` (channel)
+- `Signal.Enemies.biter_spawner` → `entity/biter-spawner` (channel)
+- `Signal.Enemies.spitter_spawner` → `entity/spitter-spawner` (channel)
+
+#### Environment
+
+- `Signal.Environment.character` → `entity/character` (channel)
+- `Signal.Environment.fish` → `entity/fish` (channel)
+- `Signal.Environment.cliff` → `entity/cliff` (channel)
+- `Signal.Environment.tree_01` → `entity/tree-01` (channel)
+- `Signal.Environment.tree_02` → `entity/tree-02` (channel)
+- `Signal.Environment.tree_02_red` → `entity/tree-02-red` (channel)
+- `Signal.Environment.tree_03` → `entity/tree-03` (channel)
+- `Signal.Environment.tree_04` → `entity/tree-04` (channel)
+- `Signal.Environment.tree_05` → `entity/tree-05` (channel)
+- `Signal.Environment.tree_06` → `entity/tree-06` (channel)
+- `Signal.Environment.tree_06_brown` → `entity/tree-06-brown` (channel)
+- `Signal.Environment.tree_07` → `entity/tree-07` (channel)
+- `Signal.Environment.tree_08` → `entity/tree-08` (channel)
+- `Signal.Environment.tree_08_brown` → `entity/tree-08-brown` (channel)
+- `Signal.Environment.tree_08_red` → `entity/tree-08-red` (channel)
+- `Signal.Environment.tree_09` → `entity/tree-09` (channel)
+- `Signal.Environment.tree_09_brown` → `entity/tree-09-brown` (channel)
+- `Signal.Environment.tree_09_red` → `entity/tree-09-red` (channel)
+- `Signal.Environment.dead_dry_hairy_tree` → `entity/dead-dry-hairy-tree` (channel)
+- `Signal.Environment.dead_grey_trunk` → `entity/dead-grey-trunk` (channel)
+- `Signal.Environment.dead_tree_desert` → `entity/dead-tree-desert` (channel)
+- `Signal.Environment.dry_hairy_tree` → `entity/dry-hairy-tree` (channel)
+- `Signal.Environment.dry_tree` → `entity/dry-tree` (channel)
+- `Signal.Environment.big_sand_rock` → `entity/big-sand-rock` (channel)
+- `Signal.Environment.big_rock` → `entity/big-rock` (channel)
+- `Signal.Environment.huge_rock` → `entity/huge-rock` (channel)
+- `Signal.Environment.crude_oil` → `entity/crude-oil` (channel)
+- `Signal.Environment.small_biter_corpse` → `entity/small-biter-corpse` (channel)
+- `Signal.Environment.medium_biter_corpse` → `entity/medium-biter-corpse` (channel)
+- `Signal.Environment.big_biter_corpse` → `entity/big-biter-corpse` (channel)
+- `Signal.Environment.behemoth_biter_corpse` → `entity/behemoth-biter-corpse` (channel)
+- `Signal.Environment.biter_spawner_corpse` → `entity/biter-spawner-corpse` (channel)
+- `Signal.Environment.small_spitter_corpse` → `entity/small-spitter-corpse` (channel)
+- `Signal.Environment.medium_spitter_corpse` → `entity/medium-spitter-corpse` (channel)
+- `Signal.Environment.big_spitter_corpse` → `entity/big-spitter-corpse` (channel)
+- `Signal.Environment.behemoth_spitter_corpse` → `entity/behemoth-spitter-corpse` (channel)
+- `Signal.Environment.spitter_spawner_corpse` → `entity/spitter-spawner-corpse` (channel)
+- `Signal.Environment.small_worm_corpse` → `entity/small-worm-corpse` (channel)
+- `Signal.Environment.small_worm_corpse_burrowed` → `entity/small-worm-corpse-burrowed` (channel)
+- `Signal.Environment.medium_worm_corpse` → `entity/medium-worm-corpse` (channel)
+- `Signal.Environment.medium_worm_corpse_burrowed` → `entity/medium-worm-corpse-burrowed` (channel)
+- `Signal.Environment.big_worm_corpse` → `entity/big-worm-corpse` (channel)
+- `Signal.Environment.big_worm_corpse_burrowed` → `entity/big-worm-corpse-burrowed` (channel)
+- `Signal.Environment.behemoth_worm_corpse` → `entity/behemoth-worm-corpse` (channel)
+- `Signal.Environment.behemoth_worm_corpse_burrowed` → `entity/behemoth-worm-corpse-burrowed` (channel)
+- `Signal.Environment.wooden_chest_remnants` → `entity/wooden-chest-remnants` (channel)
+- `Signal.Environment.iron_chest_remnants` → `entity/iron-chest-remnants` (channel)
+- `Signal.Environment.steel_chest_remnants` → `entity/steel-chest-remnants` (channel)
+- `Signal.Environment.storage_tank_remnants` → `entity/storage-tank-remnants` (channel)
+- `Signal.Environment.transport_belt_remnants` → `entity/transport-belt-remnants` (channel)
+- `Signal.Environment.fast_transport_belt_remnants` → `entity/fast-transport-belt-remnants` (channel)
+- `Signal.Environment.express_transport_belt_remnants` → `entity/express-transport-belt-remnants` (channel)
+- `Signal.Environment.underground_belt_remnants` → `entity/underground-belt-remnants` (channel)
+- `Signal.Environment.fast_underground_belt_remnants` → `entity/fast-underground-belt-remnants` (channel)
+- `Signal.Environment.express_underground_belt_remnants` → `entity/express-underground-belt-remnants` (channel)
+- `Signal.Environment.splitter_remnants` → `entity/splitter-remnants` (channel)
+- `Signal.Environment.fast_splitter_remnants` → `entity/fast-splitter-remnants` (channel)
+- `Signal.Environment.express_splitter_remnants` → `entity/express-splitter-remnants` (channel)
+- `Signal.Environment.burner_inserter_remnants` → `entity/burner-inserter-remnants` (channel)
+- `Signal.Environment.inserter_remnants` → `entity/inserter-remnants` (channel)
+- `Signal.Environment.long_handed_inserter_remnants` → `entity/long-handed-inserter-remnants` (channel)
+- `Signal.Environment.fast_inserter_remnants` → `entity/fast-inserter-remnants` (channel)
+- `Signal.Environment.bulk_inserter_remnants` → `entity/bulk-inserter-remnants` (channel)
+- `Signal.Environment.small_electric_pole_remnants` → `entity/small-electric-pole-remnants` (channel)
+- `Signal.Environment.medium_electric_pole_remnants` → `entity/medium-electric-pole-remnants` (channel)
+- `Signal.Environment.big_electric_pole_remnants` → `entity/big-electric-pole-remnants` (channel)
+- `Signal.Environment.beacon_remnants` → `entity/beacon-remnants` (channel)
+- `Signal.Environment.pipe_remnants` → `entity/pipe-remnants` (channel)
+- `Signal.Environment.pipe_to_ground_remnants` → `entity/pipe-to-ground-remnants` (channel)
+- `Signal.Environment.pump_remnants` → `entity/pump-remnants` (channel)
+- `Signal.Environment.substation_remnants` → `entity/substation-remnants` (channel)
+- `Signal.Environment.train_stop_remnants` → `entity/train-stop-remnants` (channel)
+- `Signal.Environment.rail_signal_remnants` → `entity/rail-signal-remnants` (channel)
+- `Signal.Environment.rail_chain_signal_remnants` → `entity/rail-chain-signal-remnants` (channel)
+- `Signal.Environment.locomotive_remnants` → `entity/locomotive-remnants` (channel)
+- `Signal.Environment.cargo_wagon_remnants` → `entity/cargo-wagon-remnants` (channel)
+- `Signal.Environment.fluid_wagon_remnants` → `entity/fluid-wagon-remnants` (channel)
+- `Signal.Environment.artillery_wagon_remnants` → `entity/artillery-wagon-remnants` (channel)
+- `Signal.Environment.car_remnants` → `entity/car-remnants` (channel)
+- `Signal.Environment.tank_remnants` → `entity/tank-remnants` (channel)
+- `Signal.Environment.spidertron_remnants` → `entity/spidertron-remnants` (channel)
+- `Signal.Environment.active_provider_chest_remnants` → `entity/active-provider-chest-remnants` (channel)
+- `Signal.Environment.passive_provider_chest_remnants` → `entity/passive-provider-chest-remnants` (channel)
+- `Signal.Environment.storage_chest_remnants` → `entity/storage-chest-remnants` (channel)
+- `Signal.Environment.buffer_chest_remnants` → `entity/buffer-chest-remnants` (channel)
+- `Signal.Environment.requester_chest_remnants` → `entity/requester-chest-remnants` (channel)
+- `Signal.Environment.cargo_landing_pad_remnants` → `entity/cargo-landing-pad-remnants` (channel)
+- `Signal.Environment.roboport_remnants` → `entity/roboport-remnants` (channel)
+- `Signal.Environment.lamp_remnants` → `entity/lamp-remnants` (channel)
+- `Signal.Environment.arithmetic_combinator_remnants` → `entity/arithmetic-combinator-remnants` (channel)
+- `Signal.Environment.selector_combinator_remnants` → `entity/selector-combinator-remnants` (channel)
+- `Signal.Environment.decider_combinator_remnants` → `entity/decider-combinator-remnants` (channel)
+- `Signal.Environment.power_switch_remnants` → `entity/power-switch-remnants` (channel)
+- `Signal.Environment.constant_combinator_remnants` → `entity/constant-combinator-remnants` (channel)
+- `Signal.Environment.programmable_speaker_remnants` → `entity/programmable-speaker-remnants` (channel)
+- `Signal.Environment.display_panel_remnants` → `entity/display-panel-remnants` (channel)
+- `Signal.Environment.boiler_remnants` → `entity/boiler-remnants` (channel)
+- `Signal.Environment.burner_mining_drill_remnants` → `entity/burner-mining-drill-remnants` (channel)
+- `Signal.Environment.electric_mining_drill_remnants` → `entity/electric-mining-drill-remnants` (channel)
+- `Signal.Environment.steam_engine_remnants` → `entity/steam-engine-remnants` (channel)
+- `Signal.Environment.solar_panel_remnants` → `entity/solar-panel-remnants` (channel)
+- `Signal.Environment.accumulator_remnants` → `entity/accumulator-remnants` (channel)
+- `Signal.Environment.pumpjack_remnants` → `entity/pumpjack-remnants` (channel)
+- `Signal.Environment.offshore_pump_remnants` → `entity/offshore-pump-remnants` (channel)
+- `Signal.Environment.nuclear_reactor_remnants` → `entity/nuclear-reactor-remnants` (channel)
+- `Signal.Environment.heat_pipe_remnants` → `entity/heat-pipe-remnants` (channel)
+- `Signal.Environment.heat_exchanger_remnants` → `entity/heat-exchanger-remnants` (channel)
+- `Signal.Environment.steam_turbine_remnants` → `entity/steam-turbine-remnants` (channel)
+- `Signal.Environment.electric_furnace_remnants` → `entity/electric-furnace-remnants` (channel)
+- `Signal.Environment.steel_furnace_remnants` → `entity/steel-furnace-remnants` (channel)
+- `Signal.Environment.stone_furnace_remnants` → `entity/stone-furnace-remnants` (channel)
+- `Signal.Environment.assembling_machine_1_remnants` → `entity/assembling-machine-1-remnants` (channel)
+- `Signal.Environment.assembling_machine_2_remnants` → `entity/assembling-machine-2-remnants` (channel)
+- `Signal.Environment.assembling_machine_3_remnants` → `entity/assembling-machine-3-remnants` (channel)
+- `Signal.Environment.oil_refinery_remnants` → `entity/oil-refinery-remnants` (channel)
+- `Signal.Environment.chemical_plant_remnants` → `entity/chemical-plant-remnants` (channel)
+- `Signal.Environment.centrifuge_remnants` → `entity/centrifuge-remnants` (channel)
+- `Signal.Environment.lab_remnants` → `entity/lab-remnants` (channel)
+- `Signal.Environment.small_remnants` → `entity/small-remnants` (channel)
+- `Signal.Environment.wall_remnants` → `entity/wall-remnants` (channel)
+- `Signal.Environment.remnants_1x2` → `entity/1x2-remnants` (channel)
+- `Signal.Environment.gate_remnants` → `entity/gate-remnants` (channel)
+- `Signal.Environment.big_remnants` → `entity/big-remnants` (channel)
+- `Signal.Environment.gun_turret_remnants` → `entity/gun-turret-remnants` (channel)
+- `Signal.Environment.laser_turret_remnants` → `entity/laser-turret-remnants` (channel)
+- `Signal.Environment.medium_remnants` → `entity/medium-remnants` (channel)
+- `Signal.Environment.flamethrower_turret_remnants` → `entity/flamethrower-turret-remnants` (channel)
+- `Signal.Environment.medium_small_remnants` → `entity/medium-small-remnants` (channel)
+- `Signal.Environment.artillery_turret_remnants` → `entity/artillery-turret-remnants` (channel)
+- `Signal.Environment.radar_remnants` → `entity/radar-remnants` (channel)
+- `Signal.Environment.rocket_silo_remnants` → `entity/rocket-silo-remnants` (channel)
+- `Signal.Environment.land_mine_remnants` → `entity/land-mine-remnants` (channel)
+- `Signal.Environment.cargo_pod_container_remnants` → `entity/cargo-pod-container-remnants` (channel)
+- `Signal.Environment.small_scorchmark` → `entity/small-scorchmark` (channel)
+- `Signal.Environment.small_scorchmark_tintable` → `entity/small-scorchmark-tintable` (channel)
+- `Signal.Environment.medium_scorchmark` → `entity/medium-scorchmark` (channel)
+- `Signal.Environment.medium_scorchmark_tintable` → `entity/medium-scorchmark-tintable` (channel)
+- `Signal.Environment.big_scorchmark` → `entity/big-scorchmark` (channel)
+- `Signal.Environment.big_scorchmark_tintable` → `entity/big-scorchmark-tintable` (channel)
+- `Signal.Environment.huge_scorchmark` → `entity/huge-scorchmark` (channel)
+- `Signal.Environment.huge_scorchmark_tintable` → `entity/huge-scorchmark-tintable` (channel)
+- `Signal.Environment.construction_robot_remnants` → `entity/construction-robot-remnants` (channel)
+- `Signal.Environment.defender_remnants` → `entity/defender-remnants` (channel)
+- `Signal.Environment.destroyer_remnants` → `entity/destroyer-remnants` (channel)
+- `Signal.Environment.distractor_remnants` → `entity/distractor-remnants` (channel)
+- `Signal.Environment.logistic_robot_remnants` → `entity/logistic-robot-remnants` (channel)
+- `Signal.Environment.half_diagonal_rail_remnants` → `entity/half-diagonal-rail-remnants` (channel)
+- `Signal.Environment.legacy_straight_rail_remnants` → `entity/legacy-straight-rail-remnants` (channel)
+- `Signal.Environment.straight_rail_remnants` → `entity/straight-rail-remnants` (channel)
+- `Signal.Environment.curved_rail_a_remnants` → `entity/curved-rail-a-remnants` (channel)
+- `Signal.Environment.curved_rail_b_remnants` → `entity/curved-rail-b-remnants` (channel)
+- `Signal.Environment.legacy_curved_rail_remnants` → `entity/legacy-curved-rail-remnants` (channel)
+- `Signal.Environment.rail_ending_remnants` → `entity/rail-ending-remnants` (channel)
+- `Signal.Environment.tree_01_stump` → `entity/tree-01-stump` (channel)
+- `Signal.Environment.tree_02_stump` → `entity/tree-02-stump` (channel)
+- `Signal.Environment.tree_03_stump` → `entity/tree-03-stump` (channel)
+- `Signal.Environment.tree_04_stump` → `entity/tree-04-stump` (channel)
+- `Signal.Environment.tree_05_stump` → `entity/tree-05-stump` (channel)
+- `Signal.Environment.tree_06_stump` → `entity/tree-06-stump` (channel)
+- `Signal.Environment.tree_07_stump` → `entity/tree-07-stump` (channel)
+- `Signal.Environment.tree_08_stump` → `entity/tree-08-stump` (channel)
+- `Signal.Environment.tree_09_stump` → `entity/tree-09-stump` (channel)
+
+#### Fluids
+
+- `Signal.Fluids.water` → `fluid/water` (channel)
+- `Signal.Fluids.steam` → `fluid/steam` (channel)
+- `Signal.Fluids.crude_oil` → `fluid/crude-oil` (channel)
+- `Signal.Fluids.petroleum_gas` → `fluid/petroleum-gas` (channel)
+- `Signal.Fluids.light_oil` → `fluid/light-oil` (channel)
+- `Signal.Fluids.heavy_oil` → `fluid/heavy-oil` (channel)
+- `Signal.Fluids.lubricant` → `fluid/lubricant` (channel)
+- `Signal.Fluids.sulfuric_acid` → `fluid/sulfuric-acid` (channel)
+
+#### Intermediate
+
+- `Signal.Intermediate.basic_oil_processing` → `recipe/basic-oil-processing` (channel)
+- `Signal.Intermediate.advanced_oil_processing` → `recipe/advanced-oil-processing` (channel)
+- `Signal.Intermediate.coal_liquefaction` → `recipe/coal-liquefaction` (channel)
+- `Signal.Intermediate.heavy_oil_cracking` → `recipe/heavy-oil-cracking` (channel)
+- `Signal.Intermediate.light_oil_cracking` → `recipe/light-oil-cracking` (channel)
+- `Signal.Intermediate.solid_fuel_from_petroleum_gas` → `recipe/solid-fuel-from-petroleum-gas` (channel)
+- `Signal.Intermediate.solid_fuel_from_light_oil` → `recipe/solid-fuel-from-light-oil` (channel)
+- `Signal.Intermediate.solid_fuel_from_heavy_oil` → `recipe/solid-fuel-from-heavy-oil` (channel)
+- `Signal.Intermediate.wood` → `item/wood` (channel)
+- `Signal.Intermediate.coal` → `item/coal` (channel)
+- `Signal.Intermediate.stone` → `item/stone` (channel)
+- `Signal.Intermediate.iron_ore` → `item/iron-ore` (channel)
+- `Signal.Intermediate.copper_ore` → `item/copper-ore` (channel)
+- `Signal.Intermediate.uranium_ore` → `item/uranium-ore` (channel)
+- `Signal.Intermediate.raw_fish` → `item/raw-fish` (channel)
+- `Signal.Intermediate.iron_plate` → `item/iron-plate` (channel)
+- `Signal.Intermediate.copper_plate` → `item/copper-plate` (channel)
+- `Signal.Intermediate.steel_plate` → `item/steel-plate` (channel)
+- `Signal.Intermediate.solid_fuel` → `item/solid-fuel` (channel)
+- `Signal.Intermediate.plastic_bar` → `item/plastic-bar` (channel)
+- `Signal.Intermediate.sulfur` → `item/sulfur` (channel)
+- `Signal.Intermediate.battery` → `item/battery` (channel)
+- `Signal.Intermediate.explosives` → `item/explosives` (channel)
+- `Signal.Intermediate.water_barrel` → `item/water-barrel` (channel)
+- `Signal.Intermediate.crude_oil_barrel` → `item/crude-oil-barrel` (channel)
+- `Signal.Intermediate.petroleum_gas_barrel` → `item/petroleum-gas-barrel` (channel)
+- `Signal.Intermediate.light_oil_barrel` → `item/light-oil-barrel` (channel)
+- `Signal.Intermediate.heavy_oil_barrel` → `item/heavy-oil-barrel` (channel)
+- `Signal.Intermediate.lubricant_barrel` → `item/lubricant-barrel` (channel)
+- `Signal.Intermediate.sulfuric_acid_barrel` → `item/sulfuric-acid-barrel` (channel)
+- `Signal.Intermediate.water_barrel.fill` → `recipe/water-barrel` (channel)
+- `Signal.Intermediate.crude_oil_barrel.fill` → `recipe/crude-oil-barrel` (channel)
+- `Signal.Intermediate.petroleum_gas_barrel.fill` → `recipe/petroleum-gas-barrel` (channel)
+- `Signal.Intermediate.light_oil_barrel.fill` → `recipe/light-oil-barrel` (channel)
+- `Signal.Intermediate.heavy_oil_barrel.fill` → `recipe/heavy-oil-barrel` (channel)
+- `Signal.Intermediate.lubricant_barrel.fill` → `recipe/lubricant-barrel` (channel)
+- `Signal.Intermediate.sulfuric_acid_barrel.fill` → `recipe/sulfuric-acid-barrel` (channel)
+- `Signal.Intermediate.water_barrel.empty` → `recipe/empty-water-barrel` (channel)
+- `Signal.Intermediate.crude_oil_barrel.empty` → `recipe/empty-crude-oil-barrel` (channel)
+- `Signal.Intermediate.petroleum_gas_barrel.empty` → `recipe/empty-petroleum-gas-barrel` (channel)
+- `Signal.Intermediate.light_oil_barrel.empty` → `recipe/empty-light-oil-barrel` (channel)
+- `Signal.Intermediate.heavy_oil_barrel.empty` → `recipe/empty-heavy-oil-barrel` (channel)
+- `Signal.Intermediate.lubricant_barrel.empty` → `recipe/empty-lubricant-barrel` (channel)
+- `Signal.Intermediate.sulfuric_acid_barrel.empty` → `recipe/empty-sulfuric-acid-barrel` (channel)
+- `Signal.Intermediate.iron_gear_wheel` → `item/iron-gear-wheel` (channel)
+- `Signal.Intermediate.iron_stick` → `item/iron-stick` (channel)
+- `Signal.Intermediate.copper_cable` → `item/copper-cable` (channel)
+- `Signal.Intermediate.barrel` → `item/barrel` (channel)
+- `Signal.Intermediate.electronic_circuit` → `item/electronic-circuit` (channel)
+- `Signal.Intermediate.advanced_circuit` → `item/advanced-circuit` (channel)
+- `Signal.Intermediate.processing_unit` → `item/processing-unit` (channel)
+- `Signal.Intermediate.engine_unit` → `item/engine-unit` (channel)
+- `Signal.Intermediate.electric_engine_unit` → `item/electric-engine-unit` (channel)
+- `Signal.Intermediate.flying_robot_frame` → `item/flying-robot-frame` (channel)
+- `Signal.Intermediate.low_density_structure` → `item/low-density-structure` (channel)
+- `Signal.Intermediate.rocket_fuel` → `item/rocket-fuel` (channel)
+- `Signal.Intermediate.rocket_part` → `recipe/rocket-part` (channel)
+- `Signal.Intermediate.uranium_processing` → `recipe/uranium-processing` (channel)
+- `Signal.Intermediate.uranium_235` → `item/uranium-235` (channel)
+- `Signal.Intermediate.uranium_238` → `item/uranium-238` (channel)
+- `Signal.Intermediate.uranium_fuel_cell` → `item/uranium-fuel-cell` (channel)
+- `Signal.Intermediate.depleted_uranium_fuel_cell` → `item/depleted-uranium-fuel-cell` (channel)
+- `Signal.Intermediate.nuclear_fuel_reprocessing` → `recipe/nuclear-fuel-reprocessing` (channel)
+- `Signal.Intermediate.kovarex_enrichment_process` → `recipe/kovarex-enrichment-process` (channel)
+- `Signal.Intermediate.nuclear_fuel` → `item/nuclear-fuel` (channel)
+- `Signal.Intermediate.automation_science_pack` → `item/automation-science-pack` (channel)
+- `Signal.Intermediate.logistic_science_pack` → `item/logistic-science-pack` (channel)
+- `Signal.Intermediate.military_science_pack` → `item/military-science-pack` (channel)
+- `Signal.Intermediate.chemical_science_pack` → `item/chemical-science-pack` (channel)
+- `Signal.Intermediate.production_science_pack` → `item/production-science-pack` (channel)
+- `Signal.Intermediate.utility_science_pack` → `item/utility-science-pack` (channel)
+- `Signal.Intermediate.space_science_pack` → `item/space-science-pack` (channel)
+
+#### Logistic
+
+- `Signal.Logistic.wooden_chest` → `item/wooden-chest` (channel)
+- `Signal.Logistic.iron_chest` → `item/iron-chest` (channel)
+- `Signal.Logistic.steel_chest` → `item/steel-chest` (channel)
+- `Signal.Logistic.storage_tank` → `item/storage-tank` (channel)
+- `Signal.Logistic.transport_belt` → `item/transport-belt` (channel)
+- `Signal.Logistic.fast_transport_belt` → `item/fast-transport-belt` (channel)
+- `Signal.Logistic.express_transport_belt` → `item/express-transport-belt` (channel)
+- `Signal.Logistic.underground_belt` → `item/underground-belt` (channel)
+- `Signal.Logistic.fast_underground_belt` → `item/fast-underground-belt` (channel)
+- `Signal.Logistic.express_underground_belt` → `item/express-underground-belt` (channel)
+- `Signal.Logistic.splitter` → `item/splitter` (channel)
+- `Signal.Logistic.fast_splitter` → `item/fast-splitter` (channel)
+- `Signal.Logistic.express_splitter` → `item/express-splitter` (channel)
+- `Signal.Logistic.burner_inserter` → `item/burner-inserter` (channel)
+- `Signal.Logistic.inserter` → `item/inserter` (channel)
+- `Signal.Logistic.long_handed_inserter` → `item/long-handed-inserter` (channel)
+- `Signal.Logistic.fast_inserter` → `item/fast-inserter` (channel)
+- `Signal.Logistic.bulk_inserter` → `item/bulk-inserter` (channel)
+- `Signal.Logistic.small_electric_pole` → `item/small-electric-pole` (channel)
+- `Signal.Logistic.medium_electric_pole` → `item/medium-electric-pole` (channel)
+- `Signal.Logistic.big_electric_pole` → `item/big-electric-pole` (channel)
+- `Signal.Logistic.substation` → `item/substation` (channel)
+- `Signal.Logistic.pipe` → `item/pipe` (channel)
+- `Signal.Logistic.pipe_to_ground` → `item/pipe-to-ground` (channel)
+- `Signal.Logistic.pump` → `item/pump` (channel)
+- `Signal.Logistic.rail` → `item/rail` (channel)
+- `Signal.Logistic.train_stop` → `item/train-stop` (channel)
+- `Signal.Logistic.rail_signal` → `item/rail-signal` (channel)
+- `Signal.Logistic.rail_chain_signal` → `item/rail-chain-signal` (channel)
+- `Signal.Logistic.locomotive` → `item/locomotive` (channel)
+- `Signal.Logistic.cargo_wagon` → `item/cargo-wagon` (channel)
+- `Signal.Logistic.fluid_wagon` → `item/fluid-wagon` (channel)
+- `Signal.Logistic.artillery_wagon` → `item/artillery-wagon` (channel)
+- `Signal.Logistic.car` → `item/car` (channel)
+- `Signal.Logistic.tank` → `item/tank` (channel)
+- `Signal.Logistic.spidertron` → `item/spidertron` (channel)
+- `Signal.Logistic.logistic_robot` → `item/logistic-robot` (channel)
+- `Signal.Logistic.construction_robot` → `item/construction-robot` (channel)
+- `Signal.Logistic.active_provider_chest` → `item/active-provider-chest` (channel)
+- `Signal.Logistic.passive_provider_chest` → `item/passive-provider-chest` (channel)
+- `Signal.Logistic.storage_chest` → `item/storage-chest` (channel)
+- `Signal.Logistic.buffer_chest` → `item/buffer-chest` (channel)
+- `Signal.Logistic.requester_chest` → `item/requester-chest` (channel)
+- `Signal.Logistic.roboport` → `item/roboport` (channel)
+- `Signal.Logistic.small_lamp` → `item/small-lamp` (channel)
+- `Signal.Logistic.arithmetic_combinator` → `item/arithmetic-combinator` (channel)
+- `Signal.Logistic.decider_combinator` → `item/decider-combinator` (channel)
+- `Signal.Logistic.selector_combinator` → `item/selector-combinator` (channel)
+- `Signal.Logistic.constant_combinator` → `item/constant-combinator` (channel)
+- `Signal.Logistic.power_switch` → `item/power-switch` (channel)
+- `Signal.Logistic.programmable_speaker` → `item/programmable-speaker` (channel)
+- `Signal.Logistic.display_panel` → `item/display-panel` (channel)
+- `Signal.Logistic.stone_brick` → `item/stone-brick` (channel)
+- `Signal.Logistic.concrete` → `item/concrete` (channel)
+- `Signal.Logistic.hazard_concrete` → `item/hazard-concrete` (channel)
+- `Signal.Logistic.refined_concrete` → `item/refined-concrete` (channel)
+- `Signal.Logistic.refined_hazard_concrete` → `item/refined-hazard-concrete` (channel)
+- `Signal.Logistic.landfill` → `item/landfill` (channel)
+- `Signal.Logistic.cliff_explosives` → `item/cliff-explosives` (channel)
+
+#### Meta
+
+- `Signal.Meta.signal_everything` → `virtual/signal-everything` (meta)
+- `Signal.Meta.signal_each` → `virtual/signal-each` (meta)
+- `Signal.Meta.signal_anything` → `virtual/signal-anything` (meta)
+
+#### Production
+
+- `Signal.Production.repair_pack` → `item/repair-pack` (channel)
+- `Signal.Production.blueprint` → `item/blueprint` (channel)
+- `Signal.Production.deconstruction_planner` → `item/deconstruction-planner` (channel)
+- `Signal.Production.upgrade_planner` → `item/upgrade-planner` (channel)
+- `Signal.Production.blueprint_book` → `item/blueprint-book` (channel)
+- `Signal.Production.boiler` → `item/boiler` (channel)
+- `Signal.Production.steam_engine` → `item/steam-engine` (channel)
+- `Signal.Production.solar_panel` → `item/solar-panel` (channel)
+- `Signal.Production.accumulator` → `item/accumulator` (channel)
+- `Signal.Production.nuclear_reactor` → `item/nuclear-reactor` (channel)
+- `Signal.Production.heat_pipe` → `item/heat-pipe` (channel)
+- `Signal.Production.heat_exchanger` → `item/heat-exchanger` (channel)
+- `Signal.Production.steam_turbine` → `item/steam-turbine` (channel)
+- `Signal.Production.burner_mining_drill` → `item/burner-mining-drill` (channel)
+- `Signal.Production.electric_mining_drill` → `item/electric-mining-drill` (channel)
+- `Signal.Production.offshore_pump` → `item/offshore-pump` (channel)
+- `Signal.Production.pumpjack` → `item/pumpjack` (channel)
+- `Signal.Production.stone_furnace` → `item/stone-furnace` (channel)
+- `Signal.Production.steel_furnace` → `item/steel-furnace` (channel)
+- `Signal.Production.electric_furnace` → `item/electric-furnace` (channel)
+- `Signal.Production.assembling_machine_1` → `item/assembling-machine-1` (channel)
+- `Signal.Production.assembling_machine_2` → `item/assembling-machine-2` (channel)
+- `Signal.Production.assembling_machine_3` → `item/assembling-machine-3` (channel)
+- `Signal.Production.oil_refinery` → `item/oil-refinery` (channel)
+- `Signal.Production.chemical_plant` → `item/chemical-plant` (channel)
+- `Signal.Production.centrifuge` → `item/centrifuge` (channel)
+- `Signal.Production.lab` → `item/lab` (channel)
+- `Signal.Production.beacon` → `item/beacon` (channel)
+- `Signal.Production.speed_module` → `item/speed-module` (channel)
+- `Signal.Production.speed_module_2` → `item/speed-module-2` (channel)
+- `Signal.Production.speed_module_3` → `item/speed-module-3` (channel)
+- `Signal.Production.efficiency_module` → `item/efficiency-module` (channel)
+- `Signal.Production.efficiency_module_2` → `item/efficiency-module-2` (channel)
+- `Signal.Production.efficiency_module_3` → `item/efficiency-module-3` (channel)
+- `Signal.Production.productivity_module` → `item/productivity-module` (channel)
+- `Signal.Production.productivity_module_2` → `item/productivity-module-2` (channel)
+- `Signal.Production.productivity_module_3` → `item/productivity-module-3` (channel)
+- `Signal.Production.rocket_silo` → `item/rocket-silo` (channel)
+- `Signal.Production.cargo_landing_pad` → `item/cargo-landing-pad` (channel)
+- `Signal.Production.satellite` → `item/satellite` (channel)
+
+#### Signals
+
+- `Signal.Signals.signal_0` → `virtual/signal-0` (channel)
+- `Signal.Signals.signal_1` → `virtual/signal-1` (channel)
+- `Signal.Signals.signal_2` → `virtual/signal-2` (channel)
+- `Signal.Signals.signal_3` → `virtual/signal-3` (channel)
+- `Signal.Signals.signal_4` → `virtual/signal-4` (channel)
+- `Signal.Signals.signal_5` → `virtual/signal-5` (channel)
+- `Signal.Signals.signal_6` → `virtual/signal-6` (channel)
+- `Signal.Signals.signal_7` → `virtual/signal-7` (channel)
+- `Signal.Signals.signal_8` → `virtual/signal-8` (channel)
+- `Signal.Signals.signal_9` → `virtual/signal-9` (channel)
+- `Signal.Signals.signal_A` → `virtual/signal-A` (channel)
+- `Signal.Signals.signal_B` → `virtual/signal-B` (channel)
+- `Signal.Signals.signal_C` → `virtual/signal-C` (channel)
+- `Signal.Signals.signal_D` → `virtual/signal-D` (channel)
+- `Signal.Signals.signal_E` → `virtual/signal-E` (channel)
+- `Signal.Signals.signal_F` → `virtual/signal-F` (channel)
+- `Signal.Signals.signal_G` → `virtual/signal-G` (channel)
+- `Signal.Signals.signal_H` → `virtual/signal-H` (channel)
+- `Signal.Signals.signal_I` → `virtual/signal-I` (channel)
+- `Signal.Signals.signal_J` → `virtual/signal-J` (channel)
+- `Signal.Signals.signal_K` → `virtual/signal-K` (channel)
+- `Signal.Signals.signal_L` → `virtual/signal-L` (channel)
+- `Signal.Signals.signal_M` → `virtual/signal-M` (channel)
+- `Signal.Signals.signal_N` → `virtual/signal-N` (channel)
+- `Signal.Signals.signal_O` → `virtual/signal-O` (channel)
+- `Signal.Signals.signal_P` → `virtual/signal-P` (channel)
+- `Signal.Signals.signal_Q` → `virtual/signal-Q` (channel)
+- `Signal.Signals.signal_R` → `virtual/signal-R` (channel)
+- `Signal.Signals.signal_S` → `virtual/signal-S` (channel)
+- `Signal.Signals.signal_T` → `virtual/signal-T` (channel)
+- `Signal.Signals.signal_U` → `virtual/signal-U` (channel)
+- `Signal.Signals.signal_V` → `virtual/signal-V` (channel)
+- `Signal.Signals.signal_W` → `virtual/signal-W` (channel)
+- `Signal.Signals.signal_X` → `virtual/signal-X` (channel)
+- `Signal.Signals.signal_Y` → `virtual/signal-Y` (channel)
+- `Signal.Signals.signal_Z` → `virtual/signal-Z` (channel)
+- `Signal.Signals.signal_comma` → `virtual/signal-comma` (channel)
+- `Signal.Signals.signal_letter_dot` → `virtual/signal-letter-dot` (channel)
+- `Signal.Signals.signal_exclamation_mark` → `virtual/signal-exclamation-mark` (channel)
+- `Signal.Signals.signal_question_mark` → `virtual/signal-question-mark` (channel)
+- `Signal.Signals.signal_colon` → `virtual/signal-colon` (channel)
+- `Signal.Signals.signal_slash` → `virtual/signal-slash` (channel)
+- `Signal.Signals.signal_apostrophe` → `virtual/signal-apostrophe` (channel)
+- `Signal.Signals.signal_quotation_mark` → `virtual/signal-quotation-mark` (channel)
+- `Signal.Signals.signal_ampersand` → `virtual/signal-ampersand` (channel)
+- `Signal.Signals.signal_circumflex_accent` → `virtual/signal-circumflex-accent` (channel)
+- `Signal.Signals.signal_number_sign` → `virtual/signal-number-sign` (channel)
+- `Signal.Signals.signal_percent` → `virtual/signal-percent` (channel)
+- `Signal.Signals.signal_plus` → `virtual/signal-plus` (channel)
+- `Signal.Signals.signal_minus` → `virtual/signal-minus` (channel)
+- `Signal.Signals.signal_multiplication` → `virtual/signal-multiplication` (channel)
+- `Signal.Signals.signal_division` → `virtual/signal-division` (channel)
+- `Signal.Signals.signal_equal` → `virtual/signal-equal` (channel)
+- `Signal.Signals.signal_not_equal` → `virtual/signal-not-equal` (channel)
+- `Signal.Signals.signal_less_than` → `virtual/signal-less-than` (channel)
+- `Signal.Signals.signal_greater_than` → `virtual/signal-greater-than` (channel)
+- `Signal.Signals.signal_less_than_or_equal_to` → `virtual/signal-less-than-or-equal-to` (channel)
+- `Signal.Signals.signal_greater_than_or_equal_to` → `virtual/signal-greater-than-or-equal-to` (channel)
+- `Signal.Signals.signal_left_parenthesis` → `virtual/signal-left-parenthesis` (channel)
+- `Signal.Signals.signal_right_parenthesis` → `virtual/signal-right-parenthesis` (channel)
+- `Signal.Signals.signal_left_square_bracket` → `virtual/signal-left-square-bracket` (channel)
+- `Signal.Signals.signal_right_square_bracket` → `virtual/signal-right-square-bracket` (channel)
+- `Signal.Signals.signal_red` → `virtual/signal-red` (channel)
+- `Signal.Signals.signal_green` → `virtual/signal-green` (channel)
+- `Signal.Signals.signal_blue` → `virtual/signal-blue` (channel)
+- `Signal.Signals.signal_yellow` → `virtual/signal-yellow` (channel)
+- `Signal.Signals.signal_pink` → `virtual/signal-pink` (channel)
+- `Signal.Signals.signal_cyan` → `virtual/signal-cyan` (channel)
+- `Signal.Signals.signal_white` → `virtual/signal-white` (channel)
+- `Signal.Signals.signal_grey` → `virtual/signal-grey` (channel)
+- `Signal.Signals.signal_black` → `virtual/signal-black` (channel)
+- `Signal.Signals.signal_check` → `virtual/signal-check` (channel)
+- `Signal.Signals.signal_deny` → `virtual/signal-deny` (channel)
+- `Signal.Signals.signal_no_entry` → `virtual/signal-no-entry` (channel)
+- `Signal.Signals.signal_heart` → `virtual/signal-heart` (channel)
+- `Signal.Signals.signal_alert` → `virtual/signal-alert` (channel)
+- `Signal.Signals.signal_star` → `virtual/signal-star` (channel)
+- `Signal.Signals.signal_info` → `virtual/signal-info` (channel)
+- `Signal.Signals.shape_vertical` → `virtual/shape-vertical` (channel)
+- `Signal.Signals.shape_horizontal` → `virtual/shape-horizontal` (channel)
+- `Signal.Signals.shape_curve` → `virtual/shape-curve` (channel)
+- `Signal.Signals.shape_curve_2` → `virtual/shape-curve-2` (channel)
+- `Signal.Signals.shape_corner` → `virtual/shape-corner` (channel)
+- `Signal.Signals.shape_corner_2` → `virtual/shape-corner-2` (channel)
+- `Signal.Signals.shape_t` → `virtual/shape-t` (channel)
+- `Signal.Signals.shape_t_2` → `virtual/shape-t-2` (channel)
+- `Signal.Signals.shape_cross` → `virtual/shape-cross` (channel)
+- `Signal.Signals.shape_diagonal_cross` → `virtual/shape-diagonal-cross` (channel)
+- `Signal.Signals.shape_diagonal` → `virtual/shape-diagonal` (channel)
+- `Signal.Signals.shape_diagonal_2` → `virtual/shape-diagonal-2` (channel)
+- `Signal.Signals.shape_curve_3` → `virtual/shape-curve-3` (channel)
+- `Signal.Signals.shape_curve_4` → `virtual/shape-curve-4` (channel)
+- `Signal.Signals.shape_corner_4` → `virtual/shape-corner-4` (channel)
+- `Signal.Signals.shape_corner_3` → `virtual/shape-corner-3` (channel)
+- `Signal.Signals.shape_t_4` → `virtual/shape-t-4` (channel)
+- `Signal.Signals.shape_t_3` → `virtual/shape-t-3` (channel)
+- `Signal.Signals.shape_circle` → `virtual/shape-circle` (channel)
+- `Signal.Signals.signal_dot` → `virtual/signal-dot` (channel)
+- `Signal.Signals.up_arrow` → `virtual/up-arrow` (channel)
+- `Signal.Signals.up_right_arrow` → `virtual/up-right-arrow` (channel)
+- `Signal.Signals.right_arrow` → `virtual/right-arrow` (channel)
+- `Signal.Signals.down_right_arrow` → `virtual/down-right-arrow` (channel)
+- `Signal.Signals.down_arrow` → `virtual/down-arrow` (channel)
+- `Signal.Signals.down_left_arrow` → `virtual/down-left-arrow` (channel)
+- `Signal.Signals.left_arrow` → `virtual/left-arrow` (channel)
+- `Signal.Signals.up_left_arrow` → `virtual/up-left-arrow` (channel)
+- `Signal.Signals.signal_rightwards_leftwards_arrow` → `virtual/signal-rightwards-leftwards-arrow` (channel)
+- `Signal.Signals.signal_upwards_downwards_arrow` → `virtual/signal-upwards-downwards-arrow` (channel)
+- `Signal.Signals.signal_shuffle` → `virtual/signal-shuffle` (channel)
+- `Signal.Signals.signal_left_right_arrow` → `virtual/signal-left-right-arrow` (channel)
+- `Signal.Signals.signal_up_down_arrow` → `virtual/signal-up-down-arrow` (channel)
+- `Signal.Signals.signal_clockwise_circle_arrow` → `virtual/signal-clockwise-circle-arrow` (channel)
+- `Signal.Signals.signal_anticlockwise_circle_arrow` → `virtual/signal-anticlockwise-circle-arrow` (channel)
+- `Signal.Signals.signal_input` → `virtual/signal-input` (channel)
+- `Signal.Signals.signal_output` → `virtual/signal-output` (channel)
+- `Signal.Signals.signal_fuel` → `virtual/signal-fuel` (channel)
+- `Signal.Signals.signal_lightning` → `virtual/signal-lightning` (channel)
+- `Signal.Signals.signal_battery_low` → `virtual/signal-battery-low` (channel)
+- `Signal.Signals.signal_battery_mid_level` → `virtual/signal-battery-mid-level` (channel)
+- `Signal.Signals.signal_battery_full` → `virtual/signal-battery-full` (channel)
+- `Signal.Signals.signal_radioactivity` → `virtual/signal-radioactivity` (channel)
+- `Signal.Signals.signal_thermometer_blue` → `virtual/signal-thermometer-blue` (channel)
+- `Signal.Signals.signal_thermometer_red` → `virtual/signal-thermometer-red` (channel)
+- `Signal.Signals.signal_fire` → `virtual/signal-fire` (channel)
+- `Signal.Signals.signal_snowflake` → `virtual/signal-snowflake` (channel)
+- `Signal.Signals.signal_explosion` → `virtual/signal-explosion` (channel)
+- `Signal.Signals.signal_liquid` → `virtual/signal-liquid` (channel)
+- `Signal.Signals.signal_stack_size` → `virtual/signal-stack-size` (channel)
+- `Signal.Signals.signal_recycle` → `virtual/signal-recycle` (channel)
+- `Signal.Signals.signal_trash_bin` → `virtual/signal-trash-bin` (channel)
+- `Signal.Signals.signal_science_pack` → `virtual/signal-science-pack` (channel)
+- `Signal.Signals.signal_map_marker` → `virtual/signal-map-marker` (channel)
+- `Signal.Signals.signal_white_flag` → `virtual/signal-white-flag` (channel)
+- `Signal.Signals.signal_lock` → `virtual/signal-lock` (channel)
+- `Signal.Signals.signal_unlock` → `virtual/signal-unlock` (channel)
+- `Signal.Signals.signal_speed` → `virtual/signal-speed` (channel)
+- `Signal.Signals.signal_clock` → `virtual/signal-clock` (channel)
+- `Signal.Signals.signal_hourglass` → `virtual/signal-hourglass` (channel)
+- `Signal.Signals.signal_alarm` → `virtual/signal-alarm` (channel)
+- `Signal.Signals.signal_sun` → `virtual/signal-sun` (channel)
+- `Signal.Signals.signal_moon` → `virtual/signal-moon` (channel)
+- `Signal.Signals.signal_mining` → `virtual/signal-mining` (channel)
+- `Signal.Signals.signal_skull` → `virtual/signal-skull` (channel)
+- `Signal.Signals.signal_damage` → `virtual/signal-damage` (channel)
+- `Signal.Signals.signal_weapon` → `virtual/signal-weapon` (channel)
+- `Signal.Signals.signal_ghost` → `virtual/signal-ghost` (channel)
+
+#### Unsorted
+
+- `Signal.Unsorted.signal_item_parameter` → `virtual/signal-item-parameter` (channel)
+- `Signal.Unsorted.signal_fuel_parameter` → `virtual/signal-fuel-parameter` (channel)
+- `Signal.Unsorted.signal_fluid_parameter` → `virtual/signal-fluid-parameter` (channel)
+- `Signal.Unsorted.signal_signal_parameter` → `virtual/signal-signal-parameter` (channel)
+- `Signal.Unsorted.copper_wire` → `item/copper-wire` (channel)
+- `Signal.Unsorted.green_wire` → `item/green-wire` (channel)
+- `Signal.Unsorted.red_wire` → `item/red-wire` (channel)
+- `Signal.Unsorted.spidertron_remote` → `item/spidertron-remote` (channel)
+- `Signal.Unsorted.discharge_defense_remote` → `item/discharge-defense-remote` (channel)
+- `Signal.Unsorted.artillery_targeting_remote` → `item/artillery-targeting-remote` (channel)
+
+### space-age
+
+#### Combat
+
+- `Signal.Combat.pistol` → `item/pistol` (channel)
+- `Signal.Combat.submachine_gun` → `item/submachine-gun` (channel)
+- `Signal.Combat.railgun` → `item/railgun` (channel)
+- `Signal.Combat.teslagun` → `item/teslagun` (channel)
+- `Signal.Combat.shotgun` → `item/shotgun` (channel)
+- `Signal.Combat.combat_shotgun` → `item/combat-shotgun` (channel)
+- `Signal.Combat.rocket_launcher` → `item/rocket-launcher` (channel)
+- `Signal.Combat.flamethrower` → `item/flamethrower` (channel)
+- `Signal.Combat.firearm_magazine` → `item/firearm-magazine` (channel)
+- `Signal.Combat.piercing_rounds_magazine` → `item/piercing-rounds-magazine` (channel)
+- `Signal.Combat.uranium_rounds_magazine` → `item/uranium-rounds-magazine` (channel)
+- `Signal.Combat.shotgun_shell` → `item/shotgun-shell` (channel)
+- `Signal.Combat.piercing_shotgun_shell` → `item/piercing-shotgun-shell` (channel)
+- `Signal.Combat.cannon_shell` → `item/cannon-shell` (channel)
+- `Signal.Combat.explosive_cannon_shell` → `item/explosive-cannon-shell` (channel)
+- `Signal.Combat.uranium_cannon_shell` → `item/uranium-cannon-shell` (channel)
+- `Signal.Combat.explosive_uranium_cannon_shell` → `item/explosive-uranium-cannon-shell` (channel)
+- `Signal.Combat.artillery_shell` → `item/artillery-shell` (channel)
+- `Signal.Combat.rocket` → `item/rocket` (channel)
+- `Signal.Combat.explosive_rocket` → `item/explosive-rocket` (channel)
+- `Signal.Combat.atomic_bomb` → `item/atomic-bomb` (channel)
+- `Signal.Combat.capture_robot_rocket` → `item/capture-robot-rocket` (channel)
+- `Signal.Combat.flamethrower_ammo` → `item/flamethrower-ammo` (channel)
+- `Signal.Combat.railgun_ammo` → `item/railgun-ammo` (channel)
+- `Signal.Combat.tesla_ammo` → `item/tesla-ammo` (channel)
+- `Signal.Combat.grenade` → `item/grenade` (channel)
+- `Signal.Combat.cluster_grenade` → `item/cluster-grenade` (channel)
+- `Signal.Combat.poison_capsule` → `item/poison-capsule` (channel)
+- `Signal.Combat.slowdown_capsule` → `item/slowdown-capsule` (channel)
+- `Signal.Combat.defender` → `entity/defender` (channel)
+- `Signal.Combat.defender_capsule` → `item/defender-capsule` (channel)
+- `Signal.Combat.distractor` → `entity/distractor` (channel)
+- `Signal.Combat.distractor_capsule` → `item/distractor-capsule` (channel)
+- `Signal.Combat.destroyer` → `entity/destroyer` (channel)
+- `Signal.Combat.destroyer_capsule` → `item/destroyer-capsule` (channel)
+- `Signal.Combat.light_armor` → `item/light-armor` (channel)
+- `Signal.Combat.heavy_armor` → `item/heavy-armor` (channel)
+- `Signal.Combat.modular_armor` → `item/modular-armor` (channel)
+- `Signal.Combat.power_armor` → `item/power-armor` (channel)
+- `Signal.Combat.power_armor_mk2` → `item/power-armor-mk2` (channel)
+- `Signal.Combat.mech_armor` → `item/mech-armor` (channel)
+- `Signal.Combat.solar_panel_equipment` → `item/solar-panel-equipment` (channel)
+- `Signal.Combat.fission_reactor_equipment` → `item/fission-reactor-equipment` (channel)
+- `Signal.Combat.fusion_reactor_equipment` → `item/fusion-reactor-equipment` (channel)
+- `Signal.Combat.battery_equipment` → `item/battery-equipment` (channel)
+- `Signal.Combat.battery_mk2_equipment` → `item/battery-mk2-equipment` (channel)
+- `Signal.Combat.battery_mk3_equipment` → `item/battery-mk3-equipment` (channel)
+- `Signal.Combat.belt_immunity_equipment` → `item/belt-immunity-equipment` (channel)
+- `Signal.Combat.exoskeleton_equipment` → `item/exoskeleton-equipment` (channel)
+- `Signal.Combat.personal_roboport_equipment` → `item/personal-roboport-equipment` (channel)
+- `Signal.Combat.personal_roboport_mk2_equipment` → `item/personal-roboport-mk2-equipment` (channel)
+- `Signal.Combat.night_vision_equipment` → `item/night-vision-equipment` (channel)
+- `Signal.Combat.toolbelt_equipment` → `item/toolbelt-equipment` (channel)
+- `Signal.Combat.energy_shield_equipment` → `item/energy-shield-equipment` (channel)
+- `Signal.Combat.energy_shield_mk2_equipment` → `item/energy-shield-mk2-equipment` (channel)
+- `Signal.Combat.personal_laser_defense_equipment` → `item/personal-laser-defense-equipment` (channel)
+- `Signal.Combat.discharge_defense_equipment` → `item/discharge-defense-equipment` (channel)
+- `Signal.Combat.stone_wall` → `item/stone-wall` (channel)
+- `Signal.Combat.gate` → `item/gate` (channel)
+- `Signal.Combat.radar` → `item/radar` (channel)
+- `Signal.Combat.land_mine` → `item/land-mine` (channel)
+- `Signal.Combat.gun_turret` → `item/gun-turret` (channel)
+- `Signal.Combat.laser_turret` → `item/laser-turret` (channel)
+- `Signal.Combat.flamethrower_turret` → `item/flamethrower-turret` (channel)
+- `Signal.Combat.artillery_turret` → `item/artillery-turret` (channel)
+- `Signal.Combat.rocket_turret` → `item/rocket-turret` (channel)
+- `Signal.Combat.tesla_turret` → `item/tesla-turret` (channel)
+- `Signal.Combat.railgun_turret` → `item/railgun-turret` (channel)
+
+#### Enemies
+
+- `Signal.Enemies.small_biter` → `entity/small-biter` (channel)
+- `Signal.Enemies.medium_biter` → `entity/medium-biter` (channel)
+- `Signal.Enemies.big_biter` → `entity/big-biter` (channel)
+- `Signal.Enemies.behemoth_biter` → `entity/behemoth-biter` (channel)
+- `Signal.Enemies.small_spitter` → `entity/small-spitter` (channel)
+- `Signal.Enemies.medium_spitter` → `entity/medium-spitter` (channel)
+- `Signal.Enemies.big_spitter` → `entity/big-spitter` (channel)
+- `Signal.Enemies.behemoth_spitter` → `entity/behemoth-spitter` (channel)
+- `Signal.Enemies.small_worm_turret` → `entity/small-worm-turret` (channel)
+- `Signal.Enemies.medium_worm_turret` → `entity/medium-worm-turret` (channel)
+- `Signal.Enemies.big_worm_turret` → `entity/big-worm-turret` (channel)
+- `Signal.Enemies.behemoth_worm_turret` → `entity/behemoth-worm-turret` (channel)
+- `Signal.Enemies.biter_spawner` → `entity/biter-spawner` (channel)
+- `Signal.Enemies.spitter_spawner` → `entity/spitter-spawner` (channel)
+- `Signal.Enemies.small_wriggler_pentapod` → `entity/small-wriggler-pentapod` (channel)
+- `Signal.Enemies.small_wriggler_pentapod_premature` → `entity/small-wriggler-pentapod-premature` (channel)
+- `Signal.Enemies.medium_wriggler_pentapod` → `entity/medium-wriggler-pentapod` (channel)
+- `Signal.Enemies.medium_wriggler_pentapod_premature` → `entity/medium-wriggler-pentapod-premature` (channel)
+- `Signal.Enemies.big_wriggler_pentapod` → `entity/big-wriggler-pentapod` (channel)
+- `Signal.Enemies.big_wriggler_pentapod_premature` → `entity/big-wriggler-pentapod-premature` (channel)
+- `Signal.Enemies.small_strafer_pentapod` → `entity/small-strafer-pentapod` (channel)
+- `Signal.Enemies.medium_strafer_pentapod` → `entity/medium-strafer-pentapod` (channel)
+- `Signal.Enemies.big_strafer_pentapod` → `entity/big-strafer-pentapod` (channel)
+- `Signal.Enemies.small_stomper_pentapod` → `entity/small-stomper-pentapod` (channel)
+- `Signal.Enemies.medium_stomper_pentapod` → `entity/medium-stomper-pentapod` (channel)
+- `Signal.Enemies.big_stomper_pentapod` → `entity/big-stomper-pentapod` (channel)
+- `Signal.Enemies.gleba_spawner` → `entity/gleba-spawner` (channel)
+- `Signal.Enemies.gleba_spawner_small` → `entity/gleba-spawner-small` (channel)
+- `Signal.Enemies.small_demolisher` → `entity/small-demolisher` (channel)
+- `Signal.Enemies.medium_demolisher` → `entity/medium-demolisher` (channel)
+- `Signal.Enemies.big_demolisher` → `entity/big-demolisher` (channel)
+
+#### Environment
+
+- `Signal.Environment.character` → `entity/character` (channel)
+- `Signal.Environment.fish` → `entity/fish` (channel)
+- `Signal.Environment.cliff` → `entity/cliff` (channel)
+- `Signal.Environment.cliff_fulgora` → `entity/cliff-fulgora` (channel)
+- `Signal.Environment.cliff_gleba` → `entity/cliff-gleba` (channel)
+- `Signal.Environment.cliff_vulcanus` → `entity/cliff-vulcanus` (channel)
+- `Signal.Environment.crater_cliff` → `entity/crater-cliff` (channel)
+- `Signal.Environment.tree_01` → `entity/tree-01` (channel)
+- `Signal.Environment.tree_02` → `entity/tree-02` (channel)
+- `Signal.Environment.tree_02_red` → `entity/tree-02-red` (channel)
+- `Signal.Environment.tree_03` → `entity/tree-03` (channel)
+- `Signal.Environment.tree_04` → `entity/tree-04` (channel)
+- `Signal.Environment.tree_05` → `entity/tree-05` (channel)
+- `Signal.Environment.tree_06` → `entity/tree-06` (channel)
+- `Signal.Environment.tree_06_brown` → `entity/tree-06-brown` (channel)
+- `Signal.Environment.tree_07` → `entity/tree-07` (channel)
+- `Signal.Environment.tree_08` → `entity/tree-08` (channel)
+- `Signal.Environment.tree_08_brown` → `entity/tree-08-brown` (channel)
+- `Signal.Environment.tree_08_red` → `entity/tree-08-red` (channel)
+- `Signal.Environment.tree_09` → `entity/tree-09` (channel)
+- `Signal.Environment.tree_09_brown` → `entity/tree-09-brown` (channel)
+- `Signal.Environment.tree_09_red` → `entity/tree-09-red` (channel)
+- `Signal.Environment.dead_dry_hairy_tree` → `entity/dead-dry-hairy-tree` (channel)
+- `Signal.Environment.dead_grey_trunk` → `entity/dead-grey-trunk` (channel)
+- `Signal.Environment.dead_tree_desert` → `entity/dead-tree-desert` (channel)
+- `Signal.Environment.dry_hairy_tree` → `entity/dry-hairy-tree` (channel)
+- `Signal.Environment.dry_tree` → `entity/dry-tree` (channel)
+- `Signal.Environment.ashland_lichen_tree` → `entity/ashland-lichen-tree` (channel)
+- `Signal.Environment.ashland_lichen_tree_flaming` → `entity/ashland-lichen-tree-flaming` (channel)
+- `Signal.Environment.slipstack` → `entity/slipstack` (channel)
+- `Signal.Environment.funneltrunk` → `entity/funneltrunk` (channel)
+- `Signal.Environment.hairyclubnub` → `entity/hairyclubnub` (channel)
+- `Signal.Environment.teflilly` → `entity/teflilly` (channel)
+- `Signal.Environment.lickmaw` → `entity/lickmaw` (channel)
+- `Signal.Environment.stingfrond` → `entity/stingfrond` (channel)
+- `Signal.Environment.boompuff` → `entity/boompuff` (channel)
+- `Signal.Environment.sunnycomb` → `entity/sunnycomb` (channel)
+- `Signal.Environment.cuttlepop` → `entity/cuttlepop` (channel)
+- `Signal.Environment.water_cane` → `entity/water-cane` (channel)
+- `Signal.Environment.big_sand_rock` → `entity/big-sand-rock` (channel)
+- `Signal.Environment.big_rock` → `entity/big-rock` (channel)
+- `Signal.Environment.huge_rock` → `entity/huge-rock` (channel)
+- `Signal.Environment.big_volcanic_rock` → `entity/big-volcanic-rock` (channel)
+- `Signal.Environment.huge_volcanic_rock` → `entity/huge-volcanic-rock` (channel)
+- `Signal.Environment.vulcanus_chimney_short` → `entity/vulcanus-chimney-short` (channel)
+- `Signal.Environment.vulcanus_chimney_truncated` → `entity/vulcanus-chimney-truncated` (channel)
+- `Signal.Environment.vulcanus_chimney` → `entity/vulcanus-chimney` (channel)
+- `Signal.Environment.vulcanus_chimney_cold` → `entity/vulcanus-chimney-cold` (channel)
+- `Signal.Environment.vulcanus_chimney_faded` → `entity/vulcanus-chimney-faded` (channel)
+- `Signal.Environment.small_demolisher_corpse` → `entity/small-demolisher-corpse` (channel)
+- `Signal.Environment.medium_demolisher_corpse` → `entity/medium-demolisher-corpse` (channel)
+- `Signal.Environment.big_demolisher_corpse` → `entity/big-demolisher-corpse` (channel)
+- `Signal.Environment.copper_stromatolite` → `entity/copper-stromatolite` (channel)
+- `Signal.Environment.iron_stromatolite` → `entity/iron-stromatolite` (channel)
+- `Signal.Environment.big_stomper_shell` → `entity/big-stomper-shell` (channel)
+- `Signal.Environment.medium_stomper_shell` → `entity/medium-stomper-shell` (channel)
+- `Signal.Environment.small_stomper_shell` → `entity/small-stomper-shell` (channel)
+- `Signal.Environment.big_fulgora_rock` → `entity/big-fulgora-rock` (channel)
+- `Signal.Environment.fulgurite_small` → `entity/fulgurite-small` (channel)
+- `Signal.Environment.fulgurite` → `entity/fulgurite` (channel)
+- `Signal.Environment.fulgoran_ruin_attractor` → `entity/fulgoran-ruin-attractor` (channel)
+- `Signal.Environment.fulgoran_ruin_small` → `entity/fulgoran-ruin-small` (channel)
+- `Signal.Environment.fulgoran_ruin_medium` → `entity/fulgoran-ruin-medium` (channel)
+- `Signal.Environment.fulgoran_ruin_stonehenge` → `entity/fulgoran-ruin-stonehenge` (channel)
+- `Signal.Environment.fulgoran_ruin_big` → `entity/fulgoran-ruin-big` (channel)
+- `Signal.Environment.fulgoran_ruin_colossal` → `entity/fulgoran-ruin-colossal` (channel)
+- `Signal.Environment.fulgoran_ruin_huge` → `entity/fulgoran-ruin-huge` (channel)
+- `Signal.Environment.fulgoran_ruin_vault` → `entity/fulgoran-ruin-vault` (channel)
+- `Signal.Environment.lithium_iceberg_big` → `entity/lithium-iceberg-big` (channel)
+- `Signal.Environment.lithium_iceberg_huge` → `entity/lithium-iceberg-huge` (channel)
+- `Signal.Environment.big_volcanic_rock_hot` → `entity/big-volcanic-rock-hot` (channel)
+- `Signal.Environment.huge_volcanic_rock_hot` → `entity/huge-volcanic-rock-hot` (channel)
+- `Signal.Environment.fulgora_sunk_ruin_big` → `entity/fulgora-sunk-ruin-big` (channel)
+- `Signal.Environment.fulgora_sunk_ruin_medium_tall` → `entity/fulgora-sunk-ruin-medium-tall` (channel)
+- `Signal.Environment.crude_oil` → `entity/crude-oil` (channel)
+- `Signal.Environment.sulfuric_acid_geyser` → `entity/sulfuric-acid-geyser` (channel)
+- `Signal.Environment.lithium_brine` → `entity/lithium-brine` (channel)
+- `Signal.Environment.fluorine_vent` → `entity/fluorine-vent` (channel)
+- `Signal.Environment.lightning` → `entity/lightning` (channel)
+
+#### Fluids
+
+- `Signal.Fluids.water` → `fluid/water` (channel)
+- `Signal.Fluids.steam` → `fluid/steam` (channel)
+- `Signal.Fluids.crude_oil` → `fluid/crude-oil` (channel)
+- `Signal.Fluids.petroleum_gas` → `fluid/petroleum-gas` (channel)
+- `Signal.Fluids.light_oil` → `fluid/light-oil` (channel)
+- `Signal.Fluids.heavy_oil` → `fluid/heavy-oil` (channel)
+- `Signal.Fluids.lubricant` → `fluid/lubricant` (channel)
+- `Signal.Fluids.sulfuric_acid` → `fluid/sulfuric-acid` (channel)
+- `Signal.Fluids.thruster_fuel` → `fluid/thruster-fuel` (channel)
+- `Signal.Fluids.thruster_oxidizer` → `fluid/thruster-oxidizer` (channel)
+- `Signal.Fluids.lava` → `fluid/lava` (channel)
+- `Signal.Fluids.molten_iron` → `fluid/molten-iron` (channel)
+- `Signal.Fluids.molten_copper` → `fluid/molten-copper` (channel)
+- `Signal.Fluids.holmium_solution` → `fluid/holmium-solution` (channel)
+- `Signal.Fluids.electrolyte` → `fluid/electrolyte` (channel)
+- `Signal.Fluids.ammoniacal_solution` → `fluid/ammoniacal-solution` (channel)
+- `Signal.Fluids.ammonia` → `fluid/ammonia` (channel)
+- `Signal.Fluids.fluorine` → `fluid/fluorine` (channel)
+- `Signal.Fluids.fluoroketone_hot` → `fluid/fluoroketone-hot` (channel)
+- `Signal.Fluids.fluoroketone_cold` → `fluid/fluoroketone-cold` (channel)
+- `Signal.Fluids.lithium_brine` → `fluid/lithium-brine` (channel)
+- `Signal.Fluids.fusion_plasma` → `fluid/fusion-plasma` (channel)
+
+#### Intermediate
+
+- `Signal.Intermediate.basic_oil_processing` → `recipe/basic-oil-processing` (channel)
+- `Signal.Intermediate.advanced_oil_processing` → `recipe/advanced-oil-processing` (channel)
+- `Signal.Intermediate.simple_coal_liquefaction` → `recipe/simple-coal-liquefaction` (channel)
+- `Signal.Intermediate.coal_liquefaction` → `recipe/coal-liquefaction` (channel)
+- `Signal.Intermediate.heavy_oil_cracking` → `recipe/heavy-oil-cracking` (channel)
+- `Signal.Intermediate.light_oil_cracking` → `recipe/light-oil-cracking` (channel)
+- `Signal.Intermediate.solid_fuel_from_petroleum_gas` → `recipe/solid-fuel-from-petroleum-gas` (channel)
+- `Signal.Intermediate.solid_fuel_from_light_oil` → `recipe/solid-fuel-from-light-oil` (channel)
+- `Signal.Intermediate.solid_fuel_from_heavy_oil` → `recipe/solid-fuel-from-heavy-oil` (channel)
+- `Signal.Intermediate.acid_neutralisation` → `recipe/acid-neutralisation` (channel)
+- `Signal.Intermediate.steam_condensation` → `recipe/steam-condensation` (channel)
+- `Signal.Intermediate.ice_melting` → `recipe/ice-melting` (channel)
+- `Signal.Intermediate.wood` → `item/wood` (channel)
+- `Signal.Intermediate.coal` → `item/coal` (channel)
+- `Signal.Intermediate.stone` → `item/stone` (channel)
+- `Signal.Intermediate.iron_ore` → `item/iron-ore` (channel)
+- `Signal.Intermediate.copper_ore` → `item/copper-ore` (channel)
+- `Signal.Intermediate.uranium_ore` → `item/uranium-ore` (channel)
+- `Signal.Intermediate.raw_fish` → `item/raw-fish` (channel)
+- `Signal.Intermediate.ice` → `item/ice` (channel)
+- `Signal.Intermediate.iron_plate` → `item/iron-plate` (channel)
+- `Signal.Intermediate.copper_plate` → `item/copper-plate` (channel)
+- `Signal.Intermediate.steel_plate` → `item/steel-plate` (channel)
+- `Signal.Intermediate.solid_fuel` → `item/solid-fuel` (channel)
+- `Signal.Intermediate.plastic_bar` → `item/plastic-bar` (channel)
+- `Signal.Intermediate.sulfur` → `item/sulfur` (channel)
+- `Signal.Intermediate.battery` → `item/battery` (channel)
+- `Signal.Intermediate.explosives` → `item/explosives` (channel)
+- `Signal.Intermediate.carbon` → `item/carbon` (channel)
+- `Signal.Intermediate.coal_synthesis` → `recipe/coal-synthesis` (channel)
+- `Signal.Intermediate.water_barrel` → `item/water-barrel` (channel)
+- `Signal.Intermediate.crude_oil_barrel` → `item/crude-oil-barrel` (channel)
+- `Signal.Intermediate.petroleum_gas_barrel` → `item/petroleum-gas-barrel` (channel)
+- `Signal.Intermediate.light_oil_barrel` → `item/light-oil-barrel` (channel)
+- `Signal.Intermediate.heavy_oil_barrel` → `item/heavy-oil-barrel` (channel)
+- `Signal.Intermediate.lubricant_barrel` → `item/lubricant-barrel` (channel)
+- `Signal.Intermediate.sulfuric_acid_barrel` → `item/sulfuric-acid-barrel` (channel)
+- `Signal.Intermediate.fluoroketone_hot_barrel` → `item/fluoroketone-hot-barrel` (channel)
+- `Signal.Intermediate.fluoroketone_cold_barrel` → `item/fluoroketone-cold-barrel` (channel)
+- `Signal.Intermediate.water_barrel.fill` → `recipe/water-barrel` (channel)
+- `Signal.Intermediate.crude_oil_barrel.fill` → `recipe/crude-oil-barrel` (channel)
+- `Signal.Intermediate.petroleum_gas_barrel.fill` → `recipe/petroleum-gas-barrel` (channel)
+- `Signal.Intermediate.light_oil_barrel.fill` → `recipe/light-oil-barrel` (channel)
+- `Signal.Intermediate.heavy_oil_barrel.fill` → `recipe/heavy-oil-barrel` (channel)
+- `Signal.Intermediate.lubricant_barrel.fill` → `recipe/lubricant-barrel` (channel)
+- `Signal.Intermediate.sulfuric_acid_barrel.fill` → `recipe/sulfuric-acid-barrel` (channel)
+- `Signal.Intermediate.fluoroketone_hot_barrel.fill` → `recipe/fluoroketone-hot-barrel` (channel)
+- `Signal.Intermediate.fluoroketone_cold_barrel.fill` → `recipe/fluoroketone-cold-barrel` (channel)
+- `Signal.Intermediate.water_barrel.empty` → `recipe/empty-water-barrel` (channel)
+- `Signal.Intermediate.crude_oil_barrel.empty` → `recipe/empty-crude-oil-barrel` (channel)
+- `Signal.Intermediate.petroleum_gas_barrel.empty` → `recipe/empty-petroleum-gas-barrel` (channel)
+- `Signal.Intermediate.light_oil_barrel.empty` → `recipe/empty-light-oil-barrel` (channel)
+- `Signal.Intermediate.heavy_oil_barrel.empty` → `recipe/empty-heavy-oil-barrel` (channel)
+- `Signal.Intermediate.lubricant_barrel.empty` → `recipe/empty-lubricant-barrel` (channel)
+- `Signal.Intermediate.sulfuric_acid_barrel.empty` → `recipe/empty-sulfuric-acid-barrel` (channel)
+- `Signal.Intermediate.fluoroketone_hot_barrel.empty` → `recipe/empty-fluoroketone-hot-barrel` (channel)
+- `Signal.Intermediate.fluoroketone_cold_barrel.empty` → `recipe/empty-fluoroketone-cold-barrel` (channel)
+- `Signal.Intermediate.iron_gear_wheel` → `item/iron-gear-wheel` (channel)
+- `Signal.Intermediate.iron_stick` → `item/iron-stick` (channel)
+- `Signal.Intermediate.copper_cable` → `item/copper-cable` (channel)
+- `Signal.Intermediate.barrel` → `item/barrel` (channel)
+- `Signal.Intermediate.electronic_circuit` → `item/electronic-circuit` (channel)
+- `Signal.Intermediate.advanced_circuit` → `item/advanced-circuit` (channel)
+- `Signal.Intermediate.processing_unit` → `item/processing-unit` (channel)
+- `Signal.Intermediate.engine_unit` → `item/engine-unit` (channel)
+- `Signal.Intermediate.electric_engine_unit` → `item/electric-engine-unit` (channel)
+- `Signal.Intermediate.flying_robot_frame` → `item/flying-robot-frame` (channel)
+- `Signal.Intermediate.low_density_structure` → `item/low-density-structure` (channel)
+- `Signal.Intermediate.rocket_fuel` → `item/rocket-fuel` (channel)
+- `Signal.Intermediate.uranium_processing` → `recipe/uranium-processing` (channel)
+- `Signal.Intermediate.uranium_235` → `item/uranium-235` (channel)
+- `Signal.Intermediate.uranium_238` → `item/uranium-238` (channel)
+- `Signal.Intermediate.uranium_fuel_cell` → `item/uranium-fuel-cell` (channel)
+- `Signal.Intermediate.depleted_uranium_fuel_cell` → `item/depleted-uranium-fuel-cell` (channel)
+- `Signal.Intermediate.nuclear_fuel_reprocessing` → `recipe/nuclear-fuel-reprocessing` (channel)
+- `Signal.Intermediate.kovarex_enrichment_process` → `recipe/kovarex-enrichment-process` (channel)
+- `Signal.Intermediate.nuclear_fuel` → `item/nuclear-fuel` (channel)
+- `Signal.Intermediate.calcite` → `item/calcite` (channel)
+- `Signal.Intermediate.molten_iron_from_lava` → `recipe/molten-iron-from-lava` (channel)
+- `Signal.Intermediate.molten_copper_from_lava` → `recipe/molten-copper-from-lava` (channel)
+- `Signal.Intermediate.iron_ore_melting` → `recipe/iron-ore-melting` (channel)
+- `Signal.Intermediate.copper_ore_melting` → `recipe/copper-ore-melting` (channel)
+- `Signal.Intermediate.casting_iron` → `recipe/casting-iron` (channel)
+- `Signal.Intermediate.casting_copper` → `recipe/casting-copper` (channel)
+- `Signal.Intermediate.casting_steel` → `recipe/casting-steel` (channel)
+- `Signal.Intermediate.casting_iron_gear_wheel` → `recipe/casting-iron-gear-wheel` (channel)
+- `Signal.Intermediate.casting_iron_stick` → `recipe/casting-iron-stick` (channel)
+- `Signal.Intermediate.casting_low_density_structure` → `recipe/casting-low-density-structure` (channel)
+- `Signal.Intermediate.concrete_from_molten_iron` → `recipe/concrete-from-molten-iron` (channel)
+- `Signal.Intermediate.casting_copper_cable` → `recipe/casting-copper-cable` (channel)
+- `Signal.Intermediate.tungsten_ore` → `item/tungsten-ore` (channel)
+- `Signal.Intermediate.tungsten_carbide` → `item/tungsten-carbide` (channel)
+- `Signal.Intermediate.tungsten_plate` → `item/tungsten-plate` (channel)
+- `Signal.Intermediate.scrap` → `item/scrap` (channel)
+- `Signal.Intermediate.scrap_recycling` → `recipe/scrap-recycling` (channel)
+- `Signal.Intermediate.holmium_ore` → `item/holmium-ore` (channel)
+- `Signal.Intermediate.holmium_plate` → `item/holmium-plate` (channel)
+- `Signal.Intermediate.superconductor` → `item/superconductor` (channel)
+- `Signal.Intermediate.supercapacitor` → `item/supercapacitor` (channel)
+- `Signal.Intermediate.yumako_processing` → `recipe/yumako-processing` (channel)
+- `Signal.Intermediate.yumako_seed` → `item/yumako-seed` (channel)
+- `Signal.Intermediate.jellynut_processing` → `recipe/jellynut-processing` (channel)
+- `Signal.Intermediate.jellynut_seed` → `item/jellynut-seed` (channel)
+- `Signal.Intermediate.yumako` → `item/yumako` (channel)
+- `Signal.Intermediate.jellynut` → `item/jellynut` (channel)
+- `Signal.Intermediate.iron_bacteria` → `item/iron-bacteria` (channel)
+- `Signal.Intermediate.iron_bacteria_cultivation` → `recipe/iron-bacteria-cultivation` (channel)
+- `Signal.Intermediate.copper_bacteria` → `item/copper-bacteria` (channel)
+- `Signal.Intermediate.copper_bacteria_cultivation` → `recipe/copper-bacteria-cultivation` (channel)
+- `Signal.Intermediate.spoilage` → `item/spoilage` (channel)
+- `Signal.Intermediate.nutrients` → `item/nutrients` (channel)
+- `Signal.Intermediate.nutrients_from_spoilage` → `recipe/nutrients-from-spoilage` (channel)
+- `Signal.Intermediate.nutrients_from_yumako_mash` → `recipe/nutrients-from-yumako-mash` (channel)
+- `Signal.Intermediate.nutrients_from_bioflux` → `recipe/nutrients-from-bioflux` (channel)
+- `Signal.Intermediate.bioflux` → `item/bioflux` (channel)
+- `Signal.Intermediate.yumako_mash` → `item/yumako-mash` (channel)
+- `Signal.Intermediate.jelly` → `item/jelly` (channel)
+- `Signal.Intermediate.rocket_fuel_from_jelly` → `recipe/rocket-fuel-from-jelly` (channel)
+- `Signal.Intermediate.biolubricant` → `recipe/biolubricant` (channel)
+- `Signal.Intermediate.bioplastic` → `recipe/bioplastic` (channel)
+- `Signal.Intermediate.biosulfur` → `recipe/biosulfur` (channel)
+- `Signal.Intermediate.carbon_fiber` → `item/carbon-fiber` (channel)
+- `Signal.Intermediate.burnt_spoilage` → `recipe/burnt-spoilage` (channel)
+- `Signal.Intermediate.biter_egg` → `item/biter-egg` (channel)
+- `Signal.Intermediate.pentapod_egg` → `item/pentapod-egg` (channel)
+- `Signal.Intermediate.tree_seed` → `item/tree-seed` (channel)
+- `Signal.Intermediate.fish_breeding` → `recipe/fish-breeding` (channel)
+- `Signal.Intermediate.nutrients_from_fish` → `recipe/nutrients-from-fish` (channel)
+- `Signal.Intermediate.nutrients_from_biter_egg` → `recipe/nutrients-from-biter-egg` (channel)
+- `Signal.Intermediate.ammoniacal_solution_separation` → `recipe/ammoniacal-solution-separation` (channel)
+- `Signal.Intermediate.solid_fuel_from_ammonia` → `recipe/solid-fuel-from-ammonia` (channel)
+- `Signal.Intermediate.ammonia_rocket_fuel` → `recipe/ammonia-rocket-fuel` (channel)
+- `Signal.Intermediate.fluoroketone_cooling` → `recipe/fluoroketone-cooling` (channel)
+- `Signal.Intermediate.lithium` → `item/lithium` (channel)
+- `Signal.Intermediate.lithium_plate` → `item/lithium-plate` (channel)
+- `Signal.Intermediate.quantum_processor` → `item/quantum-processor` (channel)
+- `Signal.Intermediate.fusion_power_cell` → `item/fusion-power-cell` (channel)
+- `Signal.Intermediate.automation_science_pack` → `item/automation-science-pack` (channel)
+- `Signal.Intermediate.logistic_science_pack` → `item/logistic-science-pack` (channel)
+- `Signal.Intermediate.military_science_pack` → `item/military-science-pack` (channel)
+- `Signal.Intermediate.chemical_science_pack` → `item/chemical-science-pack` (channel)
+- `Signal.Intermediate.production_science_pack` → `item/production-science-pack` (channel)
+- `Signal.Intermediate.utility_science_pack` → `item/utility-science-pack` (channel)
+- `Signal.Intermediate.space_science_pack` → `item/space-science-pack` (channel)
+- `Signal.Intermediate.metallurgic_science_pack` → `item/metallurgic-science-pack` (channel)
+- `Signal.Intermediate.agricultural_science_pack` → `item/agricultural-science-pack` (channel)
+- `Signal.Intermediate.electromagnetic_science_pack` → `item/electromagnetic-science-pack` (channel)
+- `Signal.Intermediate.cryogenic_science_pack` → `item/cryogenic-science-pack` (channel)
+- `Signal.Intermediate.promethium_science_pack` → `item/promethium-science-pack` (channel)
+
+#### Logistic
+
+- `Signal.Logistic.wooden_chest` → `item/wooden-chest` (channel)
+- `Signal.Logistic.iron_chest` → `item/iron-chest` (channel)
+- `Signal.Logistic.steel_chest` → `item/steel-chest` (channel)
+- `Signal.Logistic.storage_tank` → `item/storage-tank` (channel)
+- `Signal.Logistic.transport_belt` → `item/transport-belt` (channel)
+- `Signal.Logistic.fast_transport_belt` → `item/fast-transport-belt` (channel)
+- `Signal.Logistic.express_transport_belt` → `item/express-transport-belt` (channel)
+- `Signal.Logistic.turbo_transport_belt` → `item/turbo-transport-belt` (channel)
+- `Signal.Logistic.underground_belt` → `item/underground-belt` (channel)
+- `Signal.Logistic.fast_underground_belt` → `item/fast-underground-belt` (channel)
+- `Signal.Logistic.express_underground_belt` → `item/express-underground-belt` (channel)
+- `Signal.Logistic.turbo_underground_belt` → `item/turbo-underground-belt` (channel)
+- `Signal.Logistic.splitter` → `item/splitter` (channel)
+- `Signal.Logistic.fast_splitter` → `item/fast-splitter` (channel)
+- `Signal.Logistic.express_splitter` → `item/express-splitter` (channel)
+- `Signal.Logistic.turbo_splitter` → `item/turbo-splitter` (channel)
+- `Signal.Logistic.burner_inserter` → `item/burner-inserter` (channel)
+- `Signal.Logistic.inserter` → `item/inserter` (channel)
+- `Signal.Logistic.long_handed_inserter` → `item/long-handed-inserter` (channel)
+- `Signal.Logistic.fast_inserter` → `item/fast-inserter` (channel)
+- `Signal.Logistic.bulk_inserter` → `item/bulk-inserter` (channel)
+- `Signal.Logistic.stack_inserter` → `item/stack-inserter` (channel)
+- `Signal.Logistic.small_electric_pole` → `item/small-electric-pole` (channel)
+- `Signal.Logistic.medium_electric_pole` → `item/medium-electric-pole` (channel)
+- `Signal.Logistic.big_electric_pole` → `item/big-electric-pole` (channel)
+- `Signal.Logistic.substation` → `item/substation` (channel)
+- `Signal.Logistic.pipe` → `item/pipe` (channel)
+- `Signal.Logistic.pipe_to_ground` → `item/pipe-to-ground` (channel)
+- `Signal.Logistic.casting_pipe` → `recipe/casting-pipe` (channel)
+- `Signal.Logistic.casting_pipe_to_ground` → `recipe/casting-pipe-to-ground` (channel)
+- `Signal.Logistic.pump` → `item/pump` (channel)
+- `Signal.Logistic.rail` → `item/rail` (channel)
+- `Signal.Logistic.rail_ramp` → `item/rail-ramp` (channel)
+- `Signal.Logistic.rail_support` → `item/rail-support` (channel)
+- `Signal.Logistic.train_stop` → `item/train-stop` (channel)
+- `Signal.Logistic.rail_signal` → `item/rail-signal` (channel)
+- `Signal.Logistic.rail_chain_signal` → `item/rail-chain-signal` (channel)
+- `Signal.Logistic.locomotive` → `item/locomotive` (channel)
+- `Signal.Logistic.cargo_wagon` → `item/cargo-wagon` (channel)
+- `Signal.Logistic.fluid_wagon` → `item/fluid-wagon` (channel)
+- `Signal.Logistic.artillery_wagon` → `item/artillery-wagon` (channel)
+- `Signal.Logistic.car` → `item/car` (channel)
+- `Signal.Logistic.tank` → `item/tank` (channel)
+- `Signal.Logistic.spidertron` → `item/spidertron` (channel)
+- `Signal.Logistic.logistic_robot` → `item/logistic-robot` (channel)
+- `Signal.Logistic.construction_robot` → `item/construction-robot` (channel)
+- `Signal.Logistic.active_provider_chest` → `item/active-provider-chest` (channel)
+- `Signal.Logistic.passive_provider_chest` → `item/passive-provider-chest` (channel)
+- `Signal.Logistic.storage_chest` → `item/storage-chest` (channel)
+- `Signal.Logistic.buffer_chest` → `item/buffer-chest` (channel)
+- `Signal.Logistic.requester_chest` → `item/requester-chest` (channel)
+- `Signal.Logistic.roboport` → `item/roboport` (channel)
+- `Signal.Logistic.small_lamp` → `item/small-lamp` (channel)
+- `Signal.Logistic.arithmetic_combinator` → `item/arithmetic-combinator` (channel)
+- `Signal.Logistic.decider_combinator` → `item/decider-combinator` (channel)
+- `Signal.Logistic.selector_combinator` → `item/selector-combinator` (channel)
+- `Signal.Logistic.constant_combinator` → `item/constant-combinator` (channel)
+- `Signal.Logistic.power_switch` → `item/power-switch` (channel)
+- `Signal.Logistic.programmable_speaker` → `item/programmable-speaker` (channel)
+- `Signal.Logistic.display_panel` → `item/display-panel` (channel)
+- `Signal.Logistic.stone_brick` → `item/stone-brick` (channel)
+- `Signal.Logistic.concrete` → `item/concrete` (channel)
+- `Signal.Logistic.hazard_concrete` → `item/hazard-concrete` (channel)
+- `Signal.Logistic.refined_concrete` → `item/refined-concrete` (channel)
+- `Signal.Logistic.refined_hazard_concrete` → `item/refined-hazard-concrete` (channel)
+- `Signal.Logistic.landfill` → `item/landfill` (channel)
+- `Signal.Logistic.artificial_yumako_soil` → `item/artificial-yumako-soil` (channel)
+- `Signal.Logistic.overgrowth_yumako_soil` → `item/overgrowth-yumako-soil` (channel)
+- `Signal.Logistic.artificial_jellynut_soil` → `item/artificial-jellynut-soil` (channel)
+- `Signal.Logistic.overgrowth_jellynut_soil` → `item/overgrowth-jellynut-soil` (channel)
+- `Signal.Logistic.ice_platform` → `item/ice-platform` (channel)
+- `Signal.Logistic.foundation` → `item/foundation` (channel)
+- `Signal.Logistic.cliff_explosives` → `item/cliff-explosives` (channel)
+
+#### Meta
+
+- `Signal.Meta.signal_everything` → `virtual/signal-everything` (meta)
+- `Signal.Meta.signal_each` → `virtual/signal-each` (meta)
+- `Signal.Meta.signal_anything` → `virtual/signal-anything` (meta)
+
+#### Production
+
+- `Signal.Production.repair_pack` → `item/repair-pack` (channel)
+- `Signal.Production.blueprint` → `item/blueprint` (channel)
+- `Signal.Production.deconstruction_planner` → `item/deconstruction-planner` (channel)
+- `Signal.Production.upgrade_planner` → `item/upgrade-planner` (channel)
+- `Signal.Production.blueprint_book` → `item/blueprint-book` (channel)
+- `Signal.Production.boiler` → `item/boiler` (channel)
+- `Signal.Production.steam_engine` → `item/steam-engine` (channel)
+- `Signal.Production.solar_panel` → `item/solar-panel` (channel)
+- `Signal.Production.accumulator` → `item/accumulator` (channel)
+- `Signal.Production.nuclear_reactor` → `item/nuclear-reactor` (channel)
+- `Signal.Production.heat_pipe` → `item/heat-pipe` (channel)
+- `Signal.Production.heat_exchanger` → `item/heat-exchanger` (channel)
+- `Signal.Production.steam_turbine` → `item/steam-turbine` (channel)
+- `Signal.Production.fusion_reactor` → `item/fusion-reactor` (channel)
+- `Signal.Production.fusion_generator` → `item/fusion-generator` (channel)
+- `Signal.Production.burner_mining_drill` → `item/burner-mining-drill` (channel)
+- `Signal.Production.electric_mining_drill` → `item/electric-mining-drill` (channel)
+- `Signal.Production.big_mining_drill` → `item/big-mining-drill` (channel)
+- `Signal.Production.offshore_pump` → `item/offshore-pump` (channel)
+- `Signal.Production.pumpjack` → `item/pumpjack` (channel)
+- `Signal.Production.stone_furnace` → `item/stone-furnace` (channel)
+- `Signal.Production.steel_furnace` → `item/steel-furnace` (channel)
+- `Signal.Production.electric_furnace` → `item/electric-furnace` (channel)
+- `Signal.Production.foundry` → `item/foundry` (channel)
+- `Signal.Production.recycler` → `item/recycler` (channel)
+- `Signal.Production.agricultural_tower` → `item/agricultural-tower` (channel)
+- `Signal.Production.biochamber` → `item/biochamber` (channel)
+- `Signal.Production.captive_biter_spawner` → `item/captive-biter-spawner` (channel)
+- `Signal.Production.assembling_machine_1` → `item/assembling-machine-1` (channel)
+- `Signal.Production.assembling_machine_2` → `item/assembling-machine-2` (channel)
+- `Signal.Production.assembling_machine_3` → `item/assembling-machine-3` (channel)
+- `Signal.Production.oil_refinery` → `item/oil-refinery` (channel)
+- `Signal.Production.chemical_plant` → `item/chemical-plant` (channel)
+- `Signal.Production.centrifuge` → `item/centrifuge` (channel)
+- `Signal.Production.electromagnetic_plant` → `item/electromagnetic-plant` (channel)
+- `Signal.Production.cryogenic_plant` → `item/cryogenic-plant` (channel)
+- `Signal.Production.lab` → `item/lab` (channel)
+- `Signal.Production.biolab` → `item/biolab` (channel)
+- `Signal.Production.lightning_rod` → `item/lightning-rod` (channel)
+- `Signal.Production.lightning_collector` → `item/lightning-collector` (channel)
+- `Signal.Production.heating_tower` → `item/heating-tower` (channel)
+- `Signal.Production.beacon` → `item/beacon` (channel)
+- `Signal.Production.speed_module` → `item/speed-module` (channel)
+- `Signal.Production.speed_module_2` → `item/speed-module-2` (channel)
+- `Signal.Production.speed_module_3` → `item/speed-module-3` (channel)
+- `Signal.Production.efficiency_module` → `item/efficiency-module` (channel)
+- `Signal.Production.efficiency_module_2` → `item/efficiency-module-2` (channel)
+- `Signal.Production.efficiency_module_3` → `item/efficiency-module-3` (channel)
+- `Signal.Production.productivity_module` → `item/productivity-module` (channel)
+- `Signal.Production.productivity_module_2` → `item/productivity-module-2` (channel)
+- `Signal.Production.productivity_module_3` → `item/productivity-module-3` (channel)
+- `Signal.Production.quality_module` → `item/quality-module` (channel)
+- `Signal.Production.quality_module_2` → `item/quality-module-2` (channel)
+- `Signal.Production.quality_module_3` → `item/quality-module-3` (channel)
+
+#### Signals
+
+- `Signal.Signals.signal_0` → `virtual/signal-0` (channel)
+- `Signal.Signals.signal_1` → `virtual/signal-1` (channel)
+- `Signal.Signals.signal_2` → `virtual/signal-2` (channel)
+- `Signal.Signals.signal_3` → `virtual/signal-3` (channel)
+- `Signal.Signals.signal_4` → `virtual/signal-4` (channel)
+- `Signal.Signals.signal_5` → `virtual/signal-5` (channel)
+- `Signal.Signals.signal_6` → `virtual/signal-6` (channel)
+- `Signal.Signals.signal_7` → `virtual/signal-7` (channel)
+- `Signal.Signals.signal_8` → `virtual/signal-8` (channel)
+- `Signal.Signals.signal_9` → `virtual/signal-9` (channel)
+- `Signal.Signals.signal_A` → `virtual/signal-A` (channel)
+- `Signal.Signals.signal_B` → `virtual/signal-B` (channel)
+- `Signal.Signals.signal_C` → `virtual/signal-C` (channel)
+- `Signal.Signals.signal_D` → `virtual/signal-D` (channel)
+- `Signal.Signals.signal_E` → `virtual/signal-E` (channel)
+- `Signal.Signals.signal_F` → `virtual/signal-F` (channel)
+- `Signal.Signals.signal_G` → `virtual/signal-G` (channel)
+- `Signal.Signals.signal_H` → `virtual/signal-H` (channel)
+- `Signal.Signals.signal_I` → `virtual/signal-I` (channel)
+- `Signal.Signals.signal_J` → `virtual/signal-J` (channel)
+- `Signal.Signals.signal_K` → `virtual/signal-K` (channel)
+- `Signal.Signals.signal_L` → `virtual/signal-L` (channel)
+- `Signal.Signals.signal_M` → `virtual/signal-M` (channel)
+- `Signal.Signals.signal_N` → `virtual/signal-N` (channel)
+- `Signal.Signals.signal_O` → `virtual/signal-O` (channel)
+- `Signal.Signals.signal_P` → `virtual/signal-P` (channel)
+- `Signal.Signals.signal_Q` → `virtual/signal-Q` (channel)
+- `Signal.Signals.signal_R` → `virtual/signal-R` (channel)
+- `Signal.Signals.signal_S` → `virtual/signal-S` (channel)
+- `Signal.Signals.signal_T` → `virtual/signal-T` (channel)
+- `Signal.Signals.signal_U` → `virtual/signal-U` (channel)
+- `Signal.Signals.signal_V` → `virtual/signal-V` (channel)
+- `Signal.Signals.signal_W` → `virtual/signal-W` (channel)
+- `Signal.Signals.signal_X` → `virtual/signal-X` (channel)
+- `Signal.Signals.signal_Y` → `virtual/signal-Y` (channel)
+- `Signal.Signals.signal_Z` → `virtual/signal-Z` (channel)
+- `Signal.Signals.signal_comma` → `virtual/signal-comma` (channel)
+- `Signal.Signals.signal_letter_dot` → `virtual/signal-letter-dot` (channel)
+- `Signal.Signals.signal_exclamation_mark` → `virtual/signal-exclamation-mark` (channel)
+- `Signal.Signals.signal_question_mark` → `virtual/signal-question-mark` (channel)
+- `Signal.Signals.signal_colon` → `virtual/signal-colon` (channel)
+- `Signal.Signals.signal_slash` → `virtual/signal-slash` (channel)
+- `Signal.Signals.signal_apostrophe` → `virtual/signal-apostrophe` (channel)
+- `Signal.Signals.signal_quotation_mark` → `virtual/signal-quotation-mark` (channel)
+- `Signal.Signals.signal_ampersand` → `virtual/signal-ampersand` (channel)
+- `Signal.Signals.signal_circumflex_accent` → `virtual/signal-circumflex-accent` (channel)
+- `Signal.Signals.signal_number_sign` → `virtual/signal-number-sign` (channel)
+- `Signal.Signals.signal_percent` → `virtual/signal-percent` (channel)
+- `Signal.Signals.signal_plus` → `virtual/signal-plus` (channel)
+- `Signal.Signals.signal_minus` → `virtual/signal-minus` (channel)
+- `Signal.Signals.signal_multiplication` → `virtual/signal-multiplication` (channel)
+- `Signal.Signals.signal_division` → `virtual/signal-division` (channel)
+- `Signal.Signals.signal_equal` → `virtual/signal-equal` (channel)
+- `Signal.Signals.signal_not_equal` → `virtual/signal-not-equal` (channel)
+- `Signal.Signals.signal_less_than` → `virtual/signal-less-than` (channel)
+- `Signal.Signals.signal_greater_than` → `virtual/signal-greater-than` (channel)
+- `Signal.Signals.signal_less_than_or_equal_to` → `virtual/signal-less-than-or-equal-to` (channel)
+- `Signal.Signals.signal_greater_than_or_equal_to` → `virtual/signal-greater-than-or-equal-to` (channel)
+- `Signal.Signals.signal_left_parenthesis` → `virtual/signal-left-parenthesis` (channel)
+- `Signal.Signals.signal_right_parenthesis` → `virtual/signal-right-parenthesis` (channel)
+- `Signal.Signals.signal_left_square_bracket` → `virtual/signal-left-square-bracket` (channel)
+- `Signal.Signals.signal_right_square_bracket` → `virtual/signal-right-square-bracket` (channel)
+- `Signal.Signals.signal_red` → `virtual/signal-red` (channel)
+- `Signal.Signals.signal_green` → `virtual/signal-green` (channel)
+- `Signal.Signals.signal_blue` → `virtual/signal-blue` (channel)
+- `Signal.Signals.signal_yellow` → `virtual/signal-yellow` (channel)
+- `Signal.Signals.signal_pink` → `virtual/signal-pink` (channel)
+- `Signal.Signals.signal_cyan` → `virtual/signal-cyan` (channel)
+- `Signal.Signals.signal_white` → `virtual/signal-white` (channel)
+- `Signal.Signals.signal_grey` → `virtual/signal-grey` (channel)
+- `Signal.Signals.signal_black` → `virtual/signal-black` (channel)
+- `Signal.Signals.signal_check` → `virtual/signal-check` (channel)
+- `Signal.Signals.signal_deny` → `virtual/signal-deny` (channel)
+- `Signal.Signals.signal_no_entry` → `virtual/signal-no-entry` (channel)
+- `Signal.Signals.signal_heart` → `virtual/signal-heart` (channel)
+- `Signal.Signals.signal_alert` → `virtual/signal-alert` (channel)
+- `Signal.Signals.signal_star` → `virtual/signal-star` (channel)
+- `Signal.Signals.signal_info` → `virtual/signal-info` (channel)
+- `Signal.Signals.shape_vertical` → `virtual/shape-vertical` (channel)
+- `Signal.Signals.shape_horizontal` → `virtual/shape-horizontal` (channel)
+- `Signal.Signals.shape_curve` → `virtual/shape-curve` (channel)
+- `Signal.Signals.shape_curve_2` → `virtual/shape-curve-2` (channel)
+- `Signal.Signals.shape_corner` → `virtual/shape-corner` (channel)
+- `Signal.Signals.shape_corner_2` → `virtual/shape-corner-2` (channel)
+- `Signal.Signals.shape_t` → `virtual/shape-t` (channel)
+- `Signal.Signals.shape_t_2` → `virtual/shape-t-2` (channel)
+- `Signal.Signals.shape_cross` → `virtual/shape-cross` (channel)
+- `Signal.Signals.shape_diagonal_cross` → `virtual/shape-diagonal-cross` (channel)
+- `Signal.Signals.shape_diagonal` → `virtual/shape-diagonal` (channel)
+- `Signal.Signals.shape_diagonal_2` → `virtual/shape-diagonal-2` (channel)
+- `Signal.Signals.shape_curve_3` → `virtual/shape-curve-3` (channel)
+- `Signal.Signals.shape_curve_4` → `virtual/shape-curve-4` (channel)
+- `Signal.Signals.shape_corner_4` → `virtual/shape-corner-4` (channel)
+- `Signal.Signals.shape_corner_3` → `virtual/shape-corner-3` (channel)
+- `Signal.Signals.shape_t_4` → `virtual/shape-t-4` (channel)
+- `Signal.Signals.shape_t_3` → `virtual/shape-t-3` (channel)
+- `Signal.Signals.shape_circle` → `virtual/shape-circle` (channel)
+- `Signal.Signals.signal_dot` → `virtual/signal-dot` (channel)
+- `Signal.Signals.up_arrow` → `virtual/up-arrow` (channel)
+- `Signal.Signals.up_right_arrow` → `virtual/up-right-arrow` (channel)
+- `Signal.Signals.right_arrow` → `virtual/right-arrow` (channel)
+- `Signal.Signals.down_right_arrow` → `virtual/down-right-arrow` (channel)
+- `Signal.Signals.down_arrow` → `virtual/down-arrow` (channel)
+- `Signal.Signals.down_left_arrow` → `virtual/down-left-arrow` (channel)
+- `Signal.Signals.left_arrow` → `virtual/left-arrow` (channel)
+- `Signal.Signals.up_left_arrow` → `virtual/up-left-arrow` (channel)
+- `Signal.Signals.signal_rightwards_leftwards_arrow` → `virtual/signal-rightwards-leftwards-arrow` (channel)
+- `Signal.Signals.signal_upwards_downwards_arrow` → `virtual/signal-upwards-downwards-arrow` (channel)
+- `Signal.Signals.signal_shuffle` → `virtual/signal-shuffle` (channel)
+- `Signal.Signals.signal_left_right_arrow` → `virtual/signal-left-right-arrow` (channel)
+- `Signal.Signals.signal_up_down_arrow` → `virtual/signal-up-down-arrow` (channel)
+- `Signal.Signals.signal_clockwise_circle_arrow` → `virtual/signal-clockwise-circle-arrow` (channel)
+- `Signal.Signals.signal_anticlockwise_circle_arrow` → `virtual/signal-anticlockwise-circle-arrow` (channel)
+- `Signal.Signals.signal_input` → `virtual/signal-input` (channel)
+- `Signal.Signals.signal_output` → `virtual/signal-output` (channel)
+- `Signal.Signals.signal_fuel` → `virtual/signal-fuel` (channel)
+- `Signal.Signals.signal_lightning` → `virtual/signal-lightning` (channel)
+- `Signal.Signals.signal_battery_low` → `virtual/signal-battery-low` (channel)
+- `Signal.Signals.signal_battery_mid_level` → `virtual/signal-battery-mid-level` (channel)
+- `Signal.Signals.signal_battery_full` → `virtual/signal-battery-full` (channel)
+- `Signal.Signals.signal_radioactivity` → `virtual/signal-radioactivity` (channel)
+- `Signal.Signals.signal_thermometer_blue` → `virtual/signal-thermometer-blue` (channel)
+- `Signal.Signals.signal_thermometer_red` → `virtual/signal-thermometer-red` (channel)
+- `Signal.Signals.signal_fire` → `virtual/signal-fire` (channel)
+- `Signal.Signals.signal_snowflake` → `virtual/signal-snowflake` (channel)
+- `Signal.Signals.signal_explosion` → `virtual/signal-explosion` (channel)
+- `Signal.Signals.signal_liquid` → `virtual/signal-liquid` (channel)
+- `Signal.Signals.signal_stack_size` → `virtual/signal-stack-size` (channel)
+- `Signal.Signals.signal_recycle` → `virtual/signal-recycle` (channel)
+- `Signal.Signals.signal_trash_bin` → `virtual/signal-trash-bin` (channel)
+- `Signal.Signals.signal_science_pack` → `virtual/signal-science-pack` (channel)
+- `Signal.Signals.signal_map_marker` → `virtual/signal-map-marker` (channel)
+- `Signal.Signals.signal_white_flag` → `virtual/signal-white-flag` (channel)
+- `Signal.Signals.signal_lock` → `virtual/signal-lock` (channel)
+- `Signal.Signals.signal_unlock` → `virtual/signal-unlock` (channel)
+- `Signal.Signals.signal_speed` → `virtual/signal-speed` (channel)
+- `Signal.Signals.signal_clock` → `virtual/signal-clock` (channel)
+- `Signal.Signals.signal_hourglass` → `virtual/signal-hourglass` (channel)
+- `Signal.Signals.signal_alarm` → `virtual/signal-alarm` (channel)
+- `Signal.Signals.signal_sun` → `virtual/signal-sun` (channel)
+- `Signal.Signals.signal_moon` → `virtual/signal-moon` (channel)
+- `Signal.Signals.signal_mining` → `virtual/signal-mining` (channel)
+- `Signal.Signals.signal_skull` → `virtual/signal-skull` (channel)
+- `Signal.Signals.signal_damage` → `virtual/signal-damage` (channel)
+- `Signal.Signals.signal_weapon` → `virtual/signal-weapon` (channel)
+- `Signal.Signals.signal_ghost` → `virtual/signal-ghost` (channel)
+
+#### Space
+
+- `Signal.Space.rocket_silo` → `item/rocket-silo` (channel)
+- `Signal.Space.space_platform_foundation` → `item/space-platform-foundation` (channel)
+- `Signal.Space.rocket_part` → `recipe/rocket-part` (channel)
+- `Signal.Space.space_platform_hub` → `entity/space-platform-hub` (channel)
+- `Signal.Space.cargo_landing_pad` → `item/cargo-landing-pad` (channel)
+- `Signal.Space.cargo_bay` → `item/cargo-bay` (channel)
+- `Signal.Space.landing_pad_unloading_bay` → `item/landing-pad-unloading-bay` (channel)
+- `Signal.Space.asteroid_collector` → `item/asteroid-collector` (channel)
+- `Signal.Space.cargo_pod` → `entity/cargo-pod` (channel)
+- `Signal.Space.cargo_pod_container` → `entity/cargo-pod-container` (channel)
+- `Signal.Space.crusher` → `item/crusher` (channel)
+- `Signal.Space.thruster` → `item/thruster` (channel)
+- `Signal.Space.space_platform_starter_pack` → `item/space-platform-starter-pack` (channel)
+- `Signal.Space.small_metallic_asteroid` → `entity/small-metallic-asteroid` (channel)
+- `Signal.Space.medium_metallic_asteroid` → `entity/medium-metallic-asteroid` (channel)
+- `Signal.Space.big_metallic_asteroid` → `entity/big-metallic-asteroid` (channel)
+- `Signal.Space.huge_metallic_asteroid` → `entity/huge-metallic-asteroid` (channel)
+- `Signal.Space.small_carbonic_asteroid` → `entity/small-carbonic-asteroid` (channel)
+- `Signal.Space.medium_carbonic_asteroid` → `entity/medium-carbonic-asteroid` (channel)
+- `Signal.Space.big_carbonic_asteroid` → `entity/big-carbonic-asteroid` (channel)
+- `Signal.Space.huge_carbonic_asteroid` → `entity/huge-carbonic-asteroid` (channel)
+- `Signal.Space.small_oxide_asteroid` → `entity/small-oxide-asteroid` (channel)
+- `Signal.Space.medium_oxide_asteroid` → `entity/medium-oxide-asteroid` (channel)
+- `Signal.Space.big_oxide_asteroid` → `entity/big-oxide-asteroid` (channel)
+- `Signal.Space.huge_oxide_asteroid` → `entity/huge-oxide-asteroid` (channel)
+- `Signal.Space.small_promethium_asteroid` → `entity/small-promethium-asteroid` (channel)
+- `Signal.Space.medium_promethium_asteroid` → `entity/medium-promethium-asteroid` (channel)
+- `Signal.Space.big_promethium_asteroid` → `entity/big-promethium-asteroid` (channel)
+- `Signal.Space.huge_promethium_asteroid` → `entity/huge-promethium-asteroid` (channel)
+- `Signal.Space.metallic_asteroid_chunk` → `item/metallic-asteroid-chunk` (channel)
+- `Signal.Space.carbonic_asteroid_chunk` → `item/carbonic-asteroid-chunk` (channel)
+- `Signal.Space.oxide_asteroid_chunk` → `item/oxide-asteroid-chunk` (channel)
+- `Signal.Space.promethium_asteroid_chunk` → `item/promethium-asteroid-chunk` (channel)
+- `Signal.Space.metallic_asteroid_crushing` → `recipe/metallic-asteroid-crushing` (channel)
+- `Signal.Space.carbonic_asteroid_crushing` → `recipe/carbonic-asteroid-crushing` (channel)
+- `Signal.Space.oxide_asteroid_crushing` → `recipe/oxide-asteroid-crushing` (channel)
+- `Signal.Space.metallic_asteroid_reprocessing` → `recipe/metallic-asteroid-reprocessing` (channel)
+- `Signal.Space.carbonic_asteroid_reprocessing` → `recipe/carbonic-asteroid-reprocessing` (channel)
+- `Signal.Space.oxide_asteroid_reprocessing` → `recipe/oxide-asteroid-reprocessing` (channel)
+- `Signal.Space.advanced_metallic_asteroid_crushing` → `recipe/advanced-metallic-asteroid-crushing` (channel)
+- `Signal.Space.advanced_carbonic_asteroid_crushing` → `recipe/advanced-carbonic-asteroid-crushing` (channel)
+- `Signal.Space.advanced_oxide_asteroid_crushing` → `recipe/advanced-oxide-asteroid-crushing` (channel)
+- `Signal.Space.advanced_thruster_fuel` → `recipe/advanced-thruster-fuel` (channel)
+- `Signal.Space.advanced_thruster_oxidizer` → `recipe/advanced-thruster-oxidizer` (channel)
+- `Signal.Space.nauvis` → `space-location/nauvis` (channel)
+- `Signal.Space.vulcanus` → `space-location/vulcanus` (channel)
+- `Signal.Space.gleba` → `space-location/gleba` (channel)
+- `Signal.Space.fulgora` → `space-location/fulgora` (channel)
+- `Signal.Space.aquilo` → `space-location/aquilo` (channel)
+- `Signal.Space.solar_system_edge` → `space-location/solar-system-edge` (channel)
+- `Signal.Space.shattered_planet` → `space-location/shattered-planet` (channel)
+
+#### Unsorted
+
+- `Signal.Unsorted.entity_ghost` → `entity/entity-ghost` (channel)
+- `Signal.Unsorted.item_on_ground` → `entity/item-on-ground` (channel)
+- `Signal.Unsorted.item_request_proxy` → `entity/item-request-proxy` (channel)
+- `Signal.Unsorted.tile_ghost` → `entity/tile-ghost` (channel)
+- `Signal.Unsorted.wube_logo_space_platform` → `entity/wube-logo-space-platform` (channel)
+- `Signal.Unsorted.signal_item_parameter` → `virtual/signal-item-parameter` (channel)
+- `Signal.Unsorted.signal_fuel_parameter` → `virtual/signal-fuel-parameter` (channel)
+- `Signal.Unsorted.signal_fluid_parameter` → `virtual/signal-fluid-parameter` (channel)
+- `Signal.Unsorted.signal_signal_parameter` → `virtual/signal-signal-parameter` (channel)
+- `Signal.Unsorted.normal` → `quality/normal` (channel)
+- `Signal.Unsorted.uncommon` → `quality/uncommon` (channel)
+- `Signal.Unsorted.rare` → `quality/rare` (channel)
+- `Signal.Unsorted.epic` → `quality/epic` (channel)
+- `Signal.Unsorted.legendary` → `quality/legendary` (channel)
+- `Signal.Unsorted.signal_any_quality` → `virtual/signal-any-quality` (quality-selector)
+- `Signal.Unsorted.copper_wire` → `item/copper-wire` (channel)
+- `Signal.Unsorted.green_wire` → `item/green-wire` (channel)
+- `Signal.Unsorted.red_wire` → `item/red-wire` (channel)
+- `Signal.Unsorted.spidertron_remote` → `item/spidertron-remote` (channel)
+- `Signal.Unsorted.discharge_defense_remote` → `item/discharge-defense-remote` (channel)
+- `Signal.Unsorted.artillery_targeting_remote` → `item/artillery-targeting-remote` (channel)
+
+## Что не утверждается
+
+- Точный состав меню сигналов. Для него нужен клиент той же версии и профиля.
+- `.fill` и `.empty` не являются именами прототипов Factorio и не выполняют крафт. Предметный токен от их чтения не меняется.
+- `project-item-only` у захваченного улья не является runtime-скрытием и не доказывает отсутствие сущности во вкладке врагов.
+- `chooser-observation-item-only` у биолаборатории — наблюдение пользователя без указанной версии и настроек. Оно не подтверждает весь chooser и не является флагом скрытия.
+- Отсутствующие `hide_from_signal_gui` и `item_signal_alias` не записаны как false или пустой alias. Это статус снимка, не ответ runtime.
+- Перевод через request_translation. Статус unresolved — не штатная подпись.
+- Отсутствующее hide_from_signal_gui не записано как false. Вывод для рецепта лежит в signalSelection и помечен documentation.
+- Применимость качества к каналу, если снимок её не содержит, остаётся unconfirmed.
+- Отсутствие PNG не удаляет сигнал. rocket-capacity по массе не вычисляется.
+

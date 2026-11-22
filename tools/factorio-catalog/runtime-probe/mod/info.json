@@ -1,0 +1,1 @@
+{"name":"f-logic-catalog-probe","version":"0.1.0","title":"f logic read-only prototype probe","author":"f logic","factorio_version":"2.1","dependencies":["base >= 2.1.0","? space-age"]}

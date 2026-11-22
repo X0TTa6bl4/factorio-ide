@@ -1,0 +1,74 @@
+{
+  "entries": [
+    {
+      "gameName": "normal",
+      "hidden": true,
+      "label": {
+        "en": {
+          "source": "unresolved",
+          "status": "unresolved",
+          "text": "normal"
+        },
+        "ru": {
+          "source": "unresolved",
+          "status": "unresolved",
+          "text": "normal"
+        }
+      },
+      "level": {
+        "status": "present",
+        "value": 0
+      },
+      "next": {
+        "status": "absent",
+        "value": null
+      },
+      "nextProbability": {
+        "status": "present",
+        "value": 1
+      },
+      "pathReason": "technical",
+      "prototypeId": "quality/normal",
+      "publicPath": null,
+      "role": "technical"
+    },
+    {
+      "gameName": "quality-unknown",
+      "hidden": true,
+      "label": {
+        "en": {
+          "source": "quality-name.quality-unknown",
+          "status": "snapshot",
+          "text": "Unknown"
+        },
+        "ru": {
+          "source": "quality-name.quality-unknown",
+          "status": "snapshot",
+          "text": "Неизвестно"
+        }
+      },
+      "level": {
+        "status": "present",
+        "value": 0
+      },
+      "next": {
+        "status": "absent",
+        "value": null
+      },
+      "nextProbability": {
+        "status": "absent",
+        "value": null
+      },
+      "pathReason": "technical",
+      "prototypeId": "quality/quality-unknown",
+      "publicPath": null,
+      "role": "technical"
+    }
+  ],
+  "gameVersion": "2.1.24",
+  "missingLevels": [],
+  "note": "Таблица модификаторов качества. Строки сигналов на эти уровни не размножаются. Применимость качества к каналу в строке сигнала остаётся unconfirmed, если снимок её не содержит.",
+  "observedOrdinaryLevels": [],
+  "profile": "base",
+  "schemaVersion": 1
+}

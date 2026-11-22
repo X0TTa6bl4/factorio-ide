@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "capturedOn": "2026-11-18",
+  "gameVersion": "2.1.24",
+  "build": 87808,
+  "platform": "linux64 headless",
+  "execution": "Docker linux/amd64",
+  "archiveUrl": "https://factorio.com/get-download/2.1.24/headless/linux64",
+  "archiveSha256": "c49b66cff90aceff87b30f2973af0df7f51712cb2ee3153e0169d9bed46a964f",
+  "menuConfirmed": false,
+  "translationRequested": false,
+  "counts": {
+    "base": 1218,
+    "space-age": 2249
+  },
+  "outputs": [
+    {
+      "path": "base.json",
+      "sha256": "5df0eca8fa1c552fff90755f258d3f2a30b0f73212b554f8c2053e2a57e06b7d"
+    },
+    {
+      "path": "space-age.json",
+      "sha256": "894dd143b3a6d6a24c515fe7e91ff9e39c0daee23090cd205ee6517dc4034df1"
+    }
+  ],
+  "probeSources": [
+    {
+      "path": "tools/factorio-catalog/runtime-probe/mod/info.json",
+      "sha256": "fc97a2e53349881fef2da302c76fea395bcdaa8d4a4c0500166472c902fd77ce"
+    },
+    {
+      "path": "tools/factorio-catalog/runtime-probe/mod/control.lua",
+      "sha256": "77566339af454fe46a3f84f52c0ef63cd130e8389dcb5aefd4bba5af0a92c9d1"
+    },
+    {
+      "path": "tools/factorio-catalog/runtime-probe/run.sh",
+      "sha256": "87ad957dfe3e11140d7c38b267444555e530d98e24c2d4d58dd057da6ceca791"
+    }
+  ]
+}

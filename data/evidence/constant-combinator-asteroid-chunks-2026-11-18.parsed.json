@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "source": "user blueprint export",
+  "observedOn": "2026-11-18",
+  "gameVersionNote": "Пользователь не указал версию текстом. blueprint.version 562954249961473 декодируется как 2.1.24, младшие 16 бит равны 1.",
+  "origin": "constant-combinator chooser, не консоль",
+  "file": "constant-combinator-asteroid-chunks-2026-11-18.blueprint.txt",
+  "sections": [
+    {
+      "index": 1,
+      "userLabel": "куски",
+      "filters": [
+        { "slot": 1, "type": "item", "name": "metallic-asteroid-chunk", "prototypeId": "item/metallic-asteroid-chunk" },
+        { "slot": 2, "type": "item", "name": "carbonic-asteroid-chunk", "prototypeId": "item/carbonic-asteroid-chunk" },
+        { "slot": 3, "type": "item", "name": "oxide-asteroid-chunk", "prototypeId": "item/oxide-asteroid-chunk" },
+        { "slot": 4, "type": "item", "name": "promethium-asteroid-chunk", "prototypeId": "item/promethium-asteroid-chunk" }
+      ],
+      "note": "В JSON секции поле type отсутствует. У фильтров второй секции type записан как entity. По SignalID 2.1.24 отсутствующий type означает item."
+    },
+    {
+      "index": 2,
+      "userLabel": "астероиды",
+      "filters": [
+        { "slot": 1, "type": "entity", "name": "small-metallic-asteroid" },
+        { "slot": 2, "type": "entity", "name": "medium-metallic-asteroid" },
+        { "slot": 3, "type": "entity", "name": "big-metallic-asteroid" },
+        { "slot": 4, "type": "entity", "name": "huge-metallic-asteroid" },
+        { "slot": 5, "type": "entity", "name": "small-carbonic-asteroid" },
+        { "slot": 6, "type": "entity", "name": "medium-carbonic-asteroid" },
+        { "slot": 7, "type": "entity", "name": "big-carbonic-asteroid" },
+        { "slot": 8, "type": "entity", "name": "huge-carbonic-asteroid" },
+        { "slot": 9, "type": "entity", "name": "small-oxide-asteroid" },
+        { "slot": 10, "type": "entity", "name": "medium-oxide-asteroid" },
+        { "slot": 11, "type": "entity", "name": "big-oxide-asteroid" },
+        { "slot": 12, "type": "entity", "name": "huge-oxide-asteroid" },
+        { "slot": 13, "type": "entity", "name": "small-promethium-asteroid" },
+        { "slot": 14, "type": "entity", "name": "medium-promethium-asteroid" },
+        { "slot": 15, "type": "entity", "name": "big-promethium-asteroid" },
+        { "slot": 16, "type": "entity", "name": "huge-promethium-asteroid" }
+      ],
+      "note": "Летящие астероиды в космосе; не asteroid-chunk/… и не куски item/…-asteroid-chunk."
+    }
+  ],
+  "task0002ChunkMapping": {
+    "publicPathOwner": "item",
+    "pairs": [
+      {
+        "publicPath": "Signal.Space.metallic_asteroid_chunk",
+        "chooserPrototypeId": "item/metallic-asteroid-chunk",
+        "companionWithoutPath": "asteroid-chunk/metallic-asteroid-chunk"
+      },
+      {
+        "publicPath": "Signal.Space.carbonic_asteroid_chunk",
+        "chooserPrototypeId": "item/carbonic-asteroid-chunk",
+        "companionWithoutPath": "asteroid-chunk/carbonic-asteroid-chunk"
+      },
+      {
+        "publicPath": "Signal.Space.oxide_asteroid_chunk",
+        "chooserPrototypeId": "item/oxide-asteroid-chunk",
+        "companionWithoutPath": "asteroid-chunk/oxide-asteroid-chunk"
+      },
+      {
+        "publicPath": "Signal.Space.promethium_asteroid_chunk",
+        "chooserPrototypeId": "item/promethium-asteroid-chunk",
+        "companionWithoutPath": "asteroid-chunk/promethium-asteroid-chunk"
+      }
+    ]
+  }
+}

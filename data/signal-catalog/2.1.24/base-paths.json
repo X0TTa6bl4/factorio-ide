@@ -1,0 +1,3997 @@
+{
+  "gameVersion": "2.1.24",
+  "paths": {
+    "Signal.Combat.artillery_shell": {
+      "channel": true,
+      "gameName": "artillery-shell",
+      "gameType": "item",
+      "prototypeId": "item/artillery-shell",
+      "role": "ordinary"
+    },
+    "Signal.Combat.artillery_turret": {
+      "channel": true,
+      "gameName": "artillery-turret",
+      "gameType": "item",
+      "prototypeId": "item/artillery-turret",
+      "role": "ordinary"
+    },
+    "Signal.Combat.atomic_bomb": {
+      "channel": true,
+      "gameName": "atomic-bomb",
+      "gameType": "item",
+      "prototypeId": "item/atomic-bomb",
+      "role": "ordinary"
+    },
+    "Signal.Combat.battery_equipment": {
+      "channel": true,
+      "gameName": "battery-equipment",
+      "gameType": "item",
+      "prototypeId": "item/battery-equipment",
+      "role": "ordinary"
+    },
+    "Signal.Combat.battery_mk2_equipment": {
+      "channel": true,
+      "gameName": "battery-mk2-equipment",
+      "gameType": "item",
+      "prototypeId": "item/battery-mk2-equipment",
+      "role": "ordinary"
+    },
+    "Signal.Combat.belt_immunity_equipment": {
+      "channel": true,
+      "gameName": "belt-immunity-equipment",
+      "gameType": "item",
+      "prototypeId": "item/belt-immunity-equipment",
+      "role": "ordinary"
+    },
+    "Signal.Combat.cannon_shell": {
+      "channel": true,
+      "gameName": "cannon-shell",
+      "gameType": "item",
+      "prototypeId": "item/cannon-shell",
+      "role": "ordinary"
+    },
+    "Signal.Combat.cluster_grenade": {
+      "channel": true,
+      "gameName": "cluster-grenade",
+      "gameType": "item",
+      "prototypeId": "item/cluster-grenade",
+      "role": "ordinary"
+    },
+    "Signal.Combat.combat_shotgun": {
+      "channel": true,
+      "gameName": "combat-shotgun",
+      "gameType": "item",
+      "prototypeId": "item/combat-shotgun",
+      "role": "ordinary"
+    },
+    "Signal.Combat.defender": {
+      "channel": true,
+      "gameName": "defender",
+      "gameType": "entity",
+      "prototypeId": "entity/defender",
+      "role": "ordinary"
+    },
+    "Signal.Combat.defender_capsule": {
+      "channel": true,
+      "gameName": "defender-capsule",
+      "gameType": "item",
+      "prototypeId": "item/defender-capsule",
+      "role": "ordinary"
+    },
+    "Signal.Combat.destroyer": {
+      "channel": true,
+      "gameName": "destroyer",
+      "gameType": "entity",
+      "prototypeId": "entity/destroyer",
+      "role": "ordinary"
+    },
+    "Signal.Combat.destroyer_capsule": {
+      "channel": true,
+      "gameName": "destroyer-capsule",
+      "gameType": "item",
+      "prototypeId": "item/destroyer-capsule",
+      "role": "ordinary"
+    },
+    "Signal.Combat.discharge_defense_equipment": {
+      "channel": true,
+      "gameName": "discharge-defense-equipment",
+      "gameType": "item",
+      "prototypeId": "item/discharge-defense-equipment",
+      "role": "ordinary"
+    },
+    "Signal.Combat.distractor": {
+      "channel": true,
+      "gameName": "distractor",
+      "gameType": "entity",
+      "prototypeId": "entity/distractor",
+      "role": "ordinary"
+    },
+    "Signal.Combat.distractor_capsule": {
+      "channel": true,
+      "gameName": "distractor-capsule",
+      "gameType": "item",
+      "prototypeId": "item/distractor-capsule",
+      "role": "ordinary"
+    },
+    "Signal.Combat.energy_shield_equipment": {
+      "channel": true,
+      "gameName": "energy-shield-equipment",
+      "gameType": "item",
+      "prototypeId": "item/energy-shield-equipment",
+      "role": "ordinary"
+    },
+    "Signal.Combat.energy_shield_mk2_equipment": {
+      "channel": true,
+      "gameName": "energy-shield-mk2-equipment",
+      "gameType": "item",
+      "prototypeId": "item/energy-shield-mk2-equipment",
+      "role": "ordinary"
+    },
+    "Signal.Combat.exoskeleton_equipment": {
+      "channel": true,
+      "gameName": "exoskeleton-equipment",
+      "gameType": "item",
+      "prototypeId": "item/exoskeleton-equipment",
+      "role": "ordinary"
+    },
+    "Signal.Combat.explosive_cannon_shell": {
+      "channel": true,
+      "gameName": "explosive-cannon-shell",
+      "gameType": "item",
+      "prototypeId": "item/explosive-cannon-shell",
+      "role": "ordinary"
+    },
+    "Signal.Combat.explosive_rocket": {
+      "channel": true,
+      "gameName": "explosive-rocket",
+      "gameType": "item",
+      "prototypeId": "item/explosive-rocket",
+      "role": "ordinary"
+    },
+    "Signal.Combat.explosive_uranium_cannon_shell": {
+      "channel": true,
+      "gameName": "explosive-uranium-cannon-shell",
+      "gameType": "item",
+      "prototypeId": "item/explosive-uranium-cannon-shell",
+      "role": "ordinary"
+    },
+    "Signal.Combat.firearm_magazine": {
+      "channel": true,
+      "gameName": "firearm-magazine",
+      "gameType": "item",
+      "prototypeId": "item/firearm-magazine",
+      "role": "ordinary"
+    },
+    "Signal.Combat.fission_reactor_equipment": {
+      "channel": true,
+      "gameName": "fission-reactor-equipment",
+      "gameType": "item",
+      "prototypeId": "item/fission-reactor-equipment",
+      "role": "ordinary"
+    },
+    "Signal.Combat.flamethrower": {
+      "channel": true,
+      "gameName": "flamethrower",
+      "gameType": "item",
+      "prototypeId": "item/flamethrower",
+      "role": "ordinary"
+    },
+    "Signal.Combat.flamethrower_ammo": {
+      "channel": true,
+      "gameName": "flamethrower-ammo",
+      "gameType": "item",
+      "prototypeId": "item/flamethrower-ammo",
+      "role": "ordinary"
+    },
+    "Signal.Combat.flamethrower_turret": {
+      "channel": true,
+      "gameName": "flamethrower-turret",
+      "gameType": "item",
+      "prototypeId": "item/flamethrower-turret",
+      "role": "ordinary"
+    },
+    "Signal.Combat.gate": {
+      "channel": true,
+      "gameName": "gate",
+      "gameType": "item",
+      "prototypeId": "item/gate",
+      "role": "ordinary"
+    },
+    "Signal.Combat.grenade": {
+      "channel": true,
+      "gameName": "grenade",
+      "gameType": "item",
+      "prototypeId": "item/grenade",
+      "role": "ordinary"
+    },
+    "Signal.Combat.gun_turret": {
+      "channel": true,
+      "gameName": "gun-turret",
+      "gameType": "item",
+      "prototypeId": "item/gun-turret",
+      "role": "ordinary"
+    },
+    "Signal.Combat.heavy_armor": {
+      "channel": true,
+      "gameName": "heavy-armor",
+      "gameType": "item",
+      "prototypeId": "item/heavy-armor",
+      "role": "ordinary"
+    },
+    "Signal.Combat.land_mine": {
+      "channel": true,
+      "gameName": "land-mine",
+      "gameType": "item",
+      "prototypeId": "item/land-mine",
+      "role": "ordinary"
+    },
+    "Signal.Combat.laser_turret": {
+      "channel": true,
+      "gameName": "laser-turret",
+      "gameType": "item",
+      "prototypeId": "item/laser-turret",
+      "role": "ordinary"
+    },
+    "Signal.Combat.light_armor": {
+      "channel": true,
+      "gameName": "light-armor",
+      "gameType": "item",
+      "prototypeId": "item/light-armor",
+      "role": "ordinary"
+    },
+    "Signal.Combat.modular_armor": {
+      "channel": true,
+      "gameName": "modular-armor",
+      "gameType": "item",
+      "prototypeId": "item/modular-armor",
+      "role": "ordinary"
+    },
+    "Signal.Combat.night_vision_equipment": {
+      "channel": true,
+      "gameName": "night-vision-equipment",
+      "gameType": "item",
+      "prototypeId": "item/night-vision-equipment",
+      "role": "ordinary"
+    },
+    "Signal.Combat.personal_laser_defense_equipment": {
+      "channel": true,
+      "gameName": "personal-laser-defense-equipment",
+      "gameType": "item",
+      "prototypeId": "item/personal-laser-defense-equipment",
+      "role": "ordinary"
+    },
+    "Signal.Combat.personal_roboport_equipment": {
+      "channel": true,
+      "gameName": "personal-roboport-equipment",
+      "gameType": "item",
+      "prototypeId": "item/personal-roboport-equipment",
+      "role": "ordinary"
+    },
+    "Signal.Combat.personal_roboport_mk2_equipment": {
+      "channel": true,
+      "gameName": "personal-roboport-mk2-equipment",
+      "gameType": "item",
+      "prototypeId": "item/personal-roboport-mk2-equipment",
+      "role": "ordinary"
+    },
+    "Signal.Combat.piercing_rounds_magazine": {
+      "channel": true,
+      "gameName": "piercing-rounds-magazine",
+      "gameType": "item",
+      "prototypeId": "item/piercing-rounds-magazine",
+      "role": "ordinary"
+    },
+    "Signal.Combat.piercing_shotgun_shell": {
+      "channel": true,
+      "gameName": "piercing-shotgun-shell",
+      "gameType": "item",
+      "prototypeId": "item/piercing-shotgun-shell",
+      "role": "ordinary"
+    },
+    "Signal.Combat.pistol": {
+      "channel": true,
+      "gameName": "pistol",
+      "gameType": "item",
+      "prototypeId": "item/pistol",
+      "role": "ordinary"
+    },
+    "Signal.Combat.poison_capsule": {
+      "channel": true,
+      "gameName": "poison-capsule",
+      "gameType": "item",
+      "prototypeId": "item/poison-capsule",
+      "role": "ordinary"
+    },
+    "Signal.Combat.power_armor": {
+      "channel": true,
+      "gameName": "power-armor",
+      "gameType": "item",
+      "prototypeId": "item/power-armor",
+      "role": "ordinary"
+    },
+    "Signal.Combat.power_armor_mk2": {
+      "channel": true,
+      "gameName": "power-armor-mk2",
+      "gameType": "item",
+      "prototypeId": "item/power-armor-mk2",
+      "role": "ordinary"
+    },
+    "Signal.Combat.radar": {
+      "channel": true,
+      "gameName": "radar",
+      "gameType": "item",
+      "prototypeId": "item/radar",
+      "role": "ordinary"
+    },
+    "Signal.Combat.rocket": {
+      "channel": true,
+      "gameName": "rocket",
+      "gameType": "item",
+      "prototypeId": "item/rocket",
+      "role": "ordinary"
+    },
+    "Signal.Combat.rocket_launcher": {
+      "channel": true,
+      "gameName": "rocket-launcher",
+      "gameType": "item",
+      "prototypeId": "item/rocket-launcher",
+      "role": "ordinary"
+    },
+    "Signal.Combat.shotgun": {
+      "channel": true,
+      "gameName": "shotgun",
+      "gameType": "item",
+      "prototypeId": "item/shotgun",
+      "role": "ordinary"
+    },
+    "Signal.Combat.shotgun_shell": {
+      "channel": true,
+      "gameName": "shotgun-shell",
+      "gameType": "item",
+      "prototypeId": "item/shotgun-shell",
+      "role": "ordinary"
+    },
+    "Signal.Combat.slowdown_capsule": {
+      "channel": true,
+      "gameName": "slowdown-capsule",
+      "gameType": "item",
+      "prototypeId": "item/slowdown-capsule",
+      "role": "ordinary"
+    },
+    "Signal.Combat.solar_panel_equipment": {
+      "channel": true,
+      "gameName": "solar-panel-equipment",
+      "gameType": "item",
+      "prototypeId": "item/solar-panel-equipment",
+      "role": "ordinary"
+    },
+    "Signal.Combat.stone_wall": {
+      "channel": true,
+      "gameName": "stone-wall",
+      "gameType": "item",
+      "prototypeId": "item/stone-wall",
+      "role": "ordinary"
+    },
+    "Signal.Combat.submachine_gun": {
+      "channel": true,
+      "gameName": "submachine-gun",
+      "gameType": "item",
+      "prototypeId": "item/submachine-gun",
+      "role": "ordinary"
+    },
+    "Signal.Combat.uranium_cannon_shell": {
+      "channel": true,
+      "gameName": "uranium-cannon-shell",
+      "gameType": "item",
+      "prototypeId": "item/uranium-cannon-shell",
+      "role": "ordinary"
+    },
+    "Signal.Combat.uranium_rounds_magazine": {
+      "channel": true,
+      "gameName": "uranium-rounds-magazine",
+      "gameType": "item",
+      "prototypeId": "item/uranium-rounds-magazine",
+      "role": "ordinary"
+    },
+    "Signal.Enemies.behemoth_biter": {
+      "channel": true,
+      "gameName": "behemoth-biter",
+      "gameType": "entity",
+      "prototypeId": "entity/behemoth-biter",
+      "role": "ordinary"
+    },
+    "Signal.Enemies.behemoth_spitter": {
+      "channel": true,
+      "gameName": "behemoth-spitter",
+      "gameType": "entity",
+      "prototypeId": "entity/behemoth-spitter",
+      "role": "ordinary"
+    },
+    "Signal.Enemies.behemoth_worm_turret": {
+      "channel": true,
+      "gameName": "behemoth-worm-turret",
+      "gameType": "entity",
+      "prototypeId": "entity/behemoth-worm-turret",
+      "role": "ordinary"
+    },
+    "Signal.Enemies.big_biter": {
+      "channel": true,
+      "gameName": "big-biter",
+      "gameType": "entity",
+      "prototypeId": "entity/big-biter",
+      "role": "ordinary"
+    },
+    "Signal.Enemies.big_spitter": {
+      "channel": true,
+      "gameName": "big-spitter",
+      "gameType": "entity",
+      "prototypeId": "entity/big-spitter",
+      "role": "ordinary"
+    },
+    "Signal.Enemies.big_worm_turret": {
+      "channel": true,
+      "gameName": "big-worm-turret",
+      "gameType": "entity",
+      "prototypeId": "entity/big-worm-turret",
+      "role": "ordinary"
+    },
+    "Signal.Enemies.biter_spawner": {
+      "channel": true,
+      "gameName": "biter-spawner",
+      "gameType": "entity",
+      "prototypeId": "entity/biter-spawner",
+      "role": "ordinary"
+    },
+    "Signal.Enemies.medium_biter": {
+      "channel": true,
+      "gameName": "medium-biter",
+      "gameType": "entity",
+      "prototypeId": "entity/medium-biter",
+      "role": "ordinary"
+    },
+    "Signal.Enemies.medium_spitter": {
+      "channel": true,
+      "gameName": "medium-spitter",
+      "gameType": "entity",
+      "prototypeId": "entity/medium-spitter",
+      "role": "ordinary"
+    },
+    "Signal.Enemies.medium_worm_turret": {
+      "channel": true,
+      "gameName": "medium-worm-turret",
+      "gameType": "entity",
+      "prototypeId": "entity/medium-worm-turret",
+      "role": "ordinary"
+    },
+    "Signal.Enemies.small_biter": {
+      "channel": true,
+      "gameName": "small-biter",
+      "gameType": "entity",
+      "prototypeId": "entity/small-biter",
+      "role": "ordinary"
+    },
+    "Signal.Enemies.small_spitter": {
+      "channel": true,
+      "gameName": "small-spitter",
+      "gameType": "entity",
+      "prototypeId": "entity/small-spitter",
+      "role": "ordinary"
+    },
+    "Signal.Enemies.small_worm_turret": {
+      "channel": true,
+      "gameName": "small-worm-turret",
+      "gameType": "entity",
+      "prototypeId": "entity/small-worm-turret",
+      "role": "ordinary"
+    },
+    "Signal.Enemies.spitter_spawner": {
+      "channel": true,
+      "gameName": "spitter-spawner",
+      "gameType": "entity",
+      "prototypeId": "entity/spitter-spawner",
+      "role": "ordinary"
+    },
+    "Signal.Environment.accumulator_remnants": {
+      "channel": true,
+      "gameName": "accumulator-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/accumulator-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.active_provider_chest_remnants": {
+      "channel": true,
+      "gameName": "active-provider-chest-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/active-provider-chest-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.arithmetic_combinator_remnants": {
+      "channel": true,
+      "gameName": "arithmetic-combinator-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/arithmetic-combinator-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.artillery_turret_remnants": {
+      "channel": true,
+      "gameName": "artillery-turret-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/artillery-turret-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.artillery_wagon_remnants": {
+      "channel": true,
+      "gameName": "artillery-wagon-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/artillery-wagon-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.assembling_machine_1_remnants": {
+      "channel": true,
+      "gameName": "assembling-machine-1-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/assembling-machine-1-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.assembling_machine_2_remnants": {
+      "channel": true,
+      "gameName": "assembling-machine-2-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/assembling-machine-2-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.assembling_machine_3_remnants": {
+      "channel": true,
+      "gameName": "assembling-machine-3-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/assembling-machine-3-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.beacon_remnants": {
+      "channel": true,
+      "gameName": "beacon-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/beacon-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.behemoth_biter_corpse": {
+      "channel": true,
+      "gameName": "behemoth-biter-corpse",
+      "gameType": "entity",
+      "prototypeId": "entity/behemoth-biter-corpse",
+      "role": "ordinary"
+    },
+    "Signal.Environment.behemoth_spitter_corpse": {
+      "channel": true,
+      "gameName": "behemoth-spitter-corpse",
+      "gameType": "entity",
+      "prototypeId": "entity/behemoth-spitter-corpse",
+      "role": "ordinary"
+    },
+    "Signal.Environment.behemoth_worm_corpse": {
+      "channel": true,
+      "gameName": "behemoth-worm-corpse",
+      "gameType": "entity",
+      "prototypeId": "entity/behemoth-worm-corpse",
+      "role": "ordinary"
+    },
+    "Signal.Environment.behemoth_worm_corpse_burrowed": {
+      "channel": true,
+      "gameName": "behemoth-worm-corpse-burrowed",
+      "gameType": "entity",
+      "prototypeId": "entity/behemoth-worm-corpse-burrowed",
+      "role": "ordinary"
+    },
+    "Signal.Environment.big_biter_corpse": {
+      "channel": true,
+      "gameName": "big-biter-corpse",
+      "gameType": "entity",
+      "prototypeId": "entity/big-biter-corpse",
+      "role": "ordinary"
+    },
+    "Signal.Environment.big_electric_pole_remnants": {
+      "channel": true,
+      "gameName": "big-electric-pole-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/big-electric-pole-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.big_remnants": {
+      "channel": true,
+      "gameName": "big-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/big-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.big_rock": {
+      "channel": true,
+      "gameName": "big-rock",
+      "gameType": "entity",
+      "prototypeId": "entity/big-rock",
+      "role": "ordinary"
+    },
+    "Signal.Environment.big_sand_rock": {
+      "channel": true,
+      "gameName": "big-sand-rock",
+      "gameType": "entity",
+      "prototypeId": "entity/big-sand-rock",
+      "role": "ordinary"
+    },
+    "Signal.Environment.big_scorchmark": {
+      "channel": true,
+      "gameName": "big-scorchmark",
+      "gameType": "entity",
+      "prototypeId": "entity/big-scorchmark",
+      "role": "ordinary"
+    },
+    "Signal.Environment.big_scorchmark_tintable": {
+      "channel": true,
+      "gameName": "big-scorchmark-tintable",
+      "gameType": "entity",
+      "prototypeId": "entity/big-scorchmark-tintable",
+      "role": "ordinary"
+    },
+    "Signal.Environment.big_spitter_corpse": {
+      "channel": true,
+      "gameName": "big-spitter-corpse",
+      "gameType": "entity",
+      "prototypeId": "entity/big-spitter-corpse",
+      "role": "ordinary"
+    },
+    "Signal.Environment.big_worm_corpse": {
+      "channel": true,
+      "gameName": "big-worm-corpse",
+      "gameType": "entity",
+      "prototypeId": "entity/big-worm-corpse",
+      "role": "ordinary"
+    },
+    "Signal.Environment.big_worm_corpse_burrowed": {
+      "channel": true,
+      "gameName": "big-worm-corpse-burrowed",
+      "gameType": "entity",
+      "prototypeId": "entity/big-worm-corpse-burrowed",
+      "role": "ordinary"
+    },
+    "Signal.Environment.biter_spawner_corpse": {
+      "channel": true,
+      "gameName": "biter-spawner-corpse",
+      "gameType": "entity",
+      "prototypeId": "entity/biter-spawner-corpse",
+      "role": "ordinary"
+    },
+    "Signal.Environment.boiler_remnants": {
+      "channel": true,
+      "gameName": "boiler-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/boiler-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.buffer_chest_remnants": {
+      "channel": true,
+      "gameName": "buffer-chest-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/buffer-chest-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.bulk_inserter_remnants": {
+      "channel": true,
+      "gameName": "bulk-inserter-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/bulk-inserter-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.burner_inserter_remnants": {
+      "channel": true,
+      "gameName": "burner-inserter-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/burner-inserter-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.burner_mining_drill_remnants": {
+      "channel": true,
+      "gameName": "burner-mining-drill-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/burner-mining-drill-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.car_remnants": {
+      "channel": true,
+      "gameName": "car-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/car-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.cargo_landing_pad_remnants": {
+      "channel": true,
+      "gameName": "cargo-landing-pad-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/cargo-landing-pad-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.cargo_pod_container_remnants": {
+      "channel": true,
+      "gameName": "cargo-pod-container-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/cargo-pod-container-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.cargo_wagon_remnants": {
+      "channel": true,
+      "gameName": "cargo-wagon-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/cargo-wagon-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.centrifuge_remnants": {
+      "channel": true,
+      "gameName": "centrifuge-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/centrifuge-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.character": {
+      "channel": true,
+      "gameName": "character",
+      "gameType": "entity",
+      "prototypeId": "entity/character",
+      "role": "ordinary"
+    },
+    "Signal.Environment.chemical_plant_remnants": {
+      "channel": true,
+      "gameName": "chemical-plant-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/chemical-plant-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.cliff": {
+      "channel": true,
+      "gameName": "cliff",
+      "gameType": "entity",
+      "prototypeId": "entity/cliff",
+      "role": "ordinary"
+    },
+    "Signal.Environment.constant_combinator_remnants": {
+      "channel": true,
+      "gameName": "constant-combinator-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/constant-combinator-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.construction_robot_remnants": {
+      "channel": true,
+      "gameName": "construction-robot-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/construction-robot-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.crude_oil": {
+      "channel": true,
+      "gameName": "crude-oil",
+      "gameType": "entity",
+      "prototypeId": "entity/crude-oil",
+      "role": "ordinary"
+    },
+    "Signal.Environment.curved_rail_a_remnants": {
+      "channel": true,
+      "gameName": "curved-rail-a-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/curved-rail-a-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.curved_rail_b_remnants": {
+      "channel": true,
+      "gameName": "curved-rail-b-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/curved-rail-b-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.dead_dry_hairy_tree": {
+      "channel": true,
+      "gameName": "dead-dry-hairy-tree",
+      "gameType": "entity",
+      "prototypeId": "entity/dead-dry-hairy-tree",
+      "role": "ordinary"
+    },
+    "Signal.Environment.dead_grey_trunk": {
+      "channel": true,
+      "gameName": "dead-grey-trunk",
+      "gameType": "entity",
+      "prototypeId": "entity/dead-grey-trunk",
+      "role": "ordinary"
+    },
+    "Signal.Environment.dead_tree_desert": {
+      "channel": true,
+      "gameName": "dead-tree-desert",
+      "gameType": "entity",
+      "prototypeId": "entity/dead-tree-desert",
+      "role": "ordinary"
+    },
+    "Signal.Environment.decider_combinator_remnants": {
+      "channel": true,
+      "gameName": "decider-combinator-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/decider-combinator-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.defender_remnants": {
+      "channel": true,
+      "gameName": "defender-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/defender-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.destroyer_remnants": {
+      "channel": true,
+      "gameName": "destroyer-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/destroyer-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.display_panel_remnants": {
+      "channel": true,
+      "gameName": "display-panel-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/display-panel-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.distractor_remnants": {
+      "channel": true,
+      "gameName": "distractor-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/distractor-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.dry_hairy_tree": {
+      "channel": true,
+      "gameName": "dry-hairy-tree",
+      "gameType": "entity",
+      "prototypeId": "entity/dry-hairy-tree",
+      "role": "ordinary"
+    },
+    "Signal.Environment.dry_tree": {
+      "channel": true,
+      "gameName": "dry-tree",
+      "gameType": "entity",
+      "prototypeId": "entity/dry-tree",
+      "role": "ordinary"
+    },
+    "Signal.Environment.electric_furnace_remnants": {
+      "channel": true,
+      "gameName": "electric-furnace-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/electric-furnace-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.electric_mining_drill_remnants": {
+      "channel": true,
+      "gameName": "electric-mining-drill-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/electric-mining-drill-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.express_splitter_remnants": {
+      "channel": true,
+      "gameName": "express-splitter-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/express-splitter-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.express_transport_belt_remnants": {
+      "channel": true,
+      "gameName": "express-transport-belt-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/express-transport-belt-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.express_underground_belt_remnants": {
+      "channel": true,
+      "gameName": "express-underground-belt-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/express-underground-belt-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.fast_inserter_remnants": {
+      "channel": true,
+      "gameName": "fast-inserter-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/fast-inserter-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.fast_splitter_remnants": {
+      "channel": true,
+      "gameName": "fast-splitter-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/fast-splitter-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.fast_transport_belt_remnants": {
+      "channel": true,
+      "gameName": "fast-transport-belt-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/fast-transport-belt-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.fast_underground_belt_remnants": {
+      "channel": true,
+      "gameName": "fast-underground-belt-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/fast-underground-belt-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.fish": {
+      "channel": true,
+      "gameName": "fish",
+      "gameType": "entity",
+      "prototypeId": "entity/fish",
+      "role": "ordinary"
+    },
+    "Signal.Environment.flamethrower_turret_remnants": {
+      "channel": true,
+      "gameName": "flamethrower-turret-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/flamethrower-turret-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.fluid_wagon_remnants": {
+      "channel": true,
+      "gameName": "fluid-wagon-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/fluid-wagon-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.gate_remnants": {
+      "channel": true,
+      "gameName": "gate-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/gate-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.gun_turret_remnants": {
+      "channel": true,
+      "gameName": "gun-turret-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/gun-turret-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.half_diagonal_rail_remnants": {
+      "channel": true,
+      "gameName": "half-diagonal-rail-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/half-diagonal-rail-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.heat_exchanger_remnants": {
+      "channel": true,
+      "gameName": "heat-exchanger-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/heat-exchanger-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.heat_pipe_remnants": {
+      "channel": true,
+      "gameName": "heat-pipe-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/heat-pipe-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.huge_rock": {
+      "channel": true,
+      "gameName": "huge-rock",
+      "gameType": "entity",
+      "prototypeId": "entity/huge-rock",
+      "role": "ordinary"
+    },
+    "Signal.Environment.huge_scorchmark": {
+      "channel": true,
+      "gameName": "huge-scorchmark",
+      "gameType": "entity",
+      "prototypeId": "entity/huge-scorchmark",
+      "role": "ordinary"
+    },
+    "Signal.Environment.huge_scorchmark_tintable": {
+      "channel": true,
+      "gameName": "huge-scorchmark-tintable",
+      "gameType": "entity",
+      "prototypeId": "entity/huge-scorchmark-tintable",
+      "role": "ordinary"
+    },
+    "Signal.Environment.inserter_remnants": {
+      "channel": true,
+      "gameName": "inserter-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/inserter-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.iron_chest_remnants": {
+      "channel": true,
+      "gameName": "iron-chest-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/iron-chest-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.lab_remnants": {
+      "channel": true,
+      "gameName": "lab-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/lab-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.lamp_remnants": {
+      "channel": true,
+      "gameName": "lamp-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/lamp-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.land_mine_remnants": {
+      "channel": true,
+      "gameName": "land-mine-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/land-mine-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.laser_turret_remnants": {
+      "channel": true,
+      "gameName": "laser-turret-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/laser-turret-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.legacy_curved_rail_remnants": {
+      "channel": true,
+      "gameName": "legacy-curved-rail-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/legacy-curved-rail-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.legacy_straight_rail_remnants": {
+      "channel": true,
+      "gameName": "legacy-straight-rail-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/legacy-straight-rail-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.locomotive_remnants": {
+      "channel": true,
+      "gameName": "locomotive-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/locomotive-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.logistic_robot_remnants": {
+      "channel": true,
+      "gameName": "logistic-robot-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/logistic-robot-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.long_handed_inserter_remnants": {
+      "channel": true,
+      "gameName": "long-handed-inserter-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/long-handed-inserter-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.medium_biter_corpse": {
+      "channel": true,
+      "gameName": "medium-biter-corpse",
+      "gameType": "entity",
+      "prototypeId": "entity/medium-biter-corpse",
+      "role": "ordinary"
+    },
+    "Signal.Environment.medium_electric_pole_remnants": {
+      "channel": true,
+      "gameName": "medium-electric-pole-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/medium-electric-pole-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.medium_remnants": {
+      "channel": true,
+      "gameName": "medium-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/medium-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.medium_scorchmark": {
+      "channel": true,
+      "gameName": "medium-scorchmark",
+      "gameType": "entity",
+      "prototypeId": "entity/medium-scorchmark",
+      "role": "ordinary"
+    },
+    "Signal.Environment.medium_scorchmark_tintable": {
+      "channel": true,
+      "gameName": "medium-scorchmark-tintable",
+      "gameType": "entity",
+      "prototypeId": "entity/medium-scorchmark-tintable",
+      "role": "ordinary"
+    },
+    "Signal.Environment.medium_small_remnants": {
+      "channel": true,
+      "gameName": "medium-small-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/medium-small-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.medium_spitter_corpse": {
+      "channel": true,
+      "gameName": "medium-spitter-corpse",
+      "gameType": "entity",
+      "prototypeId": "entity/medium-spitter-corpse",
+      "role": "ordinary"
+    },
+    "Signal.Environment.medium_worm_corpse": {
+      "channel": true,
+      "gameName": "medium-worm-corpse",
+      "gameType": "entity",
+      "prototypeId": "entity/medium-worm-corpse",
+      "role": "ordinary"
+    },
+    "Signal.Environment.medium_worm_corpse_burrowed": {
+      "channel": true,
+      "gameName": "medium-worm-corpse-burrowed",
+      "gameType": "entity",
+      "prototypeId": "entity/medium-worm-corpse-burrowed",
+      "role": "ordinary"
+    },
+    "Signal.Environment.nuclear_reactor_remnants": {
+      "channel": true,
+      "gameName": "nuclear-reactor-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/nuclear-reactor-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.offshore_pump_remnants": {
+      "channel": true,
+      "gameName": "offshore-pump-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/offshore-pump-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.oil_refinery_remnants": {
+      "channel": true,
+      "gameName": "oil-refinery-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/oil-refinery-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.passive_provider_chest_remnants": {
+      "channel": true,
+      "gameName": "passive-provider-chest-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/passive-provider-chest-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.pipe_remnants": {
+      "channel": true,
+      "gameName": "pipe-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/pipe-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.pipe_to_ground_remnants": {
+      "channel": true,
+      "gameName": "pipe-to-ground-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/pipe-to-ground-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.power_switch_remnants": {
+      "channel": true,
+      "gameName": "power-switch-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/power-switch-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.programmable_speaker_remnants": {
+      "channel": true,
+      "gameName": "programmable-speaker-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/programmable-speaker-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.pump_remnants": {
+      "channel": true,
+      "gameName": "pump-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/pump-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.pumpjack_remnants": {
+      "channel": true,
+      "gameName": "pumpjack-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/pumpjack-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.radar_remnants": {
+      "channel": true,
+      "gameName": "radar-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/radar-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.rail_chain_signal_remnants": {
+      "channel": true,
+      "gameName": "rail-chain-signal-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/rail-chain-signal-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.rail_ending_remnants": {
+      "channel": true,
+      "gameName": "rail-ending-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/rail-ending-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.rail_signal_remnants": {
+      "channel": true,
+      "gameName": "rail-signal-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/rail-signal-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.remnants_1x2": {
+      "channel": true,
+      "gameName": "1x2-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/1x2-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.requester_chest_remnants": {
+      "channel": true,
+      "gameName": "requester-chest-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/requester-chest-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.roboport_remnants": {
+      "channel": true,
+      "gameName": "roboport-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/roboport-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.rocket_silo_remnants": {
+      "channel": true,
+      "gameName": "rocket-silo-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/rocket-silo-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.selector_combinator_remnants": {
+      "channel": true,
+      "gameName": "selector-combinator-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/selector-combinator-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.small_biter_corpse": {
+      "channel": true,
+      "gameName": "small-biter-corpse",
+      "gameType": "entity",
+      "prototypeId": "entity/small-biter-corpse",
+      "role": "ordinary"
+    },
+    "Signal.Environment.small_electric_pole_remnants": {
+      "channel": true,
+      "gameName": "small-electric-pole-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/small-electric-pole-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.small_remnants": {
+      "channel": true,
+      "gameName": "small-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/small-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.small_scorchmark": {
+      "channel": true,
+      "gameName": "small-scorchmark",
+      "gameType": "entity",
+      "prototypeId": "entity/small-scorchmark",
+      "role": "ordinary"
+    },
+    "Signal.Environment.small_scorchmark_tintable": {
+      "channel": true,
+      "gameName": "small-scorchmark-tintable",
+      "gameType": "entity",
+      "prototypeId": "entity/small-scorchmark-tintable",
+      "role": "ordinary"
+    },
+    "Signal.Environment.small_spitter_corpse": {
+      "channel": true,
+      "gameName": "small-spitter-corpse",
+      "gameType": "entity",
+      "prototypeId": "entity/small-spitter-corpse",
+      "role": "ordinary"
+    },
+    "Signal.Environment.small_worm_corpse": {
+      "channel": true,
+      "gameName": "small-worm-corpse",
+      "gameType": "entity",
+      "prototypeId": "entity/small-worm-corpse",
+      "role": "ordinary"
+    },
+    "Signal.Environment.small_worm_corpse_burrowed": {
+      "channel": true,
+      "gameName": "small-worm-corpse-burrowed",
+      "gameType": "entity",
+      "prototypeId": "entity/small-worm-corpse-burrowed",
+      "role": "ordinary"
+    },
+    "Signal.Environment.solar_panel_remnants": {
+      "channel": true,
+      "gameName": "solar-panel-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/solar-panel-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.spidertron_remnants": {
+      "channel": true,
+      "gameName": "spidertron-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/spidertron-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.spitter_spawner_corpse": {
+      "channel": true,
+      "gameName": "spitter-spawner-corpse",
+      "gameType": "entity",
+      "prototypeId": "entity/spitter-spawner-corpse",
+      "role": "ordinary"
+    },
+    "Signal.Environment.splitter_remnants": {
+      "channel": true,
+      "gameName": "splitter-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/splitter-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.steam_engine_remnants": {
+      "channel": true,
+      "gameName": "steam-engine-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/steam-engine-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.steam_turbine_remnants": {
+      "channel": true,
+      "gameName": "steam-turbine-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/steam-turbine-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.steel_chest_remnants": {
+      "channel": true,
+      "gameName": "steel-chest-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/steel-chest-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.steel_furnace_remnants": {
+      "channel": true,
+      "gameName": "steel-furnace-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/steel-furnace-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.stone_furnace_remnants": {
+      "channel": true,
+      "gameName": "stone-furnace-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/stone-furnace-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.storage_chest_remnants": {
+      "channel": true,
+      "gameName": "storage-chest-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/storage-chest-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.storage_tank_remnants": {
+      "channel": true,
+      "gameName": "storage-tank-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/storage-tank-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.straight_rail_remnants": {
+      "channel": true,
+      "gameName": "straight-rail-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/straight-rail-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.substation_remnants": {
+      "channel": true,
+      "gameName": "substation-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/substation-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.tank_remnants": {
+      "channel": true,
+      "gameName": "tank-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/tank-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.train_stop_remnants": {
+      "channel": true,
+      "gameName": "train-stop-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/train-stop-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.transport_belt_remnants": {
+      "channel": true,
+      "gameName": "transport-belt-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/transport-belt-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.tree_01": {
+      "channel": true,
+      "gameName": "tree-01",
+      "gameType": "entity",
+      "prototypeId": "entity/tree-01",
+      "role": "ordinary"
+    },
+    "Signal.Environment.tree_01_stump": {
+      "channel": true,
+      "gameName": "tree-01-stump",
+      "gameType": "entity",
+      "prototypeId": "entity/tree-01-stump",
+      "role": "ordinary"
+    },
+    "Signal.Environment.tree_02": {
+      "channel": true,
+      "gameName": "tree-02",
+      "gameType": "entity",
+      "prototypeId": "entity/tree-02",
+      "role": "ordinary"
+    },
+    "Signal.Environment.tree_02_red": {
+      "channel": true,
+      "gameName": "tree-02-red",
+      "gameType": "entity",
+      "prototypeId": "entity/tree-02-red",
+      "role": "ordinary"
+    },
+    "Signal.Environment.tree_02_stump": {
+      "channel": true,
+      "gameName": "tree-02-stump",
+      "gameType": "entity",
+      "prototypeId": "entity/tree-02-stump",
+      "role": "ordinary"
+    },
+    "Signal.Environment.tree_03": {
+      "channel": true,
+      "gameName": "tree-03",
+      "gameType": "entity",
+      "prototypeId": "entity/tree-03",
+      "role": "ordinary"
+    },
+    "Signal.Environment.tree_03_stump": {
+      "channel": true,
+      "gameName": "tree-03-stump",
+      "gameType": "entity",
+      "prototypeId": "entity/tree-03-stump",
+      "role": "ordinary"
+    },
+    "Signal.Environment.tree_04": {
+      "channel": true,
+      "gameName": "tree-04",
+      "gameType": "entity",
+      "prototypeId": "entity/tree-04",
+      "role": "ordinary"
+    },
+    "Signal.Environment.tree_04_stump": {
+      "channel": true,
+      "gameName": "tree-04-stump",
+      "gameType": "entity",
+      "prototypeId": "entity/tree-04-stump",
+      "role": "ordinary"
+    },
+    "Signal.Environment.tree_05": {
+      "channel": true,
+      "gameName": "tree-05",
+      "gameType": "entity",
+      "prototypeId": "entity/tree-05",
+      "role": "ordinary"
+    },
+    "Signal.Environment.tree_05_stump": {
+      "channel": true,
+      "gameName": "tree-05-stump",
+      "gameType": "entity",
+      "prototypeId": "entity/tree-05-stump",
+      "role": "ordinary"
+    },
+    "Signal.Environment.tree_06": {
+      "channel": true,
+      "gameName": "tree-06",
+      "gameType": "entity",
+      "prototypeId": "entity/tree-06",
+      "role": "ordinary"
+    },
+    "Signal.Environment.tree_06_brown": {
+      "channel": true,
+      "gameName": "tree-06-brown",
+      "gameType": "entity",
+      "prototypeId": "entity/tree-06-brown",
+      "role": "ordinary"
+    },
+    "Signal.Environment.tree_06_stump": {
+      "channel": true,
+      "gameName": "tree-06-stump",
+      "gameType": "entity",
+      "prototypeId": "entity/tree-06-stump",
+      "role": "ordinary"
+    },
+    "Signal.Environment.tree_07": {
+      "channel": true,
+      "gameName": "tree-07",
+      "gameType": "entity",
+      "prototypeId": "entity/tree-07",
+      "role": "ordinary"
+    },
+    "Signal.Environment.tree_07_stump": {
+      "channel": true,
+      "gameName": "tree-07-stump",
+      "gameType": "entity",
+      "prototypeId": "entity/tree-07-stump",
+      "role": "ordinary"
+    },
+    "Signal.Environment.tree_08": {
+      "channel": true,
+      "gameName": "tree-08",
+      "gameType": "entity",
+      "prototypeId": "entity/tree-08",
+      "role": "ordinary"
+    },
+    "Signal.Environment.tree_08_brown": {
+      "channel": true,
+      "gameName": "tree-08-brown",
+      "gameType": "entity",
+      "prototypeId": "entity/tree-08-brown",
+      "role": "ordinary"
+    },
+    "Signal.Environment.tree_08_red": {
+      "channel": true,
+      "gameName": "tree-08-red",
+      "gameType": "entity",
+      "prototypeId": "entity/tree-08-red",
+      "role": "ordinary"
+    },
+    "Signal.Environment.tree_08_stump": {
+      "channel": true,
+      "gameName": "tree-08-stump",
+      "gameType": "entity",
+      "prototypeId": "entity/tree-08-stump",
+      "role": "ordinary"
+    },
+    "Signal.Environment.tree_09": {
+      "channel": true,
+      "gameName": "tree-09",
+      "gameType": "entity",
+      "prototypeId": "entity/tree-09",
+      "role": "ordinary"
+    },
+    "Signal.Environment.tree_09_brown": {
+      "channel": true,
+      "gameName": "tree-09-brown",
+      "gameType": "entity",
+      "prototypeId": "entity/tree-09-brown",
+      "role": "ordinary"
+    },
+    "Signal.Environment.tree_09_red": {
+      "channel": true,
+      "gameName": "tree-09-red",
+      "gameType": "entity",
+      "prototypeId": "entity/tree-09-red",
+      "role": "ordinary"
+    },
+    "Signal.Environment.tree_09_stump": {
+      "channel": true,
+      "gameName": "tree-09-stump",
+      "gameType": "entity",
+      "prototypeId": "entity/tree-09-stump",
+      "role": "ordinary"
+    },
+    "Signal.Environment.underground_belt_remnants": {
+      "channel": true,
+      "gameName": "underground-belt-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/underground-belt-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.wall_remnants": {
+      "channel": true,
+      "gameName": "wall-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/wall-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Environment.wooden_chest_remnants": {
+      "channel": true,
+      "gameName": "wooden-chest-remnants",
+      "gameType": "entity",
+      "prototypeId": "entity/wooden-chest-remnants",
+      "role": "ordinary"
+    },
+    "Signal.Fluids.crude_oil": {
+      "channel": true,
+      "gameName": "crude-oil",
+      "gameType": "fluid",
+      "prototypeId": "fluid/crude-oil",
+      "role": "ordinary"
+    },
+    "Signal.Fluids.heavy_oil": {
+      "channel": true,
+      "gameName": "heavy-oil",
+      "gameType": "fluid",
+      "prototypeId": "fluid/heavy-oil",
+      "role": "ordinary"
+    },
+    "Signal.Fluids.light_oil": {
+      "channel": true,
+      "gameName": "light-oil",
+      "gameType": "fluid",
+      "prototypeId": "fluid/light-oil",
+      "role": "ordinary"
+    },
+    "Signal.Fluids.lubricant": {
+      "channel": true,
+      "gameName": "lubricant",
+      "gameType": "fluid",
+      "prototypeId": "fluid/lubricant",
+      "role": "ordinary"
+    },
+    "Signal.Fluids.petroleum_gas": {
+      "channel": true,
+      "gameName": "petroleum-gas",
+      "gameType": "fluid",
+      "prototypeId": "fluid/petroleum-gas",
+      "role": "ordinary"
+    },
+    "Signal.Fluids.steam": {
+      "channel": true,
+      "gameName": "steam",
+      "gameType": "fluid",
+      "prototypeId": "fluid/steam",
+      "role": "ordinary"
+    },
+    "Signal.Fluids.sulfuric_acid": {
+      "channel": true,
+      "gameName": "sulfuric-acid",
+      "gameType": "fluid",
+      "prototypeId": "fluid/sulfuric-acid",
+      "role": "ordinary"
+    },
+    "Signal.Fluids.water": {
+      "channel": true,
+      "gameName": "water",
+      "gameType": "fluid",
+      "prototypeId": "fluid/water",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.advanced_circuit": {
+      "channel": true,
+      "gameName": "advanced-circuit",
+      "gameType": "item",
+      "prototypeId": "item/advanced-circuit",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.advanced_oil_processing": {
+      "channel": true,
+      "gameName": "advanced-oil-processing",
+      "gameType": "recipe",
+      "prototypeId": "recipe/advanced-oil-processing",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.automation_science_pack": {
+      "channel": true,
+      "gameName": "automation-science-pack",
+      "gameType": "item",
+      "prototypeId": "item/automation-science-pack",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.barrel": {
+      "channel": true,
+      "gameName": "barrel",
+      "gameType": "item",
+      "prototypeId": "item/barrel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.basic_oil_processing": {
+      "channel": true,
+      "gameName": "basic-oil-processing",
+      "gameType": "recipe",
+      "prototypeId": "recipe/basic-oil-processing",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.battery": {
+      "channel": true,
+      "gameName": "battery",
+      "gameType": "item",
+      "prototypeId": "item/battery",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.chemical_science_pack": {
+      "channel": true,
+      "gameName": "chemical-science-pack",
+      "gameType": "item",
+      "prototypeId": "item/chemical-science-pack",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.coal": {
+      "channel": true,
+      "gameName": "coal",
+      "gameType": "item",
+      "prototypeId": "item/coal",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.coal_liquefaction": {
+      "channel": true,
+      "gameName": "coal-liquefaction",
+      "gameType": "recipe",
+      "prototypeId": "recipe/coal-liquefaction",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.copper_cable": {
+      "channel": true,
+      "gameName": "copper-cable",
+      "gameType": "item",
+      "prototypeId": "item/copper-cable",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.copper_ore": {
+      "channel": true,
+      "gameName": "copper-ore",
+      "gameType": "item",
+      "prototypeId": "item/copper-ore",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.copper_plate": {
+      "channel": true,
+      "gameName": "copper-plate",
+      "gameType": "item",
+      "prototypeId": "item/copper-plate",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.crude_oil_barrel": {
+      "channel": true,
+      "gameName": "crude-oil-barrel",
+      "gameType": "item",
+      "prototypeId": "item/crude-oil-barrel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.crude_oil_barrel.empty": {
+      "channel": true,
+      "gameName": "empty-crude-oil-barrel",
+      "gameType": "recipe",
+      "prototypeId": "recipe/empty-crude-oil-barrel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.crude_oil_barrel.fill": {
+      "channel": true,
+      "gameName": "crude-oil-barrel",
+      "gameType": "recipe",
+      "prototypeId": "recipe/crude-oil-barrel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.depleted_uranium_fuel_cell": {
+      "channel": true,
+      "gameName": "depleted-uranium-fuel-cell",
+      "gameType": "item",
+      "prototypeId": "item/depleted-uranium-fuel-cell",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.electric_engine_unit": {
+      "channel": true,
+      "gameName": "electric-engine-unit",
+      "gameType": "item",
+      "prototypeId": "item/electric-engine-unit",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.electronic_circuit": {
+      "channel": true,
+      "gameName": "electronic-circuit",
+      "gameType": "item",
+      "prototypeId": "item/electronic-circuit",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.engine_unit": {
+      "channel": true,
+      "gameName": "engine-unit",
+      "gameType": "item",
+      "prototypeId": "item/engine-unit",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.explosives": {
+      "channel": true,
+      "gameName": "explosives",
+      "gameType": "item",
+      "prototypeId": "item/explosives",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.flying_robot_frame": {
+      "channel": true,
+      "gameName": "flying-robot-frame",
+      "gameType": "item",
+      "prototypeId": "item/flying-robot-frame",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.heavy_oil_barrel": {
+      "channel": true,
+      "gameName": "heavy-oil-barrel",
+      "gameType": "item",
+      "prototypeId": "item/heavy-oil-barrel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.heavy_oil_barrel.empty": {
+      "channel": true,
+      "gameName": "empty-heavy-oil-barrel",
+      "gameType": "recipe",
+      "prototypeId": "recipe/empty-heavy-oil-barrel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.heavy_oil_barrel.fill": {
+      "channel": true,
+      "gameName": "heavy-oil-barrel",
+      "gameType": "recipe",
+      "prototypeId": "recipe/heavy-oil-barrel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.heavy_oil_cracking": {
+      "channel": true,
+      "gameName": "heavy-oil-cracking",
+      "gameType": "recipe",
+      "prototypeId": "recipe/heavy-oil-cracking",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.iron_gear_wheel": {
+      "channel": true,
+      "gameName": "iron-gear-wheel",
+      "gameType": "item",
+      "prototypeId": "item/iron-gear-wheel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.iron_ore": {
+      "channel": true,
+      "gameName": "iron-ore",
+      "gameType": "item",
+      "prototypeId": "item/iron-ore",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.iron_plate": {
+      "channel": true,
+      "gameName": "iron-plate",
+      "gameType": "item",
+      "prototypeId": "item/iron-plate",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.iron_stick": {
+      "channel": true,
+      "gameName": "iron-stick",
+      "gameType": "item",
+      "prototypeId": "item/iron-stick",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.kovarex_enrichment_process": {
+      "channel": true,
+      "gameName": "kovarex-enrichment-process",
+      "gameType": "recipe",
+      "prototypeId": "recipe/kovarex-enrichment-process",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.light_oil_barrel": {
+      "channel": true,
+      "gameName": "light-oil-barrel",
+      "gameType": "item",
+      "prototypeId": "item/light-oil-barrel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.light_oil_barrel.empty": {
+      "channel": true,
+      "gameName": "empty-light-oil-barrel",
+      "gameType": "recipe",
+      "prototypeId": "recipe/empty-light-oil-barrel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.light_oil_barrel.fill": {
+      "channel": true,
+      "gameName": "light-oil-barrel",
+      "gameType": "recipe",
+      "prototypeId": "recipe/light-oil-barrel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.light_oil_cracking": {
+      "channel": true,
+      "gameName": "light-oil-cracking",
+      "gameType": "recipe",
+      "prototypeId": "recipe/light-oil-cracking",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.logistic_science_pack": {
+      "channel": true,
+      "gameName": "logistic-science-pack",
+      "gameType": "item",
+      "prototypeId": "item/logistic-science-pack",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.low_density_structure": {
+      "channel": true,
+      "gameName": "low-density-structure",
+      "gameType": "item",
+      "prototypeId": "item/low-density-structure",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.lubricant_barrel": {
+      "channel": true,
+      "gameName": "lubricant-barrel",
+      "gameType": "item",
+      "prototypeId": "item/lubricant-barrel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.lubricant_barrel.empty": {
+      "channel": true,
+      "gameName": "empty-lubricant-barrel",
+      "gameType": "recipe",
+      "prototypeId": "recipe/empty-lubricant-barrel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.lubricant_barrel.fill": {
+      "channel": true,
+      "gameName": "lubricant-barrel",
+      "gameType": "recipe",
+      "prototypeId": "recipe/lubricant-barrel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.military_science_pack": {
+      "channel": true,
+      "gameName": "military-science-pack",
+      "gameType": "item",
+      "prototypeId": "item/military-science-pack",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.nuclear_fuel": {
+      "channel": true,
+      "gameName": "nuclear-fuel",
+      "gameType": "item",
+      "prototypeId": "item/nuclear-fuel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.nuclear_fuel_reprocessing": {
+      "channel": true,
+      "gameName": "nuclear-fuel-reprocessing",
+      "gameType": "recipe",
+      "prototypeId": "recipe/nuclear-fuel-reprocessing",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.petroleum_gas_barrel": {
+      "channel": true,
+      "gameName": "petroleum-gas-barrel",
+      "gameType": "item",
+      "prototypeId": "item/petroleum-gas-barrel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.petroleum_gas_barrel.empty": {
+      "channel": true,
+      "gameName": "empty-petroleum-gas-barrel",
+      "gameType": "recipe",
+      "prototypeId": "recipe/empty-petroleum-gas-barrel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.petroleum_gas_barrel.fill": {
+      "channel": true,
+      "gameName": "petroleum-gas-barrel",
+      "gameType": "recipe",
+      "prototypeId": "recipe/petroleum-gas-barrel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.plastic_bar": {
+      "channel": true,
+      "gameName": "plastic-bar",
+      "gameType": "item",
+      "prototypeId": "item/plastic-bar",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.processing_unit": {
+      "channel": true,
+      "gameName": "processing-unit",
+      "gameType": "item",
+      "prototypeId": "item/processing-unit",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.production_science_pack": {
+      "channel": true,
+      "gameName": "production-science-pack",
+      "gameType": "item",
+      "prototypeId": "item/production-science-pack",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.raw_fish": {
+      "channel": true,
+      "gameName": "raw-fish",
+      "gameType": "item",
+      "prototypeId": "item/raw-fish",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.rocket_fuel": {
+      "channel": true,
+      "gameName": "rocket-fuel",
+      "gameType": "item",
+      "prototypeId": "item/rocket-fuel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.rocket_part": {
+      "channel": true,
+      "gameName": "rocket-part",
+      "gameType": "recipe",
+      "prototypeId": "recipe/rocket-part",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.solid_fuel": {
+      "channel": true,
+      "gameName": "solid-fuel",
+      "gameType": "item",
+      "prototypeId": "item/solid-fuel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.solid_fuel_from_heavy_oil": {
+      "channel": true,
+      "gameName": "solid-fuel-from-heavy-oil",
+      "gameType": "recipe",
+      "prototypeId": "recipe/solid-fuel-from-heavy-oil",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.solid_fuel_from_light_oil": {
+      "channel": true,
+      "gameName": "solid-fuel-from-light-oil",
+      "gameType": "recipe",
+      "prototypeId": "recipe/solid-fuel-from-light-oil",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.solid_fuel_from_petroleum_gas": {
+      "channel": true,
+      "gameName": "solid-fuel-from-petroleum-gas",
+      "gameType": "recipe",
+      "prototypeId": "recipe/solid-fuel-from-petroleum-gas",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.space_science_pack": {
+      "channel": true,
+      "gameName": "space-science-pack",
+      "gameType": "item",
+      "prototypeId": "item/space-science-pack",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.steel_plate": {
+      "channel": true,
+      "gameName": "steel-plate",
+      "gameType": "item",
+      "prototypeId": "item/steel-plate",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.stone": {
+      "channel": true,
+      "gameName": "stone",
+      "gameType": "item",
+      "prototypeId": "item/stone",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.sulfur": {
+      "channel": true,
+      "gameName": "sulfur",
+      "gameType": "item",
+      "prototypeId": "item/sulfur",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.sulfuric_acid_barrel": {
+      "channel": true,
+      "gameName": "sulfuric-acid-barrel",
+      "gameType": "item",
+      "prototypeId": "item/sulfuric-acid-barrel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.sulfuric_acid_barrel.empty": {
+      "channel": true,
+      "gameName": "empty-sulfuric-acid-barrel",
+      "gameType": "recipe",
+      "prototypeId": "recipe/empty-sulfuric-acid-barrel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.sulfuric_acid_barrel.fill": {
+      "channel": true,
+      "gameName": "sulfuric-acid-barrel",
+      "gameType": "recipe",
+      "prototypeId": "recipe/sulfuric-acid-barrel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.uranium_235": {
+      "channel": true,
+      "gameName": "uranium-235",
+      "gameType": "item",
+      "prototypeId": "item/uranium-235",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.uranium_238": {
+      "channel": true,
+      "gameName": "uranium-238",
+      "gameType": "item",
+      "prototypeId": "item/uranium-238",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.uranium_fuel_cell": {
+      "channel": true,
+      "gameName": "uranium-fuel-cell",
+      "gameType": "item",
+      "prototypeId": "item/uranium-fuel-cell",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.uranium_ore": {
+      "channel": true,
+      "gameName": "uranium-ore",
+      "gameType": "item",
+      "prototypeId": "item/uranium-ore",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.uranium_processing": {
+      "channel": true,
+      "gameName": "uranium-processing",
+      "gameType": "recipe",
+      "prototypeId": "recipe/uranium-processing",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.utility_science_pack": {
+      "channel": true,
+      "gameName": "utility-science-pack",
+      "gameType": "item",
+      "prototypeId": "item/utility-science-pack",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.water_barrel": {
+      "channel": true,
+      "gameName": "water-barrel",
+      "gameType": "item",
+      "prototypeId": "item/water-barrel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.water_barrel.empty": {
+      "channel": true,
+      "gameName": "empty-water-barrel",
+      "gameType": "recipe",
+      "prototypeId": "recipe/empty-water-barrel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.water_barrel.fill": {
+      "channel": true,
+      "gameName": "water-barrel",
+      "gameType": "recipe",
+      "prototypeId": "recipe/water-barrel",
+      "role": "ordinary"
+    },
+    "Signal.Intermediate.wood": {
+      "channel": true,
+      "gameName": "wood",
+      "gameType": "item",
+      "prototypeId": "item/wood",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.active_provider_chest": {
+      "channel": true,
+      "gameName": "active-provider-chest",
+      "gameType": "item",
+      "prototypeId": "item/active-provider-chest",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.arithmetic_combinator": {
+      "channel": true,
+      "gameName": "arithmetic-combinator",
+      "gameType": "item",
+      "prototypeId": "item/arithmetic-combinator",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.artillery_wagon": {
+      "channel": true,
+      "gameName": "artillery-wagon",
+      "gameType": "item",
+      "prototypeId": "item/artillery-wagon",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.big_electric_pole": {
+      "channel": true,
+      "gameName": "big-electric-pole",
+      "gameType": "item",
+      "prototypeId": "item/big-electric-pole",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.buffer_chest": {
+      "channel": true,
+      "gameName": "buffer-chest",
+      "gameType": "item",
+      "prototypeId": "item/buffer-chest",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.bulk_inserter": {
+      "channel": true,
+      "gameName": "bulk-inserter",
+      "gameType": "item",
+      "prototypeId": "item/bulk-inserter",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.burner_inserter": {
+      "channel": true,
+      "gameName": "burner-inserter",
+      "gameType": "item",
+      "prototypeId": "item/burner-inserter",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.car": {
+      "channel": true,
+      "gameName": "car",
+      "gameType": "item",
+      "prototypeId": "item/car",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.cargo_wagon": {
+      "channel": true,
+      "gameName": "cargo-wagon",
+      "gameType": "item",
+      "prototypeId": "item/cargo-wagon",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.cliff_explosives": {
+      "channel": true,
+      "gameName": "cliff-explosives",
+      "gameType": "item",
+      "prototypeId": "item/cliff-explosives",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.concrete": {
+      "channel": true,
+      "gameName": "concrete",
+      "gameType": "item",
+      "prototypeId": "item/concrete",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.constant_combinator": {
+      "channel": true,
+      "gameName": "constant-combinator",
+      "gameType": "item",
+      "prototypeId": "item/constant-combinator",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.construction_robot": {
+      "channel": true,
+      "gameName": "construction-robot",
+      "gameType": "item",
+      "prototypeId": "item/construction-robot",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.decider_combinator": {
+      "channel": true,
+      "gameName": "decider-combinator",
+      "gameType": "item",
+      "prototypeId": "item/decider-combinator",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.display_panel": {
+      "channel": true,
+      "gameName": "display-panel",
+      "gameType": "item",
+      "prototypeId": "item/display-panel",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.express_splitter": {
+      "channel": true,
+      "gameName": "express-splitter",
+      "gameType": "item",
+      "prototypeId": "item/express-splitter",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.express_transport_belt": {
+      "channel": true,
+      "gameName": "express-transport-belt",
+      "gameType": "item",
+      "prototypeId": "item/express-transport-belt",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.express_underground_belt": {
+      "channel": true,
+      "gameName": "express-underground-belt",
+      "gameType": "item",
+      "prototypeId": "item/express-underground-belt",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.fast_inserter": {
+      "channel": true,
+      "gameName": "fast-inserter",
+      "gameType": "item",
+      "prototypeId": "item/fast-inserter",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.fast_splitter": {
+      "channel": true,
+      "gameName": "fast-splitter",
+      "gameType": "item",
+      "prototypeId": "item/fast-splitter",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.fast_transport_belt": {
+      "channel": true,
+      "gameName": "fast-transport-belt",
+      "gameType": "item",
+      "prototypeId": "item/fast-transport-belt",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.fast_underground_belt": {
+      "channel": true,
+      "gameName": "fast-underground-belt",
+      "gameType": "item",
+      "prototypeId": "item/fast-underground-belt",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.fluid_wagon": {
+      "channel": true,
+      "gameName": "fluid-wagon",
+      "gameType": "item",
+      "prototypeId": "item/fluid-wagon",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.hazard_concrete": {
+      "channel": true,
+      "gameName": "hazard-concrete",
+      "gameType": "item",
+      "prototypeId": "item/hazard-concrete",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.inserter": {
+      "channel": true,
+      "gameName": "inserter",
+      "gameType": "item",
+      "prototypeId": "item/inserter",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.iron_chest": {
+      "channel": true,
+      "gameName": "iron-chest",
+      "gameType": "item",
+      "prototypeId": "item/iron-chest",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.landfill": {
+      "channel": true,
+      "gameName": "landfill",
+      "gameType": "item",
+      "prototypeId": "item/landfill",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.locomotive": {
+      "channel": true,
+      "gameName": "locomotive",
+      "gameType": "item",
+      "prototypeId": "item/locomotive",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.logistic_robot": {
+      "channel": true,
+      "gameName": "logistic-robot",
+      "gameType": "item",
+      "prototypeId": "item/logistic-robot",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.long_handed_inserter": {
+      "channel": true,
+      "gameName": "long-handed-inserter",
+      "gameType": "item",
+      "prototypeId": "item/long-handed-inserter",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.medium_electric_pole": {
+      "channel": true,
+      "gameName": "medium-electric-pole",
+      "gameType": "item",
+      "prototypeId": "item/medium-electric-pole",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.passive_provider_chest": {
+      "channel": true,
+      "gameName": "passive-provider-chest",
+      "gameType": "item",
+      "prototypeId": "item/passive-provider-chest",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.pipe": {
+      "channel": true,
+      "gameName": "pipe",
+      "gameType": "item",
+      "prototypeId": "item/pipe",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.pipe_to_ground": {
+      "channel": true,
+      "gameName": "pipe-to-ground",
+      "gameType": "item",
+      "prototypeId": "item/pipe-to-ground",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.power_switch": {
+      "channel": true,
+      "gameName": "power-switch",
+      "gameType": "item",
+      "prototypeId": "item/power-switch",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.programmable_speaker": {
+      "channel": true,
+      "gameName": "programmable-speaker",
+      "gameType": "item",
+      "prototypeId": "item/programmable-speaker",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.pump": {
+      "channel": true,
+      "gameName": "pump",
+      "gameType": "item",
+      "prototypeId": "item/pump",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.rail": {
+      "channel": true,
+      "gameName": "rail",
+      "gameType": "item",
+      "prototypeId": "item/rail",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.rail_chain_signal": {
+      "channel": true,
+      "gameName": "rail-chain-signal",
+      "gameType": "item",
+      "prototypeId": "item/rail-chain-signal",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.rail_signal": {
+      "channel": true,
+      "gameName": "rail-signal",
+      "gameType": "item",
+      "prototypeId": "item/rail-signal",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.refined_concrete": {
+      "channel": true,
+      "gameName": "refined-concrete",
+      "gameType": "item",
+      "prototypeId": "item/refined-concrete",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.refined_hazard_concrete": {
+      "channel": true,
+      "gameName": "refined-hazard-concrete",
+      "gameType": "item",
+      "prototypeId": "item/refined-hazard-concrete",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.requester_chest": {
+      "channel": true,
+      "gameName": "requester-chest",
+      "gameType": "item",
+      "prototypeId": "item/requester-chest",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.roboport": {
+      "channel": true,
+      "gameName": "roboport",
+      "gameType": "item",
+      "prototypeId": "item/roboport",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.selector_combinator": {
+      "channel": true,
+      "gameName": "selector-combinator",
+      "gameType": "item",
+      "prototypeId": "item/selector-combinator",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.small_electric_pole": {
+      "channel": true,
+      "gameName": "small-electric-pole",
+      "gameType": "item",
+      "prototypeId": "item/small-electric-pole",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.small_lamp": {
+      "channel": true,
+      "gameName": "small-lamp",
+      "gameType": "item",
+      "prototypeId": "item/small-lamp",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.spidertron": {
+      "channel": true,
+      "gameName": "spidertron",
+      "gameType": "item",
+      "prototypeId": "item/spidertron",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.splitter": {
+      "channel": true,
+      "gameName": "splitter",
+      "gameType": "item",
+      "prototypeId": "item/splitter",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.steel_chest": {
+      "channel": true,
+      "gameName": "steel-chest",
+      "gameType": "item",
+      "prototypeId": "item/steel-chest",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.stone_brick": {
+      "channel": true,
+      "gameName": "stone-brick",
+      "gameType": "item",
+      "prototypeId": "item/stone-brick",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.storage_chest": {
+      "channel": true,
+      "gameName": "storage-chest",
+      "gameType": "item",
+      "prototypeId": "item/storage-chest",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.storage_tank": {
+      "channel": true,
+      "gameName": "storage-tank",
+      "gameType": "item",
+      "prototypeId": "item/storage-tank",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.substation": {
+      "channel": true,
+      "gameName": "substation",
+      "gameType": "item",
+      "prototypeId": "item/substation",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.tank": {
+      "channel": true,
+      "gameName": "tank",
+      "gameType": "item",
+      "prototypeId": "item/tank",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.train_stop": {
+      "channel": true,
+      "gameName": "train-stop",
+      "gameType": "item",
+      "prototypeId": "item/train-stop",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.transport_belt": {
+      "channel": true,
+      "gameName": "transport-belt",
+      "gameType": "item",
+      "prototypeId": "item/transport-belt",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.underground_belt": {
+      "channel": true,
+      "gameName": "underground-belt",
+      "gameType": "item",
+      "prototypeId": "item/underground-belt",
+      "role": "ordinary"
+    },
+    "Signal.Logistic.wooden_chest": {
+      "channel": true,
+      "gameName": "wooden-chest",
+      "gameType": "item",
+      "prototypeId": "item/wooden-chest",
+      "role": "ordinary"
+    },
+    "Signal.Meta.signal_anything": {
+      "channel": false,
+      "gameName": "signal-anything",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-anything",
+      "role": "meta"
+    },
+    "Signal.Meta.signal_each": {
+      "channel": false,
+      "gameName": "signal-each",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-each",
+      "role": "meta"
+    },
+    "Signal.Meta.signal_everything": {
+      "channel": false,
+      "gameName": "signal-everything",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-everything",
+      "role": "meta"
+    },
+    "Signal.Production.accumulator": {
+      "channel": true,
+      "gameName": "accumulator",
+      "gameType": "item",
+      "prototypeId": "item/accumulator",
+      "role": "ordinary"
+    },
+    "Signal.Production.assembling_machine_1": {
+      "channel": true,
+      "gameName": "assembling-machine-1",
+      "gameType": "item",
+      "prototypeId": "item/assembling-machine-1",
+      "role": "ordinary"
+    },
+    "Signal.Production.assembling_machine_2": {
+      "channel": true,
+      "gameName": "assembling-machine-2",
+      "gameType": "item",
+      "prototypeId": "item/assembling-machine-2",
+      "role": "ordinary"
+    },
+    "Signal.Production.assembling_machine_3": {
+      "channel": true,
+      "gameName": "assembling-machine-3",
+      "gameType": "item",
+      "prototypeId": "item/assembling-machine-3",
+      "role": "ordinary"
+    },
+    "Signal.Production.beacon": {
+      "channel": true,
+      "gameName": "beacon",
+      "gameType": "item",
+      "prototypeId": "item/beacon",
+      "role": "ordinary"
+    },
+    "Signal.Production.blueprint": {
+      "channel": true,
+      "gameName": "blueprint",
+      "gameType": "item",
+      "prototypeId": "item/blueprint",
+      "role": "ordinary"
+    },
+    "Signal.Production.blueprint_book": {
+      "channel": true,
+      "gameName": "blueprint-book",
+      "gameType": "item",
+      "prototypeId": "item/blueprint-book",
+      "role": "ordinary"
+    },
+    "Signal.Production.boiler": {
+      "channel": true,
+      "gameName": "boiler",
+      "gameType": "item",
+      "prototypeId": "item/boiler",
+      "role": "ordinary"
+    },
+    "Signal.Production.burner_mining_drill": {
+      "channel": true,
+      "gameName": "burner-mining-drill",
+      "gameType": "item",
+      "prototypeId": "item/burner-mining-drill",
+      "role": "ordinary"
+    },
+    "Signal.Production.cargo_landing_pad": {
+      "channel": true,
+      "gameName": "cargo-landing-pad",
+      "gameType": "item",
+      "prototypeId": "item/cargo-landing-pad",
+      "role": "ordinary"
+    },
+    "Signal.Production.centrifuge": {
+      "channel": true,
+      "gameName": "centrifuge",
+      "gameType": "item",
+      "prototypeId": "item/centrifuge",
+      "role": "ordinary"
+    },
+    "Signal.Production.chemical_plant": {
+      "channel": true,
+      "gameName": "chemical-plant",
+      "gameType": "item",
+      "prototypeId": "item/chemical-plant",
+      "role": "ordinary"
+    },
+    "Signal.Production.deconstruction_planner": {
+      "channel": true,
+      "gameName": "deconstruction-planner",
+      "gameType": "item",
+      "prototypeId": "item/deconstruction-planner",
+      "role": "ordinary"
+    },
+    "Signal.Production.efficiency_module": {
+      "channel": true,
+      "gameName": "efficiency-module",
+      "gameType": "item",
+      "prototypeId": "item/efficiency-module",
+      "role": "ordinary"
+    },
+    "Signal.Production.efficiency_module_2": {
+      "channel": true,
+      "gameName": "efficiency-module-2",
+      "gameType": "item",
+      "prototypeId": "item/efficiency-module-2",
+      "role": "ordinary"
+    },
+    "Signal.Production.efficiency_module_3": {
+      "channel": true,
+      "gameName": "efficiency-module-3",
+      "gameType": "item",
+      "prototypeId": "item/efficiency-module-3",
+      "role": "ordinary"
+    },
+    "Signal.Production.electric_furnace": {
+      "channel": true,
+      "gameName": "electric-furnace",
+      "gameType": "item",
+      "prototypeId": "item/electric-furnace",
+      "role": "ordinary"
+    },
+    "Signal.Production.electric_mining_drill": {
+      "channel": true,
+      "gameName": "electric-mining-drill",
+      "gameType": "item",
+      "prototypeId": "item/electric-mining-drill",
+      "role": "ordinary"
+    },
+    "Signal.Production.heat_exchanger": {
+      "channel": true,
+      "gameName": "heat-exchanger",
+      "gameType": "item",
+      "prototypeId": "item/heat-exchanger",
+      "role": "ordinary"
+    },
+    "Signal.Production.heat_pipe": {
+      "channel": true,
+      "gameName": "heat-pipe",
+      "gameType": "item",
+      "prototypeId": "item/heat-pipe",
+      "role": "ordinary"
+    },
+    "Signal.Production.lab": {
+      "channel": true,
+      "gameName": "lab",
+      "gameType": "item",
+      "prototypeId": "item/lab",
+      "role": "ordinary"
+    },
+    "Signal.Production.nuclear_reactor": {
+      "channel": true,
+      "gameName": "nuclear-reactor",
+      "gameType": "item",
+      "prototypeId": "item/nuclear-reactor",
+      "role": "ordinary"
+    },
+    "Signal.Production.offshore_pump": {
+      "channel": true,
+      "gameName": "offshore-pump",
+      "gameType": "item",
+      "prototypeId": "item/offshore-pump",
+      "role": "ordinary"
+    },
+    "Signal.Production.oil_refinery": {
+      "channel": true,
+      "gameName": "oil-refinery",
+      "gameType": "item",
+      "prototypeId": "item/oil-refinery",
+      "role": "ordinary"
+    },
+    "Signal.Production.productivity_module": {
+      "channel": true,
+      "gameName": "productivity-module",
+      "gameType": "item",
+      "prototypeId": "item/productivity-module",
+      "role": "ordinary"
+    },
+    "Signal.Production.productivity_module_2": {
+      "channel": true,
+      "gameName": "productivity-module-2",
+      "gameType": "item",
+      "prototypeId": "item/productivity-module-2",
+      "role": "ordinary"
+    },
+    "Signal.Production.productivity_module_3": {
+      "channel": true,
+      "gameName": "productivity-module-3",
+      "gameType": "item",
+      "prototypeId": "item/productivity-module-3",
+      "role": "ordinary"
+    },
+    "Signal.Production.pumpjack": {
+      "channel": true,
+      "gameName": "pumpjack",
+      "gameType": "item",
+      "prototypeId": "item/pumpjack",
+      "role": "ordinary"
+    },
+    "Signal.Production.repair_pack": {
+      "channel": true,
+      "gameName": "repair-pack",
+      "gameType": "item",
+      "prototypeId": "item/repair-pack",
+      "role": "ordinary"
+    },
+    "Signal.Production.rocket_silo": {
+      "channel": true,
+      "gameName": "rocket-silo",
+      "gameType": "item",
+      "prototypeId": "item/rocket-silo",
+      "role": "ordinary"
+    },
+    "Signal.Production.satellite": {
+      "channel": true,
+      "gameName": "satellite",
+      "gameType": "item",
+      "prototypeId": "item/satellite",
+      "role": "ordinary"
+    },
+    "Signal.Production.solar_panel": {
+      "channel": true,
+      "gameName": "solar-panel",
+      "gameType": "item",
+      "prototypeId": "item/solar-panel",
+      "role": "ordinary"
+    },
+    "Signal.Production.speed_module": {
+      "channel": true,
+      "gameName": "speed-module",
+      "gameType": "item",
+      "prototypeId": "item/speed-module",
+      "role": "ordinary"
+    },
+    "Signal.Production.speed_module_2": {
+      "channel": true,
+      "gameName": "speed-module-2",
+      "gameType": "item",
+      "prototypeId": "item/speed-module-2",
+      "role": "ordinary"
+    },
+    "Signal.Production.speed_module_3": {
+      "channel": true,
+      "gameName": "speed-module-3",
+      "gameType": "item",
+      "prototypeId": "item/speed-module-3",
+      "role": "ordinary"
+    },
+    "Signal.Production.steam_engine": {
+      "channel": true,
+      "gameName": "steam-engine",
+      "gameType": "item",
+      "prototypeId": "item/steam-engine",
+      "role": "ordinary"
+    },
+    "Signal.Production.steam_turbine": {
+      "channel": true,
+      "gameName": "steam-turbine",
+      "gameType": "item",
+      "prototypeId": "item/steam-turbine",
+      "role": "ordinary"
+    },
+    "Signal.Production.steel_furnace": {
+      "channel": true,
+      "gameName": "steel-furnace",
+      "gameType": "item",
+      "prototypeId": "item/steel-furnace",
+      "role": "ordinary"
+    },
+    "Signal.Production.stone_furnace": {
+      "channel": true,
+      "gameName": "stone-furnace",
+      "gameType": "item",
+      "prototypeId": "item/stone-furnace",
+      "role": "ordinary"
+    },
+    "Signal.Production.upgrade_planner": {
+      "channel": true,
+      "gameName": "upgrade-planner",
+      "gameType": "item",
+      "prototypeId": "item/upgrade-planner",
+      "role": "ordinary"
+    },
+    "Signal.Signals.down_arrow": {
+      "channel": true,
+      "gameName": "down-arrow",
+      "gameType": "virtual",
+      "prototypeId": "virtual/down-arrow",
+      "role": "ordinary"
+    },
+    "Signal.Signals.down_left_arrow": {
+      "channel": true,
+      "gameName": "down-left-arrow",
+      "gameType": "virtual",
+      "prototypeId": "virtual/down-left-arrow",
+      "role": "ordinary"
+    },
+    "Signal.Signals.down_right_arrow": {
+      "channel": true,
+      "gameName": "down-right-arrow",
+      "gameType": "virtual",
+      "prototypeId": "virtual/down-right-arrow",
+      "role": "ordinary"
+    },
+    "Signal.Signals.left_arrow": {
+      "channel": true,
+      "gameName": "left-arrow",
+      "gameType": "virtual",
+      "prototypeId": "virtual/left-arrow",
+      "role": "ordinary"
+    },
+    "Signal.Signals.right_arrow": {
+      "channel": true,
+      "gameName": "right-arrow",
+      "gameType": "virtual",
+      "prototypeId": "virtual/right-arrow",
+      "role": "ordinary"
+    },
+    "Signal.Signals.shape_circle": {
+      "channel": true,
+      "gameName": "shape-circle",
+      "gameType": "virtual",
+      "prototypeId": "virtual/shape-circle",
+      "role": "ordinary"
+    },
+    "Signal.Signals.shape_corner": {
+      "channel": true,
+      "gameName": "shape-corner",
+      "gameType": "virtual",
+      "prototypeId": "virtual/shape-corner",
+      "role": "ordinary"
+    },
+    "Signal.Signals.shape_corner_2": {
+      "channel": true,
+      "gameName": "shape-corner-2",
+      "gameType": "virtual",
+      "prototypeId": "virtual/shape-corner-2",
+      "role": "ordinary"
+    },
+    "Signal.Signals.shape_corner_3": {
+      "channel": true,
+      "gameName": "shape-corner-3",
+      "gameType": "virtual",
+      "prototypeId": "virtual/shape-corner-3",
+      "role": "ordinary"
+    },
+    "Signal.Signals.shape_corner_4": {
+      "channel": true,
+      "gameName": "shape-corner-4",
+      "gameType": "virtual",
+      "prototypeId": "virtual/shape-corner-4",
+      "role": "ordinary"
+    },
+    "Signal.Signals.shape_cross": {
+      "channel": true,
+      "gameName": "shape-cross",
+      "gameType": "virtual",
+      "prototypeId": "virtual/shape-cross",
+      "role": "ordinary"
+    },
+    "Signal.Signals.shape_curve": {
+      "channel": true,
+      "gameName": "shape-curve",
+      "gameType": "virtual",
+      "prototypeId": "virtual/shape-curve",
+      "role": "ordinary"
+    },
+    "Signal.Signals.shape_curve_2": {
+      "channel": true,
+      "gameName": "shape-curve-2",
+      "gameType": "virtual",
+      "prototypeId": "virtual/shape-curve-2",
+      "role": "ordinary"
+    },
+    "Signal.Signals.shape_curve_3": {
+      "channel": true,
+      "gameName": "shape-curve-3",
+      "gameType": "virtual",
+      "prototypeId": "virtual/shape-curve-3",
+      "role": "ordinary"
+    },
+    "Signal.Signals.shape_curve_4": {
+      "channel": true,
+      "gameName": "shape-curve-4",
+      "gameType": "virtual",
+      "prototypeId": "virtual/shape-curve-4",
+      "role": "ordinary"
+    },
+    "Signal.Signals.shape_diagonal": {
+      "channel": true,
+      "gameName": "shape-diagonal",
+      "gameType": "virtual",
+      "prototypeId": "virtual/shape-diagonal",
+      "role": "ordinary"
+    },
+    "Signal.Signals.shape_diagonal_2": {
+      "channel": true,
+      "gameName": "shape-diagonal-2",
+      "gameType": "virtual",
+      "prototypeId": "virtual/shape-diagonal-2",
+      "role": "ordinary"
+    },
+    "Signal.Signals.shape_diagonal_cross": {
+      "channel": true,
+      "gameName": "shape-diagonal-cross",
+      "gameType": "virtual",
+      "prototypeId": "virtual/shape-diagonal-cross",
+      "role": "ordinary"
+    },
+    "Signal.Signals.shape_horizontal": {
+      "channel": true,
+      "gameName": "shape-horizontal",
+      "gameType": "virtual",
+      "prototypeId": "virtual/shape-horizontal",
+      "role": "ordinary"
+    },
+    "Signal.Signals.shape_t": {
+      "channel": true,
+      "gameName": "shape-t",
+      "gameType": "virtual",
+      "prototypeId": "virtual/shape-t",
+      "role": "ordinary"
+    },
+    "Signal.Signals.shape_t_2": {
+      "channel": true,
+      "gameName": "shape-t-2",
+      "gameType": "virtual",
+      "prototypeId": "virtual/shape-t-2",
+      "role": "ordinary"
+    },
+    "Signal.Signals.shape_t_3": {
+      "channel": true,
+      "gameName": "shape-t-3",
+      "gameType": "virtual",
+      "prototypeId": "virtual/shape-t-3",
+      "role": "ordinary"
+    },
+    "Signal.Signals.shape_t_4": {
+      "channel": true,
+      "gameName": "shape-t-4",
+      "gameType": "virtual",
+      "prototypeId": "virtual/shape-t-4",
+      "role": "ordinary"
+    },
+    "Signal.Signals.shape_vertical": {
+      "channel": true,
+      "gameName": "shape-vertical",
+      "gameType": "virtual",
+      "prototypeId": "virtual/shape-vertical",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_0": {
+      "channel": true,
+      "gameName": "signal-0",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-0",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_1": {
+      "channel": true,
+      "gameName": "signal-1",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-1",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_2": {
+      "channel": true,
+      "gameName": "signal-2",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-2",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_3": {
+      "channel": true,
+      "gameName": "signal-3",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-3",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_4": {
+      "channel": true,
+      "gameName": "signal-4",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-4",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_5": {
+      "channel": true,
+      "gameName": "signal-5",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-5",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_6": {
+      "channel": true,
+      "gameName": "signal-6",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-6",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_7": {
+      "channel": true,
+      "gameName": "signal-7",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-7",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_8": {
+      "channel": true,
+      "gameName": "signal-8",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-8",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_9": {
+      "channel": true,
+      "gameName": "signal-9",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-9",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_A": {
+      "channel": true,
+      "gameName": "signal-A",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-A",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_B": {
+      "channel": true,
+      "gameName": "signal-B",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-B",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_C": {
+      "channel": true,
+      "gameName": "signal-C",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-C",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_D": {
+      "channel": true,
+      "gameName": "signal-D",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-D",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_E": {
+      "channel": true,
+      "gameName": "signal-E",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-E",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_F": {
+      "channel": true,
+      "gameName": "signal-F",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-F",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_G": {
+      "channel": true,
+      "gameName": "signal-G",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-G",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_H": {
+      "channel": true,
+      "gameName": "signal-H",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-H",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_I": {
+      "channel": true,
+      "gameName": "signal-I",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-I",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_J": {
+      "channel": true,
+      "gameName": "signal-J",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-J",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_K": {
+      "channel": true,
+      "gameName": "signal-K",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-K",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_L": {
+      "channel": true,
+      "gameName": "signal-L",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-L",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_M": {
+      "channel": true,
+      "gameName": "signal-M",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-M",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_N": {
+      "channel": true,
+      "gameName": "signal-N",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-N",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_O": {
+      "channel": true,
+      "gameName": "signal-O",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-O",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_P": {
+      "channel": true,
+      "gameName": "signal-P",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-P",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_Q": {
+      "channel": true,
+      "gameName": "signal-Q",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-Q",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_R": {
+      "channel": true,
+      "gameName": "signal-R",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-R",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_S": {
+      "channel": true,
+      "gameName": "signal-S",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-S",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_T": {
+      "channel": true,
+      "gameName": "signal-T",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-T",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_U": {
+      "channel": true,
+      "gameName": "signal-U",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-U",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_V": {
+      "channel": true,
+      "gameName": "signal-V",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-V",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_W": {
+      "channel": true,
+      "gameName": "signal-W",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-W",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_X": {
+      "channel": true,
+      "gameName": "signal-X",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-X",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_Y": {
+      "channel": true,
+      "gameName": "signal-Y",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-Y",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_Z": {
+      "channel": true,
+      "gameName": "signal-Z",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-Z",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_alarm": {
+      "channel": true,
+      "gameName": "signal-alarm",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-alarm",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_alert": {
+      "channel": true,
+      "gameName": "signal-alert",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-alert",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_ampersand": {
+      "channel": true,
+      "gameName": "signal-ampersand",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-ampersand",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_anticlockwise_circle_arrow": {
+      "channel": true,
+      "gameName": "signal-anticlockwise-circle-arrow",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-anticlockwise-circle-arrow",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_apostrophe": {
+      "channel": true,
+      "gameName": "signal-apostrophe",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-apostrophe",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_battery_full": {
+      "channel": true,
+      "gameName": "signal-battery-full",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-battery-full",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_battery_low": {
+      "channel": true,
+      "gameName": "signal-battery-low",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-battery-low",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_battery_mid_level": {
+      "channel": true,
+      "gameName": "signal-battery-mid-level",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-battery-mid-level",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_black": {
+      "channel": true,
+      "gameName": "signal-black",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-black",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_blue": {
+      "channel": true,
+      "gameName": "signal-blue",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-blue",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_check": {
+      "channel": true,
+      "gameName": "signal-check",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-check",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_circumflex_accent": {
+      "channel": true,
+      "gameName": "signal-circumflex-accent",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-circumflex-accent",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_clock": {
+      "channel": true,
+      "gameName": "signal-clock",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-clock",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_clockwise_circle_arrow": {
+      "channel": true,
+      "gameName": "signal-clockwise-circle-arrow",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-clockwise-circle-arrow",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_colon": {
+      "channel": true,
+      "gameName": "signal-colon",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-colon",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_comma": {
+      "channel": true,
+      "gameName": "signal-comma",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-comma",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_cyan": {
+      "channel": true,
+      "gameName": "signal-cyan",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-cyan",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_damage": {
+      "channel": true,
+      "gameName": "signal-damage",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-damage",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_deny": {
+      "channel": true,
+      "gameName": "signal-deny",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-deny",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_division": {
+      "channel": true,
+      "gameName": "signal-division",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-division",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_dot": {
+      "channel": true,
+      "gameName": "signal-dot",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-dot",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_equal": {
+      "channel": true,
+      "gameName": "signal-equal",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-equal",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_exclamation_mark": {
+      "channel": true,
+      "gameName": "signal-exclamation-mark",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-exclamation-mark",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_explosion": {
+      "channel": true,
+      "gameName": "signal-explosion",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-explosion",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_fire": {
+      "channel": true,
+      "gameName": "signal-fire",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-fire",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_fuel": {
+      "channel": true,
+      "gameName": "signal-fuel",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-fuel",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_ghost": {
+      "channel": true,
+      "gameName": "signal-ghost",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-ghost",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_greater_than": {
+      "channel": true,
+      "gameName": "signal-greater-than",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-greater-than",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_greater_than_or_equal_to": {
+      "channel": true,
+      "gameName": "signal-greater-than-or-equal-to",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-greater-than-or-equal-to",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_green": {
+      "channel": true,
+      "gameName": "signal-green",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-green",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_grey": {
+      "channel": true,
+      "gameName": "signal-grey",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-grey",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_heart": {
+      "channel": true,
+      "gameName": "signal-heart",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-heart",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_hourglass": {
+      "channel": true,
+      "gameName": "signal-hourglass",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-hourglass",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_info": {
+      "channel": true,
+      "gameName": "signal-info",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-info",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_input": {
+      "channel": true,
+      "gameName": "signal-input",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-input",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_left_parenthesis": {
+      "channel": true,
+      "gameName": "signal-left-parenthesis",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-left-parenthesis",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_left_right_arrow": {
+      "channel": true,
+      "gameName": "signal-left-right-arrow",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-left-right-arrow",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_left_square_bracket": {
+      "channel": true,
+      "gameName": "signal-left-square-bracket",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-left-square-bracket",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_less_than": {
+      "channel": true,
+      "gameName": "signal-less-than",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-less-than",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_less_than_or_equal_to": {
+      "channel": true,
+      "gameName": "signal-less-than-or-equal-to",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-less-than-or-equal-to",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_letter_dot": {
+      "channel": true,
+      "gameName": "signal-letter-dot",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-letter-dot",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_lightning": {
+      "channel": true,
+      "gameName": "signal-lightning",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-lightning",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_liquid": {
+      "channel": true,
+      "gameName": "signal-liquid",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-liquid",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_lock": {
+      "channel": true,
+      "gameName": "signal-lock",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-lock",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_map_marker": {
+      "channel": true,
+      "gameName": "signal-map-marker",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-map-marker",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_mining": {
+      "channel": true,
+      "gameName": "signal-mining",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-mining",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_minus": {
+      "channel": true,
+      "gameName": "signal-minus",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-minus",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_moon": {
+      "channel": true,
+      "gameName": "signal-moon",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-moon",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_multiplication": {
+      "channel": true,
+      "gameName": "signal-multiplication",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-multiplication",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_no_entry": {
+      "channel": true,
+      "gameName": "signal-no-entry",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-no-entry",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_not_equal": {
+      "channel": true,
+      "gameName": "signal-not-equal",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-not-equal",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_number_sign": {
+      "channel": true,
+      "gameName": "signal-number-sign",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-number-sign",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_output": {
+      "channel": true,
+      "gameName": "signal-output",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-output",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_percent": {
+      "channel": true,
+      "gameName": "signal-percent",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-percent",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_pink": {
+      "channel": true,
+      "gameName": "signal-pink",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-pink",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_plus": {
+      "channel": true,
+      "gameName": "signal-plus",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-plus",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_question_mark": {
+      "channel": true,
+      "gameName": "signal-question-mark",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-question-mark",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_quotation_mark": {
+      "channel": true,
+      "gameName": "signal-quotation-mark",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-quotation-mark",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_radioactivity": {
+      "channel": true,
+      "gameName": "signal-radioactivity",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-radioactivity",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_recycle": {
+      "channel": true,
+      "gameName": "signal-recycle",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-recycle",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_red": {
+      "channel": true,
+      "gameName": "signal-red",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-red",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_right_parenthesis": {
+      "channel": true,
+      "gameName": "signal-right-parenthesis",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-right-parenthesis",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_right_square_bracket": {
+      "channel": true,
+      "gameName": "signal-right-square-bracket",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-right-square-bracket",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_rightwards_leftwards_arrow": {
+      "channel": true,
+      "gameName": "signal-rightwards-leftwards-arrow",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-rightwards-leftwards-arrow",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_science_pack": {
+      "channel": true,
+      "gameName": "signal-science-pack",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-science-pack",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_shuffle": {
+      "channel": true,
+      "gameName": "signal-shuffle",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-shuffle",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_skull": {
+      "channel": true,
+      "gameName": "signal-skull",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-skull",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_slash": {
+      "channel": true,
+      "gameName": "signal-slash",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-slash",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_snowflake": {
+      "channel": true,
+      "gameName": "signal-snowflake",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-snowflake",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_speed": {
+      "channel": true,
+      "gameName": "signal-speed",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-speed",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_stack_size": {
+      "channel": true,
+      "gameName": "signal-stack-size",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-stack-size",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_star": {
+      "channel": true,
+      "gameName": "signal-star",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-star",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_sun": {
+      "channel": true,
+      "gameName": "signal-sun",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-sun",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_thermometer_blue": {
+      "channel": true,
+      "gameName": "signal-thermometer-blue",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-thermometer-blue",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_thermometer_red": {
+      "channel": true,
+      "gameName": "signal-thermometer-red",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-thermometer-red",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_trash_bin": {
+      "channel": true,
+      "gameName": "signal-trash-bin",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-trash-bin",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_unlock": {
+      "channel": true,
+      "gameName": "signal-unlock",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-unlock",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_up_down_arrow": {
+      "channel": true,
+      "gameName": "signal-up-down-arrow",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-up-down-arrow",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_upwards_downwards_arrow": {
+      "channel": true,
+      "gameName": "signal-upwards-downwards-arrow",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-upwards-downwards-arrow",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_weapon": {
+      "channel": true,
+      "gameName": "signal-weapon",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-weapon",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_white": {
+      "channel": true,
+      "gameName": "signal-white",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-white",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_white_flag": {
+      "channel": true,
+      "gameName": "signal-white-flag",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-white-flag",
+      "role": "ordinary"
+    },
+    "Signal.Signals.signal_yellow": {
+      "channel": true,
+      "gameName": "signal-yellow",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-yellow",
+      "role": "ordinary"
+    },
+    "Signal.Signals.up_arrow": {
+      "channel": true,
+      "gameName": "up-arrow",
+      "gameType": "virtual",
+      "prototypeId": "virtual/up-arrow",
+      "role": "ordinary"
+    },
+    "Signal.Signals.up_left_arrow": {
+      "channel": true,
+      "gameName": "up-left-arrow",
+      "gameType": "virtual",
+      "prototypeId": "virtual/up-left-arrow",
+      "role": "ordinary"
+    },
+    "Signal.Signals.up_right_arrow": {
+      "channel": true,
+      "gameName": "up-right-arrow",
+      "gameType": "virtual",
+      "prototypeId": "virtual/up-right-arrow",
+      "role": "ordinary"
+    },
+    "Signal.Unsorted.artillery_targeting_remote": {
+      "channel": true,
+      "gameName": "artillery-targeting-remote",
+      "gameType": "item",
+      "prototypeId": "item/artillery-targeting-remote",
+      "role": "ordinary"
+    },
+    "Signal.Unsorted.copper_wire": {
+      "channel": true,
+      "gameName": "copper-wire",
+      "gameType": "item",
+      "prototypeId": "item/copper-wire",
+      "role": "ordinary"
+    },
+    "Signal.Unsorted.discharge_defense_remote": {
+      "channel": true,
+      "gameName": "discharge-defense-remote",
+      "gameType": "item",
+      "prototypeId": "item/discharge-defense-remote",
+      "role": "ordinary"
+    },
+    "Signal.Unsorted.green_wire": {
+      "channel": true,
+      "gameName": "green-wire",
+      "gameType": "item",
+      "prototypeId": "item/green-wire",
+      "role": "ordinary"
+    },
+    "Signal.Unsorted.red_wire": {
+      "channel": true,
+      "gameName": "red-wire",
+      "gameType": "item",
+      "prototypeId": "item/red-wire",
+      "role": "ordinary"
+    },
+    "Signal.Unsorted.signal_fluid_parameter": {
+      "channel": true,
+      "gameName": "signal-fluid-parameter",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-fluid-parameter",
+      "role": "ordinary"
+    },
+    "Signal.Unsorted.signal_fuel_parameter": {
+      "channel": true,
+      "gameName": "signal-fuel-parameter",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-fuel-parameter",
+      "role": "ordinary"
+    },
+    "Signal.Unsorted.signal_item_parameter": {
+      "channel": true,
+      "gameName": "signal-item-parameter",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-item-parameter",
+      "role": "ordinary"
+    },
+    "Signal.Unsorted.signal_signal_parameter": {
+      "channel": true,
+      "gameName": "signal-signal-parameter",
+      "gameType": "virtual",
+      "prototypeId": "virtual/signal-signal-parameter",
+      "role": "ordinary"
+    },
+    "Signal.Unsorted.spidertron_remote": {
+      "channel": true,
+      "gameName": "spidertron-remote",
+      "gameType": "item",
+      "prototypeId": "item/spidertron-remote",
+      "role": "ordinary"
+    }
+  },
+  "profile": "base",
+  "schemaVersion": 1
+}

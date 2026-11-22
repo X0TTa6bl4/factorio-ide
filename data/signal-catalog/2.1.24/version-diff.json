@@ -1,0 +1,11 @@
+{
+  "added": [],
+  "explanation": "Предыдущей таблицы signal-catalog нет. Этот выпуск — baseline 2.1.24. Следующая версия должна показать добавления, удаления и смену пути; старый publicPath нельзя отдать другому prototypeId.",
+  "gameVersion": "2.1.24",
+  "moved": [],
+  "previous": null,
+  "reassigned": [],
+  "removed": [],
+  "schemaVersion": 1,
+  "status": "baseline"
+}

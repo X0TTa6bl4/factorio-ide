@@ -1,0 +1,44 @@
+{
+  "gameVersion": "2.1.24",
+  "menuConfirmed": false,
+  "note": "Число учётных строк — это сырые прототипы, включая скрытые и технические. Оно не равно числу экспортированных путей и не подтверждает состав игрового меню.",
+  "profiles": {
+    "base": {
+      "excluded": {
+        "blueprint-parameter": 40,
+        "not-selectable": 176,
+        "subgroup-absent": 100,
+        "technical": 332
+      },
+      "exported": 570,
+      "input": 1218,
+      "menuConfirmed": false,
+      "rows": 1218,
+      "unresolvedLabels": {
+        "en": 80,
+        "ru": 80
+      }
+    },
+    "space-age": {
+      "excluded": {
+        "blueprint-parameter": 50,
+        "chooser-blueprint-item": 4,
+        "chooser-observation-item-only": 1,
+        "chooser-review-removed": 185,
+        "not-selectable": 251,
+        "project-item-only": 1,
+        "subgroup-absent": 127,
+        "technical": 933
+      },
+      "exported": 697,
+      "input": 2249,
+      "menuConfirmed": false,
+      "rows": 2249,
+      "unresolvedLabels": {
+        "en": 173,
+        "ru": 173
+      }
+    }
+  },
+  "schemaVersion": 1
+}

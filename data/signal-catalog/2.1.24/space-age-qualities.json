@@ -1,0 +1,210 @@
+{
+  "entries": [
+    {
+      "gameName": "normal",
+      "hidden": false,
+      "label": {
+        "en": {
+          "source": "quality-name.normal",
+          "status": "snapshot",
+          "text": "Normal"
+        },
+        "ru": {
+          "source": "quality-name.normal",
+          "status": "snapshot",
+          "text": "Обычное"
+        }
+      },
+      "level": {
+        "status": "present",
+        "value": 0
+      },
+      "next": {
+        "status": "present",
+        "value": "uncommon"
+      },
+      "nextProbability": {
+        "status": "present",
+        "value": 1
+      },
+      "pathReason": null,
+      "prototypeId": "quality/normal",
+      "publicPath": "Signal.Unsorted.normal",
+      "role": "ordinary"
+    },
+    {
+      "gameName": "quality-unknown",
+      "hidden": true,
+      "label": {
+        "en": {
+          "source": "quality-name.quality-unknown",
+          "status": "snapshot",
+          "text": "Unknown"
+        },
+        "ru": {
+          "source": "quality-name.quality-unknown",
+          "status": "snapshot",
+          "text": "Неизвестно"
+        }
+      },
+      "level": {
+        "status": "present",
+        "value": 0
+      },
+      "next": {
+        "status": "absent",
+        "value": null
+      },
+      "nextProbability": {
+        "status": "absent",
+        "value": null
+      },
+      "pathReason": "technical",
+      "prototypeId": "quality/quality-unknown",
+      "publicPath": null,
+      "role": "technical"
+    },
+    {
+      "gameName": "uncommon",
+      "hidden": false,
+      "label": {
+        "en": {
+          "source": "quality-name.uncommon",
+          "status": "snapshot",
+          "text": "Uncommon"
+        },
+        "ru": {
+          "source": "quality-name.uncommon",
+          "status": "snapshot",
+          "text": "Необычное"
+        }
+      },
+      "level": {
+        "status": "present",
+        "value": 1
+      },
+      "next": {
+        "status": "present",
+        "value": "rare"
+      },
+      "nextProbability": {
+        "status": "present",
+        "value": 1
+      },
+      "pathReason": null,
+      "prototypeId": "quality/uncommon",
+      "publicPath": "Signal.Unsorted.uncommon",
+      "role": "ordinary"
+    },
+    {
+      "gameName": "rare",
+      "hidden": false,
+      "label": {
+        "en": {
+          "source": "quality-name.rare",
+          "status": "snapshot",
+          "text": "Rare"
+        },
+        "ru": {
+          "source": "quality-name.rare",
+          "status": "snapshot",
+          "text": "Редкое"
+        }
+      },
+      "level": {
+        "status": "present",
+        "value": 2
+      },
+      "next": {
+        "status": "present",
+        "value": "epic"
+      },
+      "nextProbability": {
+        "status": "present",
+        "value": 1
+      },
+      "pathReason": null,
+      "prototypeId": "quality/rare",
+      "publicPath": "Signal.Unsorted.rare",
+      "role": "ordinary"
+    },
+    {
+      "gameName": "epic",
+      "hidden": false,
+      "label": {
+        "en": {
+          "source": "quality-name.epic",
+          "status": "snapshot",
+          "text": "Epic"
+        },
+        "ru": {
+          "source": "quality-name.epic",
+          "status": "snapshot",
+          "text": "Эпическое"
+        }
+      },
+      "level": {
+        "status": "present",
+        "value": 3
+      },
+      "next": {
+        "status": "present",
+        "value": "legendary"
+      },
+      "nextProbability": {
+        "status": "present",
+        "value": 1
+      },
+      "pathReason": null,
+      "prototypeId": "quality/epic",
+      "publicPath": "Signal.Unsorted.epic",
+      "role": "ordinary"
+    },
+    {
+      "gameName": "legendary",
+      "hidden": false,
+      "label": {
+        "en": {
+          "source": "quality-name.legendary",
+          "status": "snapshot",
+          "text": "Legendary"
+        },
+        "ru": {
+          "source": "quality-name.legendary",
+          "status": "snapshot",
+          "text": "Легендарное"
+        }
+      },
+      "level": {
+        "status": "present",
+        "value": 5
+      },
+      "next": {
+        "status": "absent",
+        "value": null
+      },
+      "nextProbability": {
+        "status": "absent",
+        "value": null
+      },
+      "pathReason": null,
+      "prototypeId": "quality/legendary",
+      "publicPath": "Signal.Unsorted.legendary",
+      "role": "ordinary"
+    }
+  ],
+  "gameVersion": "2.1.24",
+  "missingLevels": [
+    4
+  ],
+  "note": "Таблица модификаторов качества. Строки сигналов на эти уровни не размножаются. Применимость качества к каналу в строке сигнала остаётся unconfirmed, если снимок её не содержит.",
+  "observedOrdinaryLevels": [
+    0,
+    1,
+    2,
+    3,
+    5
+  ],
+  "profile": "space-age",
+  "schemaVersion": 1
+}

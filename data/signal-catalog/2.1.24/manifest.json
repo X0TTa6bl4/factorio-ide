@@ -1,0 +1,289 @@
+{
+  "blocking": {
+    "base": {
+      "collisionPaths": 0,
+      "collisionRows": 0,
+      "propertyRows": 0
+    },
+    "space-age": {
+      "collisionPaths": 0,
+      "collisionRows": 0,
+      "propertyRows": 0
+    }
+  },
+  "collisionsResolved": true,
+  "coverage": {
+    "base": {
+      "excluded": {
+        "blueprint-parameter": 40,
+        "not-selectable": 176,
+        "subgroup-absent": 100,
+        "technical": 332
+      },
+      "exported": 570,
+      "input": 1218,
+      "menuConfirmed": false,
+      "rows": 1218,
+      "unresolvedLabels": {
+        "en": 80,
+        "ru": 80
+      }
+    },
+    "space-age": {
+      "excluded": {
+        "blueprint-parameter": 50,
+        "chooser-blueprint-item": 4,
+        "chooser-observation-item-only": 1,
+        "chooser-review-removed": 185,
+        "not-selectable": 251,
+        "project-item-only": 1,
+        "subgroup-absent": 127,
+        "technical": 933
+      },
+      "exported": 697,
+      "input": 2249,
+      "menuConfirmed": false,
+      "rows": 2249,
+      "unresolvedLabels": {
+        "en": 173,
+        "ru": 173
+      }
+    }
+  },
+  "evidence": {
+    "asteroidSignals": "Путь четырёх кусков назначен предмету по blueprint постоянного комбинатора 2.1.24. asteroid-chunk сохранён с chooser-blueprint-item. hide_from_signal_gui и item_signal_alias в снимке отсутствуют и не подставлены. Полное меню не подтверждено.",
+    "barrelActions": "Предмет бочки — основной путь. .fill и .empty — вложенные токены recipe по решению проекта. Крафт не выполняется.",
+    "biolab": "Публичный путь только у item/biolab. entity/biolab сохранена с chooser-observation-item-only. Версия наблюдения не указана, menuConfirmed не выставляется.",
+    "captiveBiterSpawner": "Публичный путь только у предмета. Сущность сохранена с project-item-only.",
+    "iconPng": "Пути слоёв сохранены. PNG headless-снимка отсутствуют.",
+    "locale": "Подписи взяты из снимка. request_translation не вызывался. unresolved не является переводом.",
+    "recipeHideFromSignalGui": {
+      "applicationVersion": "2.1.24",
+      "iconComparison": "Канонический JSON слоёв нескрытых item/fluid/virtual, порядок слоёв сохранён. Обычные рецепты обоих профилей сверены с runtime 2.1.24 в data/evidence/runtime-2.1.24-2026-11-18. Это не подтверждение всего меню.",
+      "level": "documentation",
+      "runtimeEvidence": "data/evidence/runtime-2.1.24-2026-11-18/manifest.json",
+      "source": "https://lua-api.factorio.com/2.1.24/prototypes/RecipePrototype.html#hide_from_signal_gui",
+      "text": "If left unset, this property will be determined automatically: If the recipe is not hidden, and no item, fluid, or virtual signal has the same icon as this recipe, this property will be set to false. It'll be true otherwise."
+    },
+    "signalMenu": {
+      "fullGuiCoverage": "not-recorded",
+      "signals": 693,
+      "source": "data/evidence/constant-combinator-review-2026-11-18/returned.blueprint.txt",
+      "sourceSha256": "9d620e57f545d29860f397a0b0e581c5c3a8146cb99694f8c9945456d7415325",
+      "status": "user-reviewed-blueprint"
+    },
+    "signalQualityDefault": {
+      "level": "documentation",
+      "note": "У SignalID поле quality по умолчанию равно normal. Снимок не сообщает, принимает ли конкретный прототип качество.",
+      "source": "https://lua-api.factorio.com/2.1.24/concepts/SignalID.html",
+      "value": "normal"
+    },
+    "sort": "Порядок строк — UTF-16-сравнение строк порядка группы, подгруппы, прототипа, типа и имени. Локаль машины на publicPath не влияет."
+  },
+  "gameVersion": "2.1.24",
+  "generator": [
+    {
+      "path": "tools/signal-catalog/build.mjs",
+      "sha256": "437ebffd5c0350ef74dc96b5e2a4e2d3db0f2c39c5a78181393e4169edc93c1d"
+    },
+    {
+      "path": "tools/signal-catalog/cli.mjs",
+      "sha256": "19df9d0c14dacac7111fa1ba2e8cfdf17639ade132fca88b13bdb716ecc6c8c1"
+    },
+    {
+      "path": "tools/signal-catalog/chooser-review.mjs",
+      "sha256": "3fd2a5bffa99453bcf024dcb5b342fd69f99866d02ee47862344333eb077ecd7"
+    },
+    {
+      "path": "tools/signal-catalog/decisions.mjs",
+      "sha256": "245fd9c6fa4dcaa33c607559d233a54b60d0e8e19df587d1a2bf737c898b743f"
+    },
+    {
+      "path": "tools/signal-catalog/errors.mjs",
+      "sha256": "5d2e32e597cc157079a4d88fe02a9ba403e5532f2ba26d3cd9f7b26314a16f05"
+    },
+    {
+      "path": "tools/signal-catalog/expected.mjs",
+      "sha256": "1e05cb8a91678603a13e5d39d88b5c084c13222b089c0deade17d5347211eaf3"
+    },
+    {
+      "path": "tools/signal-catalog/format.mjs",
+      "sha256": "c13874ff0a9c7573135276381a915d0278644bd0d55e54a3c20ab52578dd90df"
+    },
+    {
+      "path": "tools/signal-catalog/hash.mjs",
+      "sha256": "9527113f8eafb93a3548ca42a46038726b5c6aee04b67d607b858b3b6acbcef5"
+    },
+    {
+      "path": "tools/signal-catalog/load.mjs",
+      "sha256": "9424d3ea3cd4108330a4addb0630b349c8a087960a79fe8b89b1f0228dc7fd32"
+    },
+    {
+      "path": "tools/signal-catalog/names.mjs",
+      "sha256": "8ed36f324a283da0d7469bb1a3ab6b3022739704d9aeaec30602f5fa0a773c65"
+    },
+    {
+      "path": "tools/signal-catalog/outputs.mjs",
+      "sha256": "e4ce96da25bdf266e3ef8698112573fd9b61f3834f0659f025d9426f9646d182"
+    },
+    {
+      "path": "tools/signal-catalog/publish.mjs",
+      "sha256": "bb85449ffb991dde3d04ca76923bba55cc097900e63368af9e7ac9e8d5d55e86"
+    },
+    {
+      "path": "tools/signal-catalog/review.mjs",
+      "sha256": "2c06c525d0a0cb7cf49ae553902f332df41ce2cbb0f012fb2a3d0f38b77cc4d0"
+    },
+    {
+      "path": "tools/signal-catalog/tree.mjs",
+      "sha256": "2fa5522d825f1981c528171bbfa6946400f180de0c9c0d971e7fedc5b2b5d0b3"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "data/evidence/constant-combinator-review-2026-11-18/review.json",
+      "sha256": "86448d0d153b1f430b76adfac3e824471b98d8ec6ffda1fb84f06d4e5694b97e"
+    },
+    {
+      "path": "data/factorio/2.1.24/base/asteroid-chunks.json",
+      "sha256": "5c348341df71e84f4ddf53ebbbfde1a5795222a99b743f16ef7b46304561e135"
+    },
+    {
+      "path": "data/factorio/2.1.24/base/entities.json",
+      "sha256": "d0fc54c424bf3cd6cbf4eaa38a93d715bf1c7f91570c7d93c93a3d231ef5fb41"
+    },
+    {
+      "path": "data/factorio/2.1.24/base/fluids.json",
+      "sha256": "87c04ce7b8e931898b9ff644510a47f541f7ee49ad4c1688a02875567d3bb091"
+    },
+    {
+      "path": "data/factorio/2.1.24/base/groups.json",
+      "sha256": "49e0f9644fbc8c1a95180dccc95d4879cfe19defe3b97d8c1f436f6e631882e9"
+    },
+    {
+      "path": "data/factorio/2.1.24/base/items.json",
+      "sha256": "94ebf6cecaa5daa016b3697134ecd7116f1b4b849ec3b84ffd24a2d33c9f511a"
+    },
+    {
+      "path": "data/factorio/2.1.24/base/qualities.json",
+      "sha256": "dd0673094efd288739ab64976b81cd07c5000a73535624fb04dcad54f2c66d30"
+    },
+    {
+      "path": "data/factorio/2.1.24/base/recipes.json",
+      "sha256": "a84109efaf845b15a9d47fc91a615120735f298eb28348b50102a5de09100d07"
+    },
+    {
+      "path": "data/factorio/2.1.24/base/space-locations.json",
+      "sha256": "2cda617bb901936715303f5b693c83de60ff0c8b3892e4e2fdc2445c75bfd35c"
+    },
+    {
+      "path": "data/factorio/2.1.24/base/virtual-signals.json",
+      "sha256": "a85629c2303c4cdf141270e0ee1e4140aefb4d8c49405342bffe32d01abac86f"
+    },
+    {
+      "path": "data/factorio/2.1.24/manifest.json",
+      "sha256": "0602eadbc567a8102b070e8c9adb2a45cdeb9489799d004453acfec6d922a0af"
+    },
+    {
+      "path": "data/factorio/2.1.24/space-age/asteroid-chunks.json",
+      "sha256": "c0344efeebeed2bef96e7d20f3c30e0c8e75457197085db0e4b50de07281750e"
+    },
+    {
+      "path": "data/factorio/2.1.24/space-age/entities.json",
+      "sha256": "c307ae8c74d83acb389f49eb660baa39b49fe6535fc43c2d4f8cba261bcbb326"
+    },
+    {
+      "path": "data/factorio/2.1.24/space-age/fluids.json",
+      "sha256": "13b9d5a6ecf06670308350c7fb0b9cfbfb9d32c34926e9e1f908054ec1970d7c"
+    },
+    {
+      "path": "data/factorio/2.1.24/space-age/groups.json",
+      "sha256": "e3132919a2be19ef01fff0218413b778ab64ded3afa8e45e3b0b9632db987aa8"
+    },
+    {
+      "path": "data/factorio/2.1.24/space-age/items.json",
+      "sha256": "0078aa7d01643f777cb4fedaed401fd1b6423c73ed1e1e2e97d0385e5db1caa5"
+    },
+    {
+      "path": "data/factorio/2.1.24/space-age/qualities.json",
+      "sha256": "c11f27a118002f84db7dc0662a7dbdf9dcfa29ba1aa9e5a602d870cd68631248"
+    },
+    {
+      "path": "data/factorio/2.1.24/space-age/recipes.json",
+      "sha256": "f86875e420a31790071b20edcaa7ea7a0e40cda13fefdefe2feea9479398a680"
+    },
+    {
+      "path": "data/factorio/2.1.24/space-age/space-locations.json",
+      "sha256": "8c6c3fcf6cbfd2c41495af6f3518939cfb382c0e66a38e519815b3b4cec4f67a"
+    },
+    {
+      "path": "data/factorio/2.1.24/space-age/virtual-signals.json",
+      "sha256": "1fe43f1b4d3d44c1147d75fa2bc94b2266f68b58f9d1ed246ab0a41fe7efaf0b"
+    },
+    {
+      "path": "data/factorio/2.1.24/special-signals.json",
+      "sha256": "4bcc3cbad3e8d814f57d84a9e7682ac45f984d5f3f4f062c96b188b5e101046f"
+    }
+  ],
+  "menuConfirmed": false,
+  "namingRule": "prototype.name: ведущий цифровой блок до дефиса переносится в конец, затем '-' → '_'. Рецепты бочек получают .fill/.empty предмета. entity/captive-biter-spawner, entity/biolab и четыре asteroid-chunk из blueprint остаются без пути.",
+  "outputs": [
+    {
+      "name": "base-paths.json",
+      "sha256": "b6513c95f02157f99429b63d51963e73db20df22b588523d37e1bf86b63cebc3"
+    },
+    {
+      "name": "base-qualities.json",
+      "sha256": "4e6944e53b775bf4ebeefd1744606fa4e37163a81206f3cabcfef637b4a69159"
+    },
+    {
+      "name": "base.json",
+      "sha256": "5b0a8b36c5ebd0fb6974dbdb9a4cbde380f6863c6eb6e033c17319c551ce312d"
+    },
+    {
+      "name": "collisions.json",
+      "sha256": "793a1fe91ada35b6d3a3113f1abc342fd26e7192046137f507e205b21710e2ab"
+    },
+    {
+      "name": "coverage.json",
+      "sha256": "cc5a8a66ee49274f255b41eef8934b0615572fdfb6ac447d8b7376a3368bca65"
+    },
+    {
+      "name": "profile-diff.json",
+      "sha256": "0745b380499c2d716683e27c8e6678f597f454b6c1c14f7aec7bef8660fb4789"
+    },
+    {
+      "name": "review.md",
+      "sha256": "41a2f9a4deeb498ff016494b40497bc5765a027b29b81ddd37ce580cc42bd731"
+    },
+    {
+      "name": "space-age-paths.json",
+      "sha256": "bcb92071975da04f0dc6a1697c3bde99a8c3c59a8dc43110c47d4c5a3110dbf2"
+    },
+    {
+      "name": "space-age-qualities.json",
+      "sha256": "c7bbec32aa033a8c556df1c0e811562cfb15b380c755cce4651e0f29aaf797ed"
+    },
+    {
+      "name": "space-age.json",
+      "sha256": "237364514a32fcbdc5770ca110f5bcac94303d25a7ca6750c01c3254a6fe8e87"
+    },
+    {
+      "name": "version-diff.json",
+      "sha256": "57a1d5b32b3f4d81d1870ed4d1418a20e48a1f541a6a0f98591438920c3d9820"
+    }
+  ],
+  "proposal": "Имя из prototype.name: ведущий цифровой блок до дефиса переносится в конец, затем дефис заменяется подчёркиванием; регистр сохраняется. Суффиксы _item/_recipe и ветви Recipe/Entity не добавляются. Пока коллизия не разрешена, publicPath не назначается ни одной записи с общим candidatePath. Учётные строки сохраняются. Принято для бочек: предмет получает путь, recipe наполнения — .fill, recipe опустошения — .empty. Имена листьев взяты из действий Fill и Empty. Рецепт пустой бочки и скрытый recycling этим действием не становятся. Принято для захваченного улья: публичный путь только у item/captive-biter-spawner. entity/captive-biter-spawner хранится с причиной project-item-only. Принято для биолаборатории: публичный путь только у item/biolab по наблюдению пользователя от 18.11.2026. entity/biolab хранится с причиной chooser-observation-item-only. Версия наблюдения не указана. Принято для четырёх кусков астероида: публичный путь у item/metallic-asteroid-chunk, item/carbonic-asteroid-chunk, item/oxide-asteroid-chunk и item/promethium-asteroid-chunk. Парный asteroid-chunk хранится с причиной chooser-blueprint-item. hide_from_signal_gui и item_signal_alias из снимка не получены и не подставлены. Принято 18.11.2026: entity/1x2-remnants экспортируется как Signal.Environment.remnants_1x2. Исходный игровой name остаётся 1x2-remnants.",
+  "schemaVersion": 1,
+  "snapshot": {
+    "archiveSha256": "c49b66cff90aceff87b30f2973af0df7f51712cb2ee3153e0169d9bed46a964f",
+    "builderSha256": "215cd581cd4d00e910df88849fa3e1d48cd85a135a4462cb7286787ed29d9063",
+    "engineValidation": false,
+    "extraction": "official-lua-data-stages",
+    "gameVersion": "2.1.24",
+    "iconFilesCopied": 0,
+    "iconFilesReferenced": 770,
+    "loaderSha256": "81ab70ff5a828576c3ef6389e535ce48f0e1b282c5e5ad20ccd39050df4d82a8",
+    "root": "data/factorio/2.1.24"
+  }
+}

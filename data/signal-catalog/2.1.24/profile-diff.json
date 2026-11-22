@@ -1,0 +1,2259 @@
+{
+  "added": [
+    "asteroid-chunk/carbonic-asteroid-chunk",
+    "asteroid-chunk/metallic-asteroid-chunk",
+    "asteroid-chunk/oxide-asteroid-chunk",
+    "asteroid-chunk/parameter-0",
+    "asteroid-chunk/parameter-1",
+    "asteroid-chunk/parameter-2",
+    "asteroid-chunk/parameter-3",
+    "asteroid-chunk/parameter-4",
+    "asteroid-chunk/parameter-5",
+    "asteroid-chunk/parameter-6",
+    "asteroid-chunk/parameter-7",
+    "asteroid-chunk/parameter-8",
+    "asteroid-chunk/parameter-9",
+    "asteroid-chunk/promethium-asteroid-chunk",
+    "entity/agricultural-tower",
+    "entity/agricultural-tower-explosion",
+    "entity/agricultural-tower-remnants",
+    "entity/aquilo-tiles-inner-explosion",
+    "entity/aquilo-tiles-outer-explosion",
+    "entity/ashland-lichen-tree",
+    "entity/ashland-lichen-tree-flaming",
+    "entity/ashland-lichen-tree-stump",
+    "entity/asteroid-collector",
+    "entity/asteroid-collector-explosion",
+    "entity/asteroid-collector-remnants",
+    "entity/big-acid-splash-fire-stomper",
+    "entity/big-acid-sticker-stomper",
+    "entity/big-acid-stream-stomper",
+    "entity/big-carbonic-asteroid",
+    "entity/big-demolisher",
+    "entity/big-demolisher-ash-cloud",
+    "entity/big-demolisher-ash-cloud-trail",
+    "entity/big-demolisher-corpse",
+    "entity/big-demolisher-expanding-ash-cloud-1",
+    "entity/big-demolisher-expanding-ash-cloud-10",
+    "entity/big-demolisher-expanding-ash-cloud-11",
+    "entity/big-demolisher-expanding-ash-cloud-12",
+    "entity/big-demolisher-expanding-ash-cloud-13",
+    "entity/big-demolisher-expanding-ash-cloud-14",
+    "entity/big-demolisher-expanding-ash-cloud-15",
+    "entity/big-demolisher-expanding-ash-cloud-16",
+    "entity/big-demolisher-expanding-ash-cloud-17",
+    "entity/big-demolisher-expanding-ash-cloud-18",
+    "entity/big-demolisher-expanding-ash-cloud-19",
+    "entity/big-demolisher-expanding-ash-cloud-2",
+    "entity/big-demolisher-expanding-ash-cloud-20",
+    "entity/big-demolisher-expanding-ash-cloud-21",
+    "entity/big-demolisher-expanding-ash-cloud-22",
+    "entity/big-demolisher-expanding-ash-cloud-23",
+    "entity/big-demolisher-expanding-ash-cloud-24",
+    "entity/big-demolisher-expanding-ash-cloud-25",
+    "entity/big-demolisher-expanding-ash-cloud-26",
+    "entity/big-demolisher-expanding-ash-cloud-27",
+    "entity/big-demolisher-expanding-ash-cloud-28",
+    "entity/big-demolisher-expanding-ash-cloud-29",
+    "entity/big-demolisher-expanding-ash-cloud-3",
+    "entity/big-demolisher-expanding-ash-cloud-30",
+    "entity/big-demolisher-expanding-ash-cloud-4",
+    "entity/big-demolisher-expanding-ash-cloud-5",
+    "entity/big-demolisher-expanding-ash-cloud-6",
+    "entity/big-demolisher-expanding-ash-cloud-7",
+    "entity/big-demolisher-expanding-ash-cloud-8",
+    "entity/big-demolisher-expanding-ash-cloud-9",
+    "entity/big-demolisher-fissure",
+    "entity/big-demolisher-fissure-damage-explosion",
+    "entity/big-demolisher-fissure-explosion",
+    "entity/big-demolisher-fissure-scorchmark",
+    "entity/big-demolisher-segment-x0_65",
+    "entity/big-demolisher-segment-x0_77",
+    "entity/big-demolisher-segment-x0_87",
+    "entity/big-demolisher-segment-x0_97",
+    "entity/big-demolisher-segment-x0_99",
+    "entity/big-demolisher-segment-x1_08",
+    "entity/big-demolisher-segment-x1_09",
+    "entity/big-demolisher-segment-x1_1",
+    "entity/big-demolisher-segment-x1_17",
+    "entity/big-demolisher-segment-x1_2",
+    "entity/big-demolisher-segment-x1_27",
+    "entity/big-demolisher-segment-x1_28",
+    "entity/big-demolisher-segment-x1_3",
+    "entity/big-demolisher-segment-x1_33",
+    "entity/big-demolisher-segment-x1_36",
+    "entity/big-demolisher-segment-x1_37",
+    "entity/big-demolisher-segment-x1_4",
+    "entity/big-demolisher-segment-x1_41",
+    "entity/big-demolisher-segment-x1_52",
+    "entity/big-demolisher-tail-x0_64",
+    "entity/big-demolisher-trail-lower",
+    "entity/big-demolisher-trail-upper",
+    "entity/big-fulgora-rock",
+    "entity/big-metallic-asteroid",
+    "entity/big-mining-drill",
+    "entity/big-mining-drill-explosion",
+    "entity/big-mining-drill-remnants",
+    "entity/big-oxide-asteroid",
+    "entity/big-promethium-asteroid",
+    "entity/big-stomper-corpse",
+    "entity/big-stomper-pentapod",
+    "entity/big-stomper-pentapod-die",
+    "entity/big-stomper-pentapod-leg",
+    "entity/big-stomper-pentapod-leg-die",
+    "entity/big-stomper-shell",
+    "entity/big-strafer-corpse",
+    "entity/big-strafer-pentapod",
+    "entity/big-strafer-pentapod-die",
+    "entity/big-strafer-pentapod-leg",
+    "entity/big-strafer-pentapod-leg-die",
+    "entity/big-strafer-projectile",
+    "entity/big-volcanic-rock",
+    "entity/big-volcanic-rock-hot",
+    "entity/big-wriggler-die",
+    "entity/big-wriggler-pentapod",
+    "entity/big-wriggler-pentapod-corpse",
+    "entity/big-wriggler-pentapod-premature",
+    "entity/biochamber",
+    "entity/biochamber-explosion",
+    "entity/biochamber-remnants",
+    "entity/bioflux-speed-regen-sticker",
+    "entity/bioflux-speed-regen-sticker-behind",
+    "entity/biolab",
+    "entity/biolab-explosion",
+    "entity/biolab-remnants",
+    "entity/boompuff",
+    "entity/boompuff-explosion",
+    "entity/boompuff-seed",
+    "entity/calcite",
+    "entity/captive-biter-spawner",
+    "entity/captive-spawner-explosion-1",
+    "entity/captive-spawner-explosion-2",
+    "entity/capture-robot",
+    "entity/capture-robot-explosion",
+    "entity/capture-robot-rocket",
+    "entity/carbonic-asteroid-explosion-1",
+    "entity/carbonic-asteroid-explosion-2",
+    "entity/carbonic-asteroid-explosion-3",
+    "entity/carbonic-asteroid-explosion-4",
+    "entity/carbonic-asteroid-explosion-5",
+    "entity/cargo-bay",
+    "entity/cargo-bay-remnants",
+    "entity/chain-tesla-gun-beam-bounce",
+    "entity/chain-tesla-gun-beam-start",
+    "entity/chain-tesla-turret-beam-bounce",
+    "entity/chain-tesla-turret-beam-start",
+    "entity/cliff-fulgora",
+    "entity/cliff-gleba",
+    "entity/cliff-vulcanus",
+    "entity/copper-stromatolite",
+    "entity/crater-cliff",
+    "entity/crusher",
+    "entity/crusher-remnants",
+    "entity/cryogenic-plant",
+    "entity/cryogenic-plant-explosion",
+    "entity/cryogenic-plant-remnants",
+    "entity/cuttlepop",
+    "entity/demolisher-ash-cloud-visual-dummy",
+    "entity/demolisher-ash-sticker",
+    "entity/electromagnetic-plant",
+    "entity/electromagnetic-plant-explosion",
+    "entity/electromagnetic-plant-remnants",
+    "entity/elevated-curved-rail-a",
+    "entity/elevated-curved-rail-b",
+    "entity/elevated-half-diagonal-rail",
+    "entity/elevated-rail-explosion",
+    "entity/elevated-rail-remnants",
+    "entity/elevated-straight-rail",
+    "entity/fluorine-vent",
+    "entity/foundation-tile-explosion",
+    "entity/foundry",
+    "entity/foundry-explosion",
+    "entity/foundry-remnants",
+    "entity/fulgora-sunk-ruin-big",
+    "entity/fulgora-sunk-ruin-medium-tall",
+    "entity/fulgoran-ruin-attractor",
+    "entity/fulgoran-ruin-big",
+    "entity/fulgoran-ruin-colossal",
+    "entity/fulgoran-ruin-huge",
+    "entity/fulgoran-ruin-medium",
+    "entity/fulgoran-ruin-small",
+    "entity/fulgoran-ruin-stonehenge",
+    "entity/fulgoran-ruin-vault",
+    "entity/fulgurite",
+    "entity/fulgurite-small",
+    "entity/funneltrunk",
+    "entity/fusion-generator",
+    "entity/fusion-generator-explosion",
+    "entity/fusion-generator-remnants",
+    "entity/fusion-reactor",
+    "entity/fusion-reactor-explosion",
+    "entity/fusion-reactor-remnants",
+    "entity/gleba-blood-explosion-big",
+    "entity/gleba-blood-explosion-huge",
+    "entity/gleba-blood-explosion-small",
+    "entity/gleba-blood-fountain",
+    "entity/gleba-blood-fountain-big",
+    "entity/gleba-blood-fountain-hit-spray",
+    "entity/gleba-enemy-damaged-explosion",
+    "entity/gleba-spawner",
+    "entity/gleba-spawner-corpse",
+    "entity/gleba-spawner-corpse-small",
+    "entity/gleba-spawner-small",
+    "entity/hairyclubnub",
+    "entity/heating-tower",
+    "entity/heating-tower-explosion",
+    "entity/heating-tower-remnants",
+    "entity/huge-carbonic-asteroid",
+    "entity/huge-metallic-asteroid",
+    "entity/huge-oxide-asteroid",
+    "entity/huge-promethium-asteroid",
+    "entity/huge-volcanic-rock",
+    "entity/huge-volcanic-rock-hot",
+    "entity/iron-stromatolite",
+    "entity/jellynut-speed-sticker",
+    "entity/jellynut-speed-sticker-behind",
+    "entity/jellystem",
+    "entity/landing-pad-unloading-bay",
+    "entity/lickmaw",
+    "entity/lightning",
+    "entity/lightning-collector",
+    "entity/lightning-collector-remnants",
+    "entity/lightning-rod",
+    "entity/lightning-rod-remnants",
+    "entity/lithium-brine",
+    "entity/lithium-iceberg-big",
+    "entity/lithium-iceberg-huge",
+    "entity/medium-acid-splash-fire-stomper",
+    "entity/medium-acid-sticker-stomper",
+    "entity/medium-acid-stream-stomper",
+    "entity/medium-carbonic-asteroid",
+    "entity/medium-demolisher",
+    "entity/medium-demolisher-ash-cloud",
+    "entity/medium-demolisher-ash-cloud-trail",
+    "entity/medium-demolisher-corpse",
+    "entity/medium-demolisher-expanding-ash-cloud-1",
+    "entity/medium-demolisher-expanding-ash-cloud-10",
+    "entity/medium-demolisher-expanding-ash-cloud-11",
+    "entity/medium-demolisher-expanding-ash-cloud-12",
+    "entity/medium-demolisher-expanding-ash-cloud-13",
+    "entity/medium-demolisher-expanding-ash-cloud-14",
+    "entity/medium-demolisher-expanding-ash-cloud-15",
+    "entity/medium-demolisher-expanding-ash-cloud-16",
+    "entity/medium-demolisher-expanding-ash-cloud-17",
+    "entity/medium-demolisher-expanding-ash-cloud-18",
+    "entity/medium-demolisher-expanding-ash-cloud-19",
+    "entity/medium-demolisher-expanding-ash-cloud-2",
+    "entity/medium-demolisher-expanding-ash-cloud-20",
+    "entity/medium-demolisher-expanding-ash-cloud-21",
+    "entity/medium-demolisher-expanding-ash-cloud-22",
+    "entity/medium-demolisher-expanding-ash-cloud-23",
+    "entity/medium-demolisher-expanding-ash-cloud-24",
+    "entity/medium-demolisher-expanding-ash-cloud-25",
+    "entity/medium-demolisher-expanding-ash-cloud-26",
+    "entity/medium-demolisher-expanding-ash-cloud-27",
+    "entity/medium-demolisher-expanding-ash-cloud-28",
+    "entity/medium-demolisher-expanding-ash-cloud-29",
+    "entity/medium-demolisher-expanding-ash-cloud-3",
+    "entity/medium-demolisher-expanding-ash-cloud-30",
+    "entity/medium-demolisher-expanding-ash-cloud-4",
+    "entity/medium-demolisher-expanding-ash-cloud-5",
+    "entity/medium-demolisher-expanding-ash-cloud-6",
+    "entity/medium-demolisher-expanding-ash-cloud-7",
+    "entity/medium-demolisher-expanding-ash-cloud-8",
+    "entity/medium-demolisher-expanding-ash-cloud-9",
+    "entity/medium-demolisher-fissure",
+    "entity/medium-demolisher-fissure-damage-explosion",
+    "entity/medium-demolisher-fissure-explosion",
+    "entity/medium-demolisher-fissure-scorchmark",
+    "entity/medium-demolisher-segment-x0_4875",
+    "entity/medium-demolisher-segment-x0_5775",
+    "entity/medium-demolisher-segment-x0_6525",
+    "entity/medium-demolisher-segment-x0_7275",
+    "entity/medium-demolisher-segment-x0_7425",
+    "entity/medium-demolisher-segment-x0_81",
+    "entity/medium-demolisher-segment-x0_8175",
+    "entity/medium-demolisher-segment-x0_825",
+    "entity/medium-demolisher-segment-x0_8775",
+    "entity/medium-demolisher-segment-x0_9",
+    "entity/medium-demolisher-segment-x0_9525",
+    "entity/medium-demolisher-segment-x0_96",
+    "entity/medium-demolisher-segment-x0_975",
+    "entity/medium-demolisher-segment-x0_9975",
+    "entity/medium-demolisher-segment-x1_02",
+    "entity/medium-demolisher-segment-x1_0275",
+    "entity/medium-demolisher-segment-x1_05",
+    "entity/medium-demolisher-segment-x1_0575",
+    "entity/medium-demolisher-segment-x1_14",
+    "entity/medium-demolisher-tail-x0_48",
+    "entity/medium-demolisher-trail-lower",
+    "entity/medium-demolisher-trail-upper",
+    "entity/medium-metallic-asteroid",
+    "entity/medium-oxide-asteroid",
+    "entity/medium-promethium-asteroid",
+    "entity/medium-stomper-corpse",
+    "entity/medium-stomper-pentapod",
+    "entity/medium-stomper-pentapod-die",
+    "entity/medium-stomper-pentapod-leg",
+    "entity/medium-stomper-pentapod-leg-die",
+    "entity/medium-stomper-shell",
+    "entity/medium-strafer-corpse",
+    "entity/medium-strafer-pentapod",
+    "entity/medium-strafer-pentapod-die",
+    "entity/medium-strafer-pentapod-leg",
+    "entity/medium-strafer-pentapod-leg-die",
+    "entity/medium-strafer-projectile",
+    "entity/medium-wriggler-die",
+    "entity/medium-wriggler-pentapod",
+    "entity/medium-wriggler-pentapod-corpse",
+    "entity/medium-wriggler-pentapod-premature",
+    "entity/metallic-asteroid-explosion-1",
+    "entity/metallic-asteroid-explosion-2",
+    "entity/metallic-asteroid-explosion-3",
+    "entity/metallic-asteroid-explosion-4",
+    "entity/metallic-asteroid-explosion-5",
+    "entity/nuke-effects-aquilo",
+    "entity/nuke-effects-space",
+    "entity/nuke-effects-vulcanus",
+    "entity/oxide-asteroid-explosion-1",
+    "entity/oxide-asteroid-explosion-2",
+    "entity/oxide-asteroid-explosion-3",
+    "entity/oxide-asteroid-explosion-4",
+    "entity/oxide-asteroid-explosion-5",
+    "entity/promethium-asteroid-explosion-1",
+    "entity/promethium-asteroid-explosion-2",
+    "entity/promethium-asteroid-explosion-3",
+    "entity/promethium-asteroid-explosion-4",
+    "entity/promethium-asteroid-explosion-5",
+    "entity/rail-ramp",
+    "entity/rail-ramp-explosion-higher",
+    "entity/rail-ramp-explosion-lower",
+    "entity/rail-ramp-explosion-middle",
+    "entity/rail-ramp-remnants",
+    "entity/rail-support",
+    "entity/rail-support-explosion",
+    "entity/rail-support-remnants",
+    "entity/railgun-beam",
+    "entity/railgun-turret",
+    "entity/railgun-turret-explosion",
+    "entity/railgun-turret-remnants",
+    "entity/recycler",
+    "entity/recycler-explosion",
+    "entity/recycler-remnants",
+    "entity/rocket-turret",
+    "entity/rocket-turret-explosion",
+    "entity/rocket-turret-remnants",
+    "entity/scrap",
+    "entity/slipstack",
+    "entity/small-acid-splash-fire-stomper",
+    "entity/small-acid-sticker-stomper",
+    "entity/small-acid-stream-stomper",
+    "entity/small-carbonic-asteroid",
+    "entity/small-demolisher",
+    "entity/small-demolisher-ash-cloud",
+    "entity/small-demolisher-ash-cloud-trail",
+    "entity/small-demolisher-corpse",
+    "entity/small-demolisher-expanding-ash-cloud-1",
+    "entity/small-demolisher-expanding-ash-cloud-10",
+    "entity/small-demolisher-expanding-ash-cloud-11",
+    "entity/small-demolisher-expanding-ash-cloud-12",
+    "entity/small-demolisher-expanding-ash-cloud-13",
+    "entity/small-demolisher-expanding-ash-cloud-14",
+    "entity/small-demolisher-expanding-ash-cloud-15",
+    "entity/small-demolisher-expanding-ash-cloud-16",
+    "entity/small-demolisher-expanding-ash-cloud-17",
+    "entity/small-demolisher-expanding-ash-cloud-18",
+    "entity/small-demolisher-expanding-ash-cloud-19",
+    "entity/small-demolisher-expanding-ash-cloud-2",
+    "entity/small-demolisher-expanding-ash-cloud-20",
+    "entity/small-demolisher-expanding-ash-cloud-21",
+    "entity/small-demolisher-expanding-ash-cloud-22",
+    "entity/small-demolisher-expanding-ash-cloud-23",
+    "entity/small-demolisher-expanding-ash-cloud-24",
+    "entity/small-demolisher-expanding-ash-cloud-25",
+    "entity/small-demolisher-expanding-ash-cloud-26",
+    "entity/small-demolisher-expanding-ash-cloud-27",
+    "entity/small-demolisher-expanding-ash-cloud-28",
+    "entity/small-demolisher-expanding-ash-cloud-29",
+    "entity/small-demolisher-expanding-ash-cloud-3",
+    "entity/small-demolisher-expanding-ash-cloud-30",
+    "entity/small-demolisher-expanding-ash-cloud-4",
+    "entity/small-demolisher-expanding-ash-cloud-5",
+    "entity/small-demolisher-expanding-ash-cloud-6",
+    "entity/small-demolisher-expanding-ash-cloud-7",
+    "entity/small-demolisher-expanding-ash-cloud-8",
+    "entity/small-demolisher-expanding-ash-cloud-9",
+    "entity/small-demolisher-fissure",
+    "entity/small-demolisher-fissure-damage-explosion",
+    "entity/small-demolisher-fissure-explosion",
+    "entity/small-demolisher-fissure-scorchmark",
+    "entity/small-demolisher-segment-x0_325",
+    "entity/small-demolisher-segment-x0_385",
+    "entity/small-demolisher-segment-x0_435",
+    "entity/small-demolisher-segment-x0_485",
+    "entity/small-demolisher-segment-x0_495",
+    "entity/small-demolisher-segment-x0_54",
+    "entity/small-demolisher-segment-x0_545",
+    "entity/small-demolisher-segment-x0_55",
+    "entity/small-demolisher-segment-x0_585",
+    "entity/small-demolisher-segment-x0_6",
+    "entity/small-demolisher-segment-x0_635",
+    "entity/small-demolisher-segment-x0_64",
+    "entity/small-demolisher-segment-x0_65",
+    "entity/small-demolisher-segment-x0_665",
+    "entity/small-demolisher-segment-x0_68",
+    "entity/small-demolisher-segment-x0_685",
+    "entity/small-demolisher-segment-x0_7",
+    "entity/small-demolisher-segment-x0_705",
+    "entity/small-demolisher-segment-x0_76",
+    "entity/small-demolisher-tail-x0_32",
+    "entity/small-demolisher-trail-lower",
+    "entity/small-demolisher-trail-upper",
+    "entity/small-metallic-asteroid",
+    "entity/small-oxide-asteroid",
+    "entity/small-promethium-asteroid",
+    "entity/small-stomper-corpse",
+    "entity/small-stomper-pentapod",
+    "entity/small-stomper-pentapod-die",
+    "entity/small-stomper-pentapod-leg",
+    "entity/small-stomper-pentapod-leg-die",
+    "entity/small-stomper-shell",
+    "entity/small-strafer-corpse",
+    "entity/small-strafer-pentapod",
+    "entity/small-strafer-pentapod-die",
+    "entity/small-strafer-pentapod-leg",
+    "entity/small-strafer-pentapod-leg-die",
+    "entity/small-strafer-projectile",
+    "entity/small-wriggler-die",
+    "entity/small-wriggler-pentapod",
+    "entity/small-wriggler-pentapod-corpse",
+    "entity/small-wriggler-pentapod-premature",
+    "entity/space-platform-foundation-explosion",
+    "entity/space-platform-hub",
+    "entity/stack-inserter",
+    "entity/stack-inserter-explosion",
+    "entity/stack-inserter-remnants",
+    "entity/stingfrond",
+    "entity/strafer-sticker",
+    "entity/sulfuric-acid-geyser",
+    "entity/sunnycomb",
+    "entity/teflilly",
+    "entity/tesla-turret",
+    "entity/tesla-turret-explosion",
+    "entity/tesla-turret-remnants",
+    "entity/tesla-turret-slow",
+    "entity/tesla-turret-stun",
+    "entity/thruster",
+    "entity/thruster-explosion",
+    "entity/thruster-remnants",
+    "entity/tree-plant",
+    "entity/tungsten-ore",
+    "entity/turbo-loader",
+    "entity/turbo-splitter",
+    "entity/turbo-splitter-explosion",
+    "entity/turbo-splitter-remnants",
+    "entity/turbo-transport-belt",
+    "entity/turbo-transport-belt-explosion",
+    "entity/turbo-transport-belt-explosion-base",
+    "entity/turbo-transport-belt-remnants",
+    "entity/turbo-underground-belt",
+    "entity/turbo-underground-belt-explosion",
+    "entity/turbo-underground-belt-explosion-base",
+    "entity/turbo-underground-belt-remnants",
+    "entity/vulcanus-chimney",
+    "entity/vulcanus-chimney-cold",
+    "entity/vulcanus-chimney-faded",
+    "entity/vulcanus-chimney-short",
+    "entity/vulcanus-chimney-truncated",
+    "entity/vulcanus-cliff-collapse",
+    "entity/water-cane",
+    "entity/wube-logo-space-platform",
+    "entity/yumako-regen-sticker",
+    "entity/yumako-regen-sticker-behind",
+    "entity/yumako-tree",
+    "fluid/ammonia",
+    "fluid/ammoniacal-solution",
+    "fluid/electrolyte",
+    "fluid/fluorine",
+    "fluid/fluoroketone-cold",
+    "fluid/fluoroketone-hot",
+    "fluid/fusion-plasma",
+    "fluid/holmium-solution",
+    "fluid/lava",
+    "fluid/lithium-brine",
+    "fluid/molten-copper",
+    "fluid/molten-iron",
+    "fluid/thruster-fuel",
+    "fluid/thruster-oxidizer",
+    "item/agricultural-science-pack",
+    "item/agricultural-tower",
+    "item/artificial-jellynut-soil",
+    "item/artificial-yumako-soil",
+    "item/asteroid-collector",
+    "item/battery-mk3-equipment",
+    "item/big-mining-drill",
+    "item/biochamber",
+    "item/bioflux",
+    "item/biolab",
+    "item/biter-egg",
+    "item/calcite",
+    "item/captive-biter-spawner",
+    "item/capture-robot-rocket",
+    "item/carbon",
+    "item/carbon-fiber",
+    "item/carbonic-asteroid-chunk",
+    "item/cargo-bay",
+    "item/copper-bacteria",
+    "item/crusher",
+    "item/cryogenic-plant",
+    "item/cryogenic-science-pack",
+    "item/electromagnetic-plant",
+    "item/electromagnetic-science-pack",
+    "item/fluoroketone-cold-barrel",
+    "item/fluoroketone-hot-barrel",
+    "item/foundation",
+    "item/foundry",
+    "item/fusion-generator",
+    "item/fusion-power-cell",
+    "item/fusion-reactor",
+    "item/fusion-reactor-equipment",
+    "item/heating-tower",
+    "item/holmium-ore",
+    "item/holmium-plate",
+    "item/ice",
+    "item/ice-platform",
+    "item/iron-bacteria",
+    "item/jelly",
+    "item/jellynut",
+    "item/jellynut-seed",
+    "item/landing-pad-unloading-bay",
+    "item/lightning-collector",
+    "item/lightning-rod",
+    "item/lithium",
+    "item/lithium-plate",
+    "item/mech-armor",
+    "item/metallic-asteroid-chunk",
+    "item/metallurgic-science-pack",
+    "item/nutrients",
+    "item/overgrowth-jellynut-soil",
+    "item/overgrowth-yumako-soil",
+    "item/oxide-asteroid-chunk",
+    "item/pentapod-egg",
+    "item/promethium-asteroid-chunk",
+    "item/promethium-science-pack",
+    "item/quality-module",
+    "item/quality-module-2",
+    "item/quality-module-3",
+    "item/quantum-processor",
+    "item/rail-ramp",
+    "item/rail-support",
+    "item/railgun",
+    "item/railgun-ammo",
+    "item/railgun-turret",
+    "item/recycler",
+    "item/rocket-turret",
+    "item/scrap",
+    "item/space-platform-foundation",
+    "item/space-platform-hub",
+    "item/space-platform-starter-pack",
+    "item/spoilage",
+    "item/stack-inserter",
+    "item/supercapacitor",
+    "item/superconductor",
+    "item/tesla-ammo",
+    "item/tesla-turret",
+    "item/teslagun",
+    "item/thruster",
+    "item/toolbelt-equipment",
+    "item/tree-seed",
+    "item/tungsten-carbide",
+    "item/tungsten-ore",
+    "item/tungsten-plate",
+    "item/turbo-loader",
+    "item/turbo-splitter",
+    "item/turbo-transport-belt",
+    "item/turbo-underground-belt",
+    "item/yumako",
+    "item/yumako-mash",
+    "item/yumako-seed",
+    "quality/epic",
+    "quality/legendary",
+    "quality/rare",
+    "quality/uncommon",
+    "recipe/accumulator-recycling",
+    "recipe/acid-neutralisation",
+    "recipe/active-provider-chest-recycling",
+    "recipe/advanced-carbonic-asteroid-crushing",
+    "recipe/advanced-circuit-recycling",
+    "recipe/advanced-metallic-asteroid-crushing",
+    "recipe/advanced-oxide-asteroid-crushing",
+    "recipe/advanced-thruster-fuel",
+    "recipe/advanced-thruster-oxidizer",
+    "recipe/agricultural-science-pack",
+    "recipe/agricultural-science-pack-recycling",
+    "recipe/agricultural-tower",
+    "recipe/agricultural-tower-recycling",
+    "recipe/ammonia-rocket-fuel",
+    "recipe/ammoniacal-solution-separation",
+    "recipe/arithmetic-combinator-recycling",
+    "recipe/artificial-jellynut-soil",
+    "recipe/artificial-jellynut-soil-recycling",
+    "recipe/artificial-yumako-soil",
+    "recipe/artificial-yumako-soil-recycling",
+    "recipe/artillery-shell-recycling",
+    "recipe/artillery-turret-recycling",
+    "recipe/artillery-wagon-recycling",
+    "recipe/assembling-machine-1-recycling",
+    "recipe/assembling-machine-2-recycling",
+    "recipe/assembling-machine-3-recycling",
+    "recipe/asteroid-collector",
+    "recipe/asteroid-collector-recycling",
+    "recipe/atomic-bomb-recycling",
+    "recipe/automation-science-pack-recycling",
+    "recipe/barrel-recycling",
+    "recipe/battery-equipment-recycling",
+    "recipe/battery-mk2-equipment-recycling",
+    "recipe/battery-mk3-equipment",
+    "recipe/battery-mk3-equipment-recycling",
+    "recipe/battery-recycling",
+    "recipe/beacon-recycling",
+    "recipe/belt-immunity-equipment-recycling",
+    "recipe/big-electric-pole-recycling",
+    "recipe/big-mining-drill",
+    "recipe/big-mining-drill-recycling",
+    "recipe/biochamber",
+    "recipe/biochamber-recycling",
+    "recipe/bioflux",
+    "recipe/bioflux-recycling",
+    "recipe/biolab",
+    "recipe/biolab-recycling",
+    "recipe/biolubricant",
+    "recipe/bioplastic",
+    "recipe/biosulfur",
+    "recipe/biter-egg",
+    "recipe/biter-egg-recycling",
+    "recipe/blueprint-book-recycling",
+    "recipe/blueprint-recycling",
+    "recipe/boiler-recycling",
+    "recipe/bottomless-chest-recycling",
+    "recipe/buffer-chest-recycling",
+    "recipe/bulk-inserter-recycling",
+    "recipe/burner-generator-recycling",
+    "recipe/burner-inserter-recycling",
+    "recipe/burner-mining-drill-recycling",
+    "recipe/burnt-spoilage",
+    "recipe/calcite-recycling",
+    "recipe/cannon-shell-recycling",
+    "recipe/captive-biter-spawner",
+    "recipe/captive-biter-spawner-recycling",
+    "recipe/capture-robot-rocket",
+    "recipe/capture-robot-rocket-recycling",
+    "recipe/car-recycling",
+    "recipe/carbon",
+    "recipe/carbon-fiber",
+    "recipe/carbon-fiber-recycling",
+    "recipe/carbon-recycling",
+    "recipe/carbonic-asteroid-chunk-recycling",
+    "recipe/carbonic-asteroid-crushing",
+    "recipe/carbonic-asteroid-reprocessing",
+    "recipe/cargo-bay",
+    "recipe/cargo-bay-recycling",
+    "recipe/cargo-landing-pad-recycling",
+    "recipe/cargo-wagon-recycling",
+    "recipe/casting-copper",
+    "recipe/casting-copper-cable",
+    "recipe/casting-iron",
+    "recipe/casting-iron-gear-wheel",
+    "recipe/casting-iron-stick",
+    "recipe/casting-low-density-structure",
+    "recipe/casting-pipe",
+    "recipe/casting-pipe-to-ground",
+    "recipe/casting-steel",
+    "recipe/centrifuge-recycling",
+    "recipe/chemical-plant-recycling",
+    "recipe/chemical-science-pack-recycling",
+    "recipe/cliff-explosives-recycling",
+    "recipe/cluster-grenade-recycling",
+    "recipe/coal-recycling",
+    "recipe/coal-synthesis",
+    "recipe/coin-recycling",
+    "recipe/combat-shotgun-recycling",
+    "recipe/concrete-from-molten-iron",
+    "recipe/concrete-recycling",
+    "recipe/constant-combinator-recycling",
+    "recipe/construction-robot-recycling",
+    "recipe/copper-bacteria",
+    "recipe/copper-bacteria-cultivation",
+    "recipe/copper-bacteria-recycling",
+    "recipe/copper-cable-recycling",
+    "recipe/copper-ore-melting",
+    "recipe/copper-ore-recycling",
+    "recipe/copper-plate-recycling",
+    "recipe/crude-oil-barrel-recycling",
+    "recipe/crusher",
+    "recipe/crusher-recycling",
+    "recipe/cryogenic-plant",
+    "recipe/cryogenic-plant-recycling",
+    "recipe/cryogenic-science-pack",
+    "recipe/cryogenic-science-pack-recycling",
+    "recipe/decider-combinator-recycling",
+    "recipe/deconstruction-planner-recycling",
+    "recipe/defender-capsule-recycling",
+    "recipe/depleted-uranium-fuel-cell-recycling",
+    "recipe/destroyer-capsule-recycling",
+    "recipe/discharge-defense-equipment-recycling",
+    "recipe/display-panel-recycling",
+    "recipe/distractor-capsule-recycling",
+    "recipe/efficiency-module-2-recycling",
+    "recipe/efficiency-module-3-recycling",
+    "recipe/efficiency-module-recycling",
+    "recipe/electric-energy-interface-equipment-recycling",
+    "recipe/electric-energy-interface-recycling",
+    "recipe/electric-engine-unit-recycling",
+    "recipe/electric-furnace-recycling",
+    "recipe/electric-mining-drill-recycling",
+    "recipe/electrolyte",
+    "recipe/electromagnetic-plant",
+    "recipe/electromagnetic-plant-recycling",
+    "recipe/electromagnetic-science-pack",
+    "recipe/electromagnetic-science-pack-recycling",
+    "recipe/electronic-circuit-recycling",
+    "recipe/empty-fluoroketone-cold-barrel",
+    "recipe/empty-fluoroketone-hot-barrel",
+    "recipe/empty-module-slot-recycling",
+    "recipe/energy-shield-equipment-recycling",
+    "recipe/energy-shield-mk2-equipment-recycling",
+    "recipe/engine-unit-recycling",
+    "recipe/exoskeleton-equipment-recycling",
+    "recipe/explosive-cannon-shell-recycling",
+    "recipe/explosive-rocket-recycling",
+    "recipe/explosive-uranium-cannon-shell-recycling",
+    "recipe/explosives-recycling",
+    "recipe/express-loader-recycling",
+    "recipe/express-splitter-recycling",
+    "recipe/express-transport-belt-recycling",
+    "recipe/express-underground-belt-recycling",
+    "recipe/fast-inserter-recycling",
+    "recipe/fast-loader-recycling",
+    "recipe/fast-splitter-recycling",
+    "recipe/fast-transport-belt-recycling",
+    "recipe/fast-underground-belt-recycling",
+    "recipe/firearm-magazine-recycling",
+    "recipe/fish-breeding",
+    "recipe/fission-reactor-equipment-recycling",
+    "recipe/flamethrower-ammo-recycling",
+    "recipe/flamethrower-recycling",
+    "recipe/flamethrower-turret-recycling",
+    "recipe/fluid-wagon-recycling",
+    "recipe/fluoroketone",
+    "recipe/fluoroketone-cold-barrel",
+    "recipe/fluoroketone-cold-barrel-recycling",
+    "recipe/fluoroketone-cooling",
+    "recipe/fluoroketone-hot-barrel",
+    "recipe/fluoroketone-hot-barrel-recycling",
+    "recipe/flying-robot-frame-recycling",
+    "recipe/foundation",
+    "recipe/foundation-recycling",
+    "recipe/foundry",
+    "recipe/foundry-recycling",
+    "recipe/fusion-generator",
+    "recipe/fusion-generator-recycling",
+    "recipe/fusion-power-cell",
+    "recipe/fusion-power-cell-recycling",
+    "recipe/fusion-reactor",
+    "recipe/fusion-reactor-equipment",
+    "recipe/fusion-reactor-equipment-recycling",
+    "recipe/fusion-reactor-recycling",
+    "recipe/gate-recycling",
+    "recipe/grenade-recycling",
+    "recipe/gun-turret-recycling",
+    "recipe/hazard-concrete-recycling",
+    "recipe/heat-exchanger-recycling",
+    "recipe/heat-interface",
+    "recipe/heat-interface-recycling",
+    "recipe/heat-pipe-recycling",
+    "recipe/heating-tower",
+    "recipe/heating-tower-recycling",
+    "recipe/heavy-armor-recycling",
+    "recipe/heavy-oil-barrel-recycling",
+    "recipe/holmium-ore-recycling",
+    "recipe/holmium-plate",
+    "recipe/holmium-plate-recycling",
+    "recipe/holmium-solution",
+    "recipe/ice-melting",
+    "recipe/ice-platform",
+    "recipe/ice-platform-recycling",
+    "recipe/ice-recycling",
+    "recipe/infinity-cargo-wagon-recycling",
+    "recipe/infinity-chest",
+    "recipe/infinity-chest-recycling",
+    "recipe/infinity-pipe",
+    "recipe/infinity-pipe-recycling",
+    "recipe/inserter-recycling",
+    "recipe/iron-bacteria",
+    "recipe/iron-bacteria-cultivation",
+    "recipe/iron-bacteria-recycling",
+    "recipe/iron-chest-recycling",
+    "recipe/iron-gear-wheel-recycling",
+    "recipe/iron-ore-melting",
+    "recipe/iron-ore-recycling",
+    "recipe/iron-plate-recycling",
+    "recipe/iron-stick-recycling",
+    "recipe/item-unknown-recycling",
+    "recipe/jelly-recycling",
+    "recipe/jellynut-processing",
+    "recipe/jellynut-recycling",
+    "recipe/jellynut-seed-recycling",
+    "recipe/lab-recycling",
+    "recipe/land-mine-recycling",
+    "recipe/landfill-recycling",
+    "recipe/landing-pad-unloading-bay",
+    "recipe/landing-pad-unloading-bay-recycling",
+    "recipe/lane-splitter-recycling",
+    "recipe/laser-turret-recycling",
+    "recipe/light-armor-recycling",
+    "recipe/light-oil-barrel-recycling",
+    "recipe/lightning-collector",
+    "recipe/lightning-collector-recycling",
+    "recipe/lightning-rod",
+    "recipe/lightning-rod-recycling",
+    "recipe/linked-belt-recycling",
+    "recipe/linked-chest-recycling",
+    "recipe/lithium",
+    "recipe/lithium-plate",
+    "recipe/lithium-plate-recycling",
+    "recipe/lithium-recycling",
+    "recipe/loader-recycling",
+    "recipe/locomotive-recycling",
+    "recipe/logistic-robot-recycling",
+    "recipe/logistic-science-pack-recycling",
+    "recipe/long-handed-inserter-recycling",
+    "recipe/low-density-structure-recycling",
+    "recipe/lubricant-barrel-recycling",
+    "recipe/mech-armor",
+    "recipe/mech-armor-recycling",
+    "recipe/medium-electric-pole-recycling",
+    "recipe/metallic-asteroid-chunk-recycling",
+    "recipe/metallic-asteroid-crushing",
+    "recipe/metallic-asteroid-reprocessing",
+    "recipe/metallurgic-science-pack",
+    "recipe/metallurgic-science-pack-recycling",
+    "recipe/military-science-pack-recycling",
+    "recipe/modular-armor-recycling",
+    "recipe/molten-copper-from-lava",
+    "recipe/molten-iron-from-lava",
+    "recipe/night-vision-equipment-recycling",
+    "recipe/nuclear-fuel-recycling",
+    "recipe/nuclear-reactor-recycling",
+    "recipe/nutrients-from-bioflux",
+    "recipe/nutrients-from-biter-egg",
+    "recipe/nutrients-from-fish",
+    "recipe/nutrients-from-spoilage",
+    "recipe/nutrients-from-yumako-mash",
+    "recipe/nutrients-recycling",
+    "recipe/offshore-pump-recycling",
+    "recipe/oil-refinery-recycling",
+    "recipe/one-way-valve-recycling",
+    "recipe/overflow-valve-recycling",
+    "recipe/overgrowth-jellynut-soil",
+    "recipe/overgrowth-jellynut-soil-recycling",
+    "recipe/overgrowth-yumako-soil",
+    "recipe/overgrowth-yumako-soil-recycling",
+    "recipe/oxide-asteroid-chunk-recycling",
+    "recipe/oxide-asteroid-crushing",
+    "recipe/oxide-asteroid-reprocessing",
+    "recipe/passive-provider-chest-recycling",
+    "recipe/pentapod-egg",
+    "recipe/pentapod-egg-recycling",
+    "recipe/personal-laser-defense-equipment-recycling",
+    "recipe/personal-roboport-equipment-recycling",
+    "recipe/personal-roboport-mk2-equipment-recycling",
+    "recipe/petroleum-gas-barrel-recycling",
+    "recipe/piercing-rounds-magazine-recycling",
+    "recipe/piercing-shotgun-shell-recycling",
+    "recipe/pipe-recycling",
+    "recipe/pipe-to-ground-recycling",
+    "recipe/pistol-recycling",
+    "recipe/plastic-bar-recycling",
+    "recipe/poison-capsule-recycling",
+    "recipe/power-armor-mk2-recycling",
+    "recipe/power-armor-recycling",
+    "recipe/power-switch-recycling",
+    "recipe/processing-unit-recycling",
+    "recipe/production-science-pack-recycling",
+    "recipe/productivity-module-2-recycling",
+    "recipe/productivity-module-3-recycling",
+    "recipe/productivity-module-recycling",
+    "recipe/programmable-speaker-recycling",
+    "recipe/promethium-asteroid-chunk-recycling",
+    "recipe/promethium-science-pack",
+    "recipe/promethium-science-pack-recycling",
+    "recipe/proxy-container-recycling",
+    "recipe/pump-recycling",
+    "recipe/pumpjack-recycling",
+    "recipe/quality-module",
+    "recipe/quality-module-2",
+    "recipe/quality-module-2-recycling",
+    "recipe/quality-module-3",
+    "recipe/quality-module-3-recycling",
+    "recipe/quality-module-recycling",
+    "recipe/quantum-processor",
+    "recipe/quantum-processor-recycling",
+    "recipe/radar-recycling",
+    "recipe/rail-chain-signal-recycling",
+    "recipe/rail-ramp",
+    "recipe/rail-ramp-recycling",
+    "recipe/rail-recycling",
+    "recipe/rail-signal-recycling",
+    "recipe/rail-support",
+    "recipe/rail-support-recycling",
+    "recipe/railgun",
+    "recipe/railgun-ammo",
+    "recipe/railgun-ammo-recycling",
+    "recipe/railgun-recycling",
+    "recipe/railgun-turret",
+    "recipe/railgun-turret-recycling",
+    "recipe/raw-fish-recycling",
+    "recipe/recycler",
+    "recipe/recycler-recycling",
+    "recipe/refined-concrete-recycling",
+    "recipe/refined-hazard-concrete-recycling",
+    "recipe/repair-pack-recycling",
+    "recipe/requester-chest-recycling",
+    "recipe/roboport-recycling",
+    "recipe/rocket-fuel-from-jelly",
+    "recipe/rocket-fuel-recycling",
+    "recipe/rocket-launcher-recycling",
+    "recipe/rocket-recycling",
+    "recipe/rocket-silo-recycling",
+    "recipe/rocket-turret",
+    "recipe/rocket-turret-recycling",
+    "recipe/science-recycling",
+    "recipe/scrap-recycling",
+    "recipe/selection-tool-recycling",
+    "recipe/selector-combinator-recycling",
+    "recipe/shotgun-recycling",
+    "recipe/shotgun-shell-recycling",
+    "recipe/simple-coal-liquefaction",
+    "recipe/simple-entity-with-force-recycling",
+    "recipe/simple-entity-with-owner-recycling",
+    "recipe/slowdown-capsule-recycling",
+    "recipe/small-electric-pole-recycling",
+    "recipe/small-lamp-recycling",
+    "recipe/solar-panel-equipment-recycling",
+    "recipe/solar-panel-recycling",
+    "recipe/solid-fuel-from-ammonia",
+    "recipe/solid-fuel-recycling",
+    "recipe/space-platform-foundation",
+    "recipe/space-platform-foundation-recycling",
+    "recipe/space-platform-hub-recycling",
+    "recipe/space-platform-starter-pack",
+    "recipe/space-platform-starter-pack-recycling",
+    "recipe/space-science-pack",
+    "recipe/space-science-pack-recycling",
+    "recipe/speed-module-2-recycling",
+    "recipe/speed-module-3-recycling",
+    "recipe/speed-module-recycling",
+    "recipe/spidertron-recycling",
+    "recipe/splitter-recycling",
+    "recipe/spoilage-recycling",
+    "recipe/stack-inserter",
+    "recipe/stack-inserter-recycling",
+    "recipe/steam-condensation",
+    "recipe/steam-engine-recycling",
+    "recipe/steam-turbine-recycling",
+    "recipe/steel-chest-recycling",
+    "recipe/steel-furnace-recycling",
+    "recipe/steel-plate-recycling",
+    "recipe/stone-brick-recycling",
+    "recipe/stone-furnace-recycling",
+    "recipe/stone-recycling",
+    "recipe/stone-wall-recycling",
+    "recipe/storage-chest-recycling",
+    "recipe/storage-tank-recycling",
+    "recipe/submachine-gun-recycling",
+    "recipe/substation-recycling",
+    "recipe/sulfur-recycling",
+    "recipe/sulfuric-acid-barrel-recycling",
+    "recipe/supercapacitor",
+    "recipe/supercapacitor-recycling",
+    "recipe/superconductor",
+    "recipe/superconductor-recycling",
+    "recipe/tank-recycling",
+    "recipe/tesla-ammo",
+    "recipe/tesla-ammo-recycling",
+    "recipe/tesla-turret",
+    "recipe/tesla-turret-recycling",
+    "recipe/teslagun",
+    "recipe/teslagun-recycling",
+    "recipe/thruster",
+    "recipe/thruster-fuel",
+    "recipe/thruster-oxidizer",
+    "recipe/thruster-recycling",
+    "recipe/toolbelt-equipment",
+    "recipe/toolbelt-equipment-recycling",
+    "recipe/top-up-valve-recycling",
+    "recipe/train-stop-recycling",
+    "recipe/transport-belt-recycling",
+    "recipe/tree-seed",
+    "recipe/tree-seed-recycling",
+    "recipe/tungsten-carbide",
+    "recipe/tungsten-carbide-recycling",
+    "recipe/tungsten-ore-recycling",
+    "recipe/tungsten-plate",
+    "recipe/tungsten-plate-recycling",
+    "recipe/turbo-loader",
+    "recipe/turbo-loader-recycling",
+    "recipe/turbo-splitter",
+    "recipe/turbo-splitter-recycling",
+    "recipe/turbo-transport-belt",
+    "recipe/turbo-transport-belt-recycling",
+    "recipe/turbo-underground-belt",
+    "recipe/turbo-underground-belt-recycling",
+    "recipe/underground-belt-recycling",
+    "recipe/upgrade-planner-recycling",
+    "recipe/uranium-235-recycling",
+    "recipe/uranium-238-recycling",
+    "recipe/uranium-cannon-shell-recycling",
+    "recipe/uranium-fuel-cell-recycling",
+    "recipe/uranium-ore-recycling",
+    "recipe/uranium-rounds-magazine-recycling",
+    "recipe/utility-science-pack-recycling",
+    "recipe/water-barrel-recycling",
+    "recipe/wood-recycling",
+    "recipe/wooden-chest-recycling",
+    "recipe/yumako-mash-recycling",
+    "recipe/yumako-processing",
+    "recipe/yumako-recycling",
+    "recipe/yumako-seed-recycling",
+    "space-location/aquilo",
+    "space-location/fulgora",
+    "space-location/gleba",
+    "space-location/shattered-planet",
+    "space-location/solar-system-edge",
+    "space-location/vulcanus",
+    "virtual/signal-any-quality"
+  ],
+  "changed": [
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/1x2-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/accumulator-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/active-provider-chest-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/arithmetic-combinator-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/artillery-turret-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/artillery-wagon-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/assembling-machine-1-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/assembling-machine-2-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/assembling-machine-3-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/beacon-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/behemoth-biter-corpse"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/behemoth-spitter-corpse"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/behemoth-worm-corpse"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/behemoth-worm-corpse-burrowed"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/big-biter-corpse"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/big-electric-pole-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/big-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/big-scorchmark"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/big-scorchmark-tintable"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/big-spitter-corpse"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/big-worm-corpse"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/big-worm-corpse-burrowed"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/biter-spawner-corpse"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/boiler-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/buffer-chest-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/bulk-inserter-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/burner-inserter-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/burner-mining-drill-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/car-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/cargo-landing-pad-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath",
+        "publicSection",
+        "group",
+        "subgroup"
+      ],
+      "prototypeId": "entity/cargo-pod"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath",
+        "publicSection",
+        "group",
+        "subgroup"
+      ],
+      "prototypeId": "entity/cargo-pod-container"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/cargo-pod-container-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/cargo-wagon-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/centrifuge-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/chemical-plant-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/constant-combinator-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/construction-robot-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/curved-rail-a-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/curved-rail-b-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/decider-combinator-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/defender-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/destroyer-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/display-panel-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/distractor-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/electric-furnace-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/electric-mining-drill-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath",
+        "publicSection"
+      ],
+      "prototypeId": "entity/entity-ghost"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/express-splitter-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/express-transport-belt-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/express-underground-belt-remnants"
+    },
+    {
+      "fields": [
+        "icon"
+      ],
+      "prototypeId": "entity/factorio-logo-11tiles"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/fast-inserter-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/fast-splitter-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/fast-transport-belt-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/fast-underground-belt-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/flamethrower-turret-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/fluid-wagon-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/gate-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/gun-turret-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/half-diagonal-rail-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/heat-exchanger-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/heat-pipe-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/huge-scorchmark"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/huge-scorchmark-tintable"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/inserter-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/iron-chest-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath",
+        "publicSection"
+      ],
+      "prototypeId": "entity/item-on-ground"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath",
+        "publicSection"
+      ],
+      "prototypeId": "entity/item-request-proxy"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/lab-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/lamp-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/land-mine-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/laser-turret-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/legacy-curved-rail-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/legacy-straight-rail-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/locomotive-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/logistic-robot-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/long-handed-inserter-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/medium-biter-corpse"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/medium-electric-pole-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/medium-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/medium-scorchmark"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/medium-scorchmark-tintable"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/medium-small-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/medium-spitter-corpse"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/medium-worm-corpse"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/medium-worm-corpse-burrowed"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/nuclear-reactor-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/offshore-pump-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/oil-refinery-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/passive-provider-chest-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/pipe-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/pipe-to-ground-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/power-switch-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/programmable-speaker-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/pump-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/pumpjack-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/radar-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/rail-chain-signal-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/rail-ending-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/rail-signal-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/requester-chest-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/roboport-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/rocket-silo-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/selector-combinator-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/small-biter-corpse"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/small-electric-pole-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/small-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/small-scorchmark"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/small-scorchmark-tintable"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/small-spitter-corpse"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/small-worm-corpse"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/small-worm-corpse-burrowed"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/solar-panel-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/spidertron-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/spitter-spawner-corpse"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/splitter-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/steam-engine-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/steam-turbine-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/steel-chest-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/steel-furnace-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/stone-furnace-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/storage-chest-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/storage-tank-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/straight-rail-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/substation-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/tank-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath",
+        "publicSection"
+      ],
+      "prototypeId": "entity/tile-ghost"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/train-stop-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/transport-belt-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/tree-01-stump"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/tree-02-stump"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/tree-03-stump"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/tree-04-stump"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/tree-05-stump"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/tree-06-stump"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/tree-07-stump"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/tree-08-stump"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/tree-09-stump"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/underground-belt-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/wall-remnants"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath"
+      ],
+      "prototypeId": "entity/wooden-chest-remnants"
+    },
+    {
+      "fields": [
+        "subgroup"
+      ],
+      "prototypeId": "item/beacon"
+    },
+    {
+      "fields": [
+        "publicPath",
+        "publicSection",
+        "group",
+        "subgroup"
+      ],
+      "prototypeId": "item/cargo-landing-pad"
+    },
+    {
+      "fields": [
+        "subgroup"
+      ],
+      "prototypeId": "item/efficiency-module"
+    },
+    {
+      "fields": [
+        "subgroup"
+      ],
+      "prototypeId": "item/efficiency-module-2"
+    },
+    {
+      "fields": [
+        "subgroup"
+      ],
+      "prototypeId": "item/efficiency-module-3"
+    },
+    {
+      "fields": [
+        "subgroup"
+      ],
+      "prototypeId": "item/empty-module-slot"
+    },
+    {
+      "fields": [
+        "subgroup"
+      ],
+      "prototypeId": "item/productivity-module"
+    },
+    {
+      "fields": [
+        "subgroup"
+      ],
+      "prototypeId": "item/productivity-module-2"
+    },
+    {
+      "fields": [
+        "subgroup"
+      ],
+      "prototypeId": "item/productivity-module-3"
+    },
+    {
+      "fields": [
+        "group",
+        "subgroup",
+        "prototypeOrder"
+      ],
+      "prototypeId": "item/rocket-part"
+    },
+    {
+      "fields": [
+        "publicPath",
+        "publicSection",
+        "group",
+        "subgroup"
+      ],
+      "prototypeId": "item/rocket-silo"
+    },
+    {
+      "fields": [
+        "stackSize"
+      ],
+      "prototypeId": "item/space-science-pack"
+    },
+    {
+      "fields": [
+        "subgroup"
+      ],
+      "prototypeId": "item/speed-module"
+    },
+    {
+      "fields": [
+        "subgroup"
+      ],
+      "prototypeId": "item/speed-module-2"
+    },
+    {
+      "fields": [
+        "subgroup"
+      ],
+      "prototypeId": "item/speed-module-3"
+    },
+    {
+      "fields": [
+        "role",
+        "channel",
+        "publicPath",
+        "publicSection",
+        "label",
+        "hidden",
+        "signalSelection"
+      ],
+      "prototypeId": "quality/normal"
+    },
+    {
+      "fields": [
+        "subgroup"
+      ],
+      "prototypeId": "recipe/beacon"
+    },
+    {
+      "fields": [
+        "group",
+        "subgroup"
+      ],
+      "prototypeId": "recipe/cargo-landing-pad"
+    },
+    {
+      "fields": [
+        "prototypeOrder"
+      ],
+      "prototypeId": "recipe/coal-liquefaction"
+    },
+    {
+      "fields": [
+        "subgroup"
+      ],
+      "prototypeId": "recipe/efficiency-module"
+    },
+    {
+      "fields": [
+        "subgroup"
+      ],
+      "prototypeId": "recipe/efficiency-module-2"
+    },
+    {
+      "fields": [
+        "subgroup"
+      ],
+      "prototypeId": "recipe/efficiency-module-3"
+    },
+    {
+      "fields": [
+        "subgroup"
+      ],
+      "prototypeId": "recipe/productivity-module"
+    },
+    {
+      "fields": [
+        "subgroup"
+      ],
+      "prototypeId": "recipe/productivity-module-2"
+    },
+    {
+      "fields": [
+        "subgroup"
+      ],
+      "prototypeId": "recipe/productivity-module-3"
+    },
+    {
+      "fields": [
+        "publicPath",
+        "publicSection",
+        "group",
+        "subgroup",
+        "prototypeOrder"
+      ],
+      "prototypeId": "recipe/rocket-part"
+    },
+    {
+      "fields": [
+        "group",
+        "subgroup"
+      ],
+      "prototypeId": "recipe/rocket-silo"
+    },
+    {
+      "fields": [
+        "subgroup"
+      ],
+      "prototypeId": "recipe/speed-module"
+    },
+    {
+      "fields": [
+        "subgroup"
+      ],
+      "prototypeId": "recipe/speed-module-2"
+    },
+    {
+      "fields": [
+        "subgroup"
+      ],
+      "prototypeId": "recipe/speed-module-3"
+    },
+    {
+      "fields": [
+        "channel",
+        "publicPath",
+        "publicSection",
+        "group",
+        "subgroup"
+      ],
+      "prototypeId": "space-location/nauvis"
+    }
+  ],
+  "gameVersion": "2.1.24",
+  "note": "base и Space Age — самостоятельные профили. Общие ID не склеиваются: отличия свойств перечислены отдельно.",
+  "removed": [
+    "item/satellite",
+    "recipe/satellite"
+  ],
+  "schemaVersion": 1
+}

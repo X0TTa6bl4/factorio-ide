@@ -1,0 +1,65 @@
+{
+  "gameVersion": "2.1.24",
+  "profile": "space-age",
+  "draft": true,
+  "menuConfirmed": false,
+  "input": {
+    "path": "data/signal-catalog/2.1.24/space-age.json",
+    "sha256": "c4e7f826f4f185386bdfdb43a25c8f6b97802bc075bef1d4623c9cf997acdb17"
+  },
+  "entities": 1,
+  "sections": 10,
+  "signals": 873,
+  "groups": [
+    {
+      "index": 1,
+      "name": "01 Логистика",
+      "count": 73
+    },
+    {
+      "index": 2,
+      "name": "02 Производство",
+      "count": 54
+    },
+    {
+      "index": 3,
+      "name": "03 Компоненты",
+      "count": 149
+    },
+    {
+      "index": 4,
+      "name": "04 Космос",
+      "count": 51
+    },
+    {
+      "index": 5,
+      "name": "05 Вооружение",
+      "count": 68
+    },
+    {
+      "index": 6,
+      "name": "06 Жидкости",
+      "count": 22
+    },
+    {
+      "index": 7,
+      "name": "07 Сигналы",
+      "count": 146
+    },
+    {
+      "index": 8,
+      "name": "08 Враги",
+      "count": 31
+    },
+    {
+      "index": 9,
+      "name": "09 Окружение",
+      "count": 264
+    },
+    {
+      "index": 10,
+      "name": "10 Несортированное",
+      "count": 15
+    }
+  ]
+}
