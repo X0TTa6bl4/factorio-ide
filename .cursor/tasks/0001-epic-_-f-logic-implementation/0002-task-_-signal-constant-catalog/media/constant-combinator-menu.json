@@ -1,0 +1,4575 @@
+{
+  "menuConfirmed": false,
+  "gameVersion": "2.1.24",
+  "extraction": "official-lua-data-stages",
+  "note": "Счётчики описывают data stage снимка. Они не являются составом меню постоянного комбинатора.",
+  "profiles": {
+    "base": {
+      "input": 1218,
+      "byType": {
+        "item": 252,
+        "fluid": 19,
+        "virtual": 154,
+        "entity": 571,
+        "recipe": 217,
+        "space-location": 2,
+        "asteroid-chunk": 1,
+        "quality": 2
+      },
+      "byRole": {
+        "internal": 332,
+        "signal": 843,
+        "blueprint-parameter": 40,
+        "logic-selector": 3
+      },
+      "hiddenTrue": 332,
+      "parameterTrue": 40,
+      "subgroupPresent": 791,
+      "subgroupAbsent": 427,
+      "hideKeyPresent": 14,
+      "factoriopediaAlternativePresent": 43,
+      "hiddenInFactoriopediaPresent": 135,
+      "groups": [
+        {
+          "name": "logistics",
+          "order": "a",
+          "section": "Logistic"
+        },
+        {
+          "name": "production",
+          "order": "b",
+          "section": "Production"
+        },
+        {
+          "name": "intermediate-products",
+          "order": "c",
+          "section": "Intermediate"
+        },
+        {
+          "name": "combat",
+          "order": "e",
+          "section": "Combat"
+        },
+        {
+          "name": "fluids",
+          "order": "f",
+          "section": "Fluids"
+        },
+        {
+          "name": "signals",
+          "order": "g",
+          "section": "Signals"
+        },
+        {
+          "name": "enemies",
+          "order": "h",
+          "section": "Enemies"
+        },
+        {
+          "name": "tiles",
+          "order": "i",
+          "section": null
+        },
+        {
+          "name": "environment",
+          "order": "l",
+          "section": "Environment"
+        },
+        {
+          "name": "effects",
+          "order": "y",
+          "section": null
+        },
+        {
+          "name": "other",
+          "order": "z",
+          "section": "Unsorted"
+        }
+      ],
+      "groupedNotHidden": {
+        "combat": {
+          "section": "Combat",
+          "order": "e",
+          "types": {
+            "item": 53,
+            "entity": 3
+          }
+        },
+        "intermediate-products": {
+          "section": "Intermediate",
+          "order": "c",
+          "types": {
+            "item": 46,
+            "recipe": 30
+          }
+        },
+        "logistics": {
+          "section": "Logistic",
+          "order": "a",
+          "types": {
+            "item": 59
+          }
+        },
+        "production": {
+          "section": "Production",
+          "order": "b",
+          "types": {
+            "item": 40
+          }
+        },
+        "other": {
+          "section": "Unsorted",
+          "order": "z",
+          "types": {
+            "item": 6,
+            "virtual": 4
+          }
+        },
+        "fluids": {
+          "section": "Fluids",
+          "order": "f",
+          "types": {
+            "fluid": 8
+          }
+        },
+        "signals": {
+          "section": "Signals",
+          "order": "g",
+          "types": {
+            "virtual": 146
+          }
+        },
+        "environment": {
+          "section": "Environment",
+          "order": "l",
+          "types": {
+            "entity": 162
+          }
+        },
+        "enemies": {
+          "section": "Enemies",
+          "order": "h",
+          "types": {
+            "entity": 14
+          }
+        }
+      },
+      "recipeDocs": {
+        "hidden": 192,
+        "selectable": 11,
+        "unconfirmed": 0,
+        "explicitTrue": 0,
+        "explicitFalse": 14
+      },
+      "recipeExplicitFalse": [
+        "recipe/empty-water-barrel",
+        "recipe/empty-crude-oil-barrel",
+        "recipe/empty-petroleum-gas-barrel",
+        "recipe/empty-light-oil-barrel",
+        "recipe/empty-heavy-oil-barrel",
+        "recipe/empty-lubricant-barrel",
+        "recipe/empty-sulfuric-acid-barrel",
+        "recipe/water-barrel",
+        "recipe/crude-oil-barrel",
+        "recipe/petroleum-gas-barrel",
+        "recipe/light-oil-barrel",
+        "recipe/heavy-oil-barrel",
+        "recipe/lubricant-barrel",
+        "recipe/sulfuric-acid-barrel"
+      ],
+      "recipeDocsSelectable": [
+        "recipe/basic-oil-processing",
+        "recipe/advanced-oil-processing",
+        "recipe/coal-liquefaction",
+        "recipe/heavy-oil-cracking",
+        "recipe/light-oil-cracking",
+        "recipe/solid-fuel-from-petroleum-gas",
+        "recipe/solid-fuel-from-light-oil",
+        "recipe/solid-fuel-from-heavy-oil",
+        "recipe/uranium-processing",
+        "recipe/nuclear-fuel-reprocessing",
+        "recipe/kovarex-enrichment-process"
+      ],
+      "sameNameCount": 220,
+      "groupedPairs": [
+        {
+          "name": "barrel",
+          "sameIcon": true,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/barrel"
+          ],
+          "records": [
+            {
+              "id": "item/barrel",
+              "subgroup": "intermediate-product",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[basic-intermediates]-d[empty-barrel]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Barrel",
+              "labelRu": "Бочка"
+            },
+            {
+              "id": "recipe/barrel",
+              "subgroup": "intermediate-product",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": null,
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Barrel",
+              "labelRu": "Бочка"
+            }
+          ]
+        },
+        {
+          "name": "crude-oil",
+          "sameIcon": false,
+          "sections": [
+            "Environment",
+            "Fluids"
+          ],
+          "generatorCandidateIds": [
+            "entity/crude-oil",
+            "fluid/crude-oil"
+          ],
+          "records": [
+            {
+              "id": "entity/crude-oil",
+              "subgroup": "mineable-fluids",
+              "group": "environment",
+              "section": "Environment",
+              "order": "a",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Crude oil",
+              "labelRu": "Сырая нефть"
+            },
+            {
+              "id": "fluid/crude-oil",
+              "subgroup": "fluid",
+              "group": "fluids",
+              "section": "Fluids",
+              "order": "a[fluid]-b[oil]-a[crude-oil]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Crude oil",
+              "labelRu": "Сырая нефть"
+            }
+          ]
+        },
+        {
+          "name": "crude-oil-barrel",
+          "sameIcon": false,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/crude-oil-barrel",
+            "recipe/crude-oil-barrel"
+          ],
+          "records": [
+            {
+              "id": "item/crude-oil-barrel",
+              "subgroup": "barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-b[oil]-a[crude-oil]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Crude oil barrel",
+              "labelRu": "Сырая нефть (бочка)"
+            },
+            {
+              "id": "recipe/crude-oil-barrel",
+              "subgroup": "fill-barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-b[oil]-a[crude-oil]",
+              "hideFromSignalGui": false,
+              "recipeDocs": null,
+              "labelEn": "Fill Crude oil barrel",
+              "labelRu": "Наполнить бочку (Сырая нефть)"
+            }
+          ]
+        },
+        {
+          "name": "heavy-oil-barrel",
+          "sameIcon": false,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/heavy-oil-barrel",
+            "recipe/heavy-oil-barrel"
+          ],
+          "records": [
+            {
+              "id": "item/heavy-oil-barrel",
+              "subgroup": "barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-b[oil]-d[heavy-oil]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Heavy oil barrel",
+              "labelRu": "Мазут (бочка)"
+            },
+            {
+              "id": "recipe/heavy-oil-barrel",
+              "subgroup": "fill-barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-b[oil]-d[heavy-oil]",
+              "hideFromSignalGui": false,
+              "recipeDocs": null,
+              "labelEn": "Fill Heavy oil barrel",
+              "labelRu": "Наполнить бочку (Мазут)"
+            }
+          ]
+        },
+        {
+          "name": "light-oil-barrel",
+          "sameIcon": false,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/light-oil-barrel",
+            "recipe/light-oil-barrel"
+          ],
+          "records": [
+            {
+              "id": "item/light-oil-barrel",
+              "subgroup": "barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-b[oil]-c[light-oil]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Light oil barrel",
+              "labelRu": "Дизельное топливо (бочка)"
+            },
+            {
+              "id": "recipe/light-oil-barrel",
+              "subgroup": "fill-barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-b[oil]-c[light-oil]",
+              "hideFromSignalGui": false,
+              "recipeDocs": null,
+              "labelEn": "Fill Light oil barrel",
+              "labelRu": "Наполнить бочку (Дизельное топливо)"
+            }
+          ]
+        },
+        {
+          "name": "lubricant",
+          "sameIcon": true,
+          "sections": [
+            "Fluids",
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "fluid/lubricant"
+          ],
+          "records": [
+            {
+              "id": "fluid/lubricant",
+              "subgroup": "fluid",
+              "group": "fluids",
+              "section": "Fluids",
+              "order": "a[fluid]-b[oil]-e[lubricant]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Lubricant",
+              "labelRu": "Смазочная жидкость"
+            },
+            {
+              "id": "recipe/lubricant",
+              "subgroup": "fluid-recipes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "c[oil-products]-a[lubricant]",
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Lubricant",
+              "labelRu": "Смазочная жидкость"
+            }
+          ]
+        },
+        {
+          "name": "lubricant-barrel",
+          "sameIcon": false,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/lubricant-barrel",
+            "recipe/lubricant-barrel"
+          ],
+          "records": [
+            {
+              "id": "item/lubricant-barrel",
+              "subgroup": "barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-b[oil]-e[lubricant]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Lubricant barrel",
+              "labelRu": "Смазочная жидкость (бочка)"
+            },
+            {
+              "id": "recipe/lubricant-barrel",
+              "subgroup": "fill-barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-b[oil]-e[lubricant]",
+              "hideFromSignalGui": false,
+              "recipeDocs": null,
+              "labelEn": "Fill Lubricant barrel",
+              "labelRu": "Наполнить бочку (Смазочная жидкость)"
+            }
+          ]
+        },
+        {
+          "name": "nuclear-fuel",
+          "sameIcon": true,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/nuclear-fuel"
+          ],
+          "records": [
+            {
+              "id": "item/nuclear-fuel",
+              "subgroup": "uranium-processing",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "r[uranium-processing]-e[nuclear-fuel]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Nuclear fuel",
+              "labelRu": "Ядерное топливо"
+            },
+            {
+              "id": "recipe/nuclear-fuel",
+              "subgroup": "uranium-processing",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "b[uranium-products]-d[nuclear-fuel]",
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Nuclear fuel",
+              "labelRu": "Ядерное топливо"
+            }
+          ]
+        },
+        {
+          "name": "petroleum-gas-barrel",
+          "sameIcon": false,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/petroleum-gas-barrel",
+            "recipe/petroleum-gas-barrel"
+          ],
+          "records": [
+            {
+              "id": "item/petroleum-gas-barrel",
+              "subgroup": "barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-b[oil]-b[petroleum-gas]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Petroleum gas barrel",
+              "labelRu": "Попутный нефтяной газ (бочка)"
+            },
+            {
+              "id": "recipe/petroleum-gas-barrel",
+              "subgroup": "fill-barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-b[oil]-b[petroleum-gas]",
+              "hideFromSignalGui": false,
+              "recipeDocs": null,
+              "labelEn": "Fill Petroleum gas barrel",
+              "labelRu": "Наполнить бочку (Попутный нефтяной газ)"
+            }
+          ]
+        },
+        {
+          "name": "sulfuric-acid",
+          "sameIcon": true,
+          "sections": [
+            "Fluids",
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "fluid/sulfuric-acid"
+          ],
+          "records": [
+            {
+              "id": "fluid/sulfuric-acid",
+              "subgroup": "fluid",
+              "group": "fluids",
+              "section": "Fluids",
+              "order": "a[fluid]-b[oil]-f[sulfuric-acid]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Sulfuric acid",
+              "labelRu": "Серная кислота"
+            },
+            {
+              "id": "recipe/sulfuric-acid",
+              "subgroup": "fluid-recipes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "c[oil-products]-b[sulfuric-acid]",
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Sulfuric acid",
+              "labelRu": "Серная кислота"
+            }
+          ]
+        },
+        {
+          "name": "sulfuric-acid-barrel",
+          "sameIcon": false,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/sulfuric-acid-barrel",
+            "recipe/sulfuric-acid-barrel"
+          ],
+          "records": [
+            {
+              "id": "item/sulfuric-acid-barrel",
+              "subgroup": "barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-b[oil]-f[sulfuric-acid]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Sulfuric acid barrel",
+              "labelRu": "Серная кислота (бочка)"
+            },
+            {
+              "id": "recipe/sulfuric-acid-barrel",
+              "subgroup": "fill-barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-b[oil]-f[sulfuric-acid]",
+              "hideFromSignalGui": false,
+              "recipeDocs": null,
+              "labelEn": "Fill Sulfuric acid barrel",
+              "labelRu": "Наполнить бочку (Серная кислота)"
+            }
+          ]
+        },
+        {
+          "name": "uranium-fuel-cell",
+          "sameIcon": true,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/uranium-fuel-cell"
+          ],
+          "records": [
+            {
+              "id": "item/uranium-fuel-cell",
+              "subgroup": "uranium-processing",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "b[uranium-products]-a[uranium-fuel-cell]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Uranium fuel cell",
+              "labelRu": "Урановый топливный элемент"
+            },
+            {
+              "id": "recipe/uranium-fuel-cell",
+              "subgroup": "uranium-processing",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": null,
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Uranium fuel cell",
+              "labelRu": "Урановый топливный элемент"
+            }
+          ]
+        },
+        {
+          "name": "water-barrel",
+          "sameIcon": false,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/water-barrel",
+            "recipe/water-barrel"
+          ],
+          "records": [
+            {
+              "id": "item/water-barrel",
+              "subgroup": "barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-a[water]-a[water]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Water barrel",
+              "labelRu": "Вода (бочка)"
+            },
+            {
+              "id": "recipe/water-barrel",
+              "subgroup": "fill-barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-a[water]-a[water]",
+              "hideFromSignalGui": false,
+              "recipeDocs": null,
+              "labelEn": "Fill Water barrel",
+              "labelRu": "Наполнить бочку (Вода)"
+            }
+          ]
+        }
+      ],
+      "focus": [
+        {
+          "name": "wooden-chest",
+          "types": [
+            "entity",
+            "item",
+            "recipe"
+          ],
+          "sameIcon": true,
+          "records": [
+            {
+              "id": "entity/wooden-chest",
+              "prototypeType": "container",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": null,
+              "group": null,
+              "section": null,
+              "order": null,
+              "labelEn": "Wooden chest",
+              "labelRu": "Деревянный сундук",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/wooden-chest.png"
+              ],
+              "publicName": "wooden_chest",
+              "candidatePath": null,
+              "recipeDocs": null
+            },
+            {
+              "id": "item/wooden-chest",
+              "prototypeType": "item",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "storage",
+              "group": "logistics",
+              "section": "Logistic",
+              "order": "a[items]-a[wooden-chest]",
+              "labelEn": "Wooden chest",
+              "labelRu": "Деревянный сундук",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/wooden-chest.png"
+              ],
+              "publicName": "wooden_chest",
+              "candidatePath": "Signal.Logistic.wooden_chest",
+              "recipeDocs": null
+            },
+            {
+              "id": "recipe/wooden-chest",
+              "prototypeType": "recipe",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": null,
+              "group": null,
+              "section": null,
+              "order": null,
+              "labelEn": "Wooden chest",
+              "labelRu": "Деревянный сундук",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/wooden-chest.png"
+              ],
+              "publicName": "wooden_chest",
+              "candidatePath": null,
+              "recipeDocs": {
+                "state": "hidden-by-docs",
+                "matched": [
+                  "item/simple-entity-with-owner",
+                  "item/wooden-chest"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "constant-combinator",
+          "types": [
+            "entity",
+            "item",
+            "recipe"
+          ],
+          "sameIcon": true,
+          "records": [
+            {
+              "id": "entity/constant-combinator",
+              "prototypeType": "constant-combinator",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": null,
+              "group": null,
+              "section": null,
+              "order": null,
+              "labelEn": "Constant combinator",
+              "labelRu": "Постоянный комбинатор",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/constant-combinator.png"
+              ],
+              "publicName": "constant_combinator",
+              "candidatePath": null,
+              "recipeDocs": null
+            },
+            {
+              "id": "item/constant-combinator",
+              "prototypeType": "item",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "circuit-network",
+              "group": "logistics",
+              "section": "Logistic",
+              "order": "c[combinators]-d[constant-combinator]",
+              "labelEn": "Constant combinator",
+              "labelRu": "Постоянный комбинатор",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/constant-combinator.png"
+              ],
+              "publicName": "constant_combinator",
+              "candidatePath": "Signal.Logistic.constant_combinator",
+              "recipeDocs": null
+            },
+            {
+              "id": "recipe/constant-combinator",
+              "prototypeType": "recipe",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": null,
+              "group": null,
+              "section": null,
+              "order": null,
+              "labelEn": "Constant combinator",
+              "labelRu": "Постоянный комбинатор",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/constant-combinator.png"
+              ],
+              "publicName": "constant_combinator",
+              "candidatePath": null,
+              "recipeDocs": {
+                "state": "hidden-by-docs",
+                "matched": [
+                  "item/constant-combinator"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "water-barrel",
+          "types": [
+            "item",
+            "recipe"
+          ],
+          "sameIcon": false,
+          "records": [
+            {
+              "id": "item/water-barrel",
+              "prototypeType": "item",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-a[water]-a[water]",
+              "labelEn": "Water barrel",
+              "labelRu": "Вода (бочка)",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": "barrel",
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/fluid/barreling/empty-barrel.png",
+                "__base__/graphics/icons/fluid/barreling/barrel-side-mask.png",
+                "__base__/graphics/icons/fluid/barreling/barrel-hoop-top-mask.png"
+              ],
+              "publicName": "water_barrel",
+              "candidatePath": "Signal.Intermediate.water_barrel",
+              "recipeDocs": null
+            },
+            {
+              "id": "recipe/water-barrel",
+              "prototypeType": "recipe",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "fill-barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-a[water]-a[water]",
+              "labelEn": "Fill Water barrel",
+              "labelRu": "Наполнить бочку (Вода)",
+              "hideFromSignalGui": false,
+              "factoriopediaAlternative": "barrel",
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/fluid/barreling/barrel-fill.png",
+                "__base__/graphics/icons/fluid/barreling/barrel-fill-side-mask.png",
+                "__base__/graphics/icons/fluid/barreling/barrel-fill-top-mask.png",
+                "__base__/graphics/icons/fluid/water.png"
+              ],
+              "publicName": "water_barrel",
+              "candidatePath": "Signal.Intermediate.water_barrel",
+              "recipeDocs": null
+            }
+          ]
+        },
+        {
+          "name": "empty-water-barrel",
+          "types": [
+            "recipe"
+          ],
+          "sameIcon": true,
+          "records": [
+            {
+              "id": "recipe/empty-water-barrel",
+              "prototypeType": "recipe",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "empty-barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-a[water]-a[water]",
+              "labelEn": "Empty Water barrel",
+              "labelRu": "Опустошить бочку (Вода)",
+              "hideFromSignalGui": false,
+              "factoriopediaAlternative": "barrel",
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/fluid/barreling/barrel-empty.png",
+                "__base__/graphics/icons/fluid/barreling/barrel-empty-side-mask.png",
+                "__base__/graphics/icons/fluid/barreling/barrel-empty-top-mask.png",
+                "__base__/graphics/icons/fluid/water.png"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "barrel",
+          "types": [
+            "item",
+            "recipe"
+          ],
+          "sameIcon": true,
+          "records": [
+            {
+              "id": "item/barrel",
+              "prototypeType": "item",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "intermediate-product",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[basic-intermediates]-d[empty-barrel]",
+              "labelEn": "Barrel",
+              "labelRu": "Бочка",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/fluid/barreling/empty-barrel.png"
+              ],
+              "publicName": "barrel",
+              "candidatePath": "Signal.Intermediate.barrel",
+              "recipeDocs": null
+            },
+            {
+              "id": "recipe/barrel",
+              "prototypeType": "recipe",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "intermediate-product",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": null,
+              "labelEn": "Barrel",
+              "labelRu": "Бочка",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/fluid/barreling/empty-barrel.png"
+              ],
+              "publicName": "barrel",
+              "candidatePath": "Signal.Intermediate.barrel",
+              "recipeDocs": {
+                "state": "hidden-by-docs",
+                "matched": [
+                  "item/barrel"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "signal-each",
+          "types": [
+            "virtual"
+          ],
+          "sameIcon": true,
+          "records": [
+            {
+              "id": "virtual/signal-each",
+              "prototypeType": "virtual-signal",
+              "role": "logic-selector",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "virtual-signal-special",
+              "group": "signals",
+              "section": "Signals",
+              "order": "a[special]-[2each]",
+              "labelEn": "Each",
+              "labelRu": "Каждый",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/signal/signal_each.png"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "signal-everything",
+          "types": [
+            "virtual"
+          ],
+          "sameIcon": true,
+          "records": [
+            {
+              "id": "virtual/signal-everything",
+              "prototypeType": "virtual-signal",
+              "role": "logic-selector",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "virtual-signal-special",
+              "group": "signals",
+              "section": "Signals",
+              "order": "a[special]-[1everything]",
+              "labelEn": "Everything",
+              "labelRu": "Все",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/signal/signal_everything.png"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "signal-anything",
+          "types": [
+            "virtual"
+          ],
+          "sameIcon": true,
+          "records": [
+            {
+              "id": "virtual/signal-anything",
+              "prototypeType": "virtual-signal",
+              "role": "logic-selector",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "virtual-signal-special",
+              "group": "signals",
+              "section": "Signals",
+              "order": "a[special]-[3anything]",
+              "labelEn": "Anything",
+              "labelRu": "Любой",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/signal/signal_anything.png"
+              ]
+            }
+          ]
+        }
+      ],
+      "qualities": [
+        {
+          "id": "quality/quality-unknown",
+          "prototypeType": "quality",
+          "role": "internal",
+          "hidden": true,
+          "parameter": false,
+          "subgroup": null,
+          "group": null,
+          "section": null,
+          "order": "z",
+          "labelEn": "Unknown",
+          "labelRu": "Неизвестно",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__core__/graphics/icons/unknown.png"
+          ]
+        },
+        {
+          "id": "quality/normal",
+          "prototypeType": "quality",
+          "role": "internal",
+          "hidden": true,
+          "parameter": false,
+          "subgroup": "qualities",
+          "group": "other",
+          "section": "Unsorted",
+          "order": "a",
+          "labelEn": "normal",
+          "labelRu": "normal",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__base__/graphics/icons/quality-normal.png"
+          ]
+        }
+      ],
+      "spaceLocations": [
+        {
+          "id": "space-location/space-location-unknown",
+          "prototypeType": "space-location",
+          "role": "internal",
+          "hidden": true,
+          "parameter": false,
+          "subgroup": null,
+          "group": null,
+          "section": null,
+          "order": null,
+          "labelEn": "space-location-unknown",
+          "labelRu": "space-location-unknown",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__core__/graphics/icons/unknown.png"
+          ]
+        },
+        {
+          "id": "space-location/nauvis",
+          "prototypeType": "planet",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": null,
+          "group": null,
+          "section": null,
+          "order": "a[nauvis]",
+          "labelEn": "Nauvis",
+          "labelRu": "Наувис",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__base__/graphics/icons/nauvis.png"
+          ]
+        }
+      ],
+      "asteroidChunks": [
+        {
+          "id": "asteroid-chunk/asteroid-chunk-unknown",
+          "prototypeType": "asteroid-chunk",
+          "role": "internal",
+          "hidden": true,
+          "parameter": false,
+          "subgroup": null,
+          "group": null,
+          "section": null,
+          "order": null,
+          "labelEn": "asteroid-chunk-unknown",
+          "labelRu": "asteroid-chunk-unknown",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__core__/graphics/icons/unknown.png"
+          ]
+        }
+      ],
+      "asteroidEntities": []
+    },
+    "space-age": {
+      "input": 2249,
+      "byType": {
+        "item": 342,
+        "fluid": 33,
+        "virtual": 155,
+        "entity": 1028,
+        "recipe": 662,
+        "space-location": 8,
+        "asteroid-chunk": 15,
+        "quality": 6
+      },
+      "byRole": {
+        "internal": 933,
+        "signal": 1262,
+        "blueprint-parameter": 50,
+        "quality-selector": 1,
+        "logic-selector": 3
+      },
+      "hiddenTrue": 933,
+      "parameterTrue": 50,
+      "subgroupPresent": 1308,
+      "subgroupAbsent": 941,
+      "hideKeyPresent": 21,
+      "factoriopediaAlternativePresent": 53,
+      "hiddenInFactoriopediaPresent": 183,
+      "groups": [
+        {
+          "name": "logistics",
+          "order": "a",
+          "section": "Logistic"
+        },
+        {
+          "name": "production",
+          "order": "b",
+          "section": "Production"
+        },
+        {
+          "name": "intermediate-products",
+          "order": "c",
+          "section": "Intermediate"
+        },
+        {
+          "name": "space",
+          "order": "d",
+          "section": "Space"
+        },
+        {
+          "name": "combat",
+          "order": "e",
+          "section": "Combat"
+        },
+        {
+          "name": "fluids",
+          "order": "f",
+          "section": "Fluids"
+        },
+        {
+          "name": "signals",
+          "order": "g",
+          "section": "Signals"
+        },
+        {
+          "name": "enemies",
+          "order": "h",
+          "section": "Enemies"
+        },
+        {
+          "name": "tiles",
+          "order": "i",
+          "section": null
+        },
+        {
+          "name": "environment",
+          "order": "l",
+          "section": "Environment"
+        },
+        {
+          "name": "effects",
+          "order": "y",
+          "section": null
+        },
+        {
+          "name": "other",
+          "order": "z",
+          "section": "Unsorted"
+        }
+      ],
+      "groupedNotHidden": {
+        "production": {
+          "section": "Production",
+          "order": "b",
+          "types": {
+            "item": 54,
+            "entity": 2
+          }
+        },
+        "intermediate-products": {
+          "section": "Intermediate",
+          "order": "c",
+          "types": {
+            "item": 83,
+            "recipe": 91
+          }
+        },
+        "combat": {
+          "section": "Combat",
+          "order": "e",
+          "types": {
+            "item": 65,
+            "entity": 3
+          }
+        },
+        "logistics": {
+          "section": "Logistic",
+          "order": "a",
+          "types": {
+            "item": 71,
+            "recipe": 2
+          }
+        },
+        "space": {
+          "section": "Space",
+          "order": "d",
+          "types": {
+            "item": 13,
+            "entity": 19,
+            "recipe": 13,
+            "space-location": 7,
+            "asteroid-chunk": 4
+          }
+        },
+        "other": {
+          "section": "Unsorted",
+          "order": "z",
+          "types": {
+            "item": 6,
+            "virtual": 4,
+            "quality": 5
+          }
+        },
+        "fluids": {
+          "section": "Fluids",
+          "order": "f",
+          "types": {
+            "fluid": 22
+          }
+        },
+        "signals": {
+          "section": "Signals",
+          "order": "g",
+          "types": {
+            "virtual": 146
+          }
+        },
+        "environment": {
+          "section": "Environment",
+          "order": "l",
+          "types": {
+            "entity": 264
+          }
+        },
+        "enemies": {
+          "section": "Enemies",
+          "order": "h",
+          "types": {
+            "entity": 31
+          }
+        }
+      },
+      "recipeDocs": {
+        "hidden": 582,
+        "selectable": 59,
+        "unconfirmed": 0,
+        "explicitTrue": 1,
+        "explicitFalse": 20
+      },
+      "recipeExplicitFalse": [
+        "recipe/empty-water-barrel",
+        "recipe/empty-crude-oil-barrel",
+        "recipe/empty-petroleum-gas-barrel",
+        "recipe/empty-light-oil-barrel",
+        "recipe/empty-heavy-oil-barrel",
+        "recipe/empty-lubricant-barrel",
+        "recipe/empty-sulfuric-acid-barrel",
+        "recipe/empty-fluoroketone-hot-barrel",
+        "recipe/empty-fluoroketone-cold-barrel",
+        "recipe/water-barrel",
+        "recipe/crude-oil-barrel",
+        "recipe/petroleum-gas-barrel",
+        "recipe/light-oil-barrel",
+        "recipe/heavy-oil-barrel",
+        "recipe/lubricant-barrel",
+        "recipe/sulfuric-acid-barrel",
+        "recipe/fluoroketone-hot-barrel",
+        "recipe/fluoroketone-cold-barrel",
+        "recipe/iron-ore-melting",
+        "recipe/copper-ore-melting"
+      ],
+      "recipeDocsSelectable": [
+        "recipe/yumako-processing",
+        "recipe/jellynut-processing",
+        "recipe/iron-bacteria-cultivation",
+        "recipe/copper-bacteria-cultivation",
+        "recipe/nutrients-from-spoilage",
+        "recipe/nutrients-from-yumako-mash",
+        "recipe/nutrients-from-bioflux",
+        "recipe/rocket-fuel-from-jelly",
+        "recipe/biolubricant",
+        "recipe/bioplastic",
+        "recipe/biosulfur",
+        "recipe/burnt-spoilage",
+        "recipe/ammoniacal-solution-separation",
+        "recipe/solid-fuel-from-ammonia",
+        "recipe/ammonia-rocket-fuel",
+        "recipe/fluoroketone-cooling",
+        "recipe/casting-pipe",
+        "recipe/casting-pipe-to-ground",
+        "recipe/basic-oil-processing",
+        "recipe/advanced-oil-processing",
+        "recipe/simple-coal-liquefaction",
+        "recipe/coal-liquefaction",
+        "recipe/heavy-oil-cracking",
+        "recipe/light-oil-cracking",
+        "recipe/solid-fuel-from-petroleum-gas",
+        "recipe/solid-fuel-from-light-oil",
+        "recipe/solid-fuel-from-heavy-oil",
+        "recipe/acid-neutralisation",
+        "recipe/steam-condensation",
+        "recipe/ice-melting",
+        "recipe/scrap-recycling",
+        "recipe/fish-breeding",
+        "recipe/nutrients-from-fish",
+        "recipe/nutrients-from-biter-egg",
+        "recipe/coal-synthesis",
+        "recipe/metallic-asteroid-crushing",
+        "recipe/carbonic-asteroid-crushing",
+        "recipe/oxide-asteroid-crushing",
+        "recipe/metallic-asteroid-reprocessing",
+        "recipe/carbonic-asteroid-reprocessing",
+        "recipe/oxide-asteroid-reprocessing",
+        "recipe/advanced-metallic-asteroid-crushing",
+        "recipe/advanced-carbonic-asteroid-crushing",
+        "recipe/advanced-oxide-asteroid-crushing",
+        "recipe/advanced-thruster-fuel",
+        "recipe/advanced-thruster-oxidizer",
+        "recipe/uranium-processing",
+        "recipe/nuclear-fuel-reprocessing",
+        "recipe/kovarex-enrichment-process",
+        "recipe/molten-iron-from-lava",
+        "recipe/molten-copper-from-lava",
+        "recipe/casting-iron",
+        "recipe/casting-copper",
+        "recipe/casting-steel",
+        "recipe/casting-iron-gear-wheel",
+        "recipe/casting-iron-stick",
+        "recipe/casting-low-density-structure",
+        "recipe/concrete-from-molten-iron",
+        "recipe/casting-copper-cable"
+      ],
+      "sameNameCount": 306,
+      "groupedPairs": [
+        {
+          "name": "agricultural-science-pack",
+          "sameIcon": true,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/agricultural-science-pack"
+          ],
+          "records": [
+            {
+              "id": "item/agricultural-science-pack",
+              "subgroup": "science-pack",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "i",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Agricultural science pack",
+              "labelRu": "Сельскохозяйственный исследовательский пакет"
+            },
+            {
+              "id": "recipe/agricultural-science-pack",
+              "subgroup": "science-pack",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": null,
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Agricultural science pack",
+              "labelRu": "Сельскохозяйственный исследовательский пакет"
+            }
+          ]
+        },
+        {
+          "name": "barrel",
+          "sameIcon": true,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/barrel"
+          ],
+          "records": [
+            {
+              "id": "item/barrel",
+              "subgroup": "intermediate-product",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[basic-intermediates]-d[empty-barrel]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Barrel",
+              "labelRu": "Бочка"
+            },
+            {
+              "id": "recipe/barrel",
+              "subgroup": "intermediate-product",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": null,
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Barrel",
+              "labelRu": "Бочка"
+            }
+          ]
+        },
+        {
+          "name": "bioflux",
+          "sameIcon": true,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/bioflux"
+          ],
+          "records": [
+            {
+              "id": "item/bioflux",
+              "subgroup": "agriculture-products",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[organic-processing]-b[bioflux]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Bioflux",
+              "labelRu": "Биофлюс"
+            },
+            {
+              "id": "recipe/bioflux",
+              "subgroup": "agriculture-products",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[organic-products]-g[bioflux]",
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Bioflux",
+              "labelRu": "Биофлюс"
+            }
+          ]
+        },
+        {
+          "name": "biolab",
+          "sameIcon": true,
+          "sections": [
+            "Production"
+          ],
+          "generatorCandidateIds": [
+            "entity/biolab",
+            "item/biolab"
+          ],
+          "records": [
+            {
+              "id": "entity/biolab",
+              "subgroup": "production-machine",
+              "group": "production",
+              "section": "Production",
+              "order": "z-z[z-lab]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Biolab",
+              "labelRu": "Биолаборатория"
+            },
+            {
+              "id": "item/biolab",
+              "subgroup": "production-machine",
+              "group": "production",
+              "section": "Production",
+              "order": "z[z-biolab]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Biolab",
+              "labelRu": "Биолаборатория"
+            }
+          ]
+        },
+        {
+          "name": "captive-biter-spawner",
+          "sameIcon": true,
+          "sections": [
+            "Production"
+          ],
+          "generatorCandidateIds": [
+            "entity/captive-biter-spawner",
+            "item/captive-biter-spawner"
+          ],
+          "records": [
+            {
+              "id": "entity/captive-biter-spawner",
+              "subgroup": "agriculture",
+              "group": "production",
+              "section": "Production",
+              "order": null,
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Captive biter spawner",
+              "labelRu": "Захваченный улей кусак"
+            },
+            {
+              "id": "item/captive-biter-spawner",
+              "subgroup": "agriculture",
+              "group": "production",
+              "section": "Production",
+              "order": "z[biter-nest]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Captive biter spawner",
+              "labelRu": "Захваченный улей кусак"
+            }
+          ]
+        },
+        {
+          "name": "carbon",
+          "sameIcon": true,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/carbon"
+          ],
+          "records": [
+            {
+              "id": "item/carbon",
+              "subgroup": "raw-material",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "b[chemistry]-f[carbon]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Carbon",
+              "labelRu": "Углерод"
+            },
+            {
+              "id": "recipe/carbon",
+              "subgroup": "raw-material",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": null,
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Carbon",
+              "labelRu": "Углерод"
+            }
+          ]
+        },
+        {
+          "name": "carbon-fiber",
+          "sameIcon": true,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/carbon-fiber"
+          ],
+          "records": [
+            {
+              "id": "item/carbon-fiber",
+              "subgroup": "agriculture-products",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[organic-products]-e[carbon-fiber]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Carbon fiber",
+              "labelRu": "Углеволокно"
+            },
+            {
+              "id": "recipe/carbon-fiber",
+              "subgroup": "agriculture-products",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[organic-products]-h[carbon-fiber]",
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Carbon fiber",
+              "labelRu": "Углеволокно"
+            }
+          ]
+        },
+        {
+          "name": "carbonic-asteroid-chunk",
+          "sameIcon": true,
+          "sections": [
+            "Space"
+          ],
+          "generatorCandidateIds": [
+            "asteroid-chunk/carbonic-asteroid-chunk",
+            "item/carbonic-asteroid-chunk"
+          ],
+          "records": [
+            {
+              "id": "asteroid-chunk/carbonic-asteroid-chunk",
+              "subgroup": "space-material",
+              "group": "space",
+              "section": "Space",
+              "order": "b[carbonic]-a[chunk]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Carbonic asteroid chunk",
+              "labelRu": "Кусок углеродного астероида"
+            },
+            {
+              "id": "item/carbonic-asteroid-chunk",
+              "subgroup": "space-material",
+              "group": "space",
+              "section": "Space",
+              "order": "b[carbonic]-e[chunk]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Carbonic asteroid chunk",
+              "labelRu": "Кусок углеродного астероида"
+            }
+          ]
+        },
+        {
+          "name": "copper-bacteria",
+          "sameIcon": true,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/copper-bacteria"
+          ],
+          "records": [
+            {
+              "id": "item/copper-bacteria",
+              "subgroup": "agriculture-processes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "b[agriculture]-d[bacteria]-c[copper-bacteria]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Copper bacteria",
+              "labelRu": "Меднобактерия"
+            },
+            {
+              "id": "recipe/copper-bacteria",
+              "subgroup": "agriculture-processes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "b[agriculture]-d[bacteria]-c[copper-bacteria]",
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Copper bacteria",
+              "labelRu": "Меднобактерия"
+            }
+          ]
+        },
+        {
+          "name": "crude-oil",
+          "sameIcon": false,
+          "sections": [
+            "Environment",
+            "Fluids"
+          ],
+          "generatorCandidateIds": [
+            "entity/crude-oil",
+            "fluid/crude-oil"
+          ],
+          "records": [
+            {
+              "id": "entity/crude-oil",
+              "subgroup": "mineable-fluids",
+              "group": "environment",
+              "section": "Environment",
+              "order": "a",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Crude oil",
+              "labelRu": "Сырая нефть"
+            },
+            {
+              "id": "fluid/crude-oil",
+              "subgroup": "fluid",
+              "group": "fluids",
+              "section": "Fluids",
+              "order": "a[fluid]-b[oil]-a[crude-oil]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Crude oil",
+              "labelRu": "Сырая нефть"
+            }
+          ]
+        },
+        {
+          "name": "crude-oil-barrel",
+          "sameIcon": false,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/crude-oil-barrel",
+            "recipe/crude-oil-barrel"
+          ],
+          "records": [
+            {
+              "id": "item/crude-oil-barrel",
+              "subgroup": "barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-b[oil]-a[crude-oil]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Crude oil barrel",
+              "labelRu": "Сырая нефть (бочка)"
+            },
+            {
+              "id": "recipe/crude-oil-barrel",
+              "subgroup": "fill-barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-b[oil]-a[crude-oil]",
+              "hideFromSignalGui": false,
+              "recipeDocs": null,
+              "labelEn": "Fill Crude oil barrel",
+              "labelRu": "Наполнить бочку (Сырая нефть)"
+            }
+          ]
+        },
+        {
+          "name": "electrolyte",
+          "sameIcon": true,
+          "sections": [
+            "Fluids",
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "fluid/electrolyte"
+          ],
+          "records": [
+            {
+              "id": "fluid/electrolyte",
+              "subgroup": "fluid",
+              "group": "fluids",
+              "section": "Fluids",
+              "order": "b[new-fluid]-c[fulgora]-b[electrolyte]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Electrolyte",
+              "labelRu": "Электролит"
+            },
+            {
+              "id": "recipe/electrolyte",
+              "subgroup": "fulgora-processes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "b[holmium]-e[electrolyte]",
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Electrolyte",
+              "labelRu": "Электролит"
+            }
+          ]
+        },
+        {
+          "name": "fluoroketone-cold-barrel",
+          "sameIcon": false,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/fluoroketone-cold-barrel",
+            "recipe/fluoroketone-cold-barrel"
+          ],
+          "records": [
+            {
+              "id": "item/fluoroketone-cold-barrel",
+              "subgroup": "barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "b[new-fluid]-e[aquilo]-e[fluoroketone-cold]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Fluoroketone (Cold) barrel",
+              "labelRu": "Фторкетон (холодный) (бочка)"
+            },
+            {
+              "id": "recipe/fluoroketone-cold-barrel",
+              "subgroup": "fill-barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "b[new-fluid]-e[aquilo]-e[fluoroketone-cold]",
+              "hideFromSignalGui": false,
+              "recipeDocs": null,
+              "labelEn": "Fill Fluoroketone (Cold) barrel",
+              "labelRu": "Наполнить бочку (Фторкетон (холодный))"
+            }
+          ]
+        },
+        {
+          "name": "fluoroketone-hot-barrel",
+          "sameIcon": false,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/fluoroketone-hot-barrel",
+            "recipe/fluoroketone-hot-barrel"
+          ],
+          "records": [
+            {
+              "id": "item/fluoroketone-hot-barrel",
+              "subgroup": "barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "b[new-fluid]-e[aquilo]-d[fluoroketone-hot]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Fluoroketone (Hot) barrel",
+              "labelRu": "Фторкетон (горячий) (бочка)"
+            },
+            {
+              "id": "recipe/fluoroketone-hot-barrel",
+              "subgroup": "fill-barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "b[new-fluid]-e[aquilo]-d[fluoroketone-hot]",
+              "hideFromSignalGui": false,
+              "recipeDocs": null,
+              "labelEn": "Fill Fluoroketone (Hot) barrel",
+              "labelRu": "Наполнить бочку (Фторкетон (горячий))"
+            }
+          ]
+        },
+        {
+          "name": "fusion-power-cell",
+          "sameIcon": true,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/fusion-power-cell"
+          ],
+          "records": [
+            {
+              "id": "item/fusion-power-cell",
+              "subgroup": "aquilo-processes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "c[lithium]-d[fusion-power-cell]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Fusion power cell",
+              "labelRu": "Термоядерный топливный элемент"
+            },
+            {
+              "id": "recipe/fusion-power-cell",
+              "subgroup": "aquilo-processes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "c[lithium]-d[fusion-power-cell]",
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Fusion power cell",
+              "labelRu": "Термоядерный топливный элемент"
+            }
+          ]
+        },
+        {
+          "name": "heavy-oil-barrel",
+          "sameIcon": false,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/heavy-oil-barrel",
+            "recipe/heavy-oil-barrel"
+          ],
+          "records": [
+            {
+              "id": "item/heavy-oil-barrel",
+              "subgroup": "barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-b[oil]-d[heavy-oil]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Heavy oil barrel",
+              "labelRu": "Мазут (бочка)"
+            },
+            {
+              "id": "recipe/heavy-oil-barrel",
+              "subgroup": "fill-barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-b[oil]-d[heavy-oil]",
+              "hideFromSignalGui": false,
+              "recipeDocs": null,
+              "labelEn": "Fill Heavy oil barrel",
+              "labelRu": "Наполнить бочку (Мазут)"
+            }
+          ]
+        },
+        {
+          "name": "holmium-plate",
+          "sameIcon": true,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/holmium-plate"
+          ],
+          "records": [
+            {
+              "id": "item/holmium-plate",
+              "subgroup": "fulgora-processes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "b[holmium]-c[holmium-plate]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Holmium plate",
+              "labelRu": "Гольмиевая плита"
+            },
+            {
+              "id": "recipe/holmium-plate",
+              "subgroup": "fulgora-processes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": null,
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Holmium plate",
+              "labelRu": "Гольмиевая плита"
+            }
+          ]
+        },
+        {
+          "name": "holmium-solution",
+          "sameIcon": true,
+          "sections": [
+            "Fluids",
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "fluid/holmium-solution"
+          ],
+          "records": [
+            {
+              "id": "fluid/holmium-solution",
+              "subgroup": "fluid",
+              "group": "fluids",
+              "section": "Fluids",
+              "order": "b[new-fluid]-c[fulgora]-a[holmium-solution]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Holmium solution",
+              "labelRu": "Гольмиевый раствор"
+            },
+            {
+              "id": "recipe/holmium-solution",
+              "subgroup": "fulgora-processes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "b[holmium]-b[holmium-solution]",
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Holmium solution",
+              "labelRu": "Гольмиевый раствор"
+            }
+          ]
+        },
+        {
+          "name": "iron-bacteria",
+          "sameIcon": true,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/iron-bacteria"
+          ],
+          "records": [
+            {
+              "id": "item/iron-bacteria",
+              "subgroup": "agriculture-processes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "b[agriculture]-d[bacteria]-a[iron-bacteria]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Iron bacteria",
+              "labelRu": "Железобактерия"
+            },
+            {
+              "id": "recipe/iron-bacteria",
+              "subgroup": "agriculture-processes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "b[agriculture]-d[bacteria]-a[iron-bacteria]",
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Iron bacteria",
+              "labelRu": "Железобактерия"
+            }
+          ]
+        },
+        {
+          "name": "light-oil-barrel",
+          "sameIcon": false,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/light-oil-barrel",
+            "recipe/light-oil-barrel"
+          ],
+          "records": [
+            {
+              "id": "item/light-oil-barrel",
+              "subgroup": "barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-b[oil]-c[light-oil]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Light oil barrel",
+              "labelRu": "Дизельное топливо (бочка)"
+            },
+            {
+              "id": "recipe/light-oil-barrel",
+              "subgroup": "fill-barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-b[oil]-c[light-oil]",
+              "hideFromSignalGui": false,
+              "recipeDocs": null,
+              "labelEn": "Fill Light oil barrel",
+              "labelRu": "Наполнить бочку (Дизельное топливо)"
+            }
+          ]
+        },
+        {
+          "name": "lithium",
+          "sameIcon": true,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/lithium"
+          ],
+          "records": [
+            {
+              "id": "item/lithium",
+              "subgroup": "aquilo-processes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "c[lithium]-a[lithium]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Lithium",
+              "labelRu": "Литий"
+            },
+            {
+              "id": "recipe/lithium",
+              "subgroup": "aquilo-processes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "c[lithium]-a[lithium]",
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Lithium",
+              "labelRu": "Литий"
+            }
+          ]
+        },
+        {
+          "name": "lithium-brine",
+          "sameIcon": false,
+          "sections": [
+            "Environment",
+            "Fluids"
+          ],
+          "generatorCandidateIds": [
+            "entity/lithium-brine",
+            "fluid/lithium-brine"
+          ],
+          "records": [
+            {
+              "id": "entity/lithium-brine",
+              "subgroup": "mineable-fluids",
+              "group": "environment",
+              "section": "Environment",
+              "order": "c",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Lithium brine",
+              "labelRu": "Литиевый раствор"
+            },
+            {
+              "id": "fluid/lithium-brine",
+              "subgroup": "fluid",
+              "group": "fluids",
+              "section": "Fluids",
+              "order": "b[new-fluid]-e[aquilo]-f[lithium-brine]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Lithium brine",
+              "labelRu": "Литиевый раствор"
+            }
+          ]
+        },
+        {
+          "name": "lithium-plate",
+          "sameIcon": true,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/lithium-plate"
+          ],
+          "records": [
+            {
+              "id": "item/lithium-plate",
+              "subgroup": "aquilo-processes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "c[lithium]-b[lithium-plate]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Lithium plate",
+              "labelRu": "Литиевая плита"
+            },
+            {
+              "id": "recipe/lithium-plate",
+              "subgroup": "aquilo-processes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "c[lithium]-b[lithium-plate]",
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Lithium plate",
+              "labelRu": "Литиевая плита"
+            }
+          ]
+        },
+        {
+          "name": "lubricant",
+          "sameIcon": true,
+          "sections": [
+            "Fluids",
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "fluid/lubricant"
+          ],
+          "records": [
+            {
+              "id": "fluid/lubricant",
+              "subgroup": "fluid",
+              "group": "fluids",
+              "section": "Fluids",
+              "order": "a[fluid]-b[oil]-e[lubricant]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Lubricant",
+              "labelRu": "Смазочная жидкость"
+            },
+            {
+              "id": "recipe/lubricant",
+              "subgroup": "fluid-recipes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "c[oil-products]-a[lubricant]",
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Lubricant",
+              "labelRu": "Смазочная жидкость"
+            }
+          ]
+        },
+        {
+          "name": "lubricant-barrel",
+          "sameIcon": false,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/lubricant-barrel",
+            "recipe/lubricant-barrel"
+          ],
+          "records": [
+            {
+              "id": "item/lubricant-barrel",
+              "subgroup": "barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-b[oil]-e[lubricant]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Lubricant barrel",
+              "labelRu": "Смазочная жидкость (бочка)"
+            },
+            {
+              "id": "recipe/lubricant-barrel",
+              "subgroup": "fill-barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-b[oil]-e[lubricant]",
+              "hideFromSignalGui": false,
+              "recipeDocs": null,
+              "labelEn": "Fill Lubricant barrel",
+              "labelRu": "Наполнить бочку (Смазочная жидкость)"
+            }
+          ]
+        },
+        {
+          "name": "metallic-asteroid-chunk",
+          "sameIcon": true,
+          "sections": [
+            "Space"
+          ],
+          "generatorCandidateIds": [
+            "asteroid-chunk/metallic-asteroid-chunk",
+            "item/metallic-asteroid-chunk"
+          ],
+          "records": [
+            {
+              "id": "asteroid-chunk/metallic-asteroid-chunk",
+              "subgroup": "space-material",
+              "group": "space",
+              "section": "Space",
+              "order": "a[metallic]-a[chunk]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Metallic asteroid chunk",
+              "labelRu": "Кусок металлического астероида"
+            },
+            {
+              "id": "item/metallic-asteroid-chunk",
+              "subgroup": "space-material",
+              "group": "space",
+              "section": "Space",
+              "order": "a[metallic]-e[chunk]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Metallic asteroid chunk",
+              "labelRu": "Кусок металлического астероида"
+            }
+          ]
+        },
+        {
+          "name": "nuclear-fuel",
+          "sameIcon": true,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/nuclear-fuel"
+          ],
+          "records": [
+            {
+              "id": "item/nuclear-fuel",
+              "subgroup": "uranium-processing",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "r[uranium-processing]-e[nuclear-fuel]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Nuclear fuel",
+              "labelRu": "Ядерное топливо"
+            },
+            {
+              "id": "recipe/nuclear-fuel",
+              "subgroup": "uranium-processing",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "b[uranium-products]-d[nuclear-fuel]",
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Nuclear fuel",
+              "labelRu": "Ядерное топливо"
+            }
+          ]
+        },
+        {
+          "name": "oxide-asteroid-chunk",
+          "sameIcon": true,
+          "sections": [
+            "Space"
+          ],
+          "generatorCandidateIds": [
+            "asteroid-chunk/oxide-asteroid-chunk",
+            "item/oxide-asteroid-chunk"
+          ],
+          "records": [
+            {
+              "id": "asteroid-chunk/oxide-asteroid-chunk",
+              "subgroup": "space-material",
+              "group": "space",
+              "section": "Space",
+              "order": "c[oxide]-a[chunk]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Oxide asteroid chunk",
+              "labelRu": "Кусок оксидного астероида"
+            },
+            {
+              "id": "item/oxide-asteroid-chunk",
+              "subgroup": "space-material",
+              "group": "space",
+              "section": "Space",
+              "order": "c[oxide]-e[chunk]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Oxide asteroid chunk",
+              "labelRu": "Кусок оксидного астероида"
+            }
+          ]
+        },
+        {
+          "name": "pentapod-egg",
+          "sameIcon": false,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/pentapod-egg"
+          ],
+          "records": [
+            {
+              "id": "item/pentapod-egg",
+              "subgroup": "agriculture-products",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "c[eggs]-b[pentapod-egg]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Pentapod egg",
+              "labelRu": "Яйцо пятинога"
+            },
+            {
+              "id": "recipe/pentapod-egg",
+              "subgroup": "agriculture-processes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "d[organic-processing]-a[pentapod-egg]",
+              "hideFromSignalGui": true,
+              "recipeDocs": null,
+              "labelEn": "Pentapod egg",
+              "labelRu": "Яйцо пятинога"
+            }
+          ]
+        },
+        {
+          "name": "petroleum-gas-barrel",
+          "sameIcon": false,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/petroleum-gas-barrel",
+            "recipe/petroleum-gas-barrel"
+          ],
+          "records": [
+            {
+              "id": "item/petroleum-gas-barrel",
+              "subgroup": "barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-b[oil]-b[petroleum-gas]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Petroleum gas barrel",
+              "labelRu": "Попутный нефтяной газ (бочка)"
+            },
+            {
+              "id": "recipe/petroleum-gas-barrel",
+              "subgroup": "fill-barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-b[oil]-b[petroleum-gas]",
+              "hideFromSignalGui": false,
+              "recipeDocs": null,
+              "labelEn": "Fill Petroleum gas barrel",
+              "labelRu": "Наполнить бочку (Попутный нефтяной газ)"
+            }
+          ]
+        },
+        {
+          "name": "promethium-asteroid-chunk",
+          "sameIcon": true,
+          "sections": [
+            "Space"
+          ],
+          "generatorCandidateIds": [
+            "asteroid-chunk/promethium-asteroid-chunk",
+            "item/promethium-asteroid-chunk"
+          ],
+          "records": [
+            {
+              "id": "asteroid-chunk/promethium-asteroid-chunk",
+              "subgroup": "space-material",
+              "group": "space",
+              "section": "Space",
+              "order": "d[promethium]-a[chunk]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Promethium asteroid chunk",
+              "labelRu": "Кусок прометиевого астероида"
+            },
+            {
+              "id": "item/promethium-asteroid-chunk",
+              "subgroup": "space-material",
+              "group": "space",
+              "section": "Space",
+              "order": "d[promethium]-e[chunk]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Promethium asteroid chunk",
+              "labelRu": "Кусок прометиевого астероида"
+            }
+          ]
+        },
+        {
+          "name": "quantum-processor",
+          "sameIcon": true,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/quantum-processor"
+          ],
+          "records": [
+            {
+              "id": "item/quantum-processor",
+              "subgroup": "aquilo-processes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "c[lithium]-c[quantum-processor]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Quantum processor",
+              "labelRu": "Квантовый процессор"
+            },
+            {
+              "id": "recipe/quantum-processor",
+              "subgroup": "aquilo-processes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "c[lithium]-c[quantum-processor]",
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Quantum processor",
+              "labelRu": "Квантовый процессор"
+            }
+          ]
+        },
+        {
+          "name": "sulfuric-acid",
+          "sameIcon": true,
+          "sections": [
+            "Fluids",
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "fluid/sulfuric-acid"
+          ],
+          "records": [
+            {
+              "id": "fluid/sulfuric-acid",
+              "subgroup": "fluid",
+              "group": "fluids",
+              "section": "Fluids",
+              "order": "a[fluid]-b[oil]-f[sulfuric-acid]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Sulfuric acid",
+              "labelRu": "Серная кислота"
+            },
+            {
+              "id": "recipe/sulfuric-acid",
+              "subgroup": "fluid-recipes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "c[oil-products]-b[sulfuric-acid]",
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Sulfuric acid",
+              "labelRu": "Серная кислота"
+            }
+          ]
+        },
+        {
+          "name": "sulfuric-acid-barrel",
+          "sameIcon": false,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/sulfuric-acid-barrel",
+            "recipe/sulfuric-acid-barrel"
+          ],
+          "records": [
+            {
+              "id": "item/sulfuric-acid-barrel",
+              "subgroup": "barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-b[oil]-f[sulfuric-acid]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Sulfuric acid barrel",
+              "labelRu": "Серная кислота (бочка)"
+            },
+            {
+              "id": "recipe/sulfuric-acid-barrel",
+              "subgroup": "fill-barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-b[oil]-f[sulfuric-acid]",
+              "hideFromSignalGui": false,
+              "recipeDocs": null,
+              "labelEn": "Fill Sulfuric acid barrel",
+              "labelRu": "Наполнить бочку (Серная кислота)"
+            }
+          ]
+        },
+        {
+          "name": "supercapacitor",
+          "sameIcon": true,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/supercapacitor"
+          ],
+          "records": [
+            {
+              "id": "item/supercapacitor",
+              "subgroup": "fulgora-processes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "b[holmium]-f[supercapacitor]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Supercapacitor",
+              "labelRu": "Суперконденсатор"
+            },
+            {
+              "id": "recipe/supercapacitor",
+              "subgroup": "fulgora-processes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "b[holmium]-f[supercapacitor]",
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Supercapacitor",
+              "labelRu": "Суперконденсатор"
+            }
+          ]
+        },
+        {
+          "name": "superconductor",
+          "sameIcon": true,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/superconductor"
+          ],
+          "records": [
+            {
+              "id": "item/superconductor",
+              "subgroup": "fulgora-processes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "b[holmium]-d[superconductor]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Superconductor",
+              "labelRu": "Сверхпроводник"
+            },
+            {
+              "id": "recipe/superconductor",
+              "subgroup": "fulgora-processes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "b[holmium]-d[superconductor]",
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Superconductor",
+              "labelRu": "Сверхпроводник"
+            }
+          ]
+        },
+        {
+          "name": "thruster-fuel",
+          "sameIcon": true,
+          "sections": [
+            "Fluids",
+            "Space"
+          ],
+          "generatorCandidateIds": [
+            "fluid/thruster-fuel"
+          ],
+          "records": [
+            {
+              "id": "fluid/thruster-fuel",
+              "subgroup": "fluid",
+              "group": "fluids",
+              "section": "Fluids",
+              "order": "b[new-fluid]-a[space]-a[thruster-fuel]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Thruster fuel",
+              "labelRu": "Топливо для ускорителя"
+            },
+            {
+              "id": "recipe/thruster-fuel",
+              "subgroup": "space-processing",
+              "group": "space",
+              "section": "Space",
+              "order": "a[thruster-fuel]",
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Thruster fuel",
+              "labelRu": "Топливо для ускорителя"
+            }
+          ]
+        },
+        {
+          "name": "thruster-oxidizer",
+          "sameIcon": true,
+          "sections": [
+            "Fluids",
+            "Space"
+          ],
+          "generatorCandidateIds": [
+            "fluid/thruster-oxidizer"
+          ],
+          "records": [
+            {
+              "id": "fluid/thruster-oxidizer",
+              "subgroup": "fluid",
+              "group": "fluids",
+              "section": "Fluids",
+              "order": "b[new-fluid]-a[space]-b[thruster-oxidizer]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Thruster oxidizer",
+              "labelRu": "Окислитель для ускорителя"
+            },
+            {
+              "id": "recipe/thruster-oxidizer",
+              "subgroup": "space-processing",
+              "group": "space",
+              "section": "Space",
+              "order": "c[thruster-oxidizer]",
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Thruster oxidizer",
+              "labelRu": "Окислитель для ускорителя"
+            }
+          ]
+        },
+        {
+          "name": "tree-seed",
+          "sameIcon": true,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/tree-seed"
+          ],
+          "records": [
+            {
+              "id": "item/tree-seed",
+              "subgroup": "nauvis-agriculture",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[seeds]-b[tree-seed]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Tree seed",
+              "labelRu": "Семечко дерева"
+            },
+            {
+              "id": "recipe/tree-seed",
+              "subgroup": "nauvis-agriculture",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[seeds]-a[tree-seed]",
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Tree seed",
+              "labelRu": "Семечко дерева"
+            }
+          ]
+        },
+        {
+          "name": "tungsten-carbide",
+          "sameIcon": true,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/tungsten-carbide"
+          ],
+          "records": [
+            {
+              "id": "item/tungsten-carbide",
+              "subgroup": "vulcanus-processes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "c[tungsten]-b[tungsten-carbide]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Tungsten carbide",
+              "labelRu": "Карбид вольфрама"
+            },
+            {
+              "id": "recipe/tungsten-carbide",
+              "subgroup": "vulcanus-processes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "c[tungsten]-b[tungsten-carbide]",
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Tungsten carbide",
+              "labelRu": "Карбид вольфрама"
+            }
+          ]
+        },
+        {
+          "name": "tungsten-plate",
+          "sameIcon": true,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/tungsten-plate"
+          ],
+          "records": [
+            {
+              "id": "item/tungsten-plate",
+              "subgroup": "vulcanus-processes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "c[tungsten]-c[tungsten-plate]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Tungsten plate",
+              "labelRu": "Вольфрамовая балка"
+            },
+            {
+              "id": "recipe/tungsten-plate",
+              "subgroup": "vulcanus-processes",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "c[tungsten]-c[tungsten-plate]",
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Tungsten plate",
+              "labelRu": "Вольфрамовая балка"
+            }
+          ]
+        },
+        {
+          "name": "uranium-fuel-cell",
+          "sameIcon": true,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/uranium-fuel-cell"
+          ],
+          "records": [
+            {
+              "id": "item/uranium-fuel-cell",
+              "subgroup": "uranium-processing",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "b[uranium-products]-a[uranium-fuel-cell]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Uranium fuel cell",
+              "labelRu": "Урановый топливный элемент"
+            },
+            {
+              "id": "recipe/uranium-fuel-cell",
+              "subgroup": "uranium-processing",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": null,
+              "hideFromSignalGui": null,
+              "recipeDocs": "hidden-by-docs",
+              "labelEn": "Uranium fuel cell",
+              "labelRu": "Урановый топливный элемент"
+            }
+          ]
+        },
+        {
+          "name": "water-barrel",
+          "sameIcon": false,
+          "sections": [
+            "Intermediate"
+          ],
+          "generatorCandidateIds": [
+            "item/water-barrel",
+            "recipe/water-barrel"
+          ],
+          "records": [
+            {
+              "id": "item/water-barrel",
+              "subgroup": "barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-a[water]-a[water]",
+              "hideFromSignalGui": null,
+              "recipeDocs": null,
+              "labelEn": "Water barrel",
+              "labelRu": "Вода (бочка)"
+            },
+            {
+              "id": "recipe/water-barrel",
+              "subgroup": "fill-barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-a[water]-a[water]",
+              "hideFromSignalGui": false,
+              "recipeDocs": null,
+              "labelEn": "Fill Water barrel",
+              "labelRu": "Наполнить бочку (Вода)"
+            }
+          ]
+        }
+      ],
+      "focus": [
+        {
+          "name": "biolab",
+          "types": [
+            "entity",
+            "item",
+            "recipe"
+          ],
+          "sameIcon": true,
+          "records": [
+            {
+              "id": "entity/biolab",
+              "prototypeType": "lab",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "production-machine",
+              "group": "production",
+              "section": "Production",
+              "order": "z-z[z-lab]",
+              "labelEn": "Biolab",
+              "labelRu": "Биолаборатория",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__space-age__/graphics/icons/biolab.png"
+              ],
+              "publicName": "biolab",
+              "candidatePath": "Signal.Production.biolab",
+              "recipeDocs": null
+            },
+            {
+              "id": "item/biolab",
+              "prototypeType": "item",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "production-machine",
+              "group": "production",
+              "section": "Production",
+              "order": "z[z-biolab]",
+              "labelEn": "Biolab",
+              "labelRu": "Биолаборатория",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__space-age__/graphics/icons/biolab.png"
+              ],
+              "publicName": "biolab",
+              "candidatePath": "Signal.Production.biolab",
+              "recipeDocs": null
+            },
+            {
+              "id": "recipe/biolab",
+              "prototypeType": "recipe",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": null,
+              "group": null,
+              "section": null,
+              "order": null,
+              "labelEn": "Biolab",
+              "labelRu": "Биолаборатория",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__space-age__/graphics/icons/biolab.png"
+              ],
+              "publicName": "biolab",
+              "candidatePath": null,
+              "recipeDocs": {
+                "state": "hidden-by-docs",
+                "matched": [
+                  "item/biolab"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "captive-biter-spawner",
+          "types": [
+            "entity",
+            "item",
+            "recipe"
+          ],
+          "sameIcon": true,
+          "records": [
+            {
+              "id": "entity/captive-biter-spawner",
+              "prototypeType": "assembling-machine",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "agriculture",
+              "group": "production",
+              "section": "Production",
+              "order": null,
+              "labelEn": "Captive biter spawner",
+              "labelRu": "Захваченный улей кусак",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__space-age__/graphics/icons/captive-biter-spawner.png"
+              ],
+              "publicName": "captive_biter_spawner",
+              "candidatePath": "Signal.Production.captive_biter_spawner",
+              "recipeDocs": null
+            },
+            {
+              "id": "item/captive-biter-spawner",
+              "prototypeType": "item",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "agriculture",
+              "group": "production",
+              "section": "Production",
+              "order": "z[biter-nest]",
+              "labelEn": "Captive biter spawner",
+              "labelRu": "Захваченный улей кусак",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__space-age__/graphics/icons/captive-biter-spawner.png"
+              ],
+              "publicName": "captive_biter_spawner",
+              "candidatePath": "Signal.Production.captive_biter_spawner",
+              "recipeDocs": null
+            },
+            {
+              "id": "recipe/captive-biter-spawner",
+              "prototypeType": "recipe",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": null,
+              "group": null,
+              "section": null,
+              "order": null,
+              "labelEn": "Captive biter spawner",
+              "labelRu": "Захваченный улей кусак",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__space-age__/graphics/icons/captive-biter-spawner.png"
+              ],
+              "publicName": "captive_biter_spawner",
+              "candidatePath": null,
+              "recipeDocs": {
+                "state": "hidden-by-docs",
+                "matched": [
+                  "item/captive-biter-spawner"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "wooden-chest",
+          "types": [
+            "entity",
+            "item",
+            "recipe"
+          ],
+          "sameIcon": true,
+          "records": [
+            {
+              "id": "entity/wooden-chest",
+              "prototypeType": "container",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": null,
+              "group": null,
+              "section": null,
+              "order": null,
+              "labelEn": "Wooden chest",
+              "labelRu": "Деревянный сундук",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/wooden-chest.png"
+              ],
+              "publicName": "wooden_chest",
+              "candidatePath": null,
+              "recipeDocs": null
+            },
+            {
+              "id": "item/wooden-chest",
+              "prototypeType": "item",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "storage",
+              "group": "logistics",
+              "section": "Logistic",
+              "order": "a[items]-a[wooden-chest]",
+              "labelEn": "Wooden chest",
+              "labelRu": "Деревянный сундук",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/wooden-chest.png"
+              ],
+              "publicName": "wooden_chest",
+              "candidatePath": "Signal.Logistic.wooden_chest",
+              "recipeDocs": null
+            },
+            {
+              "id": "recipe/wooden-chest",
+              "prototypeType": "recipe",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": null,
+              "group": null,
+              "section": null,
+              "order": null,
+              "labelEn": "Wooden chest",
+              "labelRu": "Деревянный сундук",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/wooden-chest.png"
+              ],
+              "publicName": "wooden_chest",
+              "candidatePath": null,
+              "recipeDocs": {
+                "state": "hidden-by-docs",
+                "matched": [
+                  "item/simple-entity-with-owner",
+                  "item/wooden-chest"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "constant-combinator",
+          "types": [
+            "entity",
+            "item",
+            "recipe"
+          ],
+          "sameIcon": true,
+          "records": [
+            {
+              "id": "entity/constant-combinator",
+              "prototypeType": "constant-combinator",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": null,
+              "group": null,
+              "section": null,
+              "order": null,
+              "labelEn": "Constant combinator",
+              "labelRu": "Постоянный комбинатор",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/constant-combinator.png"
+              ],
+              "publicName": "constant_combinator",
+              "candidatePath": null,
+              "recipeDocs": null
+            },
+            {
+              "id": "item/constant-combinator",
+              "prototypeType": "item",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "circuit-network",
+              "group": "logistics",
+              "section": "Logistic",
+              "order": "c[combinators]-d[constant-combinator]",
+              "labelEn": "Constant combinator",
+              "labelRu": "Постоянный комбинатор",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/constant-combinator.png"
+              ],
+              "publicName": "constant_combinator",
+              "candidatePath": "Signal.Logistic.constant_combinator",
+              "recipeDocs": null
+            },
+            {
+              "id": "recipe/constant-combinator",
+              "prototypeType": "recipe",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": null,
+              "group": null,
+              "section": null,
+              "order": null,
+              "labelEn": "Constant combinator",
+              "labelRu": "Постоянный комбинатор",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/constant-combinator.png"
+              ],
+              "publicName": "constant_combinator",
+              "candidatePath": null,
+              "recipeDocs": {
+                "state": "hidden-by-docs",
+                "matched": [
+                  "item/constant-combinator"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "metallic-asteroid-chunk",
+          "types": [
+            "asteroid-chunk",
+            "item"
+          ],
+          "sameIcon": true,
+          "records": [
+            {
+              "id": "asteroid-chunk/metallic-asteroid-chunk",
+              "prototypeType": "asteroid-chunk",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "space-material",
+              "group": "space",
+              "section": "Space",
+              "order": "a[metallic]-a[chunk]",
+              "labelEn": "Metallic asteroid chunk",
+              "labelRu": "Кусок металлического астероида",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__space-age__/graphics/icons/metallic-asteroid-chunk.png"
+              ],
+              "publicName": "metallic_asteroid_chunk",
+              "candidatePath": "Signal.Space.metallic_asteroid_chunk",
+              "recipeDocs": null
+            },
+            {
+              "id": "item/metallic-asteroid-chunk",
+              "prototypeType": "item",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "space-material",
+              "group": "space",
+              "section": "Space",
+              "order": "a[metallic]-e[chunk]",
+              "labelEn": "Metallic asteroid chunk",
+              "labelRu": "Кусок металлического астероида",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__space-age__/graphics/icons/metallic-asteroid-chunk.png"
+              ],
+              "publicName": "metallic_asteroid_chunk",
+              "candidatePath": "Signal.Space.metallic_asteroid_chunk",
+              "recipeDocs": null
+            }
+          ]
+        },
+        {
+          "name": "carbonic-asteroid-chunk",
+          "types": [
+            "asteroid-chunk",
+            "item"
+          ],
+          "sameIcon": true,
+          "records": [
+            {
+              "id": "asteroid-chunk/carbonic-asteroid-chunk",
+              "prototypeType": "asteroid-chunk",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "space-material",
+              "group": "space",
+              "section": "Space",
+              "order": "b[carbonic]-a[chunk]",
+              "labelEn": "Carbonic asteroid chunk",
+              "labelRu": "Кусок углеродного астероида",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__space-age__/graphics/icons/carbonic-asteroid-chunk.png"
+              ],
+              "publicName": "carbonic_asteroid_chunk",
+              "candidatePath": "Signal.Space.carbonic_asteroid_chunk",
+              "recipeDocs": null
+            },
+            {
+              "id": "item/carbonic-asteroid-chunk",
+              "prototypeType": "item",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "space-material",
+              "group": "space",
+              "section": "Space",
+              "order": "b[carbonic]-e[chunk]",
+              "labelEn": "Carbonic asteroid chunk",
+              "labelRu": "Кусок углеродного астероида",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__space-age__/graphics/icons/carbonic-asteroid-chunk.png"
+              ],
+              "publicName": "carbonic_asteroid_chunk",
+              "candidatePath": "Signal.Space.carbonic_asteroid_chunk",
+              "recipeDocs": null
+            }
+          ]
+        },
+        {
+          "name": "oxide-asteroid-chunk",
+          "types": [
+            "asteroid-chunk",
+            "item"
+          ],
+          "sameIcon": true,
+          "records": [
+            {
+              "id": "asteroid-chunk/oxide-asteroid-chunk",
+              "prototypeType": "asteroid-chunk",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "space-material",
+              "group": "space",
+              "section": "Space",
+              "order": "c[oxide]-a[chunk]",
+              "labelEn": "Oxide asteroid chunk",
+              "labelRu": "Кусок оксидного астероида",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__space-age__/graphics/icons/oxide-asteroid-chunk.png"
+              ],
+              "publicName": "oxide_asteroid_chunk",
+              "candidatePath": "Signal.Space.oxide_asteroid_chunk",
+              "recipeDocs": null
+            },
+            {
+              "id": "item/oxide-asteroid-chunk",
+              "prototypeType": "item",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "space-material",
+              "group": "space",
+              "section": "Space",
+              "order": "c[oxide]-e[chunk]",
+              "labelEn": "Oxide asteroid chunk",
+              "labelRu": "Кусок оксидного астероида",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__space-age__/graphics/icons/oxide-asteroid-chunk.png"
+              ],
+              "publicName": "oxide_asteroid_chunk",
+              "candidatePath": "Signal.Space.oxide_asteroid_chunk",
+              "recipeDocs": null
+            }
+          ]
+        },
+        {
+          "name": "promethium-asteroid-chunk",
+          "types": [
+            "asteroid-chunk",
+            "item"
+          ],
+          "sameIcon": true,
+          "records": [
+            {
+              "id": "asteroid-chunk/promethium-asteroid-chunk",
+              "prototypeType": "asteroid-chunk",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "space-material",
+              "group": "space",
+              "section": "Space",
+              "order": "d[promethium]-a[chunk]",
+              "labelEn": "Promethium asteroid chunk",
+              "labelRu": "Кусок прометиевого астероида",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__space-age__/graphics/icons/promethium-asteroid-chunk.png"
+              ],
+              "publicName": "promethium_asteroid_chunk",
+              "candidatePath": "Signal.Space.promethium_asteroid_chunk",
+              "recipeDocs": null
+            },
+            {
+              "id": "item/promethium-asteroid-chunk",
+              "prototypeType": "item",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "space-material",
+              "group": "space",
+              "section": "Space",
+              "order": "d[promethium]-e[chunk]",
+              "labelEn": "Promethium asteroid chunk",
+              "labelRu": "Кусок прометиевого астероида",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__space-age__/graphics/icons/promethium-asteroid-chunk.png"
+              ],
+              "publicName": "promethium_asteroid_chunk",
+              "candidatePath": "Signal.Space.promethium_asteroid_chunk",
+              "recipeDocs": null
+            }
+          ]
+        },
+        {
+          "name": "water-barrel",
+          "types": [
+            "item",
+            "recipe"
+          ],
+          "sameIcon": false,
+          "records": [
+            {
+              "id": "item/water-barrel",
+              "prototypeType": "item",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-a[water]-a[water]",
+              "labelEn": "Water barrel",
+              "labelRu": "Вода (бочка)",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": "barrel",
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/fluid/barreling/empty-barrel.png",
+                "__base__/graphics/icons/fluid/barreling/barrel-side-mask.png",
+                "__base__/graphics/icons/fluid/barreling/barrel-hoop-top-mask.png"
+              ],
+              "publicName": "water_barrel",
+              "candidatePath": "Signal.Intermediate.water_barrel",
+              "recipeDocs": null
+            },
+            {
+              "id": "recipe/water-barrel",
+              "prototypeType": "recipe",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "fill-barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-a[water]-a[water]",
+              "labelEn": "Fill Water barrel",
+              "labelRu": "Наполнить бочку (Вода)",
+              "hideFromSignalGui": false,
+              "factoriopediaAlternative": "barrel",
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/fluid/barreling/barrel-fill.png",
+                "__base__/graphics/icons/fluid/barreling/barrel-fill-side-mask.png",
+                "__base__/graphics/icons/fluid/barreling/barrel-fill-top-mask.png",
+                "__base__/graphics/icons/fluid/water.png"
+              ],
+              "publicName": "water_barrel",
+              "candidatePath": "Signal.Intermediate.water_barrel",
+              "recipeDocs": null
+            }
+          ]
+        },
+        {
+          "name": "empty-water-barrel",
+          "types": [
+            "recipe"
+          ],
+          "sameIcon": true,
+          "records": [
+            {
+              "id": "recipe/empty-water-barrel",
+              "prototypeType": "recipe",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "empty-barrel",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[fluid]-a[water]-a[water]",
+              "labelEn": "Empty Water barrel",
+              "labelRu": "Опустошить бочку (Вода)",
+              "hideFromSignalGui": false,
+              "factoriopediaAlternative": "barrel",
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/fluid/barreling/barrel-empty.png",
+                "__base__/graphics/icons/fluid/barreling/barrel-empty-side-mask.png",
+                "__base__/graphics/icons/fluid/barreling/barrel-empty-top-mask.png",
+                "__base__/graphics/icons/fluid/water.png"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "barrel",
+          "types": [
+            "item",
+            "recipe"
+          ],
+          "sameIcon": true,
+          "records": [
+            {
+              "id": "item/barrel",
+              "prototypeType": "item",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "intermediate-product",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": "a[basic-intermediates]-d[empty-barrel]",
+              "labelEn": "Barrel",
+              "labelRu": "Бочка",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/fluid/barreling/empty-barrel.png"
+              ],
+              "publicName": "barrel",
+              "candidatePath": "Signal.Intermediate.barrel",
+              "recipeDocs": null
+            },
+            {
+              "id": "recipe/barrel",
+              "prototypeType": "recipe",
+              "role": "signal",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "intermediate-product",
+              "group": "intermediate-products",
+              "section": "Intermediate",
+              "order": null,
+              "labelEn": "Barrel",
+              "labelRu": "Бочка",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/fluid/barreling/empty-barrel.png"
+              ],
+              "publicName": "barrel",
+              "candidatePath": "Signal.Intermediate.barrel",
+              "recipeDocs": {
+                "state": "hidden-by-docs",
+                "matched": [
+                  "item/barrel"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "signal-each",
+          "types": [
+            "virtual"
+          ],
+          "sameIcon": true,
+          "records": [
+            {
+              "id": "virtual/signal-each",
+              "prototypeType": "virtual-signal",
+              "role": "logic-selector",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "virtual-signal-special",
+              "group": "signals",
+              "section": "Signals",
+              "order": "a[special]-[2each]",
+              "labelEn": "Each",
+              "labelRu": "Каждый",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/signal/signal_each.png"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "signal-everything",
+          "types": [
+            "virtual"
+          ],
+          "sameIcon": true,
+          "records": [
+            {
+              "id": "virtual/signal-everything",
+              "prototypeType": "virtual-signal",
+              "role": "logic-selector",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "virtual-signal-special",
+              "group": "signals",
+              "section": "Signals",
+              "order": "a[special]-[1everything]",
+              "labelEn": "Everything",
+              "labelRu": "Все",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/signal/signal_everything.png"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "signal-anything",
+          "types": [
+            "virtual"
+          ],
+          "sameIcon": true,
+          "records": [
+            {
+              "id": "virtual/signal-anything",
+              "prototypeType": "virtual-signal",
+              "role": "logic-selector",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "virtual-signal-special",
+              "group": "signals",
+              "section": "Signals",
+              "order": "a[special]-[3anything]",
+              "labelEn": "Anything",
+              "labelRu": "Любой",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__base__/graphics/icons/signal/signal_anything.png"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "signal-any-quality",
+          "types": [
+            "virtual"
+          ],
+          "sameIcon": true,
+          "records": [
+            {
+              "id": "virtual/signal-any-quality",
+              "prototypeType": "virtual-signal",
+              "role": "quality-selector",
+              "hidden": false,
+              "parameter": false,
+              "subgroup": "qualities",
+              "group": "other",
+              "section": "Unsorted",
+              "order": "z",
+              "labelEn": "Any quality",
+              "labelRu": "Любое качество",
+              "hideFromSignalGui": null,
+              "factoriopediaAlternative": null,
+              "placeResult": null,
+              "icons": [
+                "__core__/graphics/icons/any-quality.png"
+              ]
+            }
+          ]
+        }
+      ],
+      "qualities": [
+        {
+          "id": "quality/quality-unknown",
+          "prototypeType": "quality",
+          "role": "internal",
+          "hidden": true,
+          "parameter": false,
+          "subgroup": null,
+          "group": null,
+          "section": null,
+          "order": "z",
+          "labelEn": "Unknown",
+          "labelRu": "Неизвестно",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__core__/graphics/icons/unknown.png"
+          ]
+        },
+        {
+          "id": "quality/normal",
+          "prototypeType": "quality",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "qualities",
+          "group": "other",
+          "section": "Unsorted",
+          "order": "a",
+          "labelEn": "Normal",
+          "labelRu": "Обычное",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__base__/graphics/icons/quality-normal.png"
+          ]
+        },
+        {
+          "id": "quality/uncommon",
+          "prototypeType": "quality",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "qualities",
+          "group": "other",
+          "section": "Unsorted",
+          "order": "b",
+          "labelEn": "Uncommon",
+          "labelRu": "Необычное",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__quality__/graphics/icons/quality-uncommon.png"
+          ]
+        },
+        {
+          "id": "quality/rare",
+          "prototypeType": "quality",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "qualities",
+          "group": "other",
+          "section": "Unsorted",
+          "order": "c",
+          "labelEn": "Rare",
+          "labelRu": "Редкое",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__quality__/graphics/icons/quality-rare.png"
+          ]
+        },
+        {
+          "id": "quality/epic",
+          "prototypeType": "quality",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "qualities",
+          "group": "other",
+          "section": "Unsorted",
+          "order": "d",
+          "labelEn": "Epic",
+          "labelRu": "Эпическое",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__quality__/graphics/icons/quality-epic.png"
+          ]
+        },
+        {
+          "id": "quality/legendary",
+          "prototypeType": "quality",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "qualities",
+          "group": "other",
+          "section": "Unsorted",
+          "order": "e",
+          "labelEn": "Legendary",
+          "labelRu": "Легендарное",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__quality__/graphics/icons/quality-legendary.png"
+          ]
+        }
+      ],
+      "spaceLocations": [
+        {
+          "id": "space-location/space-location-unknown",
+          "prototypeType": "space-location",
+          "role": "internal",
+          "hidden": true,
+          "parameter": false,
+          "subgroup": null,
+          "group": null,
+          "section": null,
+          "order": null,
+          "labelEn": "space-location-unknown",
+          "labelRu": "space-location-unknown",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__core__/graphics/icons/unknown.png"
+          ]
+        },
+        {
+          "id": "space-location/nauvis",
+          "prototypeType": "planet",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "planets",
+          "group": "space",
+          "section": "Space",
+          "order": "a[nauvis]",
+          "labelEn": "Nauvis",
+          "labelRu": "Наувис",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__base__/graphics/icons/nauvis.png"
+          ]
+        },
+        {
+          "id": "space-location/vulcanus",
+          "prototypeType": "planet",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "planets",
+          "group": "space",
+          "section": "Space",
+          "order": "b[vulcanus]",
+          "labelEn": "Vulcanus",
+          "labelRu": "Вулкан",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/vulcanus.png"
+          ]
+        },
+        {
+          "id": "space-location/gleba",
+          "prototypeType": "planet",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "planets",
+          "group": "space",
+          "section": "Space",
+          "order": "c[gleba]",
+          "labelEn": "Gleba",
+          "labelRu": "Глеба",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/gleba.png"
+          ]
+        },
+        {
+          "id": "space-location/fulgora",
+          "prototypeType": "planet",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "planets",
+          "group": "space",
+          "section": "Space",
+          "order": "d[fulgora]",
+          "labelEn": "Fulgora",
+          "labelRu": "Фульгора",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/fulgora.png"
+          ]
+        },
+        {
+          "id": "space-location/aquilo",
+          "prototypeType": "planet",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "planets",
+          "group": "space",
+          "section": "Space",
+          "order": "e[aquilo]",
+          "labelEn": "Aquilo",
+          "labelRu": "Аквило",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/aquilo.png"
+          ]
+        },
+        {
+          "id": "space-location/solar-system-edge",
+          "prototypeType": "space-location",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "planets",
+          "group": "space",
+          "section": "Space",
+          "order": "f[solar-system-edge]",
+          "labelEn": "Solar system edge",
+          "labelRu": "Граница солнечной системы",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/solar-system-edge.png"
+          ]
+        },
+        {
+          "id": "space-location/shattered-planet",
+          "prototypeType": "space-location",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "planets",
+          "group": "space",
+          "section": "Space",
+          "order": "g[shattered-planet]",
+          "labelEn": "Shattered planet",
+          "labelRu": "Разрушенная планета",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/shattered-planet.png"
+          ]
+        }
+      ],
+      "asteroidChunks": [
+        {
+          "id": "asteroid-chunk/asteroid-chunk-unknown",
+          "prototypeType": "asteroid-chunk",
+          "role": "internal",
+          "hidden": true,
+          "parameter": false,
+          "subgroup": null,
+          "group": null,
+          "section": null,
+          "order": null,
+          "labelEn": "asteroid-chunk-unknown",
+          "labelRu": "asteroid-chunk-unknown",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__core__/graphics/icons/unknown.png"
+          ]
+        },
+        {
+          "id": "asteroid-chunk/parameter-0",
+          "prototypeType": "asteroid-chunk",
+          "role": "blueprint-parameter",
+          "hidden": false,
+          "parameter": true,
+          "subgroup": "parameters",
+          "group": "other",
+          "section": "Unsorted",
+          "order": "a",
+          "labelEn": "Parameter 0",
+          "labelRu": "Параметр 0",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__base__/graphics/icons/parameter/parameter-0.png"
+          ]
+        },
+        {
+          "id": "asteroid-chunk/parameter-1",
+          "prototypeType": "asteroid-chunk",
+          "role": "blueprint-parameter",
+          "hidden": false,
+          "parameter": true,
+          "subgroup": "parameters",
+          "group": "other",
+          "section": "Unsorted",
+          "order": "a",
+          "labelEn": "Parameter 1",
+          "labelRu": "Параметр 1",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__base__/graphics/icons/parameter/parameter-1.png"
+          ]
+        },
+        {
+          "id": "asteroid-chunk/parameter-2",
+          "prototypeType": "asteroid-chunk",
+          "role": "blueprint-parameter",
+          "hidden": false,
+          "parameter": true,
+          "subgroup": "parameters",
+          "group": "other",
+          "section": "Unsorted",
+          "order": "a",
+          "labelEn": "Parameter 2",
+          "labelRu": "Параметр 2",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__base__/graphics/icons/parameter/parameter-2.png"
+          ]
+        },
+        {
+          "id": "asteroid-chunk/parameter-3",
+          "prototypeType": "asteroid-chunk",
+          "role": "blueprint-parameter",
+          "hidden": false,
+          "parameter": true,
+          "subgroup": "parameters",
+          "group": "other",
+          "section": "Unsorted",
+          "order": "a",
+          "labelEn": "Parameter 3",
+          "labelRu": "Параметр 3",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__base__/graphics/icons/parameter/parameter-3.png"
+          ]
+        },
+        {
+          "id": "asteroid-chunk/parameter-4",
+          "prototypeType": "asteroid-chunk",
+          "role": "blueprint-parameter",
+          "hidden": false,
+          "parameter": true,
+          "subgroup": "parameters",
+          "group": "other",
+          "section": "Unsorted",
+          "order": "a",
+          "labelEn": "Parameter 4",
+          "labelRu": "Параметр 4",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__base__/graphics/icons/parameter/parameter-4.png"
+          ]
+        },
+        {
+          "id": "asteroid-chunk/parameter-5",
+          "prototypeType": "asteroid-chunk",
+          "role": "blueprint-parameter",
+          "hidden": false,
+          "parameter": true,
+          "subgroup": "parameters",
+          "group": "other",
+          "section": "Unsorted",
+          "order": "a",
+          "labelEn": "Parameter 5",
+          "labelRu": "Параметр 5",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__base__/graphics/icons/parameter/parameter-5.png"
+          ]
+        },
+        {
+          "id": "asteroid-chunk/parameter-6",
+          "prototypeType": "asteroid-chunk",
+          "role": "blueprint-parameter",
+          "hidden": false,
+          "parameter": true,
+          "subgroup": "parameters",
+          "group": "other",
+          "section": "Unsorted",
+          "order": "a",
+          "labelEn": "Parameter 6",
+          "labelRu": "Параметр 6",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__base__/graphics/icons/parameter/parameter-6.png"
+          ]
+        },
+        {
+          "id": "asteroid-chunk/parameter-7",
+          "prototypeType": "asteroid-chunk",
+          "role": "blueprint-parameter",
+          "hidden": false,
+          "parameter": true,
+          "subgroup": "parameters",
+          "group": "other",
+          "section": "Unsorted",
+          "order": "a",
+          "labelEn": "Parameter 7",
+          "labelRu": "Параметр 7",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__base__/graphics/icons/parameter/parameter-7.png"
+          ]
+        },
+        {
+          "id": "asteroid-chunk/parameter-8",
+          "prototypeType": "asteroid-chunk",
+          "role": "blueprint-parameter",
+          "hidden": false,
+          "parameter": true,
+          "subgroup": "parameters",
+          "group": "other",
+          "section": "Unsorted",
+          "order": "a",
+          "labelEn": "Parameter 8",
+          "labelRu": "Параметр 8",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__base__/graphics/icons/parameter/parameter-8.png"
+          ]
+        },
+        {
+          "id": "asteroid-chunk/parameter-9",
+          "prototypeType": "asteroid-chunk",
+          "role": "blueprint-parameter",
+          "hidden": false,
+          "parameter": true,
+          "subgroup": "parameters",
+          "group": "other",
+          "section": "Unsorted",
+          "order": "a",
+          "labelEn": "Parameter 9",
+          "labelRu": "Параметр 9",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__base__/graphics/icons/parameter/parameter-9.png"
+          ]
+        },
+        {
+          "id": "asteroid-chunk/metallic-asteroid-chunk",
+          "prototypeType": "asteroid-chunk",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "space-material",
+          "group": "space",
+          "section": "Space",
+          "order": "a[metallic]-a[chunk]",
+          "labelEn": "Metallic asteroid chunk",
+          "labelRu": "Кусок металлического астероида",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/metallic-asteroid-chunk.png"
+          ]
+        },
+        {
+          "id": "asteroid-chunk/carbonic-asteroid-chunk",
+          "prototypeType": "asteroid-chunk",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "space-material",
+          "group": "space",
+          "section": "Space",
+          "order": "b[carbonic]-a[chunk]",
+          "labelEn": "Carbonic asteroid chunk",
+          "labelRu": "Кусок углеродного астероида",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/carbonic-asteroid-chunk.png"
+          ]
+        },
+        {
+          "id": "asteroid-chunk/oxide-asteroid-chunk",
+          "prototypeType": "asteroid-chunk",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "space-material",
+          "group": "space",
+          "section": "Space",
+          "order": "c[oxide]-a[chunk]",
+          "labelEn": "Oxide asteroid chunk",
+          "labelRu": "Кусок оксидного астероида",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/oxide-asteroid-chunk.png"
+          ]
+        },
+        {
+          "id": "asteroid-chunk/promethium-asteroid-chunk",
+          "prototypeType": "asteroid-chunk",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "space-material",
+          "group": "space",
+          "section": "Space",
+          "order": "d[promethium]-a[chunk]",
+          "labelEn": "Promethium asteroid chunk",
+          "labelRu": "Кусок прометиевого астероида",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/promethium-asteroid-chunk.png"
+          ]
+        }
+      ],
+      "asteroidEntities": [
+        {
+          "id": "entity/small-metallic-asteroid",
+          "prototypeType": "asteroid",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "space-environment",
+          "group": "space",
+          "section": "Space",
+          "order": "a[metallic]-b[small]",
+          "labelEn": "Small metallic asteroid",
+          "labelRu": "Малый металлический астероид",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/small-metallic-asteroid.png"
+          ]
+        },
+        {
+          "id": "entity/medium-metallic-asteroid",
+          "prototypeType": "asteroid",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "space-environment",
+          "group": "space",
+          "section": "Space",
+          "order": "a[metallic]-c[medium]",
+          "labelEn": "Medium metallic asteroid",
+          "labelRu": "Средний металлический астероид",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/medium-metallic-asteroid.png"
+          ]
+        },
+        {
+          "id": "entity/big-metallic-asteroid",
+          "prototypeType": "asteroid",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "space-environment",
+          "group": "space",
+          "section": "Space",
+          "order": "a[metallic]-d[big]",
+          "labelEn": "Big metallic asteroid",
+          "labelRu": "Большой металлический астероид",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/big-metallic-asteroid.png"
+          ]
+        },
+        {
+          "id": "entity/huge-metallic-asteroid",
+          "prototypeType": "asteroid",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "space-environment",
+          "group": "space",
+          "section": "Space",
+          "order": "a[metallic]-e[huge]",
+          "labelEn": "Huge metallic asteroid",
+          "labelRu": "Огромный металлический астероид",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/huge-metallic-asteroid.png"
+          ]
+        },
+        {
+          "id": "entity/small-carbonic-asteroid",
+          "prototypeType": "asteroid",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "space-environment",
+          "group": "space",
+          "section": "Space",
+          "order": "b[carbonic]-b[small]",
+          "labelEn": "Small carbonic asteroid",
+          "labelRu": "Малый углеродный астероид",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/small-carbonic-asteroid.png"
+          ]
+        },
+        {
+          "id": "entity/medium-carbonic-asteroid",
+          "prototypeType": "asteroid",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "space-environment",
+          "group": "space",
+          "section": "Space",
+          "order": "b[carbonic]-c[medium]",
+          "labelEn": "Medium carbonic asteroid",
+          "labelRu": "Средний углеродный астероид",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/medium-carbonic-asteroid.png"
+          ]
+        },
+        {
+          "id": "entity/big-carbonic-asteroid",
+          "prototypeType": "asteroid",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "space-environment",
+          "group": "space",
+          "section": "Space",
+          "order": "b[carbonic]-d[big]",
+          "labelEn": "Big carbonic asteroid",
+          "labelRu": "Большой углеродный астероид",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/big-carbonic-asteroid.png"
+          ]
+        },
+        {
+          "id": "entity/huge-carbonic-asteroid",
+          "prototypeType": "asteroid",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "space-environment",
+          "group": "space",
+          "section": "Space",
+          "order": "b[carbonic]-e[huge]",
+          "labelEn": "Huge carbonic asteroid",
+          "labelRu": "Огромный углеродный астероид",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/huge-carbonic-asteroid.png"
+          ]
+        },
+        {
+          "id": "entity/small-oxide-asteroid",
+          "prototypeType": "asteroid",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "space-environment",
+          "group": "space",
+          "section": "Space",
+          "order": "c[oxide]-b[small]",
+          "labelEn": "Small oxide asteroid",
+          "labelRu": "Малый оксидный астероид",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/small-oxide-asteroid.png"
+          ]
+        },
+        {
+          "id": "entity/medium-oxide-asteroid",
+          "prototypeType": "asteroid",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "space-environment",
+          "group": "space",
+          "section": "Space",
+          "order": "c[oxide]-c[medium]",
+          "labelEn": "Medium oxide asteroid",
+          "labelRu": "Средний оксидный астероид",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/medium-oxide-asteroid.png"
+          ]
+        },
+        {
+          "id": "entity/big-oxide-asteroid",
+          "prototypeType": "asteroid",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "space-environment",
+          "group": "space",
+          "section": "Space",
+          "order": "c[oxide]-d[big]",
+          "labelEn": "Big oxide asteroid",
+          "labelRu": "Большой оксидный астероид",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/big-oxide-asteroid.png"
+          ]
+        },
+        {
+          "id": "entity/huge-oxide-asteroid",
+          "prototypeType": "asteroid",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "space-environment",
+          "group": "space",
+          "section": "Space",
+          "order": "c[oxide]-e[huge]",
+          "labelEn": "Huge oxide asteroid",
+          "labelRu": "Огромный оксидный астероид",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/huge-oxide-asteroid.png"
+          ]
+        },
+        {
+          "id": "entity/small-promethium-asteroid",
+          "prototypeType": "asteroid",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "space-environment",
+          "group": "space",
+          "section": "Space",
+          "order": "d[promethium]-b[small]",
+          "labelEn": "Small promethium asteroid",
+          "labelRu": "Малый прометиевый астероид",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/small-promethium-asteroid.png"
+          ]
+        },
+        {
+          "id": "entity/medium-promethium-asteroid",
+          "prototypeType": "asteroid",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "space-environment",
+          "group": "space",
+          "section": "Space",
+          "order": "d[promethium]-c[medium]",
+          "labelEn": "Medium promethium asteroid",
+          "labelRu": "Средний прометиевый астероид",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/medium-promethium-asteroid.png"
+          ]
+        },
+        {
+          "id": "entity/big-promethium-asteroid",
+          "prototypeType": "asteroid",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "space-environment",
+          "group": "space",
+          "section": "Space",
+          "order": "d[promethium]-d[big]",
+          "labelEn": "Big promethium asteroid",
+          "labelRu": "Большой прометиевый астероид",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/big-promethium-asteroid.png"
+          ]
+        },
+        {
+          "id": "entity/huge-promethium-asteroid",
+          "prototypeType": "asteroid",
+          "role": "signal",
+          "hidden": false,
+          "parameter": false,
+          "subgroup": "space-environment",
+          "group": "space",
+          "section": "Space",
+          "order": "d[promethium]-e[huge]",
+          "labelEn": "Huge promethium asteroid",
+          "labelRu": "Огромный прометиевый астероид",
+          "hideFromSignalGui": null,
+          "factoriopediaAlternative": null,
+          "placeResult": null,
+          "icons": [
+            "__space-age__/graphics/icons/huge-promethium-asteroid.png"
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -5,6 +5,7 @@
 | Снимок окружения и ветки | `workspace-preflight-ru` |
 | Описать задачу, эпик, баг, исправления ревью | `task-workflow-ru` |
 | Выполнить описанную задачу | `work-orchestrator-ru` |
+| Последовательно запускать задачи субагентами Grok 4.7 из Composer 2.5 | `sequential-task-launch` |
 | Разделить модель, сценарий и адаптеры | `layered-modules-architecture-ru` |
 | Исправить конкретный провал CI или теста | `ci-failure-fix` |
 | Структурное ревью | `thermo-nuclear-code-quality-review` |
