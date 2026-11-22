@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171a18">
+  <title>f logic — сценарий события</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../../ui/styles/tokens.css">
+  <link rel="stylesheet" href="../../ui/styles/components.css">
+  <link rel="stylesheet" href="../../ui/styles/layout.css">
+</head>
+<body>
+  <a class="fl-skip" href="#main">Перейти к содержимому</a>
+  <header class="fl-topbar">
+    <a class="fl-brand" href="../../index.html"><span class="fl-brand__mark" aria-hidden="true">ƒ.</span>f logic</a>
+    <h1 class="fl-screen-name">Сценарий</h1>
+    <a class="fl-button" id="open-editor" href="../../index.html?draft=1">Обычные комбинаторы</a>
+    <button class="fl-button" type="button" data-about-open>Совместимость</button>
+    <details class="fl-more">
+      <summary>Ещё</summary>
+      <nav aria-label="Разделы">
+        <a href="../../index.html">Редактор</a>
+        <a href="../examples/index.html">Примеры</a>
+        <a href="../../ui/index.html">Библиотека</a>
+        <a href="../circuit/index.html">Контур</a>
+        <a href="../debugger/index.html">Отладчик</a>
+        <a href="../networks/index.html">Сети</a>
+        <a href="../configure/index.html">Конфигурация</a>
+        <a href="../project/index.html">Схема</a>
+        <a href="./index.html" aria-current="page">Сценарий</a>
+      </nav>
+    </details>
+  </header>
+  <main class="fl-screen" id="main">
+    <section class="fl-screen__tools" aria-label="Управление симуляцией">
+      <div class="fl-toolbar" id="toolbar">
+        <div class="fl-toolbar__actions">
+          <button class="fl-button fl-button--primary" type="button" id="check">Проверить</button>
+          <button class="fl-button" type="button" id="step">Шаг</button>
+          <button class="fl-button" type="button" id="reset">Сброс</button>
+          <button class="fl-button" type="button" id="stop">Остановить</button>
+          <button class="fl-button fl-button--quiet" type="button" id="ui-ping">Отклик</button>
+        </div>
+        <span class="fl-badge" id="run-status" data-status="idle"><span class="fl-dot"></span><span id="run-status-text">Не проверен</span></span>
+        <div class="fl-toolbar__tick"><span>Текущий тик</span><strong id="tick-value">—</strong></div>
+      </div>
+      <p class="fl-field__hint" id="run-meta">Ревизия сценария — · прогон —. Лимит исполнителя не меняет номер тика.</p>
+      <p class="fl-field__hint" id="ui-alive">Интерфейс: ожидание</p>
+    </section>
+
+    <div class="fl-pane-switch">
+      <button class="fl-button" type="button" data-pane-toggle aria-expanded="false" aria-controls="settings-pane">Настройки</button>
+      <button class="fl-button" type="button" data-pane-toggle aria-expanded="false" aria-controls="signals-pane">Сети</button>
+    </div>
+    <div class="fl-screen__stage">
+    <div class="fl-workspace__grid">
+      <aside class="fl-workspace__side" id="settings-pane" data-pane="side" aria-label="Настройки сценария">
+        <section class="fl-panel" aria-labelledby="event-title">
+          <div class="fl-panel__head"><h2 id="event-title">Событийный комбинатор</h2><span class="fl-badge">Служебный</span></div>
+          <div class="fl-panel__body fl-stack">
+            <p class="fl-field__hint">Оболочка страницы — <span id="shell-name">EventCombinator</span>. Метод main выполняется в Worker классом <span id="class-name">—</span>.</p>
+            <p class="fl-field__hint" id="demo-expect"></p>
+            <label class="fl-check"><input id="every-tick" type="checkbox" checked>Выполнять каждый тик</label>
+            <label class="fl-check"><input id="input-changed" type="checkbox">Выполнять при изменении входов</label>
+            <label class="fl-field">Начальное состояние · JSON
+              <textarea id="state-json" class="fl-textarea fl-textarea--compact" spellcheck="false">{}</textarea>
+            </label>
+            <label class="fl-field">Лимит исполнителя, мс
+              <input id="timeout-ms" class="fl-input fl-mono" type="number" min="1" step="1" value="1000" inputmode="numeric">
+              <span class="fl-field__hint">Столько миллисекунд хост ждёт ответ Worker. Это не длительность виртуального тика.</span>
+            </label>
+            <div class="fl-row">
+              <span class="fl-port fl-red">R · red_1</span>
+              <span class="fl-port fl-green">G · green_1</span>
+            </div>
+            <p class="fl-field__hint">Вход и выход одного цвета смотрят в одну сеть стенда: следующий шаг читает уже опубликованный выход.</p>
+            <button class="fl-button" type="button" id="open-snapshot">Снимок границы</button>
+          </div>
+        </section>
+      </aside>
+
+      <section class="fl-panel fl-workspace__primary" aria-labelledby="code-title" id="editor-panel">
+        <div class="fl-panel__head"><h2 id="code-title">Сценарий</h2><span class="fl-badge" id="editor-badge">JavaScript</span></div>
+        <div class="fl-panel__body">
+          <div class="fl-tabs" role="tablist" aria-label="Представление сценария">
+            <button type="button" class="fl-tab" role="tab" id="tab-code" aria-selected="true" aria-controls="panel-code">Код</button>
+            <button type="button" class="fl-tab" role="tab" id="tab-info" aria-selected="false" aria-controls="panel-info" tabindex="-1">Подключения</button>
+          </div>
+        </div>
+        <div role="tabpanel" id="panel-code" aria-labelledby="tab-code" tabindex="0">
+          <div class="fl-editor">
+            <div class="fl-editor__gutter" id="code-gutter" aria-hidden="true">01</div>
+            <label class="fl-sr" for="script-source">JavaScript сценария, класс extends EventCombinator</label>
+            <textarea id="script-source" class="fl-textarea" wrap="off" spellcheck="false" autocomplete="off"></textarea>
+          </div>
+          <div class="fl-editor__status"><span>JavaScript</span><span>UTF-8</span><span id="edit-status" aria-live="polite">Не проверен</span></div>
+        </div>
+        <div role="tabpanel" id="panel-info" aria-labelledby="tab-info" tabindex="0" class="fl-panel__body fl-stack" hidden>
+          <p class="fl-field__hint">Входы</p>
+          <div class="fl-row"><span class="fl-port fl-red">R · red_1</span><span class="fl-port fl-green">G · green_1</span></div>
+          <p class="fl-field__hint">Выходы</p>
+          <div class="fl-row"><span class="fl-port fl-red">R · red_1</span><span class="fl-port fl-green">G · green_1</span></div>
+          <p class="fl-field__hint">Текст сценария не исполняется на странице. Проверка передаёт модуль только в Worker.</p>
+        </div>
+      </section>
+
+      <aside class="fl-workspace__inspector fl-stack" id="signals-pane" data-pane="inspector" aria-label="Опубликованные сигналы">
+        <section class="fl-panel" aria-labelledby="red-title">
+          <div class="fl-panel__head"><h2 id="red-title">Красная сеть</h2><span class="fl-port fl-red">R · red_1</span></div>
+          <div class="fl-panel__body">
+            <div class="fl-table-wrap" tabindex="0" role="region" aria-label="Сигналы красной сети, таблица с прокруткой">
+              <table class="fl-table">
+                <caption class="fl-sr">Опубликованные сигналы red_1</caption>
+                <thead><tr><th scope="col">Сигнал</th><th scope="col">Значение</th></tr></thead>
+                <tbody id="red-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        <section class="fl-panel" aria-labelledby="green-title">
+          <div class="fl-panel__head"><h2 id="green-title">Зелёная сеть</h2><span class="fl-port fl-green">G · green_1</span></div>
+          <div class="fl-panel__body">
+            <div class="fl-table-wrap" tabindex="0" role="region" aria-label="Сигналы зелёной сети, таблица с прокруткой">
+              <table class="fl-table">
+                <caption class="fl-sr">Опубликованные сигналы green_1</caption>
+                <thead><tr><th scope="col">Сигнал</th><th scope="col">Значение</th></tr></thead>
+                <tbody id="green-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        <section class="fl-panel" aria-labelledby="state-title">
+          <div class="fl-panel__head"><h2 id="state-title">Состояние и сообщения</h2></div>
+          <div class="fl-panel__body fl-stack">
+            <pre class="fl-code" id="device-state" tabindex="0">{}</pre>
+            <div class="fl-table-wrap" tabindex="0" role="region" aria-label="Сообщения блока, таблица с прокруткой">
+              <table class="fl-table">
+                <caption class="fl-sr">Сообщения, видимые на опубликованной границе</caption>
+                <thead><tr><th scope="col">Тип</th><th scope="col">Доставка</th></tr></thead>
+                <tbody id="message-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </aside>
+    </div>
+    </div>
+
+    <section class="fl-panel fl-workspace__bottom" aria-labelledby="diagnostic-title">
+      <div class="fl-panel__head"><h2 id="diagnostic-title">Диагностика</h2><span class="fl-badge">Прогон</span></div>
+      <div class="fl-panel__body" id="diagnostic" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <dialog class="fl-dialog" id="snapshot-dialog" aria-labelledby="snapshot-title">
+    <form method="dialog">
+      <div class="fl-panel__head">
+        <h2 id="snapshot-title">Опубликованная граница</h2>
+        <button class="fl-button fl-button--icon fl-button--quiet" type="submit" value="cancel" aria-label="Закрыть диалог">×</button>
+      </div>
+      <div class="fl-panel__body fl-stack">
+        <p>Восстановление подставляет запомненный снимок. init не вызывается, номер прогона не меняется.</p>
+        <p class="fl-muted" id="snapshot-summary">Снимок ещё не запомнен.</p>
+        <div class="fl-row">
+          <button class="fl-button" type="button" id="remember">Запомнить границу</button>
+          <button class="fl-button fl-button--primary" type="button" id="restore">Восстановить</button>
+        </div>
+      </div>
+    </form>
+  </dialog>
+  <dialog class="fl-dialog" data-about-dialog aria-labelledby="about-title">
+    <form method="dialog">
+      <div class="fl-panel__head">
+        <h2 id="about-title">Совместимость</h2>
+        <button class="fl-button" type="submit" value="cancel">Закрыть</button>
+      </div>
+      <div class="fl-panel__body fl-stack">
+        <p data-release-text></p>
+        <p class="fl-muted">Полный JavaScript наследника EventCombinator исполняется в Worker. Виртуальный тик меняется только после успешного шага. Это проектная модель, не запуск Factorio.</p>
+      </div>
+    </form>
+  </dialog>
+  <template id="error-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m9 9 6 6m0-6-6 6"/></svg></template>
+  <script type="module" src="../../ui/scripts/widgets.js"></script>
+  <script type="module" src="./page.js"></script>
+</body>
+</html>

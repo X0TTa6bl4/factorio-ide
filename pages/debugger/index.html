@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171a18">
+  <title>f logic — отладчик</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../../ui/styles/tokens.css">
+  <link rel="stylesheet" href="../../ui/styles/components.css">
+  <link rel="stylesheet" href="../../ui/styles/layout.css">
+</head>
+<body>
+  <a class="fl-skip" href="#main">Перейти к содержимому</a>
+  <header class="fl-topbar">
+    <a class="fl-brand" href="../../index.html"><span class="fl-brand__mark" aria-hidden="true">ƒ.</span>f logic</a>
+    <h1 class="fl-screen-name">Отладчик</h1>
+    <button class="fl-button" type="button" data-about-open>Совместимость</button>
+    <details class="fl-more">
+      <summary>Ещё</summary>
+      <nav aria-label="Разделы">
+        <a href="../../index.html">Редактор</a>
+        <a href="../examples/index.html">Примеры</a>
+        <a href="../../ui/index.html">Библиотека</a>
+        <a href="../circuit/index.html">Контур</a>
+        <a href="../event/index.html">Сценарий</a>
+        <a href="./index.html" aria-current="page">Отладчик</a>
+        <a href="../networks/index.html">Сети</a>
+        <a href="../configure/index.html">Конфигурация</a>
+        <a href="../project/index.html">Схема</a>
+      </nav>
+    </details>
+  </header>
+  <main class="fl-screen" id="main">
+    <section class="fl-screen__tools" aria-label="Управление симуляцией">
+      <div class="fl-toolbar" id="toolbar" data-playback="idle">
+        <div class="fl-toolbar__actions">
+          <button class="fl-button fl-button--primary" type="button" id="play" aria-pressed="false">
+            <svg id="play-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7Z"/></svg>
+            <svg id="pause-icon" aria-hidden="true" viewBox="0 0 24 24" hidden><path d="M7 5v14M17 5v14"/></svg>
+            <span id="play-label">Запустить</span>
+          </button>
+          <button class="fl-button" type="button" id="step">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 5 10 7-10 7ZM19 5v14"/></svg>
+            Шаг
+          </button>
+          <button class="fl-button" type="button" id="back">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 6 8 12l6 6"/></svg>
+            Шаг назад
+          </button>
+          <button class="fl-button" type="button" id="reset">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 0 5M4 4v6h6"/></svg>
+            Сброс
+          </button>
+        </div>
+        <span class="fl-badge" id="run-status" data-status="idle"><span class="fl-dot"></span><span id="run-status-text">Загрузка</span></span>
+        <div class="fl-row fl-field__hint">
+          <span id="speed-label">Скорость</span>
+          <div class="fl-selectbox fl-selectbox--compact" id="speed" data-select data-label-id="speed-label" data-value="1000" data-options="1000:1 тик/с|500:2 тик/с|250:4 тик/с|100:10 тик/с"></div>
+        </div>
+        <div class="fl-toolbar__tick"><span>Текущий тик</span><strong id="tick-value" data-steps="0">—</strong></div>
+      </div>
+      <div class="fl-field">
+        <span id="scheme-label">Схема</span>
+        <div class="fl-selectbox" id="scheme" data-select data-label-id="scheme-label" data-value="sources" data-options="sources:Два источника|counter:Счётчик|decider:Порог|selector:Число каналов|fault:Ошибка расчёта|invalid:Неверная конфигурация|unsupported:Неподдержанный режим"></div>
+      </div>
+      <p class="fl-field__hint" id="scheme-note">Схема загружается.</p>
+      <p class="fl-field__hint" id="scheme-expect"></p>
+      <p class="fl-field__hint" id="run-meta">Прогон не создан.</p>
+    </section>
+
+    <section class="fl-panel fl-screen__timeline" aria-labelledby="timeline-title">
+      <div class="fl-panel__head">
+        <h2 id="timeline-title">История тиков</h2>
+        <span class="fl-badge" id="history-limit">Предел</span>
+      </div>
+      <div class="fl-panel__body fl-stack fl-stack--sm">
+        <div class="fl-timeline" id="timeline" role="group" aria-label="Выбрать сохранённую границу"></div>
+        <p class="fl-field__hint" id="timeline-status" data-timeline-status aria-live="polite">История появится после создания прогона.</p>
+      </div>
+    </section>
+
+    <div class="fl-pane-switch">
+      <button class="fl-button" type="button" data-pane-toggle aria-expanded="false" aria-controls="devices-pane">Устройства</button>
+      <button class="fl-button" type="button" data-pane-toggle aria-expanded="false" aria-controls="network-pane">Сети</button>
+    </div>
+
+    <div class="fl-screen__stage">
+      <div class="fl-workspace__grid">
+        <aside class="fl-workspace__side" id="devices-pane" data-pane="side" aria-label="Устройства схемы">
+          <section class="fl-panel">
+            <div class="fl-panel__head"><h2 id="devices-title">Устройства</h2><span class="fl-badge" id="device-count">0</span></div>
+            <div class="fl-panel__body fl-device-list" id="device-list" role="list"></div>
+          </section>
+        </aside>
+
+        <section class="fl-panel fl-workspace__primary" aria-labelledby="card-title">
+          <div class="fl-panel__head"><h2 id="card-title">Выбранное устройство</h2></div>
+          <div class="fl-panel__body fl-stack" id="device-card"></div>
+          <div class="fl-panel__body">
+            <h3>Собственный выход</h3>
+            <p class="fl-field__hint">Вклад выбранного устройства без суммы соседних источников.</p>
+            <div class="fl-table-wrap" tabindex="0" role="region" aria-label="Собственный выход устройства, таблица с прокруткой">
+              <table class="fl-table">
+                <caption class="fl-sr">Собственный красный и зелёный выход выбранного устройства</caption>
+                <thead><tr><th scope="col">Канал</th><th scope="col">Ранее</th><th scope="col">Сейчас</th><th scope="col">Δ</th></tr></thead>
+                <tbody id="own-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <aside class="fl-workspace__inspector" id="network-pane" data-pane="inspector" aria-label="Опубликованные сигналы">
+          <section class="fl-panel" aria-labelledby="network-title">
+            <div class="fl-panel__head">
+              <h2 id="network-title">Агрегат сети</h2>
+            </div>
+            <div class="fl-panel__body fl-stack">
+              <div class="fl-field">
+                <span id="network-label">Сеть</span>
+                <div class="fl-selectbox" id="network" data-select data-label-id="network-label" data-value="" data-placeholder="Нет сети"></div>
+              </div>
+              <p class="fl-field__hint">Сумма всех вкладов выбранной сети. Исчезнувший канал остаётся в таблице и помечен «исчез».</p>
+              <div class="fl-table-wrap" tabindex="0" role="region" aria-label="Сигналы сети, таблица с прокруткой">
+                <table class="fl-table">
+                  <caption class="fl-sr">Опубликованный агрегат выбранной сети</caption>
+                  <thead><tr><th scope="col">Сигнал</th><th scope="col">Ранее</th><th scope="col">Сейчас</th><th scope="col">Δ</th></tr></thead>
+                  <tbody id="network-body"></tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </div>
+
+    <section class="fl-panel fl-workspace__bottom" aria-labelledby="diagnostic-title">
+      <div class="fl-panel__head"><h2 id="diagnostic-title">Диагностика</h2></div>
+      <div class="fl-panel__body" id="diagnostic" aria-live="polite"></div>
+    </section>
+  </main>
+  <dialog class="fl-dialog" data-about-dialog aria-labelledby="about-title">
+    <form method="dialog">
+      <div class="fl-panel__head">
+        <h2 id="about-title">Совместимость</h2>
+        <button class="fl-button" type="submit" value="cancel">Закрыть</button>
+      </div>
+      <div class="fl-panel__body fl-stack">
+        <p data-release-text></p>
+        <p class="fl-muted" id="model-note">Запуск, пауза, скорость, шаг и сброс вызывают один и тот же step(). Таймер задаёт только паузу между вызовами. Шаг назад и выбор тика восстанавливают сохранённую границу. Номер тика и сигналы — опубликованная граница проектной модели, не запуск Factorio.</p>
+      </div>
+    </form>
+  </dialog>
+  <template id="error-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m9 9 6 6m0-6-6 6"/></svg></template>
+  <script type="module" src="../../ui/scripts/widgets.js"></script>
+  <script type="module" src="./page.js"></script>
+</body>
+</html>

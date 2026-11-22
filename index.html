@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171a18">
+  <title>f logic — редактор</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./ui/styles/tokens.css">
+  <link rel="stylesheet" href="./ui/styles/components.css">
+  <link rel="stylesheet" href="./ui/styles/layout.css">
+</head>
+<body>
+  <a class="fl-skip" href="#main">Перейти к содержимому</a>
+  <header class="fl-topbar">
+    <a class="fl-brand" href="./index.html"><span class="fl-brand__mark" aria-hidden="true">ƒ.</span>f logic</a>
+    <h1 class="fl-screen-name">Редактор</h1>
+    <a class="fl-button" id="open-events" href="./pages/event/index.html">Событийные комбинаторы</a>
+    <button class="fl-button" type="button" data-about-open>Совместимость</button>
+    <details class="fl-more">
+      <summary>Ещё</summary>
+      <nav aria-label="Дополнительные разделы">
+        <a href="./pages/examples/index.html">Примеры</a>
+        <a href="./ui/index.html">Библиотека</a>
+        <a href="./pages/project/index.html">Схема</a>
+        <a href="./pages/circuit/index.html">Контур</a>
+        <a href="./pages/debugger/index.html">Отладчик</a>
+        <a href="./pages/networks/index.html">Сети</a>
+        <button class="fl-button" type="button" id="new-draft">Новый черновик</button>
+      </nav>
+    </details>
+  </header>
+  <main class="fl-screen" id="main">
+    <section class="fl-screen__tools" aria-label="Управление симуляцией">
+      <div class="fl-toolbar" id="toolbar" data-playback="paused">
+        <div class="fl-toolbar__actions">
+          <button class="fl-button fl-button--primary" type="button" id="play" aria-pressed="false">
+            <span id="play-label">Запустить</span>
+          </button>
+          <button class="fl-button" type="button" id="step">Шаг</button>
+          <button class="fl-button" type="button" id="back">Шаг назад</button>
+          <button class="fl-button" type="button" id="reset">Сброс</button>
+          <span class="fl-tip" data-tooltip>
+            <button class="fl-button fl-button--icon" type="button" id="undo" aria-label="Отменить правку" aria-describedby="undo-tip" disabled><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8.5 7.5 4 12l4.5 4.5"/><path d="M4 12h9c3.5 0 6 2.2 6 5.2S16.5 22 13 22H10"/></svg></button>
+            <span class="fl-tooltip" id="undo-tip" role="tooltip">Отменить правку · Ctrl+Z</span>
+          </span>
+          <span class="fl-tip" data-tooltip>
+            <button class="fl-button fl-button--icon" type="button" id="redo" aria-label="Повторить правку" aria-describedby="redo-tip" disabled><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15.5 7.5 4.5 4.5-4.5 4.5"/><path d="M20 12h-9c-3.5 0-6 2.2-6 5.2S7.5 22 11 22h3"/></svg></button>
+            <span class="fl-tooltip" id="redo-tip" role="tooltip">Повторить правку · Ctrl+Y</span>
+          </span>
+        </div>
+        <div class="fl-row fl-field__hint">
+          <span id="speed-label">Скорость</span>
+          <div class="fl-selectbox fl-selectbox--compact" id="speed" data-select data-label-id="speed-label" data-value="1000" data-options="1000:1 тик/с|500:2 тик/с|250:4 тик/с|100:10 тик/с"></div>
+        </div>
+        <div class="fl-toolbar__tick"><span>Текущий тик</span><strong id="tick-value" data-current="false">—</strong></div>
+        <button class="fl-button" type="button" id="error-jump" hidden>Ошибка</button>
+      </div>
+    </section>
+
+    <div class="fl-screen__stage">
+      <div class="fl-editor-stage">
+        <section class="fl-panel" aria-labelledby="document-title">
+          <div class="fl-panel__head"><h2 id="document-title">Код</h2></div>
+          <label class="fl-sr" for="document">Текст конфигурации схемы</label>
+          <div class="fl-editor">
+            <div class="fl-editor__gutter" id="gutter" aria-hidden="true">01</div>
+            <textarea id="document" class="fl-textarea" wrap="off" spellcheck="false" autocomplete="off" aria-describedby="document-hint"></textarea>
+          </div>
+          <div class="fl-editor__status"><span id="document-hint">Tab — отступ, Enter — выбрать подсказку. Форматирование: ⌥⌘L на macOS, Ctrl+Alt+L на Windows и Linux.</span><span id="document-state">Разбор выполнен</span></div>
+        </section>
+
+        <aside class="fl-editor-inspector" aria-label="Сети и настройки">
+          <section class="fl-panel" id="signal-panel" data-run="none" aria-labelledby="signals-title">
+            <div class="fl-panel__head"><h2 id="signals-title">Сети</h2></div>
+            <div class="fl-panel__body fl-stack">
+              <label class="fl-field">Фильтр
+                <input class="fl-input" id="signal-filter" type="text" autocomplete="off" spellcheck="false" placeholder="Сеть или сигнал">
+              </label>
+              <p class="fl-field__hint" id="stale-note" hidden></p>
+              <div class="fl-table-wrap fl-signal-scroll" id="signal-scroll" tabindex="0" role="region" aria-label="Сигналы сетей">
+                <table class="fl-table">
+                  <caption class="fl-sr">Сигналы по сетям: имя, цвет и значение</caption>
+                  <thead><tr><th scope="col">Сеть</th><th scope="col">Сигнал</th><th scope="col">Значение</th></tr></thead>
+                  <tbody id="live-signals"></tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+          <section class="fl-panel" data-panel>
+        <div class="fl-panel__head"><h2><button class="fl-panel__toggle" type="button" id="diagnostics-toggle" aria-expanded="false" aria-controls="diagnostics-panel">Диагностика</button></h2></div>
+        <div class="fl-panel__body fl-panel__body--scroll fl-stack" id="diagnostics-panel" hidden>
+          <div id="diagnostics"></div>
+        </div>
+      </section>
+        </aside>
+      </div>
+    </div>
+  </main>
+  <dialog class="fl-dialog" data-about-dialog aria-labelledby="about-title">
+    <form method="dialog">
+      <div class="fl-panel__head">
+        <h2 id="about-title">Совместимость</h2>
+        <button class="fl-button" type="submit" value="cancel">Закрыть</button>
+      </div>
+      <div class="fl-panel__body fl-stack">
+        <p data-release-text></p>
+        <p class="fl-field__hint">Профиль редактора — base, пока текст не открыт как файл другого профиля. Дата проверки входит в текст выше. Игровой прогон схем не выполнялся.</p>
+      </div>
+    </form>
+  </dialog>
+  <script type="module" src="./ui/scripts/widgets.js"></script>
+  <script type="module" src="./pages/configure/page.js"></script>
+</body>
+</html>

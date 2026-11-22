@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171a18">
+  <title>f logic — сети</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../../ui/styles/tokens.css">
+  <link rel="stylesheet" href="../../ui/styles/components.css">
+  <link rel="stylesheet" href="../../ui/styles/layout.css">
+</head>
+<body>
+  <a class="fl-skip" href="#main">Перейти к содержимому</a>
+  <header class="fl-topbar">
+    <a class="fl-brand" href="../../index.html"><span class="fl-brand__mark" aria-hidden="true">ƒ.</span>f logic</a>
+    <h1 class="fl-screen-name">Сети</h1>
+    <button class="fl-button" type="button" data-about-open>Совместимость</button>
+    <details class="fl-more">
+      <summary>Ещё</summary>
+      <nav aria-label="Разделы">
+        <a href="../../index.html">Редактор</a>
+        <a href="../examples/index.html">Примеры</a>
+        <a href="../../ui/index.html">Библиотека</a>
+        <a href="../circuit/index.html">Контур</a>
+        <a href="../event/index.html">Сценарий</a>
+        <a href="../debugger/index.html">Отладчик</a>
+        <a href="./index.html" aria-current="page">Сети</a>
+        <a href="../configure/index.html">Конфигурация</a>
+        <a href="../project/index.html">Схема</a>
+      </nav>
+    </details>
+  </header>
+  <main class="fl-screen" id="main">
+    <section class="fl-screen__tools" aria-label="Управление симуляцией">
+      <div class="fl-toolbar" id="toolbar" data-playback="paused" aria-busy="false">
+        <div class="fl-toolbar__actions">
+          <button class="fl-button fl-button--primary" type="button" id="launch">Запустить</button>
+          <button class="fl-button" type="button" id="play" aria-pressed="false">
+            <span id="play-label">Просмотр</span>
+          </button>
+          <button class="fl-button" type="button" id="step">Шаг</button>
+          <button class="fl-button" type="button" id="reset">Сброс</button>
+          <button class="fl-button" type="button" id="undo">Отменить</button>
+          <button class="fl-button" type="button" id="redo">Вернуть</button>
+        </div>
+        <span class="fl-badge" id="run-status" data-status="editing"><span class="fl-dot"></span><span id="run-status-text">Черновик</span></span>
+        <span class="fl-badge" id="revision">1</span>
+        <div class="fl-toolbar__tick"><span>Текущий тик</span><strong id="tick-value" data-current="false" data-steps="0">—</strong></div>
+      </div>
+    </section>
+
+    <div class="fl-pane-switch">
+      <button class="fl-button" type="button" data-pane-toggle aria-expanded="false" aria-controls="registry-pane">Реестр</button>
+      <button class="fl-button" type="button" data-pane-toggle aria-expanded="false" aria-controls="connect-pane">Подключение</button>
+    </div>
+    <div class="fl-screen__stage">
+    <div class="fl-workspace__grid">
+      <section class="fl-panel fl-workspace__side" id="registry-pane" data-pane="side" aria-labelledby="registry-title">
+        <div class="fl-panel__head"><h2 id="registry-title">Реестр</h2></div>
+        <div class="fl-panel__body fl-stack">
+          <div class="fl-field">
+            <span id="network-label">Сеть</span>
+            <div class="fl-selectbox" id="network" data-select data-label-id="network-label" data-value="" data-placeholder="Нет сети"></div>
+          </div>
+          <div class="fl-row">
+            <button class="fl-button" type="button" id="rename">Переименовать</button>
+            <button class="fl-button" type="button" id="remove">Удалить</button>
+          </div>
+          <div class="fl-stack" id="network-list" aria-label="Сети текущей схемы"></div>
+          <h3>Порты</h3>
+          <div class="fl-row" id="port-list"></div>
+        </div>
+      </section>
+
+      <section class="fl-panel fl-workspace__primary" aria-labelledby="document-title">
+        <div class="fl-panel__head"><h2 id="document-title">Документ</h2><span class="fl-badge">Сети</span></div>
+        <label class="fl-sr" for="document">Текст подключений сетей</label>
+        <div class="fl-editor">
+          <div class="fl-editor__gutter" id="gutter" aria-hidden="true">01</div>
+          <textarea id="document" class="fl-textarea" wrap="off" spellcheck="false" autocomplete="off" aria-describedby="document-hint"></textarea>
+        </div>
+        <div class="fl-editor__status"><span id="document-hint">constant и wire, без выполнения текста</span><span id="document-state">Разбор выполнен</span></div>
+      </section>
+
+      <div class="fl-stack fl-workspace__inspector" id="connect-pane" data-pane="inspector">
+        <section class="fl-panel" aria-labelledby="picker-title">
+          <div class="fl-panel__head"><h2 id="picker-title">Подключение</h2><span class="fl-badge" id="picker-port">порт</span></div>
+          <div class="fl-panel__body fl-stack">
+            <div class="fl-field">
+              <span id="port-label">Порт</span>
+              <div class="fl-selectbox" id="port" data-select data-label-id="port-label" data-value="" data-placeholder="Нет порта"></div>
+            </div>
+            <div class="fl-completion" data-network-picker>
+              <label class="fl-field">Фильтр имени
+                <input class="fl-input fl-mono" id="network-query" type="text" autocomplete="off" spellcheck="false" aria-describedby="network-help network-error" aria-controls="network-results">
+              </label>
+              <div class="fl-completion__list" id="network-results" role="listbox" aria-label="Подсказки сетей"></div>
+            </div>
+            <p class="fl-field__hint" id="network-help">Сначала точное имя, затем совпадения по префиксу. red_new и green_new видны только по своему префиксу и стоят после сетей. Пункта «Создать имя» нет. Esc, уход из поля и Tab завершают введённое имя; Tab переводит фокус. Стрелка вниз переходит к списку, Enter подтверждает пункт.</p>
+            <p class="fl-error" id="network-error" hidden></p>
+          </div>
+        </section>
+
+        <section class="fl-panel" aria-labelledby="signals-title">
+          <div class="fl-panel__head"><h2 id="signals-title">Текущий прогон</h2></div>
+          <div class="fl-panel__body fl-stack">
+            <div class="fl-table-wrap" id="signal-scroll" tabindex="0" role="region" aria-label="Сигналы текущего прогона, таблица с прокруткой">
+              <table class="fl-table">
+                <caption class="fl-sr">Сигналы опубликованной границы</caption>
+                <thead>
+                  <tr><th scope="col">Сеть</th><th scope="col">Сигнал</th><th scope="col">Значение</th></tr>
+                </thead>
+                <tbody id="live-signals"></tbody>
+              </table>
+            </div>
+            <p class="fl-field__hint" id="retained" hidden></p>
+          </div>
+        </section>
+      </div>
+    </div>
+    </div>
+
+    <section class="fl-panel fl-workspace__bottom" aria-labelledby="diagnostics-title">
+      <div class="fl-panel__head"><h2 id="diagnostics-title">Диагностика</h2></div>
+      <div class="fl-panel__body fl-stack" id="diagnostics" role="status" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <dialog class="fl-dialog" data-about-dialog aria-labelledby="about-title">
+    <form method="dialog">
+      <div class="fl-panel__head">
+        <h2 id="about-title">Совместимость</h2>
+        <button class="fl-button" type="submit" value="cancel">Закрыть</button>
+      </div>
+      <div class="fl-panel__body fl-stack">
+        <p data-release-text></p>
+        <p class="fl-muted" id="model-note">Подсказки, создание и удаление идут через общий Circuit. Индекс хранит имена и MRU. Перед запуском документ разбирается заново, без eval и без доверия к кешу подсказок. Это проектная модель, не запуск Factorio.</p>
+      </div>
+    </form>
+  </dialog>
+  <dialog class="fl-dialog" id="rename-dialog" aria-labelledby="rename-title">
+    <form>
+      <div class="fl-panel__head"><h2 id="rename-title">Переименовать сеть</h2><button class="fl-button fl-button--icon fl-button--quiet" type="button" id="rename-close" aria-label="Закрыть диалог">×</button></div>
+      <div class="fl-panel__body fl-stack">
+        <p class="fl-muted" id="rename-note">Меняется имя ссылок. ID сети сохраняется.</p>
+        <label class="fl-field">Новое имя
+          <input class="fl-input fl-mono" id="rename-name" autocomplete="off" spellcheck="false" aria-describedby="rename-error">
+        </label>
+        <p class="fl-error" id="rename-error" hidden></p>
+      </div>
+      <div class="fl-panel__foot fl-row" style="justify-content: flex-end">
+        <button class="fl-button fl-button--quiet" type="button" id="rename-cancel">Отмена</button>
+        <button class="fl-button fl-button--primary" type="button" id="rename-confirm">Переименовать</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog class="fl-dialog" id="remove-dialog" aria-labelledby="remove-title">
+    <form>
+      <div class="fl-panel__head"><h2 id="remove-title">Удалить сеть</h2><button class="fl-button fl-button--icon fl-button--quiet" type="button" id="remove-close" aria-label="Закрыть диалог">×</button></div>
+      <div class="fl-panel__body fl-stack">
+        <p id="remove-text">Ссылки будут сняты.</p>
+      </div>
+      <div class="fl-panel__foot fl-row" style="justify-content: flex-end">
+        <button class="fl-button fl-button--quiet" type="button" id="remove-cancel">Отмена</button>
+        <button class="fl-button fl-button--primary" type="button" id="remove-confirm">Удалить</button>
+      </div>
+    </form>
+  </dialog>
+  <script type="module" src="../../ui/scripts/widgets.js"></script>
+  <script type="module" src="./page.js"></script>
+</body>
+</html>
