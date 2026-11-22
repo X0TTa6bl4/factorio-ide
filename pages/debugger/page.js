@@ -2,8 +2,7 @@
 
 import { Arithmetic, Constant, Decider, EventCombinator, Selector } from "../../src/index.js";
 import { formatDiagnostic } from "../../src/event-script.js";
-import { createPlayback } from "./playback.js";
-import { mountAbout } from "../release.js";
+import { createPlayback, intervalForSpeed, paintPlaybackButton } from "./playback.js";
 import { ensureSelectOption, setSelectOptions } from "../../ui/scripts/widgets.js";
 import { buildScheme, schemeMeta } from "./schemes.js";
 import { diffRows, indexOutput, indexSignals } from "./signals.js";
@@ -31,9 +30,6 @@ const STATUS_TEXT = {
 };
 
 const playButton = document.querySelector("#play");
-const playLabel = document.querySelector("#play-label");
-const playIcon = document.querySelector("#play-icon");
-const pauseIcon = document.querySelector("#pause-icon");
 const stepButton = document.querySelector("#step");
 const backButton = document.querySelector("#back");
 const resetButton = document.querySelector("#reset");
@@ -49,7 +45,6 @@ const toolbar = document.querySelector("#toolbar");
 const runMeta = document.querySelector("#run-meta");
 const schemeNote = document.querySelector("#scheme-note");
 const schemeExpect = document.querySelector("#scheme-expect");
-mountAbout();
 const deviceList = document.querySelector("#device-list");
 const deviceCount = document.querySelector("#device-count");
 const deviceCard = document.querySelector("#device-card");
@@ -59,7 +54,7 @@ const ownBody = document.querySelector("#own-body");
 const diagnostic = document.querySelector("#diagnostic");
 const errorIcon = document.querySelector("#error-icon");
 
-let speedMs = Number(speedSelect.value);
+let speedMs = intervalForSpeed(speedSelect.value);
 const requestedScheme = new URLSearchParams(location.search).get("scheme");
 if (requestedScheme) {
   ensureSelectOption(schemeSelect, requestedScheme, requestedScheme);
@@ -533,10 +528,7 @@ function render() {
   toolbar.dataset.playback = mode;
   toolbar.setAttribute("aria-busy", booting || scrubbing || playback.pending ? "true" : "false");
   playButton.disabled = booting || !simulation || mode === "failed";
-  playButton.setAttribute("aria-pressed", running ? "true" : "false");
-  playLabel.textContent = running ? "Пауза" : "Запустить";
-  playIcon.hidden = running;
-  pauseIcon.hidden = !running;
+  paintPlaybackButton(playButton, running, { paused: "Запустить", running: "Приостановить" });
   stepButton.disabled = !ready || scrubbing || Boolean(playback.pending);
   backButton.disabled = !ready || scrubbing || Boolean(playback.pending) || !simulation || simulation.historyTicks().length < 2;
   resetButton.disabled = booting;
@@ -589,7 +581,7 @@ resetButton.addEventListener("click", () => {
   openScheme(schemeId);
 });
 speedSelect.addEventListener("change", () => {
-  speedMs = Number(speedSelect.value);
+  speedMs = intervalForSpeed(speedSelect.value);
 });
 schemeSelect.addEventListener("change", () => {
   openScheme(schemeSelect.value);

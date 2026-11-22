@@ -15,38 +15,29 @@
   <header class="fl-topbar">
     <a class="fl-brand" href="../../index.html"><span class="fl-brand__mark" aria-hidden="true">ƒ.</span>f logic</a>
     <h1 class="fl-screen-name">Сети</h1>
-    <button class="fl-button" type="button" data-about-open>Совместимость</button>
-    <details class="fl-more">
-      <summary>Ещё</summary>
-      <nav aria-label="Разделы">
-        <a href="../../index.html">Редактор</a>
-        <a href="../examples/index.html">Примеры</a>
-        <a href="../../ui/index.html">Библиотека</a>
-        <a href="../circuit/index.html">Контур</a>
-        <a href="../event/index.html">Сценарий</a>
-        <a href="../debugger/index.html">Отладчик</a>
-        <a href="./index.html" aria-current="page">Сети</a>
-        <a href="../configure/index.html">Конфигурация</a>
-        <a href="../project/index.html">Схема</a>
-      </nav>
-    </details>
+    <a class="fl-button fl-topbar__docs" href="../docs/index.html">Документация</a>
   </header>
   <main class="fl-screen" id="main">
     <section class="fl-screen__tools" aria-label="Управление симуляцией">
-      <div class="fl-toolbar" id="toolbar" data-playback="paused" aria-busy="false">
+      <div class="fl-toolbar fl-compact-toolbar" id="toolbar" data-playback="paused" aria-busy="false">
         <div class="fl-toolbar__actions">
           <button class="fl-button fl-button--primary" type="button" id="launch">Запустить</button>
-          <button class="fl-button" type="button" id="play" aria-pressed="false">
-            <span id="play-label">Просмотр</span>
+          <button class="fl-button fl-button--icon" type="button" id="play" aria-pressed="false" aria-label="Просмотр" title="Просмотр">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7Z"/></svg>
           </button>
-          <button class="fl-button" type="button" id="step">Шаг</button>
-          <button class="fl-button" type="button" id="reset">Сброс</button>
+          <button class="fl-button fl-button--icon" type="button" id="step" aria-label="Шаг" title="Шаг">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 5 10 7-10 7ZM19 5v14"/></svg>
+          </button>
+          <button class="fl-button fl-button--icon" type="button" id="reset" aria-label="Сброс" title="Сброс">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 0 5M4 4v6h6"/></svg>
+          </button>
           <button class="fl-button" type="button" id="undo">Отменить</button>
           <button class="fl-button" type="button" id="redo">Вернуть</button>
         </div>
         <span class="fl-badge" id="run-status" data-status="editing"><span class="fl-dot"></span><span id="run-status-text">Черновик</span></span>
         <span class="fl-badge" id="revision">1</span>
-        <div class="fl-toolbar__tick"><span>Текущий тик</span><strong id="tick-value" data-current="false" data-steps="0">—</strong></div>
+        <span class="fl-sr" id="tick-name">Текущий тик</span>
+        <output class="fl-compact-tick" id="tick-value" aria-labelledby="tick-name tick-value" data-current="false" data-steps="0">—</output>
       </div>
     </section>
 
@@ -61,7 +52,7 @@
         <div class="fl-panel__body fl-stack">
           <div class="fl-field">
             <span id="network-label">Сеть</span>
-            <div class="fl-selectbox" id="network" data-select data-label-id="network-label" data-value="" data-placeholder="Нет сети"></div>
+            <div class="fl-selectbox" id="network" data-select data-search="true" data-label-id="network-label" data-value="" data-placeholder="Нет сети"></div>
           </div>
           <div class="fl-row">
             <button class="fl-button" type="button" id="rename">Переименовать</button>
@@ -127,18 +118,6 @@
     </section>
   </main>
 
-  <dialog class="fl-dialog" data-about-dialog aria-labelledby="about-title">
-    <form method="dialog">
-      <div class="fl-panel__head">
-        <h2 id="about-title">Совместимость</h2>
-        <button class="fl-button" type="submit" value="cancel">Закрыть</button>
-      </div>
-      <div class="fl-panel__body fl-stack">
-        <p data-release-text></p>
-        <p class="fl-muted" id="model-note">Подсказки, создание и удаление идут через общий Circuit. Индекс хранит имена и MRU. Перед запуском документ разбирается заново, без eval и без доверия к кешу подсказок. Это проектная модель, не запуск Factorio.</p>
-      </div>
-    </form>
-  </dialog>
   <dialog class="fl-dialog" id="rename-dialog" aria-labelledby="rename-title">
     <form>
       <div class="fl-panel__head"><h2 id="rename-title">Переименовать сеть</h2><button class="fl-button fl-button--icon fl-button--quiet" type="button" id="rename-close" aria-label="Закрыть диалог">×</button></div>

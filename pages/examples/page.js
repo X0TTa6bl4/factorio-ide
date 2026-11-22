@@ -1,12 +1,10 @@
 /** Страница примеров: относительные ссылки и диагностика отсутствующего ресурса. */
 
-import { EVENT_DEMO, mountAbout } from "../release.js";
+import { EVENT_DEMO } from "../release.js";
 
 const body = document.querySelector("#demo-rows");
 const status = document.querySelector("#demo-status");
 const detail = document.querySelector("#demo-detail");
-
-mountAbout();
 
 function cell(text) {
   const item = document.createElement("td");

@@ -2,8 +2,6 @@ import { Arithmetic, Circuit, Constant, EventCombinator, Signal } from "../../sr
 import { ConfigError, RuntimeError } from "../../src/errors.js";
 import { createWorkerExecutor } from "../../src/event-host.js";
 import { compileScenarioSource, formatDiagnostic, readTimeoutMs } from "../../src/event-script.js";
-import { mountAbout } from "../release.js";
-
 const engineHref = new URL("../../src/index.js", import.meta.url).href;
 const workerUrl = new URL("../../src/event-worker.js", import.meta.url);
 
@@ -39,8 +37,6 @@ const STATUS_TEXT = {
   paused: "Пауза",
   failed: "Ошибка",
 };
-
-mountAbout();
 
 const stepButton = document.querySelector("#step");
 const resetButton = document.querySelector("#reset");

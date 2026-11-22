@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171a18">
+  <title>f logic — документация</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../../ui/styles/tokens.css">
+  <link rel="stylesheet" href="../../ui/styles/components.css">
+  <link rel="stylesheet" href="../../ui/styles/layout.css">
+  <link rel="stylesheet" href="./docs.css">
+</head>
+<body>
+  <div class="fl-docs" data-docs data-doc-home="start">
+    <a class="fl-skip" href="#start" data-doc-target="start">Перейти к статье</a>
+    <header class="fl-topbar fl-docs__header" data-doc-header>
+      <a class="fl-brand" href="../../index.html"><span class="fl-brand__mark" aria-hidden="true">ƒ.</span>f logic</a>
+      <span class="fl-screen-name">Документация</span>
+      <nav class="fl-topnav" aria-label="Разделы приложения">
+        <a class="fl-button" href="./index.html" aria-current="page">Документация</a>
+        <a class="fl-button" href="../../index.html">В редактор</a>
+      </nav>
+    </header>
+    <main id="docs-main">
+      <div class="fl-docs__layout">
+        <aside class="fl-docs__side fl-docs__nav">
+          <div class="fl-docs__navigation" data-doc-navigation>
+            <button class="fl-button fl-docs__menu" type="button" data-doc-menu aria-haspopup="dialog">Разделы</button>
+            <div data-doc-nav-home></div>
+            <dialog class="fl-docs__dialog" aria-label="Разделы руководства" data-doc-dialog>
+              <div class="fl-docs__dialog-head">
+                <strong>Разделы</strong>
+                <button class="fl-button" type="button" data-doc-close aria-label="Закрыть разделы">Закрыть</button>
+              </div>
+              <div data-doc-dialog-body></div>
+            </dialog>
+          </div>
+        </aside>
+        <div class="fl-docs__content" data-doc-articles></div>
+        <aside class="fl-docs__side fl-docs__toc">
+          <details class="fl-docs__outline" open data-doc-outline>
+            <summary>На этой странице</summary>
+            <nav aria-label="Оглавление статьи" data-doc-toc></nav>
+          </details>
+        </aside>
+      </div>
+    </main>
+  </div>
+  <script type="module" src="./page.js"></script>
+</body>
+</html>

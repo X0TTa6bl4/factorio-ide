@@ -15,37 +15,28 @@
   <header class="fl-topbar">
     <a class="fl-brand" href="../../index.html"><span class="fl-brand__mark" aria-hidden="true">ƒ.</span>f logic</a>
     <h1 class="fl-screen-name">Контур</h1>
-    <button class="fl-button" type="button" data-about-open>Совместимость</button>
-    <details class="fl-more">
-      <summary>Ещё</summary>
-      <nav aria-label="Разделы">
-        <a href="../../index.html">Редактор</a>
-        <a href="../examples/index.html">Примеры</a>
-        <a href="../../ui/index.html">Библиотека</a>
-        <a href="../event/index.html">Сценарий</a>
-        <a href="../debugger/index.html">Отладчик</a>
-        <a href="../networks/index.html">Сети</a>
-        <a href="../configure/index.html">Конфигурация</a>
-        <a href="../project/index.html">Схема</a>
-        <a href="./index.html" aria-current="page">Контур</a>
-      </nav>
-    </details>
+    <a class="fl-button fl-topbar__docs" href="../docs/index.html">Документация</a>
   </header>
   <main class="fl-screen" id="main">
     <section class="fl-screen__tools" aria-label="Управление симуляцией">
-      <div class="fl-toolbar" id="toolbar">
+      <div class="fl-toolbar fl-compact-toolbar" id="toolbar">
         <div class="fl-toolbar__actions">
-          <button class="fl-button fl-button--primary" type="button" id="run" disabled>Запустить</button>
-          <button class="fl-button" type="button" id="step">Шаг</button>
-          <button class="fl-button" type="button" id="reset">Сброс</button>
+          <button class="fl-button fl-button--icon fl-button--primary" type="button" id="run" disabled aria-label="Запустить" title="Запустить">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7Z"/></svg>
+          </button>
+          <button class="fl-button fl-button--icon" type="button" id="step" aria-label="Шаг" title="Шаг">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 5 10 7-10 7ZM19 5v14"/></svg>
+          </button>
+          <button class="fl-button fl-button--icon" type="button" id="reset" aria-label="Сброс" title="Сброс">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 0 5M4 4v6h6"/></svg>
+          </button>
           <button class="fl-button fl-button--quiet" type="button" id="ui-ping">Отклик</button>
         </div>
         <span class="fl-badge" id="run-status" data-status="idle"><span class="fl-dot"></span><span id="run-status-text">Загрузка</span></span>
-        <div class="fl-row fl-field__hint">
-          <span id="speed-label">Скорость</span>
-          <div class="fl-selectbox fl-selectbox--compact" id="speed" data-select data-disabled="true" data-label-id="speed-label" data-value="step" data-options="step:1 тик за шаг"></div>
-        </div>
-        <div class="fl-toolbar__tick"><span>Текущий тик</span><strong id="tick-value">—</strong></div>
+        <span class="fl-sr" id="speed-label">Скорость</span>
+        <div class="fl-selectbox fl-selectbox--compact" id="speed" data-select data-disabled="true" data-label-id="speed-label" data-menu-title="Скорость" data-menu-width="144" data-value="1" data-options="1:1 тик за шаг" data-value-only></div>
+        <span class="fl-sr" id="tick-name">Текущий тик</span>
+        <output class="fl-compact-tick" id="tick-value" aria-labelledby="tick-name tick-value">—</output>
       </div>
       <p class="fl-field__hint" id="run-meta">Непрерывный запуск не входит в этот срез. Прогон —. Лимит исполнителя не меняет номер тика.</p>
       <p class="fl-field__hint" id="ui-alive">Интерфейс: ожидание</p>
@@ -128,18 +119,6 @@
       <div class="fl-panel__body" id="diagnostic" aria-live="polite"></div>
     </section>
   </main>
-  <dialog class="fl-dialog" data-about-dialog aria-labelledby="about-title">
-    <form method="dialog">
-      <div class="fl-panel__head">
-        <h2 id="about-title">Совместимость</h2>
-        <button class="fl-button" type="submit" value="cancel">Закрыть</button>
-      </div>
-      <div class="fl-panel__body fl-stack">
-        <p data-release-text></p>
-        <p class="fl-muted" id="model-note">Constant и Arithmetic здесь — минимальный срез: один список сигналов и сложение обычного сигнала с числом. Полные режимы остаются отдельными задачами. Тики на странице и тесты проверяют проектную модель, а не запуск Factorio.</p>
-      </div>
-    </form>
-  </dialog>
   <template id="error-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m9 9 6 6m0-6-6 6"/></svg></template>
   <script type="module" src="../../ui/scripts/widgets.js"></script>
   <script type="module" src="./page.js"></script>

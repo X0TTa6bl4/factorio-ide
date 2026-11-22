@@ -1,5 +1,22 @@
 /** Частота просмотра. Таймер вызывает один и тот же шаг и не меняет его смысл. */
 
+const SPEED_PAUSE_MS = { 1: 1000, 2: 500, 4: 250, 10: 100 };
+const PLAY_ICON = "m8 5 11 7-11 7Z";
+const PAUSE_ICON = "M8 5v14M16 5v14";
+
+export function intervalForSpeed(value) {
+  return SPEED_PAUSE_MS[Number(value)] || 1000;
+}
+
+export function paintPlaybackButton(button, running, names) {
+  const name = running ? names.running : names.paused;
+  button.setAttribute("aria-pressed", running ? "true" : "false");
+  button.setAttribute("aria-label", name);
+  button.title = name;
+  const path = button.querySelector("path");
+  if (path) path.setAttribute("d", running ? PAUSE_ICON : PLAY_ICON);
+}
+
 export function createPlayback({ perform, schedule, interval, onChange }) {
   let mode = "paused";
   let generation = 0;

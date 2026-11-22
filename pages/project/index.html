@@ -15,38 +15,11 @@
   <header class="fl-topbar">
     <a class="fl-brand" href="../../index.html"><span class="fl-brand__mark" aria-hidden="true">ƒ.</span>f logic</a>
     <h1 class="fl-screen-name">Схема</h1>
-    <button class="fl-button" type="button" data-about-open>Совместимость</button>
-    <details class="fl-more">
-      <summary>Ещё</summary>
-      <nav aria-label="Разделы">
-        <a href="../../index.html">Редактор</a>
-        <a href="../examples/index.html">Примеры</a>
-        <a href="../../ui/index.html">Библиотека</a>
-        <a href="../circuit/index.html">Контур</a>
-        <a href="../event/index.html">Сценарий</a>
-        <a href="../debugger/index.html">Отладчик</a>
-        <a href="../networks/index.html">Сети</a>
-        <a href="../configure/index.html">Конфигурация</a>
-        <a href="./index.html" aria-current="page">Схема</a>
-      </nav>
-    </details>
+    <a class="fl-button fl-topbar__docs" href="../docs/index.html">Документация</a>
   </header>
   <main class="fl-screen" id="main">
     <div class="fl-screen__stage" id="project-host"></div>
   </main>
-  <dialog class="fl-dialog" data-about-dialog aria-labelledby="about-title">
-    <form method="dialog">
-      <div class="fl-panel__head">
-        <h2 id="about-title">Совместимость</h2>
-        <button class="fl-button" type="submit" value="cancel">Закрыть</button>
-      </div>
-      <div class="fl-panel__body fl-stack">
-        <p data-release-text></p>
-        <p class="fl-muted" id="model-note">Файл хранит определение: ID сетей и устройств, сигналы, качество, профиль и текст сценария. Импорт проверяет версию до замены открытой схемы и не запускает сценарий.</p>
-        <p class="fl-field__hint">Профиль открытой схемы: <span id="profile-badge">Профиль</span>.</p>
-      </div>
-    </form>
-  </dialog>
   <script type="module" src="./page.js"></script>
 </body>
 </html>

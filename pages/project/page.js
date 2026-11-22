@@ -6,10 +6,7 @@ import {
   draftProject,
   exampleProject,
 } from "../../src/index.js";
-import { mountAbout } from "../release.js";
 import { mountWidgets, setSelectOptions } from "../../ui/scripts/widgets.js";
-
-mountAbout();
 
 const host = document.querySelector("#project-host");
 const response = await fetch(new URL("../../ui/components/project-file.html", import.meta.url));
@@ -61,7 +58,6 @@ function portsOf(ports) {
 
 function render() {
   const project = session.document;
-  document.querySelector("#profile-badge").textContent = project.profile;
   document.querySelector("#project-profile").textContent = `Профиль ${project.profile}, игра ${project.gameVersion}, seed ${project.seed}. Формат ${project.format} версии ${project.version}.`;
   if (document.activeElement !== nameInput) nameInput.value = project.name;
   fill(document.querySelector("#network-rows"), project.networks.map((network) => [network.id, network.name, network.color]));

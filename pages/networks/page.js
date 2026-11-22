@@ -4,9 +4,8 @@ import { createNetworkEditor } from "../../src/network-editor.js";
 import { networkFinishChoice } from "../../src/network-document.js";
 import { ConfigError } from "../../src/errors.js";
 import { mountCodePaint, paintConfiguration } from "../code-paint.js";
-import { mountAbout } from "../release.js";
 import { setSelectOptions } from "../../ui/scripts/widgets.js";
-import { createPlayback } from "../debugger/playback.js";
+import { createPlayback, paintPlaybackButton } from "../debugger/playback.js";
 
 const STATUS_TEXT = {
   editing: "Черновик",
@@ -16,14 +15,12 @@ const STATUS_TEXT = {
   failed: "Ошибка",
 };
 
-mountAbout();
 let codePaint = () => {};
 
 const editor = createNetworkEditor();
 const toolbar = document.querySelector("#toolbar");
 const launchButton = document.querySelector("#launch");
 const playButton = document.querySelector("#play");
-const playLabel = document.querySelector("#play-label");
 const stepButton = document.querySelector("#step");
 const resetButton = document.querySelector("#reset");
 const undoButton = document.querySelector("#undo");
@@ -170,8 +167,7 @@ function render() {
   tickValue.dataset.current = view.current ? "true" : "false";
   tickValue.dataset.steps = view.publication ? String(view.publication.tick) : "0";
   toolbar.dataset.playback = playback.mode;
-  playButton.setAttribute("aria-pressed", playback.mode === "running" ? "true" : "false");
-  playLabel.textContent = playback.mode === "running" ? "Пауза" : "Просмотр";
+  paintPlaybackButton(playButton, playback.mode === "running", { paused: "Просмотр", running: "Пауза" });
   const runnable = view.canLaunch || view.publication !== null;
   launchButton.disabled = !view.canLaunch;
   playButton.disabled = !runnable;
@@ -220,6 +216,16 @@ function render() {
   query.disabled = !port;
   const problem = portDiagnostic(port);
   query.setAttribute("aria-invalid", problem ? "true" : "false");
+  const portButton = portSelect.querySelector(".fl-selectbox__control");
+  if (portButton) {
+    if (problem) {
+      portButton.setAttribute("aria-invalid", "true");
+      portButton.setAttribute("aria-describedby", "network-error");
+    } else {
+      portButton.removeAttribute("aria-invalid");
+      portButton.removeAttribute("aria-describedby");
+    }
+  }
   networkError.hidden = !problem;
   networkError.textContent = problem ? `${problem.field}: ${problem.message}` : "";
   renderSuggestions(port);

@@ -4,19 +4,22 @@ import { CONFIGURATION_EXAMPLE, createConfigurationEditor } from "../../src/conf
 import { nestAtCaret } from "../../src/config-completion.js";
 import { mountCaretComplete } from "../caret-complete.js";
 import { mountCodePaint, paintConfiguration } from "../code-paint.js";
-import { createPlayback } from "../debugger/playback.js";
-import { mountAbout } from "../release.js";
+import { createPlayback, intervalForSpeed, paintPlaybackButton } from "../debugger/playback.js";
+import { statusView } from "../editor-status.js";
 const DRAFT_KEY = "f-logic.editor-draft.v1";
-mountAbout();
 
 const editor = createConfigurationEditor(readDraft() === null ? {} : { text: readDraft() });
 const source = document.querySelector("#document");
 const gutter = document.querySelector("#gutter");
+const editorStatus = document.querySelector("#editor-status");
 const documentState = document.querySelector("#document-state");
+const documentLive = document.querySelector("#document-live");
+const statusJump = document.querySelector("#status-jump");
+const statusList = document.querySelector("#status-list");
 const toolbar = document.querySelector("#toolbar");
 const tickValue = document.querySelector("#tick-value");
 const playButton = document.querySelector("#play");
-const playLabel = document.querySelector("#play-label");
+const playbackStatus = document.querySelector("#playback-status");
 const stepButton = document.querySelector("#step");
 const backButton = document.querySelector("#back");
 const resetButton = document.querySelector("#reset");
@@ -25,16 +28,28 @@ const redoButton = document.querySelector("#redo");
 const undoTip = document.querySelector("#undo-tip");
 const redoTip = document.querySelector("#redo-tip");
 const speed = document.querySelector("#speed");
-const errorJump = document.querySelector("#error-jump");
 const staleNote = document.querySelector("#stale-note");
 const diagnostics = document.querySelector("#diagnostics");
 const liveSignals = document.querySelector("#live-signals");
 const signalFilter = document.querySelector("#signal-filter");
 const signalPanel = document.querySelector("#signal-panel");
+const workbench = document.querySelector("[data-workbench]");
+const codePanel = document.querySelector("#code-panel");
+const networksColumn = document.querySelector("#networks-column");
+const codeView = workbench.querySelector('[data-work-view="code"]');
+const networksView = workbench.querySelector('[data-work-view="networks"]');
+const layoutQuery = window.matchMedia("(max-width: 900px)");
+let networksOpen = true;
+let narrowView = "code";
 
 let writing = false;
 let inputCaret = null;
 let playbackError = "";
+let checking = false;
+let listOpen = false;
+let announced = "";
+let pendingLive = "";
+let announceTimer = 0;
 let codePaint = () => {};
 source.value = editor.text;
 
@@ -46,7 +61,7 @@ const playback = createPlayback({
     }, delay);
     return { cancel() { clearTimeout(id); } };
   },
-  interval: () => Number(speed.value) || 1000,
+  interval: () => intervalForSpeed(speed.value),
   onChange: render,
 });
 
@@ -81,30 +96,42 @@ function colorLabel(color) {
   return color || "без цвета";
 }
 
-function revealInspectorSection(section) {
-  const inspector = section?.closest(".fl-editor-inspector");
-  if (!section || !inspector) return;
-  const sectionBox = section.getBoundingClientRect();
-  const frame = inspector.getBoundingClientRect();
-  if (sectionBox.top < frame.top - 1 || sectionBox.bottom > frame.bottom + 1) {
-    inspector.scrollTop += sectionBox.top - frame.top;
-  }
-}
-
-function openPanel(id) {
-  const body = document.getElementById(id);
-  const button = document.querySelector(`[aria-controls="${id}"]`);
-  if (button) button.setAttribute("aria-expanded", "true");
-  if (body) body.hidden = false;
-  revealInspectorSection(body?.closest("section"));
-}
-
 function stopPlayback() {
   playback.pause();
   playback.clearFailure();
+  playbackError = "";
+  checking = false;
+}
+
+function narrowLayout() {
+  return layoutQuery.matches;
+}
+
+function paintWorkbench() {
+  const narrow = narrowLayout();
+  const showCode = narrow ? narrowView === "code" : true;
+  const showNetworks = narrow ? narrowView === "networks" : networksOpen;
+  codePanel.hidden = !showCode;
+  networksColumn.hidden = !showNetworks;
+  workbench.dataset.networks = String(networksOpen);
+  codeView.setAttribute("aria-expanded", String(showCode));
+  networksView.setAttribute("aria-expanded", String(showNetworks));
+}
+
+function keepFocusedPanel() {
+  const active = document.activeElement;
+  if (codePanel.contains(active)) narrowView = "code";
+  else if (networksColumn.contains(active)) {
+    narrowView = "networks";
+    networksOpen = true;
+  }
 }
 
 function revealRange(range) {
+  if (narrowLayout()) {
+    narrowView = "code";
+    paintWorkbench();
+  }
   const start = Math.max(0, range?.start ?? 0);
   const end = Math.max(start, Math.min(source.value.length, range?.end ?? start));
   source.focus();
@@ -116,7 +143,7 @@ function revealRange(range) {
 function renderLines() {
   const count = editor.text.split("\n").length;
   gutter.textContent = Array.from({ length: count }, (_, index) => String(index + 1).padStart(2, "0")).join("\n");
-  codePaint(editor.diagnostics);
+  codePaint(source.value === editor.text ? editor.diagnostics : []);
 }
 
 function cell(tag, text) {
@@ -180,51 +207,88 @@ function renderSignals(bundle, runState) {
   if (shown === 0) liveSignals.append(noteRow(filter ? "Нет сигналов по фильтру" : "Нет сетей"));
 }
 
-function renderDiagnostics(items) {
+function paintDiagnosticList(items) {
+  const active = document.activeElement;
+  const jumps = [...diagnostics.querySelectorAll("[data-jump]")];
+  const activeIndex = jumps.indexOf(active);
   diagnostics.replaceChildren();
-  errorJump.hidden = items.length === 0;
-  errorJump.textContent = items.length === 0 ? "" : `Ошибка: ${items[0].code}`;
-  if (items.length === 0) {
-    const note = document.createElement("p");
-    note.className = "fl-muted";
-    note.textContent = playbackError || "Ошибок нет.";
-    diagnostics.append(note);
-    return;
-  }
   for (const item of items) {
     const notice = document.createElement("div");
     notice.className = "fl-notice fl-notice--error";
     notice.dataset.code = item.code;
     notice.dataset.field = item.field ?? "";
     notice.dataset.expected = item.expected ?? "";
-    const title = document.createElement("h3");
-    title.textContent = item.field || "Документ";
-    const expected = document.createElement("p");
-    expected.textContent = item.expected ? `Ожидается ${item.expected}. ${item.message}` : item.message;
-    const jump = document.createElement("button");
-    jump.type = "button";
-    jump.className = "fl-button";
-    jump.dataset.jump = "true";
-    jump.textContent = "К месту";
-    jump.addEventListener("click", () => revealRange(item.range));
-    notice.append(title, expected, jump);
+    const text = document.createElement("p");
+    text.textContent = item.line ? `Строка ${item.line}: ${item.sentence}` : item.sentence;
+    notice.append(text);
+    if (item.range) {
+      const jump = document.createElement("button");
+      jump.type = "button";
+      jump.className = "fl-button";
+      jump.dataset.jump = "true";
+      jump.textContent = "К месту";
+      jump.addEventListener("click", () => revealRange(item.range));
+      notice.append(jump);
+    }
     diagnostics.append(notice);
   }
+  if (activeIndex >= 0 && !diagnostics.hidden) diagnostics.querySelectorAll("[data-jump]")[activeIndex]?.focus();
+}
+
+function queueAnnouncement(text, immediate) {
+  if (!immediate && text === announced && documentLive.textContent === text) return;
+  if (!immediate && text === pendingLive) return;
+  clearTimeout(announceTimer);
+  pendingLive = text;
+  const publish = () => {
+    pendingLive = "";
+    if (documentLive.textContent !== text) documentLive.textContent = text;
+    announced = text;
+  };
+  if (immediate) publish();
+  else announceTimer = setTimeout(publish, 700);
+}
+
+function renderStatus(view) {
+  const dirty = source.value !== editor.text;
+  const model = statusView({
+    text: editor.text,
+    dirty,
+    checking: checking && !dirty,
+    failed: playback.mode === "failed",
+    playbackError: dirty ? "" : playbackError,
+    diagnostics: dirty ? [] : view.diagnostics,
+  });
+  if (!model.list) listOpen = false;
+  editorStatus.dataset.kind = model.kind;
+  editorStatus.dataset.revision = dirty ? "" : String(view.revision);
+  documentState.textContent = model.summary;
+  statusJump.hidden = !model.jump;
+  statusList.hidden = !model.list;
+  statusList.setAttribute("aria-expanded", listOpen ? "true" : "false");
+  statusList.setAttribute("aria-label", model.list ? `Список, ${model.summary}` : "Список");
+  diagnostics.hidden = !listOpen;
+  paintDiagnosticList(model.items);
+  queueAnnouncement(model.summary, model.kind === "stopped");
 }
 
 function render() {
   const view = editor.view();
   if (document.activeElement !== source && source.value !== view.text) source.value = view.text;
   renderLines();
-  documentState.textContent = view.diagnostics.length === 0 ? "Разбор выполнен" : "Есть диагностика";
+  const currentText = source.value === editor.text;
   const publication = view.publication;
-  const runnable = view.canLaunch && playback.mode !== "failed";
-  playButton.disabled = playback.mode === "running" ? false : !view.canLaunch;
-  playButton.setAttribute("aria-pressed", playback.mode === "running" ? "true" : "false");
-  playLabel.textContent = playback.mode === "running" ? "Пауза" : "Запустить";
+  const runnable = currentText && view.canLaunch && playback.mode !== "failed";
+  playButton.disabled = playback.mode === "running" ? false : !(currentText && view.canLaunch);
+  paintPlaybackButton(playButton, playback.mode === "running", { paused: "Запустить", running: "Приостановить" });
+  playbackStatus.textContent = playback.mode === "running"
+    ? "Запущено"
+    : playback.mode === "failed"
+      ? "Остановлено"
+      : "Приостановлено";
   stepButton.disabled = !runnable || playback.mode === "running" || Boolean(playback.pending);
   backButton.disabled = !view.canStepBack || playback.mode !== "paused" || Boolean(playback.pending);
-  resetButton.disabled = !view.canLaunch || Boolean(playback.pending);
+  resetButton.disabled = !currentText || !view.canLaunch || Boolean(playback.pending);
   undoButton.disabled = !editor.canUndo;
   redoButton.disabled = !editor.canRedo;
   toolbar.dataset.playback = playback.mode;
@@ -239,31 +303,31 @@ function render() {
     ? `Старый прогон, ревизия ${view.staleRun.revision ?? "—"}, тик ${view.staleRun.tick}. Это не текущий текст.`
     : "";
 
-  renderDiagnostics(view.diagnostics);
+  renderStatus(view);
 }
 
-function rejectPerform(message) {
-  playbackError = message;
+function rejected(message) {
   const error = new Error(message);
   error.code = "rejected";
-  throw error;
+  return error;
+}
+
+function notePlaybackError(revision, error) {
+  if (revision !== editor.revision || source.value !== editor.text) {
+    playbackError = "";
+    return;
+  }
+  playbackError = error instanceof Error ? error.message : "Запуск остановлен";
 }
 
 async function perform() {
-  playbackError = "";
   if (!editor.view().publication) {
     const launched = await editor.launch();
-    if (!launched.applied) rejectPerform(launched.diagnostics?.[0]?.message || "Запуск не выполнен");
+    if (!launched.applied) throw rejected(launched.diagnostics?.[0]?.message || "Запуск не выполнен");
     return;
   }
-  try {
-    const stepped = await editor.step();
-    if (!stepped.applied) rejectPerform(stepped.diagnostics?.[0]?.message || "Шаг не выполнен");
-  } catch (error) {
-    if (error?.code === "rejected") throw error;
-    playbackError = error instanceof Error ? error.message : "Шаг не выполнен";
-    throw error;
-  }
+  const stepped = await editor.step();
+  if (!stepped.applied) throw rejected(stepped.diagnostics?.[0]?.message || stepped.message || "Шаг не выполнен");
 }
 
 function leaveEditor(event) {
@@ -307,38 +371,51 @@ source.addEventListener("input", (event) => {
   const after = { start: source.selectionStart, end: source.selectionEnd };
   inputCaret = null;
   const commit = () => {
+    playbackError = "";
     editor.replace(source.value, { before, after });
     storeDraft(editor.text);
     render();
   };
-  if (pending) pending.then(commit, commit);
-  else commit();
+  if (pending) {
+    render();
+    pending.then(commit, commit);
+  } else commit();
 });
 
 playButton.addEventListener("click", () => {
   if (playback.mode === "running") {
     playback.pause();
+    checking = false;
     render();
     return;
   }
   playback.clearFailure();
+  playbackError = "";
+  const revision = editor.revision;
+  checking = true;
+  render();
   playback.start().catch((error) => {
-    playbackError = error instanceof Error ? error.message : "Запуск остановлен";
-  }).finally(render);
+    notePlaybackError(revision, error);
+  }).finally(() => {
+    checking = false;
+    render();
+  });
 });
 
 stepButton.addEventListener("click", async () => {
-  if (playback.mode === "running") return;
+  if (playback.mode === "running" || source.value !== editor.text) return;
   playback.clearFailure();
+  playbackError = "";
+  const revision = editor.revision;
+  checking = true;
+  render();
   try {
-    if (!editor.view().publication) {
-      await editor.launch();
-    } else {
-      await playback.step();
-    }
+    if (!editor.view().publication) await editor.launch();
+    else await playback.step();
   } catch (error) {
-    playbackError = error instanceof Error ? error.message : "Шаг не выполнен";
+    notePlaybackError(revision, error);
   }
+  checking = false;
   render();
 });
 
@@ -351,8 +428,12 @@ backButton.addEventListener("click", async () => {
 resetButton.addEventListener("click", async () => {
   stopPlayback();
   if (playback.pending) await playback.pending.catch(() => {});
+  const revision = editor.revision;
+  checking = source.value === editor.text;
+  render();
   await editor.reset();
-  playbackError = "";
+  if (revision !== editor.revision || source.value !== editor.text) playbackError = "";
+  checking = false;
   render();
 });
 
@@ -461,10 +542,42 @@ function placeCaret(cursor) {
   source.setSelectionRange(start, end);
 }
 
-errorJump.addEventListener("click", () => {
-  openPanel("diagnostics-panel");
+codeView.addEventListener("click", () => {
+  if (narrowLayout()) narrowView = "code";
+  paintWorkbench();
+});
+
+networksView.addEventListener("click", () => {
+  if (narrowLayout()) narrowView = "networks";
+  else networksOpen = !networksOpen;
+  paintWorkbench();
+});
+
+function syncWorkbenchLayout() {
+  keepFocusedPanel();
+  paintWorkbench();
+}
+
+layoutQuery.addEventListener("change", syncWorkbenchLayout);
+
+statusJump.addEventListener("click", () => {
+  if (source.value !== editor.text) return;
   const first = editor.diagnostics[0];
-  if (first) revealRange(first.range);
+  if (first?.range) revealRange(first.range);
+});
+
+statusList.addEventListener("click", () => {
+  listOpen = !listOpen;
+  render();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape" || !listOpen) return;
+  if (document.activeElement !== statusList && !diagnostics.contains(document.activeElement)) return;
+  event.preventDefault();
+  listOpen = false;
+  render();
+  statusList.focus();
 });
 
 document.querySelector("#new-draft").addEventListener("click", () => {
@@ -587,6 +700,7 @@ mountCaretComplete(source, {
 });
 
 codePaint = mountCodePaint(source, paintConfiguration, gutter);
+paintWorkbench();
 render();
 
 function suggestionChoice(item) {

@@ -3,7 +3,7 @@ import { createWorkerExecutor } from "../../src/event-host.js";
 import { createEventScriptSession } from "../../src/event-script.js";
 import { mountCaretComplete } from "../caret-complete.js";
 import { mountCodePaint, paintJavaScript } from "../code-paint.js";
-import { EVENT_DEMO, mountAbout } from "../release.js";
+import { EVENT_DEMO } from "../release.js";
 
 const sourceUrl = new URL("../../src/index.js", import.meta.url);
 const workerUrl = new URL("../../src/event-worker.js", import.meta.url);
@@ -34,7 +34,6 @@ const STATUS_TEXT = {
   failed: "Ошибка",
 };
 
-mountAbout();
 const demoExpect = document.querySelector("#demo-expect");
 if (demoExpect) demoExpect.textContent = EVENT_DEMO.expect;
 
@@ -53,8 +52,10 @@ const statusText = document.querySelector("#run-status-text");
 const tickValue = document.querySelector("#tick-value");
 const runMeta = document.querySelector("#run-meta");
 const className = document.querySelector("#class-name");
+const editorStatus = document.querySelector("#editor-status");
 const editStatus = document.querySelector("#edit-status");
 const diagnostic = document.querySelector("#diagnostic");
+const diagnosticToggle = document.querySelector("#diagnostic-toggle");
 const redBody = document.querySelector("#red-body");
 const greenBody = document.querySelector("#green-body");
 const messageBody = document.querySelector("#message-body");
@@ -67,6 +68,15 @@ const snapshotSummary = document.querySelector("#snapshot-summary");
 const dialog = document.querySelector("#snapshot-dialog");
 const openSnapshot = document.querySelector("#open-snapshot");
 const errorIcon = document.querySelector("#error-icon");
+const workbench = document.querySelector("[data-workbench]");
+const codePanel = document.querySelector("#code-panel");
+const networksColumn = document.querySelector("#networks-column");
+const codeView = workbench.querySelector('[data-work-view="code"]');
+const networksView = workbench.querySelector('[data-work-view="networks"]');
+const layoutQuery = window.matchMedia("(max-width: 900px)");
+let networksOpen = true;
+let narrowView = "code";
+let diagnosticOpen = false;
 
 source.value = INITIAL_SOURCE;
 
@@ -171,6 +181,10 @@ function fillMessages(messages) {
 
 function showDiagnostic(item) {
   diagnostic.replaceChildren();
+  diagnosticToggle.hidden = !item;
+  if (!item) diagnosticOpen = false;
+  diagnostic.hidden = !item || !diagnosticOpen;
+  diagnosticToggle.setAttribute("aria-expanded", String(Boolean(item) && diagnosticOpen));
   if (!item) return;
   const notice = document.createElement("div");
   notice.className = "fl-notice fl-notice--error";
@@ -213,7 +227,13 @@ function render() {
   const runId = view.runId === null ? "—" : String(view.runId);
   runMeta.textContent = `Ревизия сценария ${revision} · прогон ${runId}. Лимит исполнителя не меняет номер тика.`;
   className.textContent = view.className === "" ? "—" : view.className;
-  editStatus.textContent = view.dirty ? "Изменено · нужен новый прогон" : STATUS_TEXT[view.status] ?? view.status;
+  const summary = view.diagnostic?.message ?? "";
+  editStatus.textContent = summary !== ""
+    ? summary
+    : view.dirty
+      ? "Изменено · нужен новый прогон"
+      : STATUS_TEXT[view.status] ?? view.status;
+  editorStatus.dataset.kind = summary !== "" ? "error" : "ok";
   toolbar.setAttribute("aria-busy", view.status === "busy" ? "true" : "false");
   checkButton.disabled = !view.canCheck;
   stepButton.disabled = !view.canStep;
@@ -264,30 +284,28 @@ function launch(start) {
   run(start).catch(() => {});
 }
 
-function wireTabs() {
-  const tabs = [...document.querySelectorAll("#editor-panel [role='tab']")];
-  function select(tab, focus) {
-    for (const item of tabs) {
-      const active = item === tab;
-      item.setAttribute("aria-selected", String(active));
-      item.tabIndex = active ? 0 : -1;
-      document.getElementById(item.getAttribute("aria-controls")).hidden = !active;
-    }
-    if (focus) tab.focus();
+function narrowLayout() {
+  return layoutQuery.matches;
+}
+
+function paintWorkbench() {
+  const narrow = narrowLayout();
+  const showCode = narrow ? narrowView === "code" : true;
+  const showNetworks = narrow ? narrowView === "networks" : networksOpen;
+  codePanel.hidden = !showCode;
+  networksColumn.hidden = !showNetworks;
+  workbench.dataset.networks = String(networksOpen);
+  codeView.setAttribute("aria-expanded", String(showCode));
+  networksView.setAttribute("aria-expanded", String(showNetworks));
+}
+
+function keepFocusedPanel() {
+  const active = document.activeElement;
+  if (codePanel.contains(active)) narrowView = "code";
+  else if (networksColumn.contains(active)) {
+    narrowView = "networks";
+    networksOpen = true;
   }
-  tabs.forEach((tab, index) => {
-    tab.addEventListener("click", () => select(tab, false));
-    tab.addEventListener("keydown", (event) => {
-      let next;
-      if (event.key === "ArrowRight") next = tabs[(index + 1) % tabs.length];
-      if (event.key === "ArrowLeft") next = tabs[(index + tabs.length - 1) % tabs.length];
-      if (event.key === "Home") next = tabs[0];
-      if (event.key === "End") next = tabs.at(-1);
-      if (!next) return;
-      event.preventDefault();
-      select(next, true);
-    });
-  });
 }
 
 source.addEventListener("input", () => {
@@ -317,9 +335,6 @@ mountCaretComplete(source, {
     return { applied: true, text: token };
   },
 });
-source.addEventListener("scroll", () => {
-  gutter.scrollTop = source.scrollTop;
-});
 for (const field of [everyTick, inputChanged, stateJson]) {
   field.addEventListener("input", () => {
     session.noteEdit();
@@ -338,6 +353,31 @@ stopButton.addEventListener("click", () => launch(() => session.stop()));
 document.querySelector("#ui-ping").addEventListener("click", () => {
   alive.textContent = "Интерфейс: alive";
 });
+diagnosticToggle.addEventListener("click", () => {
+  diagnosticOpen = !diagnosticOpen;
+  render();
+});
+codeView.addEventListener("click", () => {
+  if (narrowLayout()) narrowView = "code";
+  paintWorkbench();
+});
+networksView.addEventListener("click", () => {
+  if (narrowLayout()) narrowView = "networks";
+  else networksOpen = !networksOpen;
+  paintWorkbench();
+});
+layoutQuery.addEventListener("change", () => {
+  keepFocusedPanel();
+  paintWorkbench();
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape" || !diagnosticOpen || dialog.open) return;
+  if (document.activeElement !== diagnosticToggle && !diagnostic.contains(document.activeElement)) return;
+  event.preventDefault();
+  diagnosticOpen = false;
+  render();
+  diagnosticToggle.focus();
+});
 openSnapshot.addEventListener("click", () => {
   dialog.showModal();
 });
@@ -348,7 +388,7 @@ dialog.addEventListener("close", () => {
 rememberButton.addEventListener("click", () => launch(() => Promise.resolve(session.remember())));
 restoreButton.addEventListener("click", () => launch(() => session.restore()));
 
-wireTabs();
+paintWorkbench();
 codePaint = mountCodePaint(source, paintJavaScript, gutter);
 syncGutter();
 render();

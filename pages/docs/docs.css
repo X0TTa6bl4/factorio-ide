@@ -1,0 +1,6 @@
+@import "../../ui/styles/docs.css";
+
+/* Публичная страница использует канонические .fl-docs-* библиотеки. */
+.fl-docs__header .fl-brand { color: inherit; text-decoration: none; }
+.fl-docs__header .fl-topnav a.fl-button { color: var(--fl-text); text-decoration: none; }
+.fl-docs__header .fl-topnav a.fl-button[aria-current="page"] { color: var(--fl-accent); border-color: var(--fl-accent); }

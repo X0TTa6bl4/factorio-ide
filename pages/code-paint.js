@@ -204,9 +204,12 @@ export function mountCodePaint(textarea, paint, gutter) {
     }));
     align();
   };
+  // Координаты задаёт textarea. Жесты над номерами переводит в неё mountEditor.
   const align = () => {
     layer.style.transform = `translate(${-textarea.scrollLeft}px, ${-textarea.scrollTop}px)`;
-    if (gutter) gutter.scrollTop = textarea.scrollTop;
+    if (!gutter) return;
+    gutter.scrollTop = textarea.scrollTop;
+    gutter.scrollLeft = 0;
   };
 
   textarea.addEventListener("input", () => refresh());
