@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#171a18">
+  <title>f logic — пример сборки страницы</title><link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./styles/tokens.css"><link rel="stylesheet" href="./styles/components.css"><link rel="stylesheet" href="./styles/layout.css"><script type="module" src="./scripts/catalog.js"></script>
+</head>
+<body>
+  <a class="fl-skip" href="#main">Перейти к содержимому</a>
+  <header class="fl-topbar"><a class="fl-brand" href="./index.html"><span class="fl-brand__mark" aria-hidden="true">ƒ.</span>f logic</a><h1 class="fl-screen-name">Пример страницы</h1><button class="fl-button" type="button" data-about-open>Совместимость</button><nav class="fl-topnav" aria-label="Основная навигация"><a href="../index.html">Редактор</a><a href="../pages/examples/index.html">Примеры</a><a href="./index.html">Библиотека</a><a href="./workspace.html" aria-current="page">Пример страницы</a></nav></header>
+  <main class="fl-workspace fl-workspace--fit" id="main">
+    <div class="fl-workspace__controls" data-ui="simulation-toolbar"></div>
+    <div class="fl-editor-stage">
+      <div data-ui="code-editor"></div>
+      <div data-ui="editor-inspector"></div>
+    </div>
+    <footer class="fl-catalog-foot">Код слева, инспектор справа — из тех же фрагментов, что и каталог. До 900 px инспектор переходит под код.</footer>
+    <noscript><p class="fl-include-error">Для загрузки HTML-фрагментов включите JavaScript.</p></noscript>
+  </main>
+  <dialog class="fl-dialog" data-about-dialog aria-labelledby="about-title">
+    <form method="dialog">
+      <div class="fl-panel__head"><h2 id="about-title">Совместимость</h2><button class="fl-button" type="submit">Закрыть</button></div>
+      <div class="fl-panel__body fl-stack"><p>Пример сборки из библиотеки. Движок не подключён; код и значения демонстрационные. Игровая совместимость не заявлена.</p><p><a href="../pages/examples/index.html">Рабочие примеры</a> считают схемы движком.</p></div>
+    </form>
+  </dialog>
+</body>
+</html>

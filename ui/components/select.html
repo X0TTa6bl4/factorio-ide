@@ -1,0 +1,119 @@
+<section class="fl-panel" aria-labelledby="select-title">
+  <div class="fl-panel__head"><h3 id="select-title">Выбор</h3><span class="fl-badge">Список</span></div>
+  <div class="fl-panel__body fl-stack">
+    <p class="fl-field__hint">Кнопка открывает список. Стрелки, Home, End, Enter, Escape и Tab работают с клавиатуры. Длинный каталог ищется по тексту, пустая выдача остаётся внутри меню.</p>
+    <div class="fl-grid">
+      <div class="fl-field">
+        <span id="net-label">Сеть примера</span>
+        <div class="fl-selectbox" data-select data-value="green_10">
+          <button type="button" class="fl-selectbox__control" aria-haspopup="listbox" aria-expanded="false" aria-controls="net-list" aria-labelledby="net-label net-value">
+            <span class="fl-selectbox__value" id="net-value">green_10</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <input type="hidden" data-select-value value="green_10">
+          <div class="fl-selectbox__popover" popover="manual">
+            <div class="fl-selectbox__list" id="net-list" role="listbox" aria-labelledby="net-label">
+              <div role="option" id="net-10" data-value="green_10" aria-selected="true">green_10</div>
+              <div role="option" id="net-20" data-value="green_20" aria-selected="false">green_20</div>
+              <div role="option" id="net-30" data-value="green_30" aria-selected="false">green_30</div>
+            </div>
+            <p class="fl-selectbox__empty" hidden>Ничего не найдено</p>
+          </div>
+        </div>
+      </div>
+      <div class="fl-field">
+        <span id="port-label">Порт</span>
+        <div class="fl-selectbox" data-select data-value="">
+          <button type="button" class="fl-selectbox__control" aria-haspopup="listbox" aria-expanded="false" aria-controls="port-list" aria-labelledby="port-label port-value">
+            <span class="fl-selectbox__value fl-selectbox__placeholder" id="port-value">Выберите порт</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <input type="hidden" data-select-value value="">
+          <div class="fl-selectbox__popover" popover="manual">
+            <div class="fl-selectbox__list" id="port-list" role="listbox" aria-labelledby="port-label">
+              <div role="option" id="port-red" data-value="red" aria-selected="false">Красный</div>
+              <div role="option" id="port-green" data-value="green" aria-selected="false">Зелёный</div>
+              <div role="option" id="port-null" data-value="null" aria-selected="false">Не подключён</div>
+            </div>
+            <p class="fl-selectbox__empty" hidden>Ничего не найдено</p>
+          </div>
+        </div>
+      </div>
+      <div class="fl-field">
+        <span id="speed-label">Скорость просмотра</span>
+        <div class="fl-selectbox" data-select data-value="1">
+          <button type="button" class="fl-selectbox__control" disabled aria-disabled="true" aria-haspopup="listbox" aria-expanded="false" aria-controls="speed-list" aria-labelledby="speed-label speed-value">
+            <span class="fl-selectbox__value" id="speed-value">1 тик/с</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <input type="hidden" data-select-value value="1">
+          <div class="fl-selectbox__popover" popover="manual">
+            <div class="fl-selectbox__list" id="speed-list" role="listbox" aria-labelledby="speed-label">
+              <div role="option" data-value="1" aria-selected="true">1 тик/с</div>
+            </div>
+            <p class="fl-selectbox__empty" hidden>Ничего не найдено</p>
+          </div>
+        </div>
+        <span class="fl-field__hint">Поле отключено: список не открывается.</span>
+      </div>
+      <div class="fl-field">
+        <span id="bad-label">Сигнал</span>
+        <div class="fl-selectbox" data-select data-value="coal">
+          <button type="button" class="fl-selectbox__control" aria-invalid="true" aria-describedby="bad-error" aria-haspopup="listbox" aria-expanded="false" aria-controls="bad-list" aria-labelledby="bad-label bad-value">
+            <span class="fl-selectbox__value" id="bad-value">Уголь</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <input type="hidden" data-select-value value="coal">
+          <div class="fl-selectbox__popover" popover="manual">
+            <div class="fl-selectbox__list" id="bad-list" role="listbox" aria-labelledby="bad-label">
+              <div role="option" data-value="coal" aria-selected="true">Уголь</div>
+              <div role="option" data-value="stone" aria-selected="false">Камень</div>
+            </div>
+            <p class="fl-selectbox__empty" hidden>Ничего не найдено</p>
+          </div>
+        </div>
+        <span class="fl-error" id="bad-error">Это демонстрация ошибки. Значение в модель не записывается, пока выбор не изменён.</span>
+      </div>
+    </div>
+    <div class="fl-field">
+      <span id="catalog-label">Каталог сигналов</span>
+      <div class="fl-selectbox" data-select data-search="true" data-value="iron-plate">
+        <button type="button" class="fl-selectbox__control" aria-haspopup="listbox" aria-expanded="false" aria-controls="catalog-list" aria-labelledby="catalog-label catalog-value">
+          <span class="fl-selectbox__value" id="catalog-value">Железная плита</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <input type="hidden" data-select-value value="iron-plate">
+        <div class="fl-selectbox__popover" popover="manual">
+          <input class="fl-input fl-selectbox__filter" data-select-filter type="search" aria-label="Поиск в списке" placeholder="Поиск" autocomplete="off" spellcheck="false">
+          <div class="fl-selectbox__list" id="catalog-list" role="listbox" aria-labelledby="catalog-label">
+            <div role="option" data-value="iron-plate" aria-selected="true">Железная плита</div>
+            <div role="option" data-value="copper-plate" aria-selected="false">Медная плита</div>
+            <div role="option" data-value="coal" aria-selected="false">Уголь</div>
+            <div role="option" data-value="stone" aria-selected="false">Камень</div>
+            <div role="option" data-value="iron-ore" aria-selected="false">Железная руда</div>
+            <div role="option" data-value="copper-ore" aria-selected="false">Медная руда</div>
+            <div role="option" data-value="wood-chest" aria-selected="false">Деревянный ящик</div>
+            <div role="option" data-value="iron-chest" aria-selected="false">Железный ящик</div>
+            <div role="option" data-value="steel-chest" aria-selected="false">Стальной ящик</div>
+            <div role="option" data-value="belt" aria-selected="false">Конвейер</div>
+            <div role="option" data-value="inserter" aria-selected="false">Манипулятор</div>
+            <div role="option" data-value="lamp" aria-selected="false">Лампа</div>
+            <div role="option" data-value="green-wire" aria-selected="false">Зелёный провод</div>
+            <div role="option" data-value="red-wire" aria-selected="false">Красный провод</div>
+            <div role="option" data-value="oil" aria-selected="false">Нефть</div>
+            <div role="option" data-value="signal-a" aria-selected="false">Сигнал A</div>
+            <div role="option" data-value="each" aria-selected="false">Каждый</div>
+            <div role="option" data-value="everything" aria-selected="false">Всё</div>
+          </div>
+          <p class="fl-selectbox__empty" hidden>Ничего не найдено</p>
+        </div>
+      </div>
+    </div>
+    <div class="fl-field">
+      <span id="empty-label">Пустая выдача</span>
+      <div class="fl-selectbox__popover fl-selectbox__popover--sample" role="region" aria-labelledby="empty-label">
+        <p class="fl-selectbox__empty">Ничего не найдено</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,17 @@
+<section class="fl-panel" aria-labelledby="event-title">
+  <div class="fl-panel__head"><h3 id="event-title">Событийный комбинатор</h3><span class="fl-badge">Служебный</span></div>
+  <div class="fl-panel__body fl-stack">
+    <p class="fl-field__hint">Настройки запуска сценария. Код init/main редактируется на отдельной странице с тем же каркасом редактора.</p>
+    <label class="fl-check"><input type="checkbox" checked>Выполнять каждый тик</label>
+    <label class="fl-check"><input type="checkbox">Выполнять при изменении входов</label>
+    <label class="fl-field">Начальное состояние · JSON<textarea class="fl-textarea fl-textarea--compact" spellcheck="false">{
+  "trainPresent": false
+}</textarea></label>
+    <label class="fl-field">Лимит исполнителя, мс
+      <input class="fl-input fl-mono" type="number" min="1" step="1" value="1000" inputmode="numeric">
+      <span class="fl-field__hint">Столько миллисекунд хост ждёт ответ Worker. Это не длительность виртуального тика. В макете поле не управляет прогоном.</span>
+    </label>
+    <div class="fl-row"><span class="fl-port fl-red">R · red_10</span><span class="fl-port fl-green">G · green_25</span></div>
+    <p class="fl-field__hint">Макет формы. Рабочая страница сценария использует те же поля: код исполняется в Worker, JSON и тик берутся из прогона.</p>
+  </div>
+</section>

@@ -1,0 +1,71 @@
+<section class="fl-panel" aria-labelledby="code-title" data-tabs>
+  <div class="fl-panel__head"><h2 id="code-title">arithmetic_01</h2><span class="fl-badge">Конфигурация</span></div>
+  <div class="fl-panel__body">
+    <div class="fl-tabs" role="tablist" aria-label="Представление устройства">
+      <button type="button" class="fl-tab" role="tab" id="tab-code" aria-selected="true" aria-controls="panel-code">Код</button>
+      <button type="button" class="fl-tab" role="tab" id="tab-info" aria-selected="false" aria-controls="panel-info" tabindex="-1">Подключения</button>
+    </div>
+  </div>
+  <div role="tabpanel" id="panel-code" aria-labelledby="tab-code" tabindex="0">
+    <div class="fl-editor"><div class="fl-editor__gutter" aria-hidden="true">01<br>02<br>03<br>04<br>05<br>06<br>07<br>08<br>09<br>10<br>11</div><label class="fl-sr" for="config-code">JavaScript-конфигурация устройства, демонстрационный редактор</label><textarea id="config-code" class="fl-textarea" wrap="off" spellcheck="false">const amplifier = new Arithmetic({
+  red_input: red_10,
+  green_input: green_25,
+  red_output: red_20,
+  green_output: null,
+  left_operand: { red: true, green: true, signal: Signal.Meta.signal_each },
+  right_operand: { constant: 10 },
+  operation: Arithmetic.Operation.SUM,
+  return: Signal.Meta.signal_each
+});</textarea></div>
+    <div class="fl-suggest" data-suggest="popup" popover="manual" role="listbox" aria-label="Подсказки конфигурации">
+      <div class="fl-suggest__option" role="option" data-value="Arithmetic" aria-selected="true">Arithmetic</div>
+      <div class="fl-suggest__option" role="option" data-value="Constant" aria-selected="false">Constant</div>
+      <div class="fl-suggest__option" role="option" data-value="Decider" aria-selected="false">Decider</div>
+      <div class="fl-suggest__option" role="option" data-value="Selector" aria-selected="false">Selector</div>
+      <div class="fl-suggest__option" role="option" data-value="red_input" aria-selected="false">red_input</div>
+      <div class="fl-suggest__option" role="option" data-value="green_input" aria-selected="false">green_input</div>
+      <div class="fl-suggest__option" role="option" data-value="red_output" aria-selected="false">red_output</div>
+      <div class="fl-suggest__option" role="option" data-value="green_output" aria-selected="false">green_output</div>
+      <div class="fl-suggest__option" role="option" data-value="operation" aria-selected="false">operation</div>
+      <div class="fl-suggest__option" role="option" data-value="left_operand" aria-selected="false">left_operand</div>
+      <div class="fl-suggest__option" role="option" data-value="right_operand" aria-selected="false">right_operand</div>
+      <div class="fl-suggest__option" role="option" data-value="return" aria-selected="false">return</div>
+      <div class="fl-suggest__option" role="option" data-value="signal" aria-selected="false">signal</div>
+      <div class="fl-suggest__option" role="option" data-value="constant" aria-selected="false">constant</div>
+      <div class="fl-suggest__option" role="option" data-value="null" aria-selected="false">null</div>
+      <div class="fl-suggest__option" role="option" data-value="wire" aria-selected="false">wire</div>
+      <div class="fl-suggest__option" role="option" data-value="group" aria-selected="false">group</div>
+      <div class="fl-suggest__option" role="option" data-value="event" aria-selected="false">event</div>
+    </div>
+    <div class="fl-editor__status"><button type="button" class="fl-button fl-button--quiet" data-suggest-open aria-expanded="false">Подсказки</button><span data-suggest-status aria-live="polite">Подсказка не выбрана</span><span>JavaScript</span><span>UTF-8</span><span data-edit-status aria-live="polite">Демо · без проверки кода</span></div>
+    <div class="fl-editor-notes fl-stack">
+      <p class="fl-field__hint" id="editor-keys">Tab — отступ, Enter — выбрать подсказку. Tab вставляет один символ U+0009 и не принимает пункт, в том числе при открытом меню; визуальный tab-size — 2. Shift+Tab уходит из поля. Форматирование: ⌥⌘L на macOS, Ctrl+Alt+L на Windows и Linux.</p>
+      <p class="fl-field__hint">Каркас после вставки класса. Вертикальная черта обозначает каретку и не входит в документ. Пустая строка — одна табуляция.</p>
+      <pre class="fl-code" aria-label="Каркас многострочного объекта"><code>Arithmetic({
+	|
+})</code></pre>
+      <p class="fl-field__hint">Один элемент массива остаётся в скобках, плоский объект пишется компактно. Несколько элементов — каждый на своей строке.</p>
+      <pre class="fl-code" aria-label="Один элемент массива"><code>signals: [{ signal: Signal.Signals.signal_A, constant: 1 }]</code></pre>
+      <pre class="fl-code" aria-label="Несколько элементов массива"><code>signals: [
+	{ signal: Signal.Signals.signal_A, constant: 1 },
+	{ signal: Signal.Signals.signal_B, constant: 2 }
+]</code></pre>
+      <p class="fl-field__hint">Ошибка, блокирующая запуск, подчёркивается волнистой линией. Текст сообщения и кнопка «К месту» находятся в панели диагностики и доступны с клавиатуры; наведение не требуется.</p>
+      <p class="fl-field__hint">Неизвестный путь</p>
+      <pre class="fl-editor__sample" aria-label="Неизвестный путь SSignal"><span class="prop">signal</span>: <span class="err"><span class="type">SSignal</span>.<span class="path">Signals</span>.<span class="path">signal_A</span></span>, <span class="prop">constant</span>: <span class="num">1</span></pre>
+      <p class="fl-field__hint">Синтаксическая ошибка у конца текста</p>
+      <pre class="fl-editor__sample" aria-label="Синтаксическая ошибка"><span class="type">Arithmetic</span>({ <span class="prop">red_input</span>: <span class="err-point"></span></pre>
+      <p class="fl-field__hint">Несколько ошибок</p>
+      <pre class="fl-editor__sample" aria-label="Несколько ошибок"><span class="prop">red_input</span>: <span class="err">blue_1</span>,
+<span class="prop">right_operand</span>: { <span class="prop">constant</span>: <span class="err num">1.5</span> },
+<span class="prop">signal</span>: <span class="err"><span class="type">SSignal</span>.<span class="path">Signals</span>.<span class="path">signal_A</span></span></pre>
+      <p class="fl-field__hint">Исправленный документ</p>
+      <pre class="fl-editor__sample" aria-label="Исправленный документ"><span class="prop">signal</span>: <span class="type">Signal</span>.<span class="path">Signals</span>.<span class="path">signal_A</span>, <span class="prop">constant</span>: <span class="num">1</span></pre>
+    </div>
+  </div>
+  <div role="tabpanel" id="panel-info" aria-labelledby="tab-info" tabindex="0" class="fl-panel__body fl-stack" hidden>
+    <p class="fl-field__hint">Входы</p><div class="fl-row"><span class="fl-port fl-red">R · red_10</span><span class="fl-port fl-green">G · green_25</span></div>
+    <p class="fl-field__hint">Выходы</p><div class="fl-row"><span class="fl-port fl-red">R · red_20</span><span class="fl-port fl-muted">G · null</span></div>
+    <p class="fl-field__hint">Снимок подключений в макете. Изменение текста пока не пересобирает схему.</p>
+  </div>
+</section>

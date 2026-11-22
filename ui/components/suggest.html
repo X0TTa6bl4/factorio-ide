@@ -1,0 +1,67 @@
+<section class="fl-panel" aria-labelledby="suggest-title">
+  <div class="fl-panel__head"><h3 id="suggest-title">Меню подсказок</h3><span class="fl-badge">Список</span></div>
+  <div class="fl-panel__body fl-stack">
+    <p class="fl-field__hint">Полоска слева — уже выбранный пункт, фон — активный. Подпись показывает оставшийся сегмент. Значение для вставки лежит в data-value и может быть длиннее подписи. Режимы Selector остаются именами: отдельный знак для них не задан.</p>
+    <h3>Классы</h3>
+    <div class="fl-suggest fl-suggest--inline" data-suggest="inline" role="listbox" aria-label="Пример подсказок" tabindex="0">
+      <div class="fl-suggest__option" role="option" data-value="Arithmetic" aria-selected="true">Arithmetic <span class="fl-muted">комбинатор</span></div>
+      <div class="fl-suggest__option" role="option" data-value="Constant" aria-selected="false" data-active="true">Constant <span class="fl-muted">комбинатор</span></div>
+      <div class="fl-suggest__option" role="option" data-value="Decider" aria-selected="false">Decider <span class="fl-muted">комбинатор</span></div>
+      <div class="fl-suggest__option" role="option" data-value="Selector" aria-selected="false">Selector <span class="fl-muted">комбинатор</span></div>
+    </div>
+    <h3>После Decider.Operation.</h3>
+    <div class="fl-suggest fl-suggest--inline" data-suggest="inline" role="listbox" aria-label="Операции Decider" tabindex="0">
+      <div class="fl-suggest__option" role="option" data-value="Decider.Operation.GT" aria-selected="true">GT <span class="fl-muted">&gt;</span></div>
+      <div class="fl-suggest__option" role="option" data-value="Decider.Operation.LT" aria-selected="false">LT <span class="fl-muted">&lt;</span></div>
+      <div class="fl-suggest__option" role="option" data-value="Decider.Operation.EQ" aria-selected="false">EQ <span class="fl-muted">=</span></div>
+      <div class="fl-suggest__option" role="option" data-value="Decider.Operation.GTE" aria-selected="false">GTE <span class="fl-muted">&gt;=</span></div>
+      <div class="fl-suggest__option" role="option" data-value="Decider.Operation.LTE" aria-selected="false">LTE <span class="fl-muted">&lt;=</span></div>
+      <div class="fl-suggest__option" role="option" data-value="Decider.Operation.NEQ" aria-selected="false">NEQ <span class="fl-muted">!=</span></div>
+    </div>
+    <h3>После Arithmetic.Operation.</h3>
+    <div class="fl-suggest fl-suggest--inline" data-suggest="inline" role="listbox" aria-label="Операции Arithmetic" tabindex="0">
+      <div class="fl-suggest__option" role="option" data-value="Arithmetic.Operation.SUM" aria-selected="true">SUM <span class="fl-muted">+</span></div>
+      <div class="fl-suggest__option" role="option" data-value="Arithmetic.Operation.SUB" aria-selected="false">SUB <span class="fl-muted">-</span></div>
+      <div class="fl-suggest__option" role="option" data-value="Arithmetic.Operation.MUL" aria-selected="false">MUL <span class="fl-muted">*</span></div>
+      <div class="fl-suggest__option" role="option" data-value="Arithmetic.Operation.DIV" aria-selected="false">DIV <span class="fl-muted">/</span></div>
+      <div class="fl-suggest__option" role="option" data-value="Arithmetic.Operation.MOD" aria-selected="false">MOD <span class="fl-muted">%</span></div>
+      <div class="fl-suggest__option" role="option" data-value="Arithmetic.Operation.POW" aria-selected="false">POW <span class="fl-muted">^</span></div>
+      <div class="fl-suggest__option" role="option" data-value="Arithmetic.Operation.SHL" aria-selected="false">SHL <span class="fl-muted">&lt;&lt;</span></div>
+      <div class="fl-suggest__option" role="option" data-value="Arithmetic.Operation.SHR" aria-selected="false">SHR <span class="fl-muted">&gt;&gt;</span></div>
+      <div class="fl-suggest__option" role="option" data-value="Arithmetic.Operation.AND" aria-selected="false">AND <span class="fl-muted">AND</span></div>
+      <div class="fl-suggest__option" role="option" data-value="Arithmetic.Operation.OR" aria-selected="false">OR <span class="fl-muted">OR</span></div>
+      <div class="fl-suggest__option" role="option" data-value="Arithmetic.Operation.XOR" aria-selected="false">XOR <span class="fl-muted">XOR</span></div>
+    </div>
+    <h3>После Signal.</h3>
+    <div class="fl-suggest fl-suggest--inline" data-suggest="inline" role="listbox" aria-label="Разделы Signal" tabindex="0">
+      <div class="fl-suggest__option" role="option" data-value="Signal.Logistic" aria-selected="true">Logistic</div>
+      <div class="fl-suggest__option" role="option" data-value="Signal.Production" aria-selected="false">Production</div>
+      <div class="fl-suggest__option" role="option" data-value="Signal.Intermediate" aria-selected="false">Intermediate</div>
+      <div class="fl-suggest__option" role="option" data-value="Signal.Meta" aria-selected="false">Meta</div>
+    </div>
+    <h3>После Signal.Logistic.</h3>
+    <div class="fl-suggest fl-suggest--inline" data-suggest="inline" role="listbox" aria-label="Сегменты Signal.Logistic" tabindex="0">
+      <div class="fl-suggest__option" role="option" data-value="Signal.Logistic.wooden_chest" aria-selected="true">wooden_chest</div>
+      <div class="fl-suggest__option" role="option" data-value="Signal.Logistic.buffer_chest" aria-selected="false">buffer_chest</div>
+      <div class="fl-suggest__option" role="option" data-value="Signal.Logistic.construction_robot" aria-selected="false">construction_robot</div>
+    </div>
+    <h3>Параметры пустого Arithmetic</h3>
+    <div class="fl-suggest fl-suggest--inline" data-suggest="inline" role="listbox" aria-label="Параметры пустого объекта" tabindex="0">
+      <div class="fl-suggest__option" role="option" data-value="red_input" aria-selected="true">red_input</div>
+      <div class="fl-suggest__option" role="option" data-value="green_input" aria-selected="false">green_input</div>
+      <div class="fl-suggest__option" role="option" data-value="red_output" aria-selected="false">red_output</div>
+      <div class="fl-suggest__option" role="option" data-value="green_output" aria-selected="false">green_output</div>
+      <div class="fl-suggest__option" role="option" data-value="left_operand" aria-selected="false">left_operand</div>
+      <div class="fl-suggest__option" role="option" data-value="right_operand" aria-selected="false">right_operand</div>
+      <div class="fl-suggest__option" role="option" data-value="operation" aria-selected="false">operation</div>
+      <div class="fl-suggest__option" role="option" data-value="return" aria-selected="false">return</div>
+    </div>
+    <h3>Значения пустого поля</h3>
+    <p class="fl-field__hint">После вставки имени поля каретка стоит в <code>red_input: |,</code>. Черта — каретка, не символ документа.</p>
+    <div class="fl-suggest fl-suggest--inline" data-suggest="inline" role="listbox" aria-label="Значения пустого поля" tabindex="0">
+      <div class="fl-suggest__option" role="option" data-value="null" aria-selected="true">null</div>
+      <div class="fl-suggest__option" role="option" data-value="green_t" aria-selected="false">green_t</div>
+      <div class="fl-suggest__option" role="option" data-value="green_25" aria-selected="false">green_25</div>
+    </div>
+  </div>
+</section>

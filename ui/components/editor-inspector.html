@@ -1,0 +1,31 @@
+<aside class="fl-editor-inspector" aria-label="Сети и настройки">
+  <section class="fl-panel" aria-labelledby="networks-title">
+    <div class="fl-panel__head"><h2 id="networks-title">Сети</h2></div>
+    <div class="fl-panel__body fl-stack">
+      <p class="fl-field__hint">Таблица прокручивается внутри своей области. Колонка прокручивается, если секции вместе выше окна.</p>
+      <div class="fl-table-wrap fl-signal-scroll" id="signal-scroll" tabindex="0" role="region" aria-label="Сигналы сетей">
+        <table class="fl-table">
+          <caption class="fl-sr">Демонстрационные сигналы сетей</caption>
+          <thead><tr><th scope="col">Сеть</th><th scope="col">Сигнал</th><th scope="col">Значение</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">green_t</th><td>Железо</td><td class="fl-mono">20</td></tr>
+            <tr><th scope="row">green_t</th><td>Медь</td><td class="fl-mono">10</td></tr>
+            <tr><th scope="row">green_25</th><td>Уголь</td><td class="fl-mono">4</td></tr>
+            <tr><th scope="row">green_buffer1</th><td>Камень</td><td class="fl-mono">3</td></tr>
+            <tr><th scope="row">red_20</th><td>Дерево</td><td class="fl-mono">8</td></tr>
+            <tr><th scope="row">red_10</th><td>Сигнал A</td><td class="fl-mono">10</td></tr>
+            <tr><th scope="row">green_22</th><td>Нефть</td><td class="fl-mono">12</td></tr>
+            <tr><th scope="row">green_test</th><td>пусто</td><td class="fl-muted">пусто</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <section class="fl-panel" data-panel>
+    <div class="fl-panel__head"><h2><button class="fl-panel__toggle" type="button" id="diagnostics-toggle" aria-expanded="false" aria-controls="diagnostics-panel">Диагностика</button></h2></div>
+    <div class="fl-panel__body fl-panel__body--scroll fl-stack" id="diagnostics-panel" hidden>
+      <div class="fl-notice fl-notice--error"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m9 9 6 6m0-6-6 6"/></svg><div><h3>Неверный тип операнда</h3><p class="fl-muted">Ожидается объект или null.</p></div></div>
+      <button type="button" data-panel-inside>Внутри диагностики</button>
+    </div>
+  </section>
+</aside>

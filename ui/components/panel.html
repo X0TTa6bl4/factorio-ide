@@ -1,0 +1,20 @@
+<div class="fl-stack">
+  <section class="fl-panel" data-panel>
+    <div class="fl-panel__head">
+      <h3><button type="button" class="fl-panel__toggle" aria-expanded="true" aria-controls="panel-open">Панель с содержимым</button></h3>
+    </div>
+    <div class="fl-panel__body fl-panel__body--scroll fl-stack" id="panel-open" tabindex="0" aria-label="Содержимое панели">
+      <p>Строка наблюдения за сетью. Строка наблюдения за сетью. Строка наблюдения за сетью. Строка наблюдения за сетью. Строка наблюдения за сетью. Строка наблюдения за сетью. Строка наблюдения за сетью. Строка наблюдения за сетью.</p>
+      <button type="button" data-panel-inside>Внутри панели</button>
+    </div>
+  </section>
+  <section class="fl-panel" data-panel>
+    <div class="fl-panel__head">
+      <h3><button type="button" class="fl-panel__toggle" aria-expanded="false" aria-controls="panel-closed">Свёрнутая панель</button></h3>
+    </div>
+    <div class="fl-panel__body" id="panel-closed" hidden>
+      <p>Скрытое содержимое не попадает в порядок Tab.</p>
+      <button type="button">Скрытая кнопка</button>
+    </div>
+  </section>
+</div>

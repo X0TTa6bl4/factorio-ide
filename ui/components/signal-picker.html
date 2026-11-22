@@ -1,0 +1,17 @@
+<section class="fl-panel" aria-labelledby="signal-title" data-signal-picker>
+  <div class="fl-panel__head"><h3 id="signal-title">Выбор сигнала</h3><span class="fl-badge">Base · пример</span></div>
+  <div class="fl-panel__body fl-stack">
+    <label class="fl-field">Поиск<input class="fl-input" type="search" placeholder="Название или ID сигнала…" data-signal-query></label>
+    <p class="fl-field__hint">Небольшая демонстрационная выборка. Буквенные значки временные; игровые иконки подключаются из каталога.</p>
+    <div class="fl-search-results">
+      <button class="fl-choice" type="button" aria-pressed="true" data-signal-name="Железная плита iron_plate"><span class="fl-signal__icon" aria-hidden="true">Fe</span><span class="fl-choice__label">Железная плита</span></button>
+      <button class="fl-choice" type="button" aria-pressed="false" data-signal-name="Медная плита copper_plate"><span class="fl-signal__icon fl-red" aria-hidden="true">Cu</span><span class="fl-choice__label">Медная плита</span></button>
+      <button class="fl-choice" type="button" aria-pressed="false" data-signal-name="Уголь coal"><span class="fl-signal__icon" aria-hidden="true">C</span><span class="fl-choice__label">Уголь</span></button>
+      <button class="fl-choice" type="button" aria-pressed="false" data-signal-name="Каждый each signal_each"><span class="fl-signal__icon fl-green" aria-hidden="true">*</span><span class="fl-choice__label">Каждый · Each</span></button>
+      <button class="fl-choice" type="button" aria-pressed="false" data-signal-name="Все everything signal_everything"><span class="fl-signal__icon fl-green" aria-hidden="true">∀</span><span class="fl-choice__label">Все · Everything</span></button>
+      <button class="fl-choice" type="button" aria-pressed="false" data-signal-name="Любой anything signal_anything"><span class="fl-signal__icon fl-green" aria-hidden="true">∃</span><span class="fl-choice__label">Любой · Anything</span></button>
+    </div>
+    <p class="fl-field__hint" data-signal-empty hidden>Совпадений нет. Попробуйте название или внутренний ID.</p>
+    <p class="fl-field__hint" data-signal-selection aria-live="polite">Выбрано: Железная плита</p>
+  </div>
+</section>

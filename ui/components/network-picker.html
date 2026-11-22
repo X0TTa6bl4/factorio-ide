@@ -1,0 +1,22 @@
+<section class="fl-panel" aria-labelledby="network-title">
+  <div class="fl-panel__head"><h3 id="network-title">Подключение к сети</h3><span class="fl-badge">green_t</span></div>
+  <div class="fl-panel__body fl-stack">
+    <div class="fl-completion" data-network-picker>
+      <label class="fl-field">Зелёный вход<input class="fl-input fl-mono" type="text" value="green_t" autocomplete="off" spellcheck="false" data-network-query aria-controls="network-results" aria-describedby="network-help"></label>
+      <div class="fl-completion__list" id="network-results" data-network-results aria-label="Подсказки сетей">
+        <button type="button" class="fl-completion__option" data-network-name="green_t" data-network-kind="existing">green_t</button>
+        <button type="button" class="fl-completion__option" data-network-name="green_ta" data-network-kind="existing">green_ta</button>
+        <button type="button" class="fl-completion__option" data-network-name="green_test" data-network-kind="existing">green_test</button>
+        <button type="button" class="fl-completion__option" data-network-name="green_25" data-network-kind="existing" hidden>green_25 <span class="fl-muted">Недавняя</span></button>
+        <button type="button" class="fl-completion__option" data-network-name="green_22" data-network-kind="existing" hidden>green_22</button>
+        <button type="button" class="fl-completion__option" data-network-name="green_buffer1" data-network-kind="existing" hidden>green_buffer1</button>
+        <button type="button" class="fl-completion__option" data-network-name="null" data-network-kind="existing" hidden>null <span class="fl-muted">Не подключено</span></button>
+        <button type="button" class="fl-completion__option fl-completion__option--service" data-network-name="green_new" data-network-kind="service" hidden>green_new <span class="fl-muted">Свободное имя</span></button>
+      </div>
+    </div>
+    <p class="fl-field__hint" id="network-help">Сначала точное имя существующей сети, затем остальные совпадения по префиксу. green_new виден только если сам начинается с введённого текста: при green_t его нет. Пункта «Создать имя» нет. Esc, клик снаружи и Tab завершают введённое имя; в этом поле Tab переводит фокус и не вставляет табуляцию. Для red_new правило то же.</p>
+    <p class="fl-field__hint" data-network-feedback aria-live="polite">Демонстрация подстановки. Связь с моделью схемы подключается на странице сетей.</p>
+    <p class="fl-error">Пример ошибки поля: цвет сети не соответствует порту.</p>
+    <div class="fl-row"><span class="fl-port fl-red">R · red_20</span><span class="fl-port fl-green">G · green_buffer1</span><span class="fl-port fl-muted">Не подключено</span></div>
+  </div>
+</section>

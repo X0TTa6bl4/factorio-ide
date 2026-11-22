@@ -1,0 +1,43 @@
+<section class="fl-panel" aria-labelledby="tooltip-title">
+  <div class="fl-panel__head"><h3 id="tooltip-title">Подсказка действия</h3><span class="fl-badge">hover / focus</span></div>
+  <div class="fl-panel__body fl-stack">
+    <p class="fl-field__hint">Текст и сочетание клавиш задаёт страница. Подсказка без фокуса, связана с кнопкой через aria-describedby и остаётся внутри окна.</p>
+    <div class="fl-row">
+      <span class="fl-tip">
+        <button class="fl-button fl-button--icon" type="button" aria-label="Отменить правку" aria-describedby="tip-undo-mac"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8.5 7.5 4 12l4.5 4.5"/><path d="M4 12h9c3.5 0 6 2.2 6 5.2S16.5 22 13 22H10"/></svg></button>
+        <span class="fl-tooltip fl-tooltip--sample" id="tip-undo-mac" role="tooltip">Отменить правку · ⌘Z</span>
+      </span>
+      <span class="fl-tip">
+        <button class="fl-button fl-button--icon" type="button" aria-label="Повторить правку" aria-describedby="tip-redo-mac"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15.5 7.5 4.5 4.5-4.5 4.5"/><path d="M20 12h-9c-3.5 0-6 2.2-6 5.2S7.5 22 11 22h3"/></svg></button>
+        <span class="fl-tooltip fl-tooltip--sample" id="tip-redo-mac" role="tooltip">Повторить правку · ⇧⌘Z</span>
+      </span>
+      <span class="fl-tip">
+        <button class="fl-button fl-button--icon" type="button" aria-label="Отменить правку на Windows" aria-describedby="tip-undo-win"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8.5 7.5 4 12l4.5 4.5"/><path d="M4 12h9c3.5 0 6 2.2 6 5.2S16.5 22 13 22H10"/></svg></button>
+        <span class="fl-tooltip fl-tooltip--sample" id="tip-undo-win" role="tooltip">Отменить правку · Ctrl+Z</span>
+      </span>
+      <span class="fl-tip">
+        <button class="fl-button fl-button--icon" type="button" aria-label="Повторить правку на Windows" aria-describedby="tip-redo-win"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15.5 7.5 4.5 4.5-4.5 4.5"/><path d="M20 12h-9c-3.5 0-6 2.2-6 5.2S7.5 22 11 22h3"/></svg></button>
+        <span class="fl-tooltip fl-tooltip--sample" id="tip-redo-win" role="tooltip">Повторить правку · Ctrl+Y</span>
+      </span>
+    </div>
+    <div class="fl-row">
+      <span class="fl-tip" data-tooltip>
+        <button class="fl-button fl-button--icon" type="button" aria-label="Отменить правку" aria-describedby="tip-undo-live"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8.5 7.5 4 12l4.5 4.5"/><path d="M4 12h9c3.5 0 6 2.2 6 5.2S16.5 22 13 22H10"/></svg></button>
+        <span class="fl-tooltip" id="tip-undo-live" role="tooltip">Отменить правку · ⌘Z</span>
+      </span>
+      <span class="fl-tip" data-tooltip>
+        <button class="fl-button fl-button--icon" type="button" aria-label="Повторить правку" aria-describedby="tip-redo-live"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15.5 7.5 4.5 4.5-4.5 4.5"/><path d="M20 12h-9c-3.5 0-6 2.2-6 5.2S7.5 22 11 22h3"/></svg></button>
+        <span class="fl-tooltip" id="tip-redo-live" role="tooltip">Повторить правку · ⇧⌘Z</span>
+      </span>
+      <span class="fl-tip" data-tooltip>
+        <button class="fl-button fl-button--icon" type="button" aria-label="Повторить правку" aria-describedby="tip-redo-disabled" disabled><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15.5 7.5 4.5 4.5-4.5 4.5"/><path d="M20 12h-9c-3.5 0-6 2.2-6 5.2S7.5 22 11 22h3"/></svg></button>
+        <span class="fl-tooltip" id="tip-redo-disabled" role="tooltip">Повторить правку · ⇧⌘Z</span>
+      </span>
+      <span class="fl-tip" data-tooltip>
+        <button class="fl-button" type="button" aria-label="Длинное описание правки" aria-describedby="tip-long">Длинный текст</button>
+        <span class="fl-tooltip" id="tip-long" role="tooltip">Повторить правку можно сочетанием Shift+Command+Z на macOS и Ctrl+Shift+Z на Windows и Linux. Подсказка переносится и не выходит за край окна.</span>
+      </span>
+    </div>
+    <p class="fl-field__hint">Верхний ряд — видимые образцы macOS и Windows/Linux. Нижний ряд появляется при наведении и при фокусе с клавиатуры, скрывается по уходу указателя, потере фокуса и Escape. У отключённой кнопки имя остаётся на кнопке, описание показывается наведением на обёртку.</p>
+  </div>
+</section>

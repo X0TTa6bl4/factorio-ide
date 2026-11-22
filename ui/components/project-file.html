@@ -1,0 +1,88 @@
+<div class="fl-stack" data-project-file>
+  <div class="fl-toolbar">
+    <div class="fl-toolbar__actions">
+      <button class="fl-button fl-button--primary" type="button" id="save-project" data-project-save>Сохранить</button>
+      <button class="fl-button" type="button" id="export-project" data-project-export>Экспортировать</button>
+      <button class="fl-button" type="button" id="import-project" data-project-import>Импортировать</button>
+      <input id="import-file" class="fl-sr" type="file" accept="application/json,.json" aria-label="Файл схемы">
+    </div>
+    <details class="fl-menu">
+      <summary class="fl-button" aria-label="Меню файла">Файл</summary>
+      <div class="fl-menu__items">
+        <button type="button" data-project-export>Экспортировать</button>
+        <button type="button" data-project-import>Импортировать</button>
+      </div>
+    </details>
+  </div>
+
+  <div id="project-error" class="fl-notice fl-notice--error" role="alert" hidden>
+    <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m9 9 6 6m0-6-6 6"/></svg>
+    <p></p>
+  </div>
+  <div id="project-status" class="fl-notice fl-notice--success" role="status" hidden>
+    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></svg>
+    <p></p>
+  </div>
+
+  <label class="fl-field" for="project-name">Название схемы
+    <input id="project-name" class="fl-input" type="text" maxlength="120" autocomplete="off" aria-describedby="project-profile">
+  </label>
+  <p class="fl-field__hint" id="project-profile"></p>
+
+  <div class="fl-table-wrap" id="network-scroll" tabindex="0">
+    <table class="fl-table">
+      <caption>Сети</caption>
+      <thead><tr><th scope="col">ID</th><th scope="col">Имя</th><th scope="col">Цвет</th></tr></thead>
+      <tbody id="network-rows"><tr><td>n1</td><td>red_loop</td><td>red</td></tr></tbody>
+    </table>
+  </div>
+  <div class="fl-table-wrap" id="device-scroll" tabindex="0">
+    <table class="fl-table">
+      <caption>Устройства</caption>
+      <thead><tr><th scope="col">ID</th><th scope="col">Имя</th><th scope="col">Вид</th><th scope="col">Порты</th></tr></thead>
+      <tbody id="device-rows"><tr><td>d7</td><td>clock</td><td>event</td><td>нет</td></tr></tbody>
+    </table>
+  </div>
+
+  <div class="fl-field"><span id="event-device-label">Событие</span><div class="fl-selectbox" id="event-device" data-select data-value="d7"><button type="button" class="fl-selectbox__control" aria-haspopup="listbox" aria-expanded="false" aria-controls="event-device-list" aria-labelledby="event-device-label event-device-value"><span class="fl-selectbox__value" id="event-device-value">clock (d7)</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button><input type="hidden" data-select-value value="d7"><div class="fl-selectbox__popover" popover="manual"><div class="fl-selectbox__list" id="event-device-list" role="listbox" aria-labelledby="event-device-label"><div role="option" data-value="d7" aria-selected="true">clock (d7)</div></div><p class="fl-selectbox__empty" hidden>Ничего не найдено</p></div></div></div>
+  <label class="fl-field" for="event-source">Текст сценария
+    <textarea id="event-source" class="fl-textarea fl-textarea--compact" wrap="off" spellcheck="false" aria-describedby="source-note"></textarea>
+  </label>
+  <p class="fl-field__hint" id="source-note">Текст хранится вместе со схемой. Импорт и сохранение его не запускают.</p>
+
+  <section class="fl-stack" aria-labelledby="saved-title">
+    <h2 id="saved-title">Сохранённые схемы</h2>
+    <div class="fl-empty" id="saved-empty">
+      <h3>Нет сохранённых схем</h3>
+      <p class="fl-muted">Сохраните открытую схему локально или импортируйте файл. Существующая запись с тем же именем не заменяется без подтверждения.</p>
+    </div>
+    <div class="fl-table-wrap" id="saved-scroll" tabindex="0" hidden>
+      <table class="fl-table">
+        <caption>Локальные записи</caption>
+        <thead><tr><th scope="col">Имя</th><th scope="col">Запись</th><th scope="col">Действие</th></tr></thead>
+        <tbody id="saved-rows"></tbody>
+      </table>
+    </div>
+  </section>
+  <p class="fl-field__hint" id="project-feedback" data-project-feedback>На странице проекта кнопки связаны с хранилищем. В каталоге это образец.</p>
+
+  <dialog class="fl-dialog" id="collision-dialog" aria-labelledby="collision-title">
+    <form method="dialog">
+      <div class="fl-panel__head">
+        <h2 id="collision-title">Имя уже сохранено</h2>
+        <button class="fl-button fl-button--icon fl-button--quiet" type="submit" value="cancel" aria-label="Закрыть диалог">×</button>
+      </div>
+      <div class="fl-panel__body fl-stack">
+        <p id="collision-text"></p>
+        <label class="fl-field" for="collision-name">Новое имя
+          <input id="collision-name" class="fl-input" name="next-name" maxlength="120" autocomplete="off">
+        </label>
+      </div>
+      <div class="fl-panel__foot fl-row fl-between">
+        <button class="fl-button" type="submit" value="cancel">Отмена</button>
+        <button class="fl-button" type="submit" value="rename">Сохранить как</button>
+        <button class="fl-button fl-button--primary" type="submit" value="replace">Заменить сохранённую</button>
+      </div>
+    </form>
+  </dialog>
+</div>

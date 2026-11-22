@@ -1,0 +1,19 @@
+<section class="fl-panel fl-panel--scroll" aria-labelledby="table-title">
+  <div class="fl-panel__head"><h2 id="table-title">Состояние сети</h2><span class="fl-port fl-red">R · red_20</span></div>
+  <div class="fl-panel__body fl-stack">
+    <p class="fl-field__hint">Пример опубликованной границы t = 12. Δ — разница с t = 11.</p>
+    <div class="fl-table-wrap" tabindex="0" role="region" aria-label="Сигналы сети, таблица с прокруткой">
+      <table class="fl-table"><caption class="fl-sr">Демонстрационные значения сигналов сети red_20</caption><thead><tr><th scope="col">Сигнал</th><th scope="col">t = 11</th><th scope="col">t = 12</th><th scope="col">Δ</th></tr></thead><tbody>
+        <tr><th scope="row"><span class="fl-row"><span class="fl-signal__icon" aria-hidden="true">Fe</span>Железо</span></th><td class="fl-mono">10</td><td class="fl-mono">20</td><td class="fl-delta">+10</td></tr>
+        <tr><th scope="row"><span class="fl-row"><span class="fl-signal__icon" aria-hidden="true">Cu</span>Медь</span></th><td class="fl-mono">10</td><td class="fl-mono">10</td><td class="fl-muted">0</td></tr>
+        <tr><th scope="row"><span class="fl-row"><span class="fl-signal__icon" aria-hidden="true">A</span>Сигнал A</span></th><td class="fl-mono">0</td><td class="fl-mono">10</td><td class="fl-delta">+10</td></tr>
+        <tr><th scope="row"><span class="fl-row"><span class="fl-signal__icon" aria-hidden="true">C</span>Уголь</span></th><td class="fl-mono">4</td><td class="fl-mono">—</td><td class="fl-delta fl-delta--gone">исчез</td></tr>
+        <tr><th scope="row"><span class="fl-row"><span class="fl-signal__icon" aria-hidden="true">S</span>Камень</span></th><td class="fl-mono">1</td><td class="fl-mono">3</td><td class="fl-delta">+2</td></tr>
+        <tr><th scope="row"><span class="fl-row"><span class="fl-signal__icon" aria-hidden="true">W</span>Дерево</span></th><td class="fl-mono">8</td><td class="fl-mono">8</td><td class="fl-muted">0</td></tr>
+        <tr><th scope="row"><span class="fl-row"><span class="fl-signal__icon" aria-hidden="true">B</span>Сигнал B</span></th><td class="fl-mono">2</td><td class="fl-mono">6</td><td class="fl-delta">+4</td></tr>
+        <tr><th scope="row"><span class="fl-row"><span class="fl-signal__icon" aria-hidden="true">N</span>Нефть</span></th><td class="fl-mono">15</td><td class="fl-mono">12</td><td class="fl-delta fl-delta--gone">−3</td></tr>
+      </tbody></table>
+    </div>
+    <p class="fl-field__hint">Это сумма вкладов сети. Исчезнувший канал остаётся в таблице и помечен «исчез», а не нулём. Собственные выходы устройства отображаются отдельно.</p>
+  </div>
+</section>

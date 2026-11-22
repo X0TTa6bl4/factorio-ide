@@ -1,0 +1,19 @@
+<div class="fl-panel">
+  <div class="fl-panel__body fl-stack">
+    <div class="fl-row fl-between"><h3>Диалог и меню</h3><details class="fl-menu"><summary class="fl-button fl-button--icon" aria-label="Открыть меню примера"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h.01M12 12h.01M19 12h.01"/><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg></summary><div class="fl-menu__items"><a href="./workspace.html">Открыть пример страницы</a><a href="./README.md">Документация библиотеки</a></div></details></div>
+    <p class="fl-muted">Нативный диалог удерживает фокус, закрывается через Escape и возвращает фокус к кнопке.</p>
+    <button class="fl-button" type="button" data-open-dialog="network-dialog">Создать сеть · демо</button>
+    <p class="fl-field__hint" data-dialog-feedback aria-live="polite">Данные диалога не сохраняются в схему.</p>
+  </div>
+</div>
+<dialog class="fl-dialog" id="network-dialog" aria-labelledby="dialog-title">
+  <form method="dialog">
+    <div class="fl-panel__head"><h2 id="dialog-title">Новая сеть</h2><button class="fl-button fl-button--icon fl-button--quiet" type="submit" value="cancel" formnovalidate aria-label="Закрыть диалог">×</button></div>
+    <div class="fl-panel__body fl-stack">
+      <p class="fl-muted">Выберите цвет и имя. Это демонстрация формы.</p>
+      <div class="fl-field"><span id="color-label">Цвет</span><div class="fl-selectbox" data-select data-value="green"><button type="button" class="fl-selectbox__control" aria-haspopup="listbox" aria-expanded="false" aria-controls="color-list" aria-labelledby="color-label color-value"><span class="fl-selectbox__value" id="color-value">Зелёная сеть</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button><input type="hidden" name="color" data-select-value value="green"><div class="fl-selectbox__popover" popover="manual"><div class="fl-selectbox__list" id="color-list" role="listbox" aria-labelledby="color-label"><div role="option" data-value="green" aria-selected="true">Зелёная сеть</div><div role="option" data-value="red" aria-selected="false">Красная сеть</div></div><p class="fl-selectbox__empty" hidden>Ничего не найдено</p></div></div></div>
+      <label class="fl-field">Суффикс имени<input class="fl-input fl-mono" name="suffix" value="buffer1" required pattern="[A-Za-z0-9_]+" autofocus aria-describedby="dialog-hint"><span class="fl-field__hint" id="dialog-hint">Латинские буквы, цифры и подчёркивания. Цвет добавится как префикс.</span></label>
+    </div>
+    <div class="fl-panel__foot fl-row" style="justify-content: flex-end"><button class="fl-button fl-button--quiet" type="submit" value="cancel" formnovalidate>Отмена</button><button class="fl-button fl-button--primary" type="submit" value="create">Создать · демо</button></div>
+  </form>
+</dialog>

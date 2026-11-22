@@ -1,0 +1,13 @@
+<section aria-label="Управление симуляцией" class="fl-stack fl-stack--sm">
+  <div class="fl-toolbar">
+    <div class="fl-toolbar__actions">
+      <button class="fl-button fl-button--primary" type="button" disabled><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7Z"/></svg>Запустить</button>
+      <button class="fl-button" type="button" disabled><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 5 10 7-10 7ZM19 5v14"/></svg>Шаг</button>
+      <button class="fl-button fl-button--icon" type="button" disabled aria-label="Сбросить симуляцию"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 0 5M4 4v6h6"/></svg></button>
+    </div>
+    <span class="fl-badge"><span class="fl-dot"></span>Не запущено</span>
+    <div class="fl-row fl-field__hint"><span id="toolbar-speed-label">Скорость</span><div class="fl-selectbox fl-selectbox--compact" data-select data-value="1"><button type="button" class="fl-selectbox__control" aria-haspopup="listbox" aria-expanded="false" aria-controls="toolbar-speed-list" aria-labelledby="toolbar-speed-label toolbar-speed-value"><span class="fl-selectbox__value" id="toolbar-speed-value">1 тик/с</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button><input type="hidden" data-select-value value="1"><div class="fl-selectbox__popover" popover="manual"><div class="fl-selectbox__list" id="toolbar-speed-list" role="listbox" aria-labelledby="toolbar-speed-label"><div role="option" data-value="1" aria-selected="true">1 тик/с</div><div role="option" data-value="2" aria-selected="false">2 тик/с</div><div role="option" data-value="4" aria-selected="false">4 тик/с</div><div role="option" data-value="10" aria-selected="false">10 тик/с</div></div><p class="fl-selectbox__empty" hidden>Ничего не найдено</p></div></div></div>
+    <div class="fl-toolbar__tick"><span>Текущий тик</span><strong>—</strong></div>
+  </div>
+  <p class="fl-field__hint">Макет библиотеки. Кнопки здесь не вызывают step(). Скорость — общий выбор: 1, 2, 4 или 10 тиков/с, на странице отладчика те же значения задают только паузу между вызовами.</p>
+</section>

@@ -1,0 +1,37 @@
+<div class="fl-panel">
+  <div class="fl-panel__body fl-stack">
+    <div class="fl-row">
+      <button class="fl-button fl-button--primary" type="button">Создать схему</button>
+      <button class="fl-button" type="button">Импортировать</button>
+      <button class="fl-button fl-button--quiet" type="button">Отмена</button>
+      <button class="fl-button fl-button--danger" type="button">Удалить</button>
+    </div>
+    <div class="fl-row">
+      <span class="fl-tip" data-tooltip>
+        <button class="fl-button fl-button--icon" type="button" aria-label="Отменить правку" aria-describedby="undo-tip"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8.5 7.5 4 12l4.5 4.5"/><path d="M4 12h9c3.5 0 6 2.2 6 5.2S16.5 22 13 22H10"/></svg></button>
+        <span class="fl-tooltip" id="undo-tip" role="tooltip">Отменить правку · ⌘Z</span>
+      </span>
+      <span class="fl-tip" data-tooltip>
+        <button class="fl-button fl-button--icon" type="button" aria-label="Повторить правку" aria-describedby="redo-tip"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15.5 7.5 4.5 4.5-4.5 4.5"/><path d="M20 12h-9c-3.5 0-6 2.2-6 5.2S7.5 22 11 22h3"/></svg></button>
+        <span class="fl-tooltip" id="redo-tip" role="tooltip">Повторить правку · ⇧⌘Z</span>
+      </span>
+      <span class="fl-tip" data-tooltip>
+        <button class="fl-button fl-button--icon" type="button" aria-label="Повторить правку" aria-describedby="redo-disabled-tip" disabled><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15.5 7.5 4.5 4.5-4.5 4.5"/><path d="M20 12h-9c-3.5 0-6 2.2-6 5.2S7.5 22 11 22h3"/></svg></button>
+        <span class="fl-tooltip" id="redo-disabled-tip" role="tooltip">Повторить правку · ⇧⌘Z</span>
+      </span>
+      <span class="fl-tip" data-tooltip>
+        <button class="fl-button" type="button" aria-label="Длинное описание правки" aria-describedby="long-tip">Длинный текст</button>
+        <span class="fl-tooltip" id="long-tip" role="tooltip">Повторить правку можно сочетанием Shift+Command+Z на macOS и Ctrl+Shift+Z на Windows и Linux. Подсказка переносится и не выходит за край окна.</span>
+      </span>
+    </div>
+    <div class="fl-row">
+      <button class="fl-button" type="button" disabled>Сохранение недоступно</button>
+      <button class="fl-button fl-button--icon" type="button" aria-label="Добавить устройство"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+      <span class="fl-badge"><span class="fl-dot"></span>Выполняется</span>
+      <span class="fl-badge fl-badge--success"><span class="fl-dot"></span>Готово</span>
+      <span class="fl-badge fl-badge--accent">Изменено</span>
+      <span class="fl-badge fl-badge--error">Ошибка</span>
+    </div>
+    <p class="fl-field__hint">Основное действие — янтарное. Иконки отмены и повтора зеркальны; доступное имя на кнопке, сочетание клавиш — в подсказке. Отключённая кнопка не принимает фокус. Её описание показывается наведением на обёртку.</p>
+  </div>
+</div>
