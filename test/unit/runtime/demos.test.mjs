@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 import { Signal } from "../../../src/index.js";
 import { buildScheme, SCHEME_IDS, schemeMeta } from "../../../pages/debugger/schemes.js";
+import { docArticles } from "../../../pages/docs/content.js";
 import { EVENT_DEMO, GAME_BEHAVIOR_VERIFIED, RELEASE_NOTE } from "../../../pages/release.js";
 
 const A = Signal.Signals.signal_A;
@@ -29,9 +30,11 @@ test("подписи выпуска не называют поведение с�
   assert.match(RELEASE_NOTE, /не заявлена/);
   assert.doesNotMatch(RELEASE_NOTE, /совместимо с Factorio/);
   const component = await readFile(new URL("../../../ui/components/release-note.html", import.meta.url), "utf8");
-  const index = await readFile(new URL("../../../pages/examples/index.html", import.meta.url), "utf8");
+  const examples = await readFile(new URL("../../../pages/examples/index.html", import.meta.url), "utf8");
   assert.equal(component.includes(RELEASE_NOTE), true);
-  assert.equal(index.includes(RELEASE_NOTE), true);
+  assert.equal(JSON.stringify(docArticles()).includes(RELEASE_NOTE), true);
+  assert.equal(examples.includes("Совместимость"), false);
+  assert.match(examples, /Документация/);
   assert.match(EVENT_DEMO.expect, /Граница 0/);
   assert.match(EVENT_DEMO.expect, /signal-A = 1/);
 });

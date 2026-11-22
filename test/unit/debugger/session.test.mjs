@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { Signal } from "../../../src/index.js";
-import { createPlayback } from "../../../pages/debugger/playback.js";
+import { createPlayback, intervalForSpeed } from "../../../pages/debugger/playback.js";
 import { buildScheme } from "../../../pages/debugger/schemes.js";
 import { diffRows, indexSignals } from "../../../pages/debugger/signals.js";
 
@@ -180,6 +180,14 @@ test("неверная конфигурация не создаёт прогон
   await assert.rejects(playback.step(), (error) => error.code === "playback-stopped");
   assert.equal(calls, 1);
   assert.equal(simulation.tick, 0);
+});
+
+test("пауза скорости сохраняет прежние миллисекунды", () => {
+  assert.equal(intervalForSpeed("1"), 1000);
+  assert.equal(intervalForSpeed(2), 500);
+  assert.equal(intervalForSpeed("4"), 250);
+  assert.equal(intervalForSpeed(10), 100);
+  assert.equal(intervalForSpeed("1000"), 1000);
 });
 
 test("агрегат сети и собственный выход не смешиваются, исчезновение отмечено", async () => {
