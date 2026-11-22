@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>f logic smoke</title>
+  <link rel="stylesheet" href="./app.css">
+</head>
+<body>
+  <p id="status">загрузка</p>
+  <script type="module">
+    import { smokeValue } from "./app.js";
+    document.querySelector("#status").textContent = smokeValue();
+  </script>
+</body>
+</html>

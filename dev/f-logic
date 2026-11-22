@@ -1,0 +1,244 @@
+#!/bin/sh
+set -eu
+
+ROOT=$(CDPATH= cd -- "$(dirname "$0")/.." && pwd)
+cd "$ROOT"
+# shellcheck disable=SC1091
+. "${ROOT}/dev/versions.env"
+
+uid=$(id -u)
+gid=$(id -g)
+CONTAINER_PORT=4173
+
+usage() {
+  cat <<EOF
+Использование: ./dev/f-logic <команда>
+
+  build       Собрать образ ${LOCAL_TAG}
+  test        Быстрые unit-тесты
+  test:full   Unit, покрытие c8 и headless Chromium
+  serve       Статический сервер на 127.0.0.1:\${F_LOGIC_PORT:-4173}
+  verify      Проверка матрицы ENV-1…ENV-8
+  lock        Обновить dev/package-lock.json внутри базового образа
+  catalog     Собрать data/signal-catalog/2.1.24 из снимка Factorio
+  help        Эта справка
+
+Node.js на хосте не используется. Установка Docker: dev/README.md
+EOF
+}
+
+need_docker() {
+  if ! command -v docker >/dev/null 2>&1; then
+    echo "Docker не найден. Установка: ${ROOT}/dev/README.md" >&2
+    exit 127
+  fi
+  if ! docker info >/dev/null 2>&1; then
+    echo "Docker не отвечает. Запустите демон. Установка: ${ROOT}/dev/README.md" >&2
+    exit 127
+  fi
+}
+
+docker_run() {
+  docker run --rm --init --user "${uid}:${gid}" \
+    -e HOME=/tmp \
+    -e npm_config_cache=/tmp/npm-cache \
+    -e F_LOGIC_DEV_PACKAGE=/opt/f-logic-dev/package.json \
+    -v "${ROOT}:/workspace" \
+    -w /workspace \
+    "$@"
+}
+
+ensure_image() {
+  if ! docker image inspect "${LOCAL_TAG}" >/dev/null 2>&1; then
+    docker build -t "${LOCAL_TAG}" -f "${ROOT}/dev/Dockerfile" "${ROOT}/dev"
+  fi
+}
+
+verify() {
+  fail_test="${ROOT}/test/unit/intentional-fail.test.mjs"
+  server_name=f-logic-verify-server
+  full_name=f-logic-verify-full
+  host_port=${F_LOGIC_VERIFY_PORT:-4193}
+  cleanup() {
+    rm -f "$fail_test"
+    docker rm -f "$server_name" "$full_name" >/dev/null 2>&1 || true
+  }
+  trap cleanup EXIT
+  cleanup
+
+  need_docker
+  test -f "${ROOT}/dev/package-lock.json"
+  echo "ENV-1: сборка --no-cache"
+  docker build --no-cache -t "${LOCAL_TAG}" -f "${ROOT}/dev/Dockerfile" "${ROOT}/dev"
+
+  actual_node=$(docker_run "${LOCAL_TAG}" node -p "process.version")
+  actual_npm=$(docker_run "${LOCAL_TAG}" npm --version)
+  actual_pw=$(docker_run "${LOCAL_TAG}" node -p "require('/opt/f-logic-dev/node_modules/playwright/package.json').version")
+  actual_c8=$(docker_run "${LOCAL_TAG}" node -p "require('/opt/f-logic-dev/node_modules/c8/package.json').version")
+  actual_uid=$(docker_run "${LOCAL_TAG}" id -u)
+  printf 'versions node=%s npm=%s playwright=%s c8=%s uid=%s\n' \
+    "$actual_node" "$actual_npm" "$actual_pw" "$actual_c8" "$actual_uid"
+  test "$actual_node" = "$NODE"
+  test "$actual_npm" = "$NPM"
+  test "$actual_pw" = "$PLAYWRIGHT"
+  test "$actual_c8" = "$C8"
+  test "$actual_uid" = "$uid"
+  echo "ENV-1: версии совпали с dev/versions.env"
+
+  mkdir -p "${ROOT}/dev/artifacts"
+  rm -rf "${ROOT}/dev/artifacts/coverage"
+  probe="${ROOT}/dev/artifacts/ownership-probe.txt"
+  rm -f "$probe"
+  docker_run "${LOCAL_TAG}" node --input-type=module -e 'import { writeFileSync } from "node:fs"; writeFileSync("dev/artifacts/ownership-probe.txt", "probe\n");'
+  owner=$(stat -f '%u' "$probe" 2>/dev/null || stat -c '%u' "$probe")
+  group=$(stat -f '%g' "$probe" 2>/dev/null || stat -c '%g' "$probe")
+  if [ "$owner" != "$uid" ] || [ "$group" != "$gid" ]; then
+    echo "ENV-3: владелец ${owner}:${group}, ожидался ${uid}:${gid}" >&2
+    exit 1
+  fi
+  printf 'host-edit\n' >> "$probe"
+  rm -f "$probe"
+  echo "ENV-3: файл создан uid=${uid} gid=${gid} и дополнен на хосте"
+
+  echo "ENV-2: быстрый прогон"
+  docker_run "${LOCAL_TAG}" node dev/commands.mjs test
+  echo "ENV-2: unit ok"
+
+  cat > "$fail_test" <<'EOF'
+import test from "node:test";
+import assert from "node:assert/strict";
+
+test("временная ложная проверка", () => {
+  assert.equal(1, 0);
+});
+EOF
+  set +e
+  docker_run "${LOCAL_TAG}" node dev/commands.mjs test
+  status=$?
+  set -e
+  rm -f "$fail_test"
+  test ! -e "$fail_test"
+  if [ "$status" -ne 1 ]; then
+    echo "ENV-6: ожидался код 1, получен ${status}" >&2
+    exit 1
+  fi
+  echo "ENV-6: runner_exit=${status}, ложная проверка удалена"
+
+  echo "ENV-2: полный прогон"
+  docker_run --name "$full_name" --ipc=host "${LOCAL_TAG}" node dev/commands.mjs test:full
+  test -f "${ROOT}/dev/artifacts/coverage/lcov.info"
+  test -f "${ROOT}/dev/artifacts/coverage/index.html"
+  gone=$(docker ps -aq --filter "name=${full_name}")
+  if [ -n "$gone" ]; then
+    echo "ENV-7: контейнер ${full_name} не удалён" >&2
+    exit 1
+  fi
+  echo "ENV-7: отчёты на хосте, контейнер удалён"
+
+  docker rm -f "$server_name" >/dev/null 2>&1 || true
+  docker run -d --name "$server_name" --init --user "${uid}:${gid}" \
+    -e HOME=/tmp \
+    -e HOST=0.0.0.0 \
+    -e PORT="${CONTAINER_PORT}" \
+    -p "127.0.0.1:${host_port}:${CONTAINER_PORT}" \
+    -v "${ROOT}:/workspace" \
+    -w /workspace \
+    "${LOCAL_TAG}" \
+    node dev/commands.mjs serve >/dev/null
+  ok=0
+  i=0
+  while [ "$i" -lt 30 ]; do
+    if curl -fsS "http://127.0.0.1:${host_port}/dev/smoke/app.js" >/dev/null 2>&1; then
+      ok=1
+      break
+    fi
+    i=$((i + 1))
+    sleep 1
+  done
+  if [ "$ok" -ne 1 ]; then
+    docker logs "$server_name" >&2 || true
+    echo "ENV-4: сервер не открылся на 127.0.0.1:${host_port}" >&2
+    exit 1
+  fi
+  published=$(docker port "$server_name" "${CONTAINER_PORT}")
+  user=$(docker inspect --format '{{.Config.User}}' "$server_name")
+  printf 'ENV-4 published=%s user=%s\n' "$published" "$user"
+  case "$published" in
+    *127.0.0.1*) ;;
+    *) echo "ENV-4: порт не на localhost: ${published}" >&2; exit 1 ;;
+  esac
+  case "$published" in
+    *0.0.0.0*) echo "ENV-4: порт опубликован на всех интерфейсах: ${published}" >&2; exit 1 ;;
+  esac
+  test "$user" = "${uid}:${gid}"
+  curl -fsS "http://127.0.0.1:${host_port}/dev/smoke/" | grep -q 'type="module"'
+  curl -fsS "http://127.0.0.1:${host_port}/dev/smoke/app.js" | grep -q 'smokeValue'
+  curl -fsS "http://127.0.0.1:${host_port}/dev/smoke/app.css" | grep -q '#status'
+  curl -fsS "http://127.0.0.1:${host_port}/ui/" | grep -q 'библиотека интерфейса'
+  echo "ENV-4: статические страницы открыты через 127.0.0.1:${host_port}"
+  echo "ENV-8: страницы отданы как файлы, без Node на хосте"
+  docker rm -f "$server_name" >/dev/null
+  test -f "${ROOT}/dev/artifacts/coverage/index.html"
+  echo "ENV-5: модуль исполнен в полном прогоне"
+  echo "verify: ok"
+}
+
+cmd=${1:-help}
+if [ "$#" -gt 0 ]; then
+  shift
+fi
+
+case "$cmd" in
+  help|-h|--help)
+    usage
+    ;;
+  build)
+    need_docker
+    docker build -t "${LOCAL_TAG}" -f "${ROOT}/dev/Dockerfile" "${ROOT}/dev"
+    ;;
+  lock)
+    need_docker
+    docker run --rm --init --user "${uid}:${gid}" \
+      -e HOME=/tmp \
+      -e npm_config_cache=/tmp/npm-cache \
+      -v "${ROOT}/dev:/work" \
+      -w /work \
+      "${IMAGE_REF}" \
+      npm install --package-lock-only --ignore-scripts
+    ;;
+  test)
+    need_docker
+    ensure_image
+    docker_run "${LOCAL_TAG}" node dev/commands.mjs test
+    ;;
+  test:full)
+    need_docker
+    ensure_image
+    docker_run --ipc=host "${LOCAL_TAG}" node dev/commands.mjs test:full
+    ;;
+  serve)
+    need_docker
+    ensure_image
+    host_port=${F_LOGIC_PORT:-4173}
+    echo "http://127.0.0.1:${host_port}/dev/smoke/"
+    echo "http://127.0.0.1:${host_port}/ui/"
+    docker_run \
+      -p "127.0.0.1:${host_port}:${CONTAINER_PORT}" \
+      -e HOST=0.0.0.0 \
+      -e PORT="${CONTAINER_PORT}" \
+      "${LOCAL_TAG}" \
+      node dev/commands.mjs serve
+    ;;
+  verify)
+    verify
+    ;;
+  catalog)
+    need_docker
+    ensure_image
+    docker_run "${LOCAL_TAG}" node tools/signal-catalog/cli.mjs --snapshot data/factorio/2.1.24 --out data/signal-catalog/2.1.24 --chooser-review data/evidence/constant-combinator-review-2026-11-18/review.json
+    ;;
+  *)
+    usage >&2
+    exit 2
+    ;;
+esac
