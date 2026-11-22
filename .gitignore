@@ -1,0 +1,5 @@
+node_modules/
+dev/artifacts/
+coverage/
+.DS_Store
+**/.DS_Store
