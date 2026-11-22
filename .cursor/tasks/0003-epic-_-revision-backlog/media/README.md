@@ -28,6 +28,7 @@
 | 5 | [0006 — правая колонка](../0006-task-_-right-inspector/0000-right-inspector.md) |
 | 6 | [0007 — отмена/повтор](../0007-task-_-undo-redo-controls/0000-undo-redo-controls.md) |
 | 7, 11 | [0005 — форматирование](../0005-task-_-format-and-indent/0000-format-and-indent.md) |
+| 14 | [перенесено: 0004/0001 — пользовательское руководство](../../0004-epic-_-ui-minimization-round/0001-task-_-user-documentation/0000-user-documentation.md) |
 | 12 | [0008 — подчёркивание ошибок](../0008-task-_-simulation-error-underlines/0000-simulation-error-underlines.md) |
 | 13 | [0009 — компактное форматирование](../0009-task-_-compact-array-formatting/0000-compact-array-formatting.md) |
 | 8, 10 | [0004 — структурные вставки](../0004-task-_-structured-insertion/0000-structured-insertion.md) |

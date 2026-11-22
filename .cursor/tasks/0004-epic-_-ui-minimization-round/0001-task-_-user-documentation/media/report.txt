@@ -1,0 +1,9 @@
+/ui/ 390px: navigation, focus, copy, history, anchors, overflow OK
+/ui/ 768px: navigation, focus, copy, history, anchors, overflow OK
+/ui/ 1024px: navigation, focus, copy, history, anchors, overflow OK
+/ui/ 1440px: navigation, focus, copy, history, anchors, overflow OK
+/factorio-ide/ui/ 390px: navigation, focus, copy, history, anchors, overflow OK
+/factorio-ide/ui/ 768px: navigation, focus, copy, history, anchors, overflow OK
+/factorio-ide/ui/ 1024px: navigation, focus, copy, history, anchors, overflow OK
+/factorio-ide/ui/ 1440px: navigation, focus, copy, history, anchors, overflow OK
+Unknown section, catalogue registration, axe WCAG A/AA: OK

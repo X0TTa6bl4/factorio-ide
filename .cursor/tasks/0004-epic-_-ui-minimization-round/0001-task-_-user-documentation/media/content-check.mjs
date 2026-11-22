@@ -1,0 +1,10 @@
+import {readFile} from 'node:fs/promises';
+import assert from 'node:assert/strict';
+import {checkConfiguration} from '/workspace/src/config-check.js';
+const html=await readFile('/workspace/ui/components/docs-article.html','utf8');
+const blocks=[...html.matchAll(/<code>([\s\S]*?)<\/code>/g)].map(m=>m[1]);
+const constant=blocks.find(s=>s.includes('Constant({'));
+assert.deepEqual(checkConfiguration(constant).diagnostics,[]);
+const branch=blocks.find(s=>s.startsWith('when_true:'));
+assert.deepEqual(checkConfiguration(`${constant}\nDecider({red_input:red_1,red_output:red_2,conditions:[{left_operand:{red:true,green:false,signal:Signal.Signals.signal_A},right_operand:{constant:59},operation:Decider.Operation.LTE}],${branch}})`).diagnostics,[]);
+console.log('Проверены моделью: пример сетей/Constant и фрагмент копирования в полном Decider. Диагностик нет.');

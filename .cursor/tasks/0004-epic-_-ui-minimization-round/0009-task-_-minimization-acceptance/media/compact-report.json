@@ -1,0 +1,296 @@
+[
+  {
+    "browser": "chromium",
+    "prefix": "/ui/",
+    "width": 320,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "chromium",
+    "prefix": "/ui/",
+    "width": 390,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "chromium",
+    "prefix": "/ui/",
+    "width": 768,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "chromium",
+    "prefix": "/ui/",
+    "width": 900,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "chromium",
+    "prefix": "/ui/",
+    "width": 901,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "chromium",
+    "prefix": "/ui/",
+    "width": 1440,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "chromium",
+    "prefix": "/ui/",
+    "width": 1920,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "chromium",
+    "prefix": "/factorio-ide/ui/",
+    "width": 320,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "chromium",
+    "prefix": "/factorio-ide/ui/",
+    "width": 390,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "chromium",
+    "prefix": "/factorio-ide/ui/",
+    "width": 768,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "chromium",
+    "prefix": "/factorio-ide/ui/",
+    "width": 900,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "chromium",
+    "prefix": "/factorio-ide/ui/",
+    "width": 901,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "chromium",
+    "prefix": "/factorio-ide/ui/",
+    "width": 1440,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "chromium",
+    "prefix": "/factorio-ide/ui/",
+    "width": 1920,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "firefox",
+    "prefix": "/ui/",
+    "width": 320,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "firefox",
+    "prefix": "/ui/",
+    "width": 390,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "firefox",
+    "prefix": "/ui/",
+    "width": 768,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "firefox",
+    "prefix": "/ui/",
+    "width": 900,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "firefox",
+    "prefix": "/ui/",
+    "width": 901,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "firefox",
+    "prefix": "/ui/",
+    "width": 1440,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "firefox",
+    "prefix": "/ui/",
+    "width": 1920,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "firefox",
+    "prefix": "/factorio-ide/ui/",
+    "width": 320,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "firefox",
+    "prefix": "/factorio-ide/ui/",
+    "width": 390,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "firefox",
+    "prefix": "/factorio-ide/ui/",
+    "width": 768,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "firefox",
+    "prefix": "/factorio-ide/ui/",
+    "width": 900,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "firefox",
+    "prefix": "/factorio-ide/ui/",
+    "width": 901,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "firefox",
+    "prefix": "/factorio-ide/ui/",
+    "width": 1440,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "firefox",
+    "prefix": "/factorio-ide/ui/",
+    "width": 1920,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "webkit",
+    "prefix": "/ui/",
+    "width": 320,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "webkit",
+    "prefix": "/ui/",
+    "width": 390,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "webkit",
+    "prefix": "/ui/",
+    "width": 768,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "webkit",
+    "prefix": "/ui/",
+    "width": 900,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "webkit",
+    "prefix": "/ui/",
+    "width": 901,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "webkit",
+    "prefix": "/ui/",
+    "width": 1440,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "webkit",
+    "prefix": "/ui/",
+    "width": 1920,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "webkit",
+    "prefix": "/factorio-ide/ui/",
+    "width": 320,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "webkit",
+    "prefix": "/factorio-ide/ui/",
+    "width": 390,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "webkit",
+    "prefix": "/factorio-ide/ui/",
+    "width": 768,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "webkit",
+    "prefix": "/factorio-ide/ui/",
+    "width": 900,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "webkit",
+    "prefix": "/factorio-ide/ui/",
+    "width": 901,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "webkit",
+    "prefix": "/factorio-ide/ui/",
+    "width": 1440,
+    "height": 600,
+    "ok": true
+  },
+  {
+    "browser": "webkit",
+    "prefix": "/factorio-ide/ui/",
+    "width": 1920,
+    "height": 600,
+    "ok": true
+  }
+]
