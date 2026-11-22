@@ -120,7 +120,7 @@ button.fl-device { width: 100%; text-align: left; font: inherit; }
 .fl-code .prop { color: var(--fl-blue); }
 .fl-code .value { color: var(--fl-green); }
 .fl-editor { display: grid; grid-template-columns: 34px minmax(0, 1fr); min-width: 0; background: var(--fl-inset); }
-.fl-editor__gutter { overflow: auto; scrollbar-width: none; max-height: min(70vh, 640px); padding: 16px 0; color: #798571; text-align: right; font: 12px/1.9 var(--fl-mono); user-select: none; }
+.fl-editor__gutter { overflow: hidden; overflow-anchor: none; overscroll-behavior: contain; touch-action: none; white-space: pre; scrollbar-width: none; max-height: min(70vh, 640px); padding: 16px 0; color: #798571; text-align: right; font: 12px/1.9 var(--fl-mono); user-select: none; }
 .fl-editor__gutter::-webkit-scrollbar { display: none; }
 .fl-editor__sheet { position: relative; min-width: 0; min-height: 360px; max-height: min(70vh, 640px); overflow: hidden; }
 .fl-editor__paint { position: absolute; z-index: 0; top: 0; left: 0; margin: 0; min-width: 100%; padding: 16px; overflow: visible; pointer-events: none; user-select: none; white-space: pre; tab-size: 2; color: var(--fl-text); font: 12px/1.9 var(--fl-mono); }
@@ -225,6 +225,8 @@ button.fl-device { width: 100%; text-align: left; font: inherit; }
 .fl-selectbox__list [role="option"][data-active="true"], .fl-suggest__option[data-active="true"] { background: var(--fl-hover); }
 .fl-selectbox__list [role="option"][aria-selected="true"], .fl-suggest__option[aria-selected="true"] { box-shadow: inset 3px 0 var(--fl-accent); }
 .fl-selectbox__empty { margin: 0; padding: 8px 10px; color: var(--fl-muted); }
+.fl-selectbox__title { padding: 8px 10px; color: var(--fl-muted); font-size: 12px; border-bottom: 1px solid var(--fl-border); }
+.fl-selectbox__title:empty { display: none; padding: 0; border: 0; }
 .fl-panel__head > h3:has(.fl-panel__toggle) { flex: 1; min-width: 0; }
 .fl-panel__toggle { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 40px; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; font-weight: 650; text-align: left; }
 .fl-panel__toggle::before { content: ""; width: 7px; height: 7px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); }

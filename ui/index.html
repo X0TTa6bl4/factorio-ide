@@ -6,13 +6,14 @@
   <title>f logic — библиотека интерфейса</title>
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="./styles/tokens.css"><link rel="stylesheet" href="./styles/components.css"><link rel="stylesheet" href="./styles/layout.css">
+  <link rel="stylesheet" href="./styles/docs.css"><link rel="stylesheet" href="./styles/compact.css">
   <script type="module" src="./scripts/catalog.js"></script>
 </head>
 <body>
   <a class="fl-skip" href="#main">Перейти к содержимому</a>
   <header class="fl-topbar"><a class="fl-brand" href="./index.html"><span class="fl-brand__mark" aria-hidden="true">ƒ.</span>f logic</a><span class="fl-badge">UI / 0.1</span><nav class="fl-topnav" aria-label="Основная навигация"><a href="../index.html">Редактор</a><a href="../pages/examples/index.html">Примеры</a><a href="./index.html" aria-current="page">Библиотека</a><a href="./workspace.html">Пример страницы <span aria-hidden="true">↗</span></a></nav></header>
   <div class="fl-library">
-    <aside class="fl-sidebar"><span class="fl-sidebar__label">Компоненты</span><nav aria-label="Разделы библиотеки"><a href="#foundation"><span>01</span>Основа</a><a href="#actions"><span>02</span>Действия</a><a href="#forms"><span>03</span>Формы</a><a href="#networks"><span>04</span>Сети и сигналы</a><a href="#devices"><span>05</span>Комбинаторы</a><a href="#runtime"><span>06</span>Симуляция</a><a href="#editor"><span>07</span>Редактор</a><a href="#feedback"><span>08</span>Обратная связь</a><a href="#overlays"><span>09</span>Диалоги</a><a href="#release"><span>10</span>Выпуск</a><a href="#project"><span>11</span>Схема</a></nav><hr class="fl-divider"><p class="fl-field__hint" style="padding-inline: 12px">HTML + CSS<br>Нативные ES-модули<br>Без внешних ресурсов</p></aside>
+    <aside class="fl-sidebar"><span class="fl-sidebar__label">Компоненты</span><nav aria-label="Разделы библиотеки"><a href="#foundation"><span>01</span>Основа</a><a href="#actions"><span>02</span>Действия</a><a href="#forms"><span>03</span>Формы</a><a href="#networks"><span>04</span>Сети и сигналы</a><a href="#devices"><span>05</span>Комбинаторы</a><a href="#runtime"><span>06</span>Симуляция</a><a href="#editor"><span>07</span>Редактор</a><a href="#feedback"><span>08</span>Обратная связь</a><a href="#overlays"><span>09</span>Диалоги</a><a href="#release"><span>10</span>Выпуск</a><a href="#project"><span>11</span>Схема</a><a href="#documentation"><span>12</span>Документация</a><a href="#compact"><span>13</span>Компактный UI</a></nav><hr class="fl-divider"><p class="fl-field__hint" style="padding-inline: 12px">HTML + CSS<br>Нативные ES-модули<br>Без внешних ресурсов</p></aside>
     <main class="fl-main" id="main">
       <div class="fl-hero"><h1>Библиотека</h1><p class="fl-hero__text">Элементы рабочих страниц. Описание разделов и исходники прокручиваются в этой колонке.</p><div class="fl-row"><a class="fl-button fl-button--primary" href="./workspace.html">Пример страницы</a><a class="fl-button" href="#networks">Элементы</a></div></div>
 
@@ -35,6 +36,12 @@
       <section class="fl-section" id="overlays"><div class="fl-section__head"><div><h2><span class="fl-section__number">09</span>Диалоги и меню</h2><p>Нативные dialog и details. Диалог можно закрыть клавишей Escape.</p></div></div><div data-ui="dialog" data-show-source></div></section>
       <section class="fl-section" id="release"><div class="fl-section__head"><div><h2><span class="fl-section__number">10</span>Выпуск</h2><p>Номер снимка каталога и граница заявленной совместимости. Текст не называет поведение схем проверенным в игре.</p></div></div><div data-ui="release-note" data-show-source></div></section>
       <section class="fl-section" id="project"><div class="fl-section__head"><div><h2><span class="fl-section__number">11</span>Схема</h2><p>Открытие, импорт и экспорт. В каталоге кнопки только показывают диалог. Рабочее хранение подключено на странице схемы.</p></div></div><div data-ui="project-file" data-show-source></div></section>
+      <section class="fl-section" id="documentation"><div class="fl-section__head"><div><h2><span class="fl-section__number">12</span>Документация</h2><p>Навигация, статья, код, результат и оглавление. Раскройте исходники или откройте собранную страницу.</p></div></div><a class="fl-button" href="./docs.html">Открыть образец страницы ↗</a><div class="fl-docs fl-docs--catalog" data-docs><div class="fl-docs__layout">
+      <aside class="fl-docs__side fl-docs__nav" data-ui="docs-navigation" data-show-source></aside>
+      <div class="fl-docs__content" data-ui="docs-article" data-show-source></div>
+      <aside class="fl-docs__side fl-docs__toc" data-ui="docs-outline" data-show-source></aside>
+    </div></div></section>
+      <section class="fl-section fl-compact-catalog" id="compact"><div class="fl-section__head"><div><h2>Компактный интерфейс · эпик 0004</h2><p>Общие контролы, панели кода, сетей и событий. Действия демонстрационные.</p></div></div><p><a class="fl-button" href="./compact.html">Открыть адаптивный образец</a></p><div class="fl-stack"><div data-ui="compact-toolbar" data-show-source></div><div data-ui="compact-workbench" data-show-source></div></div></section>
       <footer class="fl-catalog-foot">f logic / UI library 0.1 · Исходники: ui/components/ · Стили: ui/styles/</footer>
       <noscript><p class="fl-include-error">Для загрузки HTML-фрагментов в каталоге включите JavaScript. Исходники доступны отдельно в ui/components/.</p></noscript>
     </main>

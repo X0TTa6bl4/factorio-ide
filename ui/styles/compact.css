@@ -1,0 +1,39 @@
+/* Образцы эпика 0004. Подключаются после базовых стилей только в библиотеке. */
+.fl-compact-toolbar { display:flex; align-items:center; flex-wrap:wrap; gap:6px; min-width:0; padding:8px; background:var(--fl-surface); border:1px solid var(--fl-border); border-radius:6px; }
+.fl-compact-toolbar .fl-toolbar__actions { gap:4px; }
+.fl-compact-toolbar .fl-button--icon { flex:none; width:40px; min-height:40px; }
+.fl-compact-toolbar .fl-selectbox { width:64px; flex:none; }
+.fl-compact-toolbar .fl-selectbox__control { min-height:40px; padding:6px 8px; }
+.fl-compact-tick { margin-inline-start:auto; padding:4px; font-family:var(--fl-mono); font-variant-numeric:tabular-nums; }
+.fl-button--small { min-height:32px; padding:4px 8px; font-size:12px; }
+.fl-button--small.fl-button--icon { width:32px; }
+.fl-compact-workbench { display:flex; flex-direction:column; min-height:0; overflow:hidden; }
+.fl-compact-workbench > .fl-panel__head { padding:6px 8px; gap:4px; flex-wrap:wrap; }
+.fl-compact-views,.fl-compact-edit { display:flex; align-items:center; gap:2px; }
+.fl-compact-views .fl-button { min-height:36px; padding:5px 8px; font-size:13px; }
+.fl-compact-views [aria-expanded="true"] { color:var(--fl-accent); background:var(--fl-raised); }
+.fl-compact-stage { display:grid; grid-template-columns:minmax(0,2fr) minmax(16rem,1fr); flex:1; min-height:0; }
+.fl-compact-stage[data-networks="false"] { grid-template-columns:minmax(0,1fr); }
+.fl-compact-primary { display:flex; flex-direction:column; min-width:0; min-height:0; }
+.fl-compact-editor { flex:1; min-height:100px; height:auto; }
+.fl-compact-editor .fl-textarea { min-width:0; min-height:0; height:100%; max-height:none; resize:none; }
+.fl-compact-editor .fl-editor__gutter { overflow:hidden; white-space:pre; max-height:none; min-height:0; overscroll-behavior:contain; }
+.fl-compact-primary .fl-editor__status { flex-shrink:0; flex-wrap:wrap; gap:4px 8px; padding:6px 8px; }
+.fl-compact-primary [data-compact-status] { flex:1; overflow-wrap:anywhere; }
+.fl-compact-networks { grid-column:2; grid-row:1; border-left:1px solid var(--fl-border); }
+.fl-compact-networks,.fl-compact-events { min-width:0; min-height:0; padding:12px; overflow:auto; }
+.fl-compact-networks h2,.fl-compact-events h2 { font-size:15px; margin-bottom:12px; }
+.fl-compact-events { grid-column:1; grid-row:1; display:grid; align-content:start; gap:12px; }
+.fl-compact-events summary { min-height:40px; padding:8px 0; }
+.fl-compact-page { height:100dvh; overflow:hidden; display:flex; flex-direction:column; }
+.fl-compact-page .fl-topbar { flex-shrink:0; padding:8px 12px; gap:8px; }
+.fl-compact-demo { flex:1; min-height:0; display:flex; flex-direction:column; gap:8px; padding:8px; }
+.fl-compact-demo > [data-ui="compact-workbench"] { flex:1; min-height:0; display:flex; }
+.fl-compact-demo .fl-compact-workbench { flex:1; }
+.fl-compact-note { color:var(--fl-muted); font-size:12px; }
+.fl-compact-catalog .fl-compact-workbench { height:460px; }
+@media(max-width:900px) {
+ .fl-compact-stage { grid-template-columns:minmax(0,1fr); }
+ .fl-compact-networks { grid-column:1; border-left:0; }
+}
+@media(pointer:coarse) { .fl-compact-views .fl-button,.fl-compact-edit .fl-button { min-height:40px; } .fl-compact-edit .fl-button--icon { width:36px; } }

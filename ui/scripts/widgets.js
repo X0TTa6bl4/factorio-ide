@@ -78,6 +78,17 @@ function buildSelect(widget) {
   empty.className = "fl-selectbox__empty";
   empty.hidden = true;
   empty.textContent = "Ничего не найдено";
+  if (widget.dataset.search === "true" && !popover.querySelector("[data-select-filter]")) {
+    const filter = document.createElement("input");
+    filter.className = "fl-input fl-selectbox__filter";
+    filter.setAttribute("data-select-filter", "");
+    filter.type = "search";
+    filter.setAttribute("aria-label", "Поиск в списке");
+    filter.placeholder = "Поиск";
+    filter.autocomplete = "off";
+    filter.spellcheck = false;
+    popover.append(filter);
+  }
   popover.append(list, empty);
   widget.append(button, hidden, popover);
   widget.dataset.value = hidden.value;
@@ -96,7 +107,7 @@ function writeSelectValue(widget, next, notify) {
   options.forEach(item => item.setAttribute("aria-selected", String(item === match)));
   if (valueEl) {
     if (match) {
-      valueEl.textContent = optionLabel(match);
+      valueEl.textContent = widget.hasAttribute("data-value-only") ? match.dataset.value : optionLabel(match);
       valueEl.classList.remove("fl-selectbox__placeholder");
     } else if (text === "") {
       valueEl.textContent = widget.dataset.placeholder || "—";
@@ -202,7 +213,8 @@ function scrollOptionInto(option) {
 function placePopover(popover, anchor) {
   const margin = 8;
   const room = Math.max(80, window.innerHeight - margin * 2);
-  const width = Math.min(320, Math.max(160, window.innerWidth - margin * 2));
+  const requested = Number(popover.closest("[data-select]")?.dataset.menuWidth) || 320;
+  const width = Math.min(requested, Math.max(80, window.innerWidth - margin * 2));
   popover.style.position = "fixed";
   popover.style.width = `${width}px`;
   popover.style.maxHeight = `${Math.min(240, room)}px`;
@@ -273,8 +285,19 @@ function mountSelect(widget) {
   const list = widget.querySelector(".fl-selectbox__list");
   const hidden = widget.querySelector("[data-select-value]");
   const filter = widget.querySelector("[data-select-filter]");
+  const menuTitle = widget.dataset.menuTitle?.trim() ?? "";
+  if (menuTitle && popover && !popover.querySelector(".fl-selectbox__title")) {
+    const title = document.createElement("div");
+    title.className = "fl-selectbox__title";
+    title.textContent = menuTitle;
+    ensureId(title);
+    popover.prepend(title);
+    list?.setAttribute("aria-labelledby", title.id);
+  }
+  if (widget.dataset.label && list && !list.hasAttribute("aria-labelledby")) list.setAttribute("aria-label", widget.dataset.label);
   if (!button || !popover || !list || !hidden) return;
   widget.dataset.selectReady = "true";
+  if (widget.hasAttribute("data-value-only")) writeSelectValue(widget, hidden.value, false);
   list.querySelectorAll("[role='option']").forEach(ensureId);
   Object.defineProperty(widget, "value", {
     configurable: true,
@@ -656,6 +679,43 @@ function commitSuggest(menu, option, owner) {
   else setSuggestActive(menu, option);
 }
 
+function wheelScale(area, event) {
+  if (event.deltaMode === 1) {
+    const line = Number.parseFloat(getComputedStyle(area).lineHeight);
+    return Number.isFinite(line) && line > 0 ? line : 22;
+  }
+  if (event.deltaMode === 2) return area.clientHeight || 1;
+  return 1;
+}
+
+function bindGutterGestures(gutter, area, syncScroll) {
+  gutter.addEventListener("wheel", event => {
+    event.preventDefault();
+    const scale = wheelScale(area, event);
+    area.scrollTop += event.deltaY * scale;
+    area.scrollLeft += event.deltaX * scale;
+    syncScroll();
+  }, { passive: false });
+  let drag = null;
+  const finish = event => {
+    if (!drag || event.pointerId !== drag.id) return;
+    drag = null;
+  };
+  gutter.addEventListener("pointerdown", event => {
+    if (event.pointerType === "mouse" || event.button > 0) return;
+    drag = { id: event.pointerId, x: event.clientX, y: event.clientY, top: area.scrollTop, left: area.scrollLeft };
+    try { gutter.setPointerCapture(event.pointerId); } catch { /* синтетическое событие проверки */ }
+  });
+  gutter.addEventListener("pointermove", event => {
+    if (!drag || event.pointerId !== drag.id) return;
+    area.scrollTop = drag.top - (event.clientY - drag.y);
+    area.scrollLeft = drag.left - (event.clientX - drag.x);
+    syncScroll();
+  });
+  gutter.addEventListener("pointerup", finish);
+  gutter.addEventListener("pointercancel", finish);
+}
+
 function mountEditor(editor) {
   if (editor.dataset.editorReady === "true") return;
   const area = editor.querySelector("textarea");
@@ -670,14 +730,26 @@ function mountEditor(editor) {
     if (!editor.contains(event.relatedTarget)) delete editor.dataset.focusSource;
   });
   const syncScroll = () => {
-    if (gutter) gutter.scrollTop = area.scrollTop;
+    if (gutter) {
+      gutter.scrollTop = area.scrollTop;
+      gutter.scrollLeft = 0;
+    }
     const layer = editor.querySelector(".fl-editor__paint");
     if (layer) layer.style.transform = `translate(${-area.scrollLeft}px, ${-area.scrollTop}px)`;
   };
-  area.addEventListener("scroll", () => {
+  const followScroll = () => {
     syncScroll();
     queueMicrotask(syncScroll);
-  }, { passive: true });
+  };
+  area.addEventListener("scroll", followScroll, { passive: true });
+  area.addEventListener("input", syncScroll);
+  area.addEventListener("keyup", syncScroll);
+  if (typeof ResizeObserver === "function") {
+    const observer = new ResizeObserver(() => syncScroll());
+    observer.observe(area);
+    if (gutter) observer.observe(gutter);
+  }
+  if (gutter) bindGutterGestures(gutter, area, syncScroll);
 }
 
 if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", () => mountWidgets(document));

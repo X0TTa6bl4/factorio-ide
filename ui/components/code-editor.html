@@ -41,26 +41,26 @@
     <div class="fl-editor-notes fl-stack">
       <p class="fl-field__hint" id="editor-keys">Tab — отступ, Enter — выбрать подсказку. Tab вставляет один символ U+0009 и не принимает пункт, в том числе при открытом меню; визуальный tab-size — 2. Shift+Tab уходит из поля. Форматирование: ⌥⌘L на macOS, Ctrl+Alt+L на Windows и Linux.</p>
       <p class="fl-field__hint">Каркас после вставки класса. Вертикальная черта обозначает каретку и не входит в документ. Пустая строка — одна табуляция.</p>
-      <pre class="fl-code" aria-label="Каркас многострочного объекта"><code>Arithmetic({
+      <pre tabindex="0" class="fl-code" aria-label="Каркас многострочного объекта"><code>Arithmetic({
 	|
 })</code></pre>
       <p class="fl-field__hint">Один элемент массива остаётся в скобках, плоский объект пишется компактно. Несколько элементов — каждый на своей строке.</p>
-      <pre class="fl-code" aria-label="Один элемент массива"><code>signals: [{ signal: Signal.Signals.signal_A, constant: 1 }]</code></pre>
-      <pre class="fl-code" aria-label="Несколько элементов массива"><code>signals: [
+      <pre tabindex="0" class="fl-code" aria-label="Один элемент массива"><code>signals: [{ signal: Signal.Signals.signal_A, constant: 1 }]</code></pre>
+      <pre tabindex="0" class="fl-code" aria-label="Несколько элементов массива"><code>signals: [
 	{ signal: Signal.Signals.signal_A, constant: 1 },
 	{ signal: Signal.Signals.signal_B, constant: 2 }
 ]</code></pre>
       <p class="fl-field__hint">Ошибка, блокирующая запуск, подчёркивается волнистой линией. Текст сообщения и кнопка «К месту» находятся в панели диагностики и доступны с клавиатуры; наведение не требуется.</p>
       <p class="fl-field__hint">Неизвестный путь</p>
-      <pre class="fl-editor__sample" aria-label="Неизвестный путь SSignal"><span class="prop">signal</span>: <span class="err"><span class="type">SSignal</span>.<span class="path">Signals</span>.<span class="path">signal_A</span></span>, <span class="prop">constant</span>: <span class="num">1</span></pre>
+      <pre tabindex="0" class="fl-editor__sample" aria-label="Неизвестный путь SSignal"><span class="prop">signal</span>: <span class="err"><span class="type">SSignal</span>.<span class="path">Signals</span>.<span class="path">signal_A</span></span>, <span class="prop">constant</span>: <span class="num">1</span></pre>
       <p class="fl-field__hint">Синтаксическая ошибка у конца текста</p>
-      <pre class="fl-editor__sample" aria-label="Синтаксическая ошибка"><span class="type">Arithmetic</span>({ <span class="prop">red_input</span>: <span class="err-point"></span></pre>
+      <pre tabindex="0" class="fl-editor__sample" aria-label="Синтаксическая ошибка"><span class="type">Arithmetic</span>({ <span class="prop">red_input</span>: <span class="err-point"></span></pre>
       <p class="fl-field__hint">Несколько ошибок</p>
-      <pre class="fl-editor__sample" aria-label="Несколько ошибок"><span class="prop">red_input</span>: <span class="err">blue_1</span>,
+      <pre tabindex="0" class="fl-editor__sample" aria-label="Несколько ошибок"><span class="prop">red_input</span>: <span class="err">blue_1</span>,
 <span class="prop">right_operand</span>: { <span class="prop">constant</span>: <span class="err num">1.5</span> },
 <span class="prop">signal</span>: <span class="err"><span class="type">SSignal</span>.<span class="path">Signals</span>.<span class="path">signal_A</span></span></pre>
       <p class="fl-field__hint">Исправленный документ</p>
-      <pre class="fl-editor__sample" aria-label="Исправленный документ"><span class="prop">signal</span>: <span class="type">Signal</span>.<span class="path">Signals</span>.<span class="path">signal_A</span>, <span class="prop">constant</span>: <span class="num">1</span></pre>
+      <pre tabindex="0" class="fl-editor__sample" aria-label="Исправленный документ"><span class="prop">signal</span>: <span class="type">Signal</span>.<span class="path">Signals</span>.<span class="path">signal_A</span>, <span class="prop">constant</span>: <span class="num">1</span></pre>
     </div>
   </div>
   <div role="tabpanel" id="panel-info" aria-labelledby="tab-info" tabindex="0" class="fl-panel__body fl-stack" hidden>

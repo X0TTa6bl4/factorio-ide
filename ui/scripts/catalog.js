@@ -1,4 +1,6 @@
 import { mountWidgets } from "./widgets.js";
+import { mountCompact } from "./compact.js";
+import { mountDocumentation } from "./docs.js";
 
 // Demo-only composition. Production pages can use these HTML fragments directly.
 const componentURL = new URL("../components/", import.meta.url);
@@ -27,6 +29,10 @@ function uniqueIDs(fragment) {
       element.setAttribute(attribute, element.getAttribute(attribute).split(/\s+/).map(id => ids.get(id) ?? id).join(" "));
     });
   }
+  fragment.querySelectorAll("[data-label-id]").forEach(element => {
+    const next = ids.get(element.dataset.labelId);
+    if (next) element.dataset.labelId = next;
+  });
 }
 
 async function include(element) {
@@ -198,7 +204,8 @@ function wireDemo() {
   });
   document.querySelectorAll(".fl-editor textarea").forEach(input => {
     input.addEventListener("input", () => {
-      input.closest('[role="tabpanel"]').querySelector("[data-edit-status]").textContent = "Изменено · демо без проверки кода";
+      const status = input.closest('[role="tabpanel"]')?.querySelector("[data-edit-status]");
+      if (status) status.textContent = "Изменено · демо без проверки кода";
     });
   });
 }
@@ -209,5 +216,7 @@ if (results.some(result => result.status === "rejected")) {
 } else {
   mountWidgets(document);
   wireDemo();
+  mountCompact(document);
+  document.querySelectorAll("[data-docs]").forEach(mountDocumentation);
   document.documentElement.dataset.uiReady = "true";
 }

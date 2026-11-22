@@ -1,0 +1,44 @@
+<div class="fl-docs__articles">
+  <article class="fl-docs__article" data-doc-article="networks" aria-labelledby="docs-networks-title">
+    <p class="fl-docs__eyebrow">Общие понятия / 01</p>
+    <h1 id="docs-networks-title" tabindex="-1" data-doc-heading="networks">Сети и подключения</h1>
+    <p class="fl-docs__lead">Соедините устройства сетью, чтобы передать сигналы от одного комбинатора к другому.</p>
+    <div class="fl-docs__related"><span>В этой статье</span><a href="#networks-ports" data-doc-target="networks-ports">Подключение</a><a href="#networks-reading" data-doc-target="networks-reading">Чтение сигналов</a></div>
+    <section><h2 id="docs-networks-ports" data-doc-heading="networks-ports">Подключение устройств</h2>
+      <p>Создайте две красные сети: входную <code>red_1</code> и выходную <code>red_2</code>. Подключите постоянный источник к первой сети, а выход сравнивающего — ко второй.</p>
+      <ol class="fl-docs__steps"><li>Объявите сети перед устройствами.</li><li>В <code>red_input</code> укажите входную сеть.</li><li>В <code>red_output</code> укажите сеть, в которой хотите получить результат.</li></ol>
+      <figure class="fl-docs__code" data-doc-code><figcaption><span>Конфигурация · сети</span><button class="fl-button" type="button" data-doc-copy>Копировать</button></figcaption><pre tabindex="0" aria-label="Пример объявления сетей"><code>wire red_1 {}
+wire red_2 {}
+
+Constant({
+  enabled: true,
+  red_output: red_1,
+  signals: [{ signal: Signal.Signals.signal_A, constant: 12 }]
+})</code></pre><p class="fl-docs__copy-status" role="status" aria-live="polite" data-doc-copy-status></p></figure>
+    </section>
+    <section><h2 id="docs-networks-reading" data-doc-heading="networks-reading">Как читаются сигналы</h2><p>Вклад источников одной сети складывается по каждому сигналу. В этом примере источник задаёт <strong>A = 12</strong>. Комбинатор читает входы и публикует результат на следующей границе тика.</p>
+      <aside class="fl-docs__callout"><strong>Вход и выход в одной сети</strong><p>Выход комбинатора возвращается на его вход и складывается с другими источниками. Для простой передачи количества используйте отдельную выходную сеть.</p></aside>
+    </section>
+    <section><h2 id="docs-networks-next" data-doc-heading="networks-next">Что дальше</h2><p>Теперь добавьте <a href="#decider" data-doc-target="decider">сравнивающий комбинатор</a>, чтобы передавать сигнал только при выполнении условия.</p></section>
+    <footer class="fl-docs__pager"><span class="fl-muted">Общие понятия</span><a href="#decider" data-doc-target="decider">Следующая: Сравнивающий →</a></footer>
+  </article>
+  <article class="fl-docs__article" data-doc-article="decider" aria-labelledby="docs-decider-title" hidden>
+    <p class="fl-docs__eyebrow">Комбинаторы / 02</p>
+    <h1 id="docs-decider-title" tabindex="-1" data-doc-heading="decider">Сравнивающий комбинатор</h1>
+    <p class="fl-docs__lead">Проверьте условие и выберите, какое количество сигнала передать на выход.</p>
+    <div class="fl-docs__related"><span>Перед началом</span><a href="#networks-ports" data-doc-target="networks-ports">Подключение к сетям ↗</a><a href="#networks-reading" data-doc-target="networks-reading">Чтение сигналов ↗</a></div>
+    <section><h2 id="docs-decider-copy" data-doc-heading="decider-copy">Копирование количества</h2><p>В <code>when_true</code> укажите сигнал и цвета входов, с которых нужно прочитать его количество. <code>red: true</code> выбирает красный вход, <code>green: false</code> исключает зелёный.</p>
+      <figure class="fl-docs__code" data-doc-code><figcaption><span>Конфигурация · выход Decider</span><button class="fl-button" type="button" data-doc-copy>Копировать</button></figcaption><pre tabindex="0" aria-label="Фрагмент копирования количества"><code>when_true: [{
+  signal: Signal.Signals.signal_A,
+  red: true,
+  green: false
+}]</code></pre><p class="fl-docs__copy-status" role="status" aria-live="polite" data-doc-copy-status></p></figure>
+      <p class="fl-docs__caption">Фрагмент настройки выхода: вставляется внутрь <code>Decider({...})</code>, не запускается отдельно.</p>
+      <div class="fl-docs__result"><span>Ожидаемый результат</span><p>Если условие истинно и на красном входе <strong>A = 12</strong>, комбинатор передаёт на выход <strong>A = 12</strong>.</p></div>
+    </section>
+    <section><h2 id="docs-decider-fixed" data-doc-heading="decider-fixed">Фиксированное количество</h2><p>Чтобы выдавать заданное число, используйте <code>{ signal: Signal.Signals.signal_A, constant: 1 }</code>. Оно не зависит от входного количества. Не смешивайте <code>constant</code> и цветовые флаги в одной настройке обычного сигнала.</p></section>
+    <section><h2 id="docs-decider-errors" data-doc-heading="decider-errors">Частые ошибки</h2><aside class="fl-docs__callout fl-docs__callout--error"><strong>Одного поля signal недостаточно</strong><p>Выберите один из двух режимов: <code>constant</code> либо оба флага <code>red</code> и <code>green</code>. Неполная настройка блокирует запуск.</p></aside><p>Если количество неожиданно растёт, проверьте <a href="#networks-reading" data-doc-target="networks-reading">суммирование в сети и обратную связь</a>.</p></section>
+    <footer class="fl-docs__pager"><a href="#networks" data-doc-target="networks">← Сети и подключения</a><span class="fl-muted">Комбинаторы</span></footer>
+  </article>
+  <div class="fl-docs__article" data-doc-missing hidden><h1 tabindex="-1">Раздел не найден</h1><p>Проверьте адрес или откройте <a href="#networks" data-doc-target="networks">начало руководства</a>.</p></div>
+</div>

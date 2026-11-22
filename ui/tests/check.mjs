@@ -103,8 +103,8 @@ try {
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
   await page.goto(`${base}/factorio-ide/ui/`);
   await page.waitForFunction(() => document.documentElement.dataset.uiReady === "true");
-  assert.equal(await page.locator("[data-loaded='true']").count(), 26);
-  for (const name of ["tooltip", "buttons", "suggest", "network-picker", "code-editor", "editor-inspector"]) {
+  assert.equal(await page.locator("[data-loaded='true']").count(), 31);
+  for (const name of ["tooltip", "buttons", "suggest", "network-picker", "code-editor", "editor-inspector", "docs-navigation", "docs-article", "docs-outline"]) {
     await page.locator(`[data-ui="${name}"]`).screenshot({ path: `${output}/${name}.png` });
   }
   await page.getByRole("button", { name: "Тип операнда" }).click();
@@ -153,7 +153,7 @@ try {
   assert.equal(await tabs.nth(1).getAttribute("aria-selected"), "true");
   assert.equal(await page.locator('[role="tabpanel"]:visible').count(), 1);
   await page.keyboard.press("Home");
-  const editor = page.locator(".fl-editor");
+  const editor = page.locator('[data-ui="code-editor"] .fl-editor');
   const area = editor.locator("textarea");
   await area.scrollIntoViewIfNeeded();
   const beforeClick = await area.boundingBox();
