@@ -42,7 +42,7 @@ async function openConfigure(width = 1280, pathname = "/factorio-ide/pages/confi
   const page = await context.newPage();
   const errors = track(page);
   await page.goto(`http://127.0.0.1:${port}${pathname}`);
-  await page.waitForFunction(() => document.querySelector("#document-state")?.textContent === "Разбор выполнен"
+  await page.waitForFunction(() => document.querySelector("#document-state")?.textContent === "Код проверен"
     && document.querySelector("#toolbar")?.dataset.playback === "paused"
     && document.querySelector("#tick-value")?.textContent === "—");
   return { page, context, errors };
@@ -131,7 +131,7 @@ test("инспектор справа прокручивает секции и �
     try {
       assert.equal(await page.locator(".fl-screen__drawers").count(), 0);
       assert.equal(await page.locator(".fl-editor-inspector").count(), 1);
-      const ids = ["signal-panel", "diagnostics-panel", "diagnostics-toggle"];
+      const ids = ["signal-panel", "editor-status", "document-state"];
       assert.equal(await page.locator("#devices-panel, #forms-panel").count(), 0);
       for (const id of ids) assert.equal(await page.locator(`[id="${id}"]`).count(), 1, `${pathname} ${id}`);
       const dupes = await page.evaluate(() => {
@@ -142,33 +142,33 @@ test("инспектор справа прокручивает секции и �
       await page.locator("#document").fill(networks);
       await page.locator("#step").click();
       await page.waitForFunction(() => document.querySelectorAll("#live-signals tr[data-network]").length >= 20);
-
-      await page.setViewportSize({ width: 390, height: 600 });
-      if (await page.locator("#diagnostics-toggle").getAttribute("aria-expanded") === "true") {
-        await page.locator("#diagnostics-toggle").click();
-      }
-      await page.evaluate(() => { document.querySelector(".fl-editor-inspector").scrollTop = 0; });
       await page.locator("#document").fill(networks.replace("constant: 1 }", "constant: 1.5 }"));
-      await page.waitForFunction(() => document.querySelector("#error-jump") && !document.querySelector("#error-jump").hidden);
-      await page.locator("#error-jump").click();
+      await page.waitForFunction(() => document.querySelector("#status-jump") && !document.querySelector("#status-jump").hidden);
+      await page.locator("#status-jump").focus();
+      await page.keyboard.press("Enter");
       const jumped = await page.evaluate(() => {
         const area = document.querySelector("#document");
-        const section = document.querySelector("#diagnostics-panel").closest("section");
-        const frame = document.querySelector(".fl-editor-inspector").getBoundingClientRect();
-        const box = section.getBoundingClientRect();
         return {
           selected: area.value.slice(area.selectionStart, area.selectionEnd),
-          seen: box.top < frame.bottom - 1 && box.bottom > frame.top + 1,
           focus: document.activeElement === area,
+          status: document.querySelector("#document-state")?.textContent ?? "",
         };
       });
       assert.match(jumped.selected, /1\.5/);
-      assert.equal(jumped.seen, true, pathname);
+      assert.match(jumped.status, /Строка \d+:/);
+      assert.match(jumped.status, /целым числом/);
       assert.equal(jumped.focus, true, pathname);
 
+      await page.setViewportSize({ width: 390, height: 600 });
+      await page.waitForFunction(() => window.matchMedia("(max-width: 900px)").matches
+        && document.querySelector("#code-panel")?.hidden === false
+        && document.querySelector("#networks-column")?.hidden === true);
+      assert.equal(await page.evaluate(() => document.activeElement?.id), "document");
+      await page.locator('[data-work-view="networks"]').click();
       await page.locator("#signal-filter").focus();
       await page.locator("#signal-filter").fill("red_3");
       assert.equal(await page.evaluate(() => document.activeElement.id), "signal-filter");
+      await page.locator("#signal-filter").fill("");
 
       const metrics = await page.evaluate(() => {
         const scroller = document.scrollingElement;
@@ -177,16 +177,22 @@ test("инспектор справа прокручивает секции и �
         const documentScrolls = scroller.scrollTop > before + 1;
         scroller.scrollTop = before;
         const table = document.querySelector("#signal-scroll");
-        const area = document.querySelector("#document");
         return {
           documentScrolls,
           tableScrolls: table.scrollHeight > table.clientHeight + 1,
-          codeScrolls: area.scrollHeight > area.clientHeight + 1,
+          scrollHeight: table.scrollHeight,
+          clientHeight: table.clientHeight,
+          rows: document.querySelectorAll("#live-signals tr").length,
         };
       });
       assert.equal(metrics.documentScrolls, false, pathname);
-      assert.equal(metrics.tableScrolls, true, pathname);
-      assert.equal(metrics.codeScrolls, true, pathname);
+      assert.equal(metrics.tableScrolls, true, `${pathname}: rows ${metrics.rows}, ${metrics.scrollHeight}/${metrics.clientHeight}`);
+      await page.locator('[data-work-view="code"]').click();
+      const codeScrolls = await page.evaluate(() => {
+        const area = document.querySelector("#document");
+        return area.scrollHeight > area.clientHeight + 1;
+      });
+      assert.equal(codeScrolls, true, pathname);
       assert.deepEqual(errors, []);
     } finally {
       await context.close();
@@ -231,21 +237,24 @@ test("корень показывает редактор, прогон и две
     try {
       assert.equal(await page.locator("#demo-rows").count(), 0);
       assert.equal(await page.locator("#forms-panel, #devices-panel").count(), 0);
-      assert.equal(await page.locator("#diagnostics-panel").isHidden(), true);
-      assert.equal(await page.locator("#open-events").textContent(), "Событийные комбинаторы");
+      assert.equal(await page.locator("#diagnostics-panel, #document-hint").count(), 0);
+      assert.equal((await page.locator("#open-events").textContent()).trim(), "События");
+      assert.equal(await page.locator("#open-events").getAttribute("aria-expanded"), null);
+      assert.equal(await page.locator(".fl-topbar #open-events").count(), 0);
       const widths = await page.evaluate(() => ({
         code: document.querySelector("#document").closest("section").getBoundingClientRect().width,
         signals: document.querySelector("#signal-panel").getBoundingClientRect().width,
       }));
       assert.ok(widths.code > widths.signals, `${pathname}: код ${widths.code}, сети ${widths.signals}`);
 
-      await chooseSelect(page, "speed", "100");
+      await chooseSelect(page, "speed", "10");
       await page.locator("#play").click();
       await page.waitForFunction(() => Number(document.querySelector("#tick-value")?.textContent) >= 2);
       await page.locator("#play").click();
       await page.waitForFunction(() => document.querySelector("#toolbar")?.getAttribute("aria-busy") === "false"
         && document.querySelector("#back")?.disabled === false
-        && document.querySelector("#play-label")?.textContent === "Запустить");
+        && document.querySelector("#play")?.getAttribute("aria-label") === "Запустить"
+        && document.querySelector("#play")?.getAttribute("aria-pressed") === "false");
       const paused = await page.locator("#tick-value").textContent();
       await page.waitForTimeout(350);
       assert.equal(await page.locator("#tick-value").textContent(), paused);
@@ -304,25 +313,19 @@ test("ошибка открывает место в тексте, чернови
     await broken.page.locator("#step").click();
     await broken.page.waitForFunction(() => document.querySelector("#tick-value")?.textContent === "0");
     await broken.page.locator("#document").fill(await broken.page.locator("#document").inputValue().then((text) => text.replace("constant: 2", "constant: 1.5")));
-    await broken.page.waitForFunction(() => document.querySelector("#error-jump") && !document.querySelector("#error-jump").hidden);
-    await broken.page.locator("#error-jump").click();
-    assert.equal(await broken.page.locator("#diagnostics-panel").isHidden(), false);
+    await broken.page.waitForFunction(() => document.querySelector("#status-jump") && !document.querySelector("#status-jump").hidden);
+    await broken.page.locator("#status-jump").focus();
+    await broken.page.keyboard.press("Enter");
     const jumped = await broken.page.evaluate(() => {
       const area = document.querySelector("#document");
-      const panel = document.querySelector("#diagnostics-panel");
-      const section = panel.closest("section");
-      const frame = document.querySelector(".fl-editor-inspector").getBoundingClientRect();
-      const box = section.getBoundingClientRect();
       return {
         selected: area.value.slice(area.selectionStart, area.selectionEnd),
-        inside: document.querySelector(".fl-editor-inspector")?.contains(panel) === true,
-        seen: box.bottom > frame.top + 1 && box.top < frame.bottom - 1,
         focus: document.activeElement === area,
+        codeShown: document.querySelector("#code-panel")?.hidden === false,
       };
     });
     assert.match(jumped.selected, /1\.5/);
-    assert.equal(jumped.inside, true);
-    assert.equal(jumped.seen, true);
+    assert.equal(jumped.codeShown, true);
     assert.equal(jumped.focus, true);
     assert.equal(await broken.page.locator("#play").isDisabled(), true);
     assert.deepEqual(broken.errors, []);
@@ -754,8 +757,7 @@ test("форматирование, Tab и история действуют т�
   const menu = page.locator("[data-suggest='caret']");
   const source = `${"// row\n".repeat(40)}Arithmetic({ return: Signal.Logistic.wooden_chest, red_input: red_1, green_output: green_1, left_operand: { red: true, green: true, signal: Signal.Logistic.wooden_chest }, right_operand: { constant: 2 }, operation: Arithmetic.Operation.SUM })`;
   try {
-    assert.match(await page.locator("#document-hint").innerText(), /Tab — отступ, Enter — выбрать подсказку/);
-    assert.match(await page.locator("#document-hint").innerText(), /Ctrl\+Alt\+L/);
+    assert.equal(await page.locator("#document-hint").count(), 0);
     const untouched = await area.inputValue();
     await page.locator("#signal-filter").focus();
     await page.keyboard.press("Control+Alt+l");
@@ -894,9 +896,16 @@ async function assertHistoryChrome(page, labels) {
     assert.equal(await button.isDisabled(), true);
   }
   const order = await page.locator("#toolbar .fl-toolbar__actions button").evaluateAll((nodes) => nodes.map((node) => node.id));
-  const reset = order.indexOf("reset");
-  assert.equal(order[reset + 1], "undo");
-  assert.equal(order[reset + 2], "redo");
+  assert.equal(order.includes("undo"), false);
+  assert.equal(order.includes("redo"), false);
+  assert.equal(order.at(-1), "reset");
+  const head = await page.locator(".fl-work-edit button").evaluateAll((nodes) => nodes.map((node) => node.id));
+  assert.deepEqual(head, ["undo", "redo"]);
+  const undoBox = await page.locator("#undo").boundingBox();
+  const playBox = await page.locator("#play").boundingBox();
+  assert.equal(Math.round(undoBox.width), 32);
+  assert.equal(Math.round(undoBox.height), 32);
+  assert.ok(undoBox.width < playBox.width - 1);
 }
 
 test("иконки отмены и повтора, tooltip и область хоткеев", { timeout: 90_000 }, async () => {
@@ -917,12 +926,16 @@ test("иконки отмены и повтора, tooltip и область х�
   const area = page.locator("#document");
   try {
     const toolbarBefore = await page.locator("#toolbar").boundingBox();
+    const headBefore = await page.locator("[data-workbench] > .fl-panel__head").boundingBox();
     await page.locator("#redo").locator("xpath=ancestor::*[@data-tooltip][1]").hover();
     await page.waitForFunction(() => document.querySelector("#redo-tip")?.dataset.open === "true");
     assert.match(await page.locator("#redo-tip").innerText(), /Повторить правку · Ctrl\+Y/);
     const toolbarAfter = await page.locator("#toolbar").boundingBox();
+    const headAfter = await page.locator("[data-workbench] > .fl-panel__head").boundingBox();
     assert.equal(toolbarAfter.height, toolbarBefore.height);
     assert.equal(toolbarAfter.width, toolbarBefore.width);
+    assert.equal(headAfter.height, headBefore.height);
+    assert.equal(headAfter.width, headBefore.width);
 
     await area.focus();
     await area.evaluate((node) => node.setSelectionRange(node.value.length, node.value.length));
@@ -1004,15 +1017,15 @@ test("иконки отмены и повтора, tooltip и область х�
 
     const valid = "Constant({ enabled: true, signals: [{ signal: Signal.Logistic.wooden_chest, constant: 1 }] })";
     await area.fill(valid);
-    await page.waitForFunction(() => document.querySelector("#document-state")?.textContent === "Разбор выполнен");
+    await page.waitForFunction(() => document.querySelector("#document-state")?.textContent === "Код проверен");
     await area.fill(valid.replace("constant: 1", "constant: 1.5"));
-    await page.waitForFunction(() => document.querySelector("#document-state")?.textContent === "Есть диагностика");
+    await page.waitForFunction(() => /^Строка \d+:/.test(document.querySelector("#document-state")?.textContent ?? ""));
     await page.keyboard.press("Control+z");
     assert.equal(await area.inputValue(), valid);
-    await page.waitForFunction(() => document.querySelector("#document-state")?.textContent === "Разбор выполнен");
+    await page.waitForFunction(() => document.querySelector("#document-state")?.textContent === "Код проверен");
     await page.keyboard.press("Control+y");
     assert.match(await area.inputValue(), /constant: 1\.5/);
-    assert.equal(await page.locator("#document-state").textContent(), "Есть диагностика");
+    assert.match(await page.locator("#document-state").textContent(), /^Строка \d+:/);
 
     const source = "Arithmetic({ return: Signal.Logistic.wooden_chest, red_input: red_1 })";
     await area.fill(source);
@@ -1166,12 +1179,11 @@ test("ошибка запуска подчёркивается и уходит �
       await opened.page.reload();
       await opened.page.waitForFunction(() => document.querySelector("#document")?.value.includes("SSignal.Signals.signal_A")
         && [...document.querySelectorAll(".fl-editor__paint .err")].some((node) => node.textContent === "SSignal"));
-      assert.match(await opened.page.locator("#diagnostics").innerText(), /Неизвестный путь/);
-      assert.match(await opened.page.locator("#diagnostics").innerText(), /SSignal\.Signals\.signal_A/);
+      assert.match(await opened.page.locator("#document-state").textContent(), /Неизвестный путь/);
+      assert.match(await opened.page.locator("#document-state").textContent(), /SSignal\.Signals\.signal_A/);
+      assert.match(await opened.page.locator("#document-state").textContent(), /Замените путь/);
       assert.equal(await opened.page.locator("#play").isDisabled(), true);
-      await opened.page.locator("#diagnostics-toggle").focus();
-      await opened.page.keyboard.press("Enter");
-      const jump = opened.page.locator("#diagnostics [data-jump='true']").first();
+      const jump = opened.page.locator("#status-jump");
       await jump.focus();
       await opened.page.keyboard.press("Enter");
       const selected = await opened.page.locator("#document").evaluate((node) => node.value.slice(node.selectionStart, node.selectionEnd));
@@ -1239,7 +1251,7 @@ test("ошибка запуска подчёркивается и уходит �
     await page.waitForFunction(() => document.querySelector(".fl-editor__paint .err-point")
       && ![...document.querySelectorAll(".fl-editor__paint .err")].some((node) => node.textContent === "blue_1"));
     assert.equal(await page.locator("#document").inputValue(), "Arithmetic({ red_input:");
-    await page.locator("#diagnostics-toggle").focus();
+    await page.locator("#status-list").focus();
     await page.keyboard.press("Enter");
     await page.locator("#diagnostics [data-jump='true']").first().focus();
     await page.keyboard.press("Enter");
@@ -1258,13 +1270,346 @@ test("ошибка запуска подчёркивается и уходит �
   }
 });
 
-test("подсказка форматирования есть и на корневой странице", { timeout: 60_000 }, async () => {
+const SCROLL_SOURCE = [
+  ...Array.from({ length: 36 }, (_, index) => `// row ${index + 1}`),
+  `// ${"x".repeat(240)} WIDE`,
+  ...Array.from({ length: 36 }, (_, index) => `// tail ${index + 1}`),
+  "Constant({ signals: [{ signal: SSignal.Signals.signal_A, constant: 1 }] })",
+].join("\n");
+
+async function editorScroll(page, line) {
+  return page.evaluate((line) => {
+    const area = document.querySelector("#document");
+    const gutter = document.querySelector("#gutter");
+    const paint = document.querySelector(".fl-editor__paint");
+    const topOf = (root) => {
+      const text = root?.textContent ?? "";
+      let offset = 0;
+      for (let index = 1; index < line; index += 1) {
+        const next = text.indexOf("\n", offset);
+        if (next < 0) return null;
+        offset = next + 1;
+      }
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+      let consumed = 0;
+      let node = walker.nextNode();
+      while (node) {
+        const end = consumed + node.textContent.length;
+        if (offset >= consumed && offset < end) {
+          const range = document.createRange();
+          const local = offset - consumed;
+          range.setStart(node, local);
+          range.setEnd(node, Math.min(node.textContent.length, local + 1));
+          const box = range.getBoundingClientRect();
+          return { top: box.top, left: box.left };
+        }
+        consumed = end;
+        node = walker.nextNode();
+      }
+      return null;
+    };
+    const gutterStyle = getComputedStyle(gutter);
+    const areaStyle = getComputedStyle(area);
+    const gutterLine = topOf(gutter);
+    const paintLine = topOf(paint);
+    return {
+      overflow: gutterStyle.overflowY,
+      gutterLineHeight: gutterStyle.lineHeight,
+      areaLineHeight: areaStyle.lineHeight,
+      gutterPad: gutterStyle.paddingTop,
+      areaPad: areaStyle.paddingTop,
+      scrollTop: area.scrollTop,
+      gutterTop: gutter.scrollTop,
+      scrollLeft: area.scrollLeft,
+      gutterLeft: gutter.scrollLeft,
+      transform: paint?.style.transform ?? "",
+      dy: gutterLine && paintLine ? Math.abs(gutterLine.top - paintLine.top) : null,
+      gutterX: gutterLine?.left ?? null,
+      documentOverflow: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    };
+  }, line);
+}
+
+function assertEditorScroll(state, label) {
+  assert.equal(state.overflow, "hidden", label);
+  assert.equal(state.gutterLineHeight, state.areaLineHeight, label);
+  assert.equal(state.gutterPad, state.areaPad, label);
+  assert.ok(Math.abs(state.scrollTop - state.gutterTop) < 1, `${label}: scroll ${state.scrollTop}/${state.gutterTop}`);
+  assert.equal(state.gutterLeft, 0, label);
+  assert.equal(state.transform, `translate(${-state.scrollLeft}px, ${-state.scrollTop}px)`, label);
+  assert.ok(state.dy !== null && state.dy <= 2, `${label}: dy ${state.dy}`);
+  assert.ok(state.documentOverflow <= 1, `${label}: document ${state.documentOverflow}`);
+}
+
+test("номера строк прокручиваются вместе с кодом", { timeout: 120_000 }, async () => {
+  for (const pathname of ["/factorio-ide/", "/factorio-ide/pages/configure/"]) {
+    for (const width of [1440, 390]) {
+      const opened = await openConfigure(width, pathname);
+      const { page } = opened;
+      try {
+        const area = page.locator("#document");
+        const gutter = page.locator("#gutter");
+        await area.fill(SCROLL_SOURCE);
+        await page.waitForFunction(() => /^Строка \d+:/.test(document.querySelector("#document-state")?.textContent ?? "")
+          && [...document.querySelectorAll(".fl-editor__paint .err")].some((node) => node.textContent === "SSignal"));
+        await area.evaluate((node) => {
+          node.scrollTop = 0;
+          node.scrollLeft = 0;
+        });
+        await page.waitForFunction(() => {
+          const field = document.querySelector("#document");
+          const numbers = document.querySelector("#gutter");
+          return field.scrollTop < 1 && Math.abs(field.scrollTop - numbers.scrollTop) < 1;
+        });
+        const initial = await editorScroll(page, 8);
+        assert.equal(initial.scrollTop, 0);
+        assertEditorScroll(initial, `${pathname} ${width} start`);
+
+        const box = await gutter.boundingBox();
+        assert.ok(box, pathname);
+        const point = { x: box.x + box.width / 2, y: box.y + Math.min(36, box.height / 2) };
+        assert.equal(await page.evaluate((hit) => document.elementFromPoint(hit.x, hit.y)?.id, point), "gutter");
+        await page.mouse.move(point.x, point.y);
+        await page.mouse.wheel(0, 160);
+        await page.waitForFunction((previous) => {
+          const field = document.querySelector("#document");
+          const numbers = document.querySelector("#gutter");
+          return field.scrollTop > previous + 1 && Math.abs(field.scrollTop - numbers.scrollTop) < 1;
+        }, initial.scrollTop);
+        const wheeled = await editorScroll(page, 8);
+        assertEditorScroll(wheeled, `${pathname} ${width} wheel`);
+
+        const gutterX = wheeled.gutterX;
+        await page.mouse.wheel(140, 0);
+        await page.waitForFunction((previous) => {
+          const field = document.querySelector("#document");
+          const numbers = document.querySelector("#gutter");
+          return field.scrollLeft > previous + 1 && numbers.scrollLeft === 0
+            && Math.abs(field.scrollTop - numbers.scrollTop) < 1;
+        }, wheeled.scrollLeft);
+        const wide = await editorScroll(page, 8);
+        assert.ok(wide.scrollLeft > wheeled.scrollLeft);
+        assert.ok(Math.abs(wide.gutterX - gutterX) <= 1, `${pathname} gutter x ${wide.gutterX}`);
+        assertEditorScroll(wide, `${pathname} ${width} x`);
+
+        await gutter.dispatchEvent("pointerdown", {
+          pointerType: "touch", pointerId: 1, button: 0, clientX: point.x, clientY: point.y, bubbles: true,
+        });
+        await gutter.dispatchEvent("pointermove", {
+          pointerType: "touch", pointerId: 1, button: 0, clientX: point.x, clientY: point.y + 80, bubbles: true,
+        });
+        await gutter.dispatchEvent("pointerup", {
+          pointerType: "touch", pointerId: 1, button: 0, clientX: point.x, clientY: point.y + 80, bubbles: true,
+        });
+        const touched = await editorScroll(page, 8);
+        assert.ok(touched.scrollTop < wide.scrollTop - 1, `${pathname} touch ${touched.scrollTop}`);
+        assertEditorScroll(touched, `${pathname} ${width} touch`);
+
+        const areaBox = await area.boundingBox();
+        await area.click({ position: { x: 20, y: 24 } });
+        const beforeKey = (await editorScroll(page, 8)).scrollTop;
+        await page.keyboard.press("PageDown");
+        await page.waitForFunction((previous) => {
+          const field = document.querySelector("#document");
+          const numbers = document.querySelector("#gutter");
+          return field.scrollTop > previous && Math.abs(field.scrollTop - numbers.scrollTop) < 1;
+        }, beforeKey);
+        const keyed = await editorScroll(page, 8);
+        assert.ok(keyed.scrollTop > beforeKey, `${pathname} key ${beforeKey}->${keyed.scrollTop} box ${areaBox?.y}`);
+        assert.equal(await page.evaluate(() => document.activeElement?.id), "document");
+        assertEditorScroll(keyed, `${pathname} ${width} key`);
+
+        await area.evaluate((node) => {
+          const extra = `\n${"// pasted line\n".repeat(24)}`;
+          node.focus();
+          node.setRangeText(extra, node.value.length, node.value.length, "end");
+          node.dispatchEvent(new InputEvent("input", { bubbles: true, inputType: "insertFromPaste" }));
+        });
+        await page.waitForFunction(() => document.querySelector("#gutter")?.textContent?.includes("\n90"));
+        assertEditorScroll(await editorScroll(page, 8), `${pathname} ${width} paste`);
+        await page.locator("#undo").click();
+        await page.waitForFunction(() => document.querySelector("#document")?.value.includes("SSignal")
+          && !document.querySelector("#gutter")?.textContent?.includes("\n90"));
+        assertEditorScroll(await editorScroll(page, 8), `${pathname} ${width} undo`);
+
+        if (width === 1440) {
+          await page.setViewportSize({ width: 390, height: 640 });
+          await page.evaluate(() => new Promise((resolve) => {
+            requestAnimationFrame(() => requestAnimationFrame(resolve));
+          }));
+          assertEditorScroll(await editorScroll(page, 8), `${pathname} resize`);
+          await page.setViewportSize({ width: 1440, height: 900 });
+        }
+
+        await page.locator("#status-jump").click();
+        await page.waitForFunction(() => {
+          const field = document.querySelector("#document");
+          const numbers = document.querySelector("#gutter");
+          const paint = document.querySelector(".fl-editor__paint");
+          return field.value.slice(field.selectionStart, field.selectionEnd).includes("SSignal")
+            && Math.abs(field.scrollTop - numbers.scrollTop) < 1
+            && numbers.scrollLeft === 0
+            && paint.style.transform === `translate(${-field.scrollLeft}px, ${-field.scrollTop}px)`;
+        });
+        const jumped = await editorScroll(page, 8);
+        assert.ok(jumped.scrollTop > 0, pathname);
+        assert.equal(await page.evaluate(() => document.activeElement?.id), "document");
+        assertEditorScroll(jumped, `${pathname} ${width} jump`);
+        assert.deepEqual(opened.errors, []);
+      } finally {
+        await opened.context.close();
+      }
+    }
+  }
+});
+
+test("подсказка форматирования живёт в руководстве, не в статусе", { timeout: 60_000 }, async () => {
   const { page, context, errors } = await openConfigure(1280, "/factorio-ide/");
   try {
-    assert.match(await page.locator("#document-hint").innerText(), /Tab — отступ, Enter — выбрать подсказку/);
-    assert.match(await page.locator("#document-hint").innerText(), /⌥⌘L/);
+    assert.equal(await page.locator("#document-hint").count(), 0);
+    assert.equal(await page.locator("#document-state").textContent(), "Код проверен");
+    await page.goto(`http://127.0.0.1:${port}/factorio-ide/pages/docs/index.html#editor-keys`);
+    await page.locator("#editor-keys").waitFor();
+    const guide = await page.locator("[data-doc-article='editor']").innerText();
+    assert.match(guide, /Tab — отступ/);
+    assert.match(guide, /Enter — выбрать подсказку/);
+    assert.match(guide, /⌥⌘L/);
+    assert.match(guide, /Ctrl\+Alt\+L/);
     assert.deepEqual(errors, []);
   } finally {
     await context.close();
+  }
+});
+
+test("статус собирает проверку, список и остановку", { timeout: 90_000 }, async () => {
+  const syntax = "wire red_1 {";
+  const network = "Constant({ red_output: blue_1, signals: [{ signal: Signal.Signals.signal_A, constant: 1 }] })";
+  const fraction = "Arithmetic({ right_operand: { constant: 1.5 }, operation: Arithmetic.Operation.SUM, return: Signal.Signals.signal_A })";
+  const many = `Arithmetic({
+  red_input: blue_1,
+  left_operand: { red: true, signal: Signal.Signals.signal_A },
+  right_operand: { constant: "5" },
+  operation: Arithmetic.Operation.SUM,
+  return: Signal.Signals.signal_A
+})`;
+  const division = `Arithmetic({
+  left_operand: { constant: 8 },
+  right_operand: { constant: 0 },
+  operation: Arithmetic.Operation.DIV,
+  return: Signal.Signals.signal_A
+})`;
+  for (const pathname of ["/factorio-ide/", "/factorio-ide/pages/configure/"]) {
+    const opened = await openConfigure(1440, pathname);
+    const { page } = opened;
+    try {
+      const before = await page.locator("#editor-status").getAttribute("data-revision");
+      const typed = await page.evaluate((text) => {
+        const area = document.querySelector("#document");
+        area.focus();
+        area.value = text;
+        area.dispatchEvent(new InputEvent("input", { bubbles: true, inputType: "insertFromPaste", data: text }));
+        return {
+          live: document.querySelector("#document-live").textContent,
+          status: document.querySelector("#document-state").textContent,
+          active: document.activeElement?.id,
+        };
+      }, syntax);
+      assert.equal(typed.active, "document");
+      assert.match(typed.status, /^Строка \d+:/);
+      assert.notEqual(typed.live, typed.status);
+      await page.waitForFunction(() => document.querySelector("#play")?.disabled === true
+        && document.querySelectorAll(".fl-editor__paint .err, .fl-editor__paint .err-point").length > 0);
+      const syntaxStatus = await page.locator("#document-state").textContent();
+      assert.match(syntaxStatus, /Ожидался/);
+      assert.match(syntaxStatus, /Исправьте синтаксис/);
+      await page.waitForFunction(() => document.querySelector("#document-live")?.textContent
+        === document.querySelector("#document-state")?.textContent);
+
+      await page.locator("#document").fill(network);
+      await page.waitForFunction(() => (document.querySelector("#document-state")?.textContent ?? "").includes("blue_1"));
+      const networkStatus = await page.locator("#document-state").textContent();
+      assert.match(networkStatus, /не является сетью/);
+      assert.match(networkStatus, /red_\*|green_\*/);
+      assert.equal(await page.locator("#play").isDisabled(), true);
+      assert.equal(await page.locator("#status-list").isHidden(), true);
+      await page.setViewportSize({ width: 390, height: 700 });
+      await page.locator("#status-jump").focus();
+      await page.keyboard.press("Enter");
+      const revealed = await page.evaluate(() => {
+        const area = document.querySelector("#document");
+        return {
+          code: document.querySelector("#code-panel")?.hidden === false,
+          selected: area.value.slice(area.selectionStart, area.selectionEnd),
+          active: document.activeElement?.id,
+        };
+      });
+      assert.equal(revealed.code, true, pathname);
+      assert.equal(revealed.selected, "blue_1", pathname);
+      assert.equal(revealed.active, "document", pathname);
+
+      await page.setViewportSize({ width: 320, height: 640 });
+      await page.locator("#document").fill(fraction);
+      await page.waitForFunction(() => (document.querySelector("#document-state")?.textContent ?? "").includes("целым числом"));
+      const fit = await page.evaluate(() => {
+        const status = document.querySelector("#editor-status");
+        const text = document.querySelector("#document-state");
+        const statusBox = status.getBoundingClientRect();
+        const textBox = text.getBoundingClientRect();
+        return {
+          document: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+          statusRight: statusBox.right,
+          textRight: textBox.right,
+          textHeight: textBox.height,
+          width: window.innerWidth,
+        };
+      });
+      assert.ok(fit.document <= 1, `${pathname} document ${fit.document}`);
+      assert.ok(fit.statusRight <= fit.width + 1, `${pathname} status ${fit.statusRight}`);
+      assert.ok(fit.textRight <= fit.statusRight + 1, `${pathname} text ${fit.textRight}`);
+      assert.ok(fit.textHeight > 16, `${pathname} wrap ${fit.textHeight}`);
+
+      await page.setViewportSize({ width: 1440, height: 900 });
+      await page.locator("#document").fill(many);
+      await page.waitForFunction(() => document.querySelector("#status-list") && !document.querySelector("#status-list").hidden
+        && document.querySelectorAll(".fl-editor__paint .err").length >= 2
+        && document.querySelector("#play")?.disabled === true);
+      assert.match(await page.locator("#document-state").textContent(), /\d+ ошибк/);
+      assert.equal(await page.locator("#status-jump").isHidden(), true);
+      await page.locator("#status-list").focus();
+      await page.keyboard.press("Enter");
+      const listed = await page.locator("#diagnostics [data-code]").count();
+      const marks = await page.locator(".fl-editor__paint .err").count();
+      assert.ok(listed >= 2 && marks >= 2, `${pathname}: список ${listed}, метки ${marks}`);
+      await page.locator("#diagnostics [data-jump='true']").first().focus();
+      await page.keyboard.press("Enter");
+      assert.equal(await page.evaluate(() => document.activeElement?.id), "document");
+
+      const brokenRevision = await page.locator("#editor-status").getAttribute("data-revision");
+      await page.locator("#document").fill("Constant({ enabled: true, signals: [{ signal: Signal.Signals.signal_A, constant: 1 }] })");
+      await page.waitForFunction(() => document.querySelector("#document-state")?.textContent === "Код проверен"
+        && document.querySelector("#play")?.disabled === false
+        && document.querySelectorAll(".fl-editor__paint .err, .fl-editor__paint .err-point").length === 0);
+      assert.equal((await page.locator("#document-state").textContent()).includes("blue_1"), false);
+      assert.notEqual(await page.locator("#editor-status").getAttribute("data-revision"), brokenRevision);
+      assert.notEqual(await page.locator("#editor-status").getAttribute("data-revision"), before);
+
+      await page.locator("#document").fill(division);
+      await page.locator("#step").click();
+      await page.waitForFunction(() => document.querySelector("#tick-value")?.textContent === "0"
+        && document.querySelector("#document-state")?.textContent === "Код проверен");
+      await page.locator("#step").click();
+      await page.waitForFunction(() => (document.querySelector("#document-state")?.textContent ?? "").includes("Остановлено"));
+      const stopped = await page.locator("#document-state").textContent();
+      assert.match(stopped, /Деление на ноль/);
+      assert.match(stopped, /Остановлено/);
+      assert.match(stopped, /Запустите снова после исправления/);
+      assert.equal(stopped.includes("Строка"), false);
+      assert.equal(await page.locator(".fl-editor__paint .err, .fl-editor__paint .err-point").count(), 0);
+      assert.equal(await page.locator("#diagnostics [data-code]").count(), 0);
+      assert.equal(await page.locator("#play").isDisabled(), false);
+      assert.deepEqual(opened.errors, []);
+    } finally {
+      await opened.context.close();
+    }
   }
 });

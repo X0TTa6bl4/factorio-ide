@@ -68,6 +68,7 @@ test("корень, события и смешанная схема проход
     await page.locator("#open-events").click();
     await page.waitForSelector("#check");
     assert.equal(await page.locator("h1").textContent(), "Сценарий");
+    await page.waitForFunction(() => (document.querySelector("#demo-expect")?.textContent ?? "").includes("signal-A = 1"));
     await page.locator("#check").click();
     await page.waitForFunction(() => document.querySelector("#run-status")?.dataset.status === "ready");
     await page.locator("#step").click();
@@ -78,16 +79,14 @@ test("корень, события и смешанная схема проход
     assert.match(page.url(), /draft=1/);
 
     await page.locator("#document").fill(MIXED);
-    await page.locator("#diagnostics-toggle").click();
+    await page.waitForFunction(() => document.querySelector("#document-state")?.textContent === "Код проверен");
     assert.equal(await page.locator(".fl-screen__drawers").count(), 0);
     assert.equal(await page.locator(".fl-editor-inspector").getAttribute("aria-label"), "Сети и настройки");
     assert.deepEqual(
       (await page.locator(".fl-editor-inspector > section h2").allTextContents()).map((text) => text.trim()),
-      ["Сети", "Диагностика"],
+      ["Сети"],
     );
-    assert.equal(await page.locator("#diagnostics-panel").isHidden(), false);
-    await page.locator("#diagnostics-toggle").click();
-    assert.equal(await page.locator("#diagnostics-panel").isHidden(), true);
+    assert.equal(await page.locator("#diagnostics-panel, #document-hint").count(), 0);
     await page.locator("#step").click();
     await page.waitForFunction(() => document.querySelector("#tick-value")?.textContent === "0");
     await page.locator("#step").click();

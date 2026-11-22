@@ -50,10 +50,9 @@ test.after(async () => {
 test("автозапуск и ручные шаги совпадают, пауза и смена скорости не добавляют тик", { timeout: 60_000 }, async () => {
   const { page, errors } = await openDebugger();
   try {
-    assert.match(await page.locator("#model-note").textContent(), /один и тот же step/);
-    assert.match(await page.locator("#model-note").textContent(), /проектной модели/);
+    assert.equal(await page.getByRole("link", { name: "Документация" }).count(), 1);
     await choose(page, "counter");
-    await chooseSelect(page, "speed", "100");
+    await chooseSelect(page, "speed", "10");
     await page.locator("#play").click();
     await page.waitForFunction(() => Number(document.querySelector("#tick-value")?.textContent) >= 4);
     await page.locator("#play").click();
@@ -63,7 +62,7 @@ test("автозапуск и ручные шаги совпадают, пауз
     assert.equal(await page.locator("#tick-value").getAttribute("data-steps"), tick);
     assert.equal(await page.locator("#network-body tr[data-signal='signal-A']").getAttribute("data-value"), tick);
 
-    await chooseSelect(page, "speed", "1000");
+    await chooseSelect(page, "speed", "1");
     await page.waitForTimeout(400);
     assert.equal(await page.locator("#tick-value").textContent(), tick);
     await page.locator("#step").click();
@@ -169,9 +168,9 @@ test("агрегат и собственный выход различаются
     await page.keyboard.press("Tab");
     assert.equal(await page.evaluate(() => document.activeElement?.id), "step");
     assert.equal(await page.locator("#step").evaluate((element) => getComputedStyle(element).outlineStyle), "solid");
-    const speedLabel = await page.locator("#speed-label").textContent();
+    const speedName = await page.locator("#speed .fl-selectbox__control").evaluate((element) => element.getAttribute("aria-labelledby").split(/\s+/).map((id) => document.getElementById(id)?.textContent ?? "").join(" "));
     const schemeLabel = await page.locator("#scheme-label").textContent();
-    assert.match(speedLabel, /Скорость/);
+    assert.match(speedName, /Скорость/);
     assert.match(schemeLabel, /Схема/);
     for (const width of [320, 390, 768, 1024, 1440]) {
       await page.setViewportSize({ width, height: 800 });

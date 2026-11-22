@@ -42,8 +42,7 @@ test.after(async () => {
 test("страница показывает A=3, после шага B=5 и возвращает границу 0", { timeout: 60_000 }, async () => {
   const { page, errors } = await openCircuit();
   try {
-    assert.match(await page.locator("#model-note").textContent(), /минимальный срез/);
-    assert.match(await page.locator("#model-note").textContent(), /проектную модель/);
+    assert.equal(await page.getByRole("link", { name: "Документация" }).count(), 1);
     assert.equal(await page.locator("#tick-value").textContent(), "0");
     assert.match(await page.locator("#red-body").textContent(), /signal-A/);
     assert.match(await page.locator("#red-body").textContent(), /3/);

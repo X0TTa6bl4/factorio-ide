@@ -49,6 +49,11 @@ test("экраны держатся в окне, выбор не нативны�
       await page.waitForSelector(command);
       assert.equal(await page.locator("select").count(), 0, pathname);
       assert.equal(await page.locator(".fl-workspace__title, [data-release-note]").count(), 0, pathname);
+      if (!pathname.startsWith("/ui")) {
+        assert.equal(await page.locator(".fl-more").count(), 0, pathname);
+        assert.equal(await page.getByRole("button", { name: "Совместимость" }).count(), 0, pathname);
+        assert.equal(await page.getByRole("link", { name: "Документация" }).count(), 1, pathname);
+      }
       const about = page.getByRole("button", { name: "Совместимость" });
       if (await about.count()) {
         await about.first().click();
@@ -117,12 +122,15 @@ test("экраны держатся в окне, выбор не нативны�
       assert.equal(await page.locator(".fl-screen__drawers").count(), 0, pathname);
       assert.deepEqual(
         (await page.locator(".fl-editor-inspector > section h2").allTextContents()).map((text) => text.trim()),
-        ["Сети", "Диагностика"],
+        ["Сети"],
       );
       for (const [width, height] of [[320, 600], [390, 600], [768, 600], [1440, 900], [1920, 700]]) {
         await page.setViewportSize({ width, height });
-        const diagnosticsToggle = page.locator("#diagnostics-toggle");
-        if (await diagnosticsToggle.getAttribute("aria-expanded") !== "true") await diagnosticsToggle.click();
+        await page.waitForFunction((isNarrow) => {
+          const column = document.querySelector("#networks-column");
+          const code = document.querySelector("#code-panel");
+          return isNarrow ? column.hidden && !code.hidden : !column.hidden && !code.hidden;
+        }, width <= 900);
         const fit = await page.evaluate(() => {
           const scroller = document.scrollingElement;
           const before = scroller.scrollTop;
@@ -132,6 +140,7 @@ test("экраны держатся в окне, выбор не нативны�
           const code = document.querySelector(".fl-editor-stage > .fl-panel").getBoundingClientRect();
           const inspector = document.querySelector(".fl-editor-inspector").getBoundingClientRect();
           const play = document.querySelector("#play").getBoundingClientRect();
+          const undo = document.querySelector("#undo").getBoundingClientRect();
           const signals = document.querySelector("#signal-scroll");
           const root = parseFloat(getComputedStyle(document.documentElement).fontSize);
           return {
@@ -141,10 +150,13 @@ test("экраны держатся в окне, выбор не нативны�
             code: { x: code.x, y: code.y, width: code.width, height: code.height },
             inspector: { x: inspector.x, y: inspector.y, width: inspector.width, height: inspector.height },
             playVisible: play.width > 0 && play.height > 0 && play.top >= -1 && play.bottom <= window.innerHeight + 1,
+            undoVisible: undo.width > 16 && undo.left >= -1 && undo.right <= window.innerWidth + 1 && undo.bottom <= window.innerHeight + 1,
             codeVisible: code.height > 24 && code.top < window.innerHeight && code.bottom > 0,
+            networksHidden: document.querySelector("#networks-column").getBoundingClientRect().width < 1,
             signalsOverflow: getComputedStyle(signals).overflowY,
             codeOverflow: getComputedStyle(document.querySelector("#document")).overflowY,
             minInspector: root * 16,
+            tables: document.querySelectorAll("#live-signals").length,
           };
         });
         const label = `${pathname} ${width}x${height}`;
@@ -152,17 +164,19 @@ test("экраны держатся в окне, выбор не нативны�
         assert.equal(fit.wide, false, label);
         assert.equal(fit.tall, false, label);
         assert.equal(fit.playVisible, true, label);
-        assert.equal(fit.codeVisible, true, label);
+        assert.equal(fit.undoVisible, true, label);
         assert.equal(fit.signalsOverflow, "auto", label);
         assert.equal(fit.codeOverflow, "auto", label);
+        assert.equal(fit.tables, 1, label);
         if (width > 900) {
+          assert.equal(fit.networksHidden, false, label);
+          assert.equal(fit.codeVisible, true, label);
           assert.ok(fit.inspector.x >= fit.code.x + fit.code.width - 8, label);
           assert.ok(fit.code.width > fit.inspector.width * 1.5, label);
           assert.ok(fit.inspector.width + 1 >= fit.minInspector, label);
         } else {
-          assert.ok(fit.inspector.y >= fit.code.y + fit.code.height - 8, label);
-          const ratio = fit.code.height / fit.inspector.height;
-          assert.ok(ratio > 1.3 && ratio < 2.1, `${label} ${ratio}`);
+          assert.equal(fit.networksHidden, true, label);
+          assert.equal(fit.codeVisible, true, label);
         }
       }
     }

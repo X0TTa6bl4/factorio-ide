@@ -2,7 +2,6 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { createRequire } from "node:module";
 import { startServer } from "../../dev/server.mjs";
-import { RELEASE_NOTE } from "../../pages/release.js";
 
 const require = createRequire(process.env.F_LOGIC_DEV_PACKAGE ?? "/opt/f-logic-dev/package.json");
 const { chromium } = require("playwright");
@@ -65,9 +64,9 @@ test("примеры открываются со своей страницы и 
   for (const pathname of ["/pages/examples/", "/factorio-ide/pages/examples/"]) {
     const { page, errors } = await openIndex(pathname);
     try {
-      assert.equal(await page.locator("[data-release-text]").textContent(), RELEASE_NOTE);
-      assert.equal(await page.locator("[data-release-text]").getAttribute("data-game-behavior"), "unverified");
-      assert.doesNotMatch(await page.locator("[data-release-text]").textContent(), /совместимо с Factorio/);
+      assert.equal(await page.getByRole("button", { name: "Совместимость" }).count(), 0);
+      assert.equal(await page.locator(".fl-more").count(), 0);
+      assert.equal(await page.getByRole("link", { name: "Документация" }).count(), 1);
       assert.equal(await page.locator("#demo-rows tr").count(), 8);
       const resources = await page.evaluate(() => performance.getEntriesByType("resource").map((entry) => entry.name));
       assert.equal(resources.some((name) => name.includes("/pages/examples/page.js")), true);
@@ -146,7 +145,7 @@ test("ошибка ресурса и неподдержанный режим н�
     assert.match(await unsupported.page.locator("#scheme-expect").textContent(), /не заявление совместимости/);
     assert.equal(await unsupported.page.locator("#tick-value").textContent(), "—");
     assert.equal(await unsupported.page.locator("#play").isDisabled(), true);
-    assert.equal(await unsupported.page.locator("[data-release-text]").getAttribute("data-game-behavior"), "unverified");
+    assert.equal(await unsupported.page.getByRole("button", { name: "Совместимость" }).count(), 0);
     assert.deepEqual(unsupported.errors, []);
   } finally {
     await unsupported.page.close();
@@ -168,7 +167,7 @@ test("сценарий Arrival публикует signal-A на границе 1
   try {
     await page.goto(`http://127.0.0.1:${port}/factorio-ide/pages/event/`);
     await page.waitForFunction(() => (document.querySelector("#demo-expect")?.textContent ?? "").includes("signal-A = 1"));
-    assert.equal(await page.locator("[data-release-text]").getAttribute("data-catalog"), "2.1.24");
+    assert.equal(await page.getByRole("link", { name: "Документация" }).count(), 1);
     await page.locator("#check").click();
     await page.waitForFunction(() => document.querySelector("#run-status")?.dataset.status === "ready");
     assert.equal(await page.locator("#tick-value").textContent(), "0");
