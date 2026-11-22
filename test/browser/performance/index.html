@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>performance-worker</title>
+<pre id="out">wait</pre>
+<script type="module">
+let workers = 0;
+const NativeWorker = globalThis.Worker;
+globalThis.Worker = class CountingWorker extends NativeWorker {
+  constructor(...args) {
+    workers += 1;
+    super(...args);
+  }
+};
+
+const output = document.querySelector("#out");
+
+try {
+  const { decideWorker, environment, measureScheduler } = await import("../../unit/runtime/performance-profile.mjs");
+  const full = await measureScheduler("sparse", 4096, "full");
+  const optimized = await measureScheduler("sparse", 4096, "optimized");
+  const rows = [full.row, optimized.row];
+  output.textContent = JSON.stringify({
+    environment: environment(),
+    rows,
+    decision: decideWorker(rows),
+    workers,
+    dom: document.body !== null && output.isConnected,
+  });
+} catch (error) {
+  output.textContent = JSON.stringify({ error: error instanceof Error ? error.message : String(error) });
+}
+</script>
