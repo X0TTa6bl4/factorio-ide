@@ -226,6 +226,7 @@ class EventScriptSession {
   #stopped = false;
   #flight = null;
   #intent = null;
+  #epoch = 0;
   #diagnostic = null;
   #inner = null;
   #release = null;
@@ -292,18 +293,54 @@ class EventScriptSession {
     if (this.#simulation) this.#status = "paused";
   }
 
+  discard() {
+    this.#epoch += 1;
+    this.#halt();
+    const release = this.#release;
+    this.#release = null;
+    this.#inner = null;
+    this.#simulation = null;
+    this.#device = null;
+    this.#circuit = null;
+    this.#red = null;
+    this.#green = null;
+    this.#memory = null;
+    this.#settings = null;
+    this.#diagnostic = null;
+    this.#dirty = false;
+    this.#stopped = false;
+    this.#status = "idle";
+    this.#className = "";
+    this.#moduleSource = "";
+    this.#timeoutMs = 1000;
+    this.#revision = 0;
+    this.#flight = null;
+    this.#intent = null;
+    try {
+      release?.();
+    } catch {
+      /* исполнитель уже закрыт */
+    }
+    return this.view();
+  }
+
   async check(input) {
     if (this.#flight) return this.#throw(new RuntimeError("step-busy", "Шаг уже выполняется"));
+    const epoch = this.#epoch;
     const done = this.#openFlight();
     try {
-      await this.#check(input);
+      await this.#check(input, epoch);
+      if (epoch !== this.#epoch) return this.view();
       done.resolve();
     } catch (error) {
+      if (epoch !== this.#epoch) return this.view();
       done.reject(error);
       throw error;
     } finally {
-      this.#flight = null;
-      this.#intent = null;
+      if (epoch === this.#epoch) {
+        this.#flight = null;
+        this.#intent = null;
+      }
     }
     return this.view();
   }
@@ -312,38 +349,47 @@ class EventScriptSession {
     if (this.#flight) return this.#throw(new RuntimeError("step-busy", "Шаг уже выполняется"));
     this.#assertRunnable();
     if (this.#stopped) return this.#throw(workerStopped());
+    const epoch = this.#epoch;
     const done = this.#openFlight();
     try {
-      await this.#step();
+      await this.#step(epoch);
+      if (epoch !== this.#epoch) return this.view();
       done.resolve();
     } catch (error) {
+      if (epoch !== this.#epoch) return this.view();
       done.reject(error);
       throw error;
     } finally {
-      this.#flight = null;
-      this.#intent = null;
+      if (epoch === this.#epoch) {
+        this.#flight = null;
+        this.#intent = null;
+      }
     }
     return this.view();
   }
 
   async reset() {
+    const epoch = this.#epoch;
     if (this.#flight) {
       this.#assertRunnable();
       this.#intent = "reset";
       this.#halt();
       await this.#flight;
+      if (epoch !== this.#epoch) return this.view();
       return this.view();
     }
     this.#assertRunnable();
     try {
       await this.#simulation.reset();
     } catch (error) {
+      if (epoch !== this.#epoch) return this.view();
       if (error && (error.code === "timeout" || error.code === "worker-stopped")) {
-        await this.#finishReset();
+        await this.#finishReset(epoch);
         return this.view();
       }
       return this.#pause(error);
     }
+    if (epoch !== this.#epoch) return this.view();
     this.#status = "ready";
     this.#diagnostic = null;
     return this.view();
@@ -353,14 +399,16 @@ class EventScriptSession {
     if (!this.#simulation || this.#dirty) {
       return this.#throw(new RuntimeError("run-paused", "Нет прогона для остановки"));
     }
+    const epoch = this.#epoch;
     if (this.#flight) {
       this.#intent = "stop";
       this.#halt();
       await this.#flight;
+      if (epoch !== this.#epoch) return this.view();
       return this.view();
     }
     this.#halt();
-    await this.#finishStop();
+    await this.#finishStop(epoch);
     return this.view();
   }
 
@@ -375,13 +423,15 @@ class EventScriptSession {
     if (this.#flight) return this.#throw(new RuntimeError("step-busy", "Шаг уже выполняется"));
     this.#assertRunnable();
     if (!this.#memory) return this.#throw(new RuntimeError("invalid-snapshot", "Нет запомненной границы"));
+    const epoch = this.#epoch;
     await this.#simulation.restore(this.#memory);
+    if (epoch !== this.#epoch) return this.view();
     this.#status = "ready";
     this.#diagnostic = null;
     return this.view();
   }
 
-  async #check(input) {
+  async #check(input, epoch = this.#epoch) {
     const timeout = readTimeoutMs(input.timeoutMs);
     if (!timeout.ok) return this.#keep(timeout);
     const compiled = compileScenarioSource(input.source, this.#engineHref);
@@ -396,21 +446,31 @@ class EventScriptSession {
     try {
       opened = await this.#openExecutor(compiled.moduleSource, timeout.timeoutMs);
     } catch (error) {
+      if (epoch !== this.#epoch) return this.view();
       this.#status = "failed";
       this.#diagnostic = formatDiagnostic(error);
       throw error;
+    }
+    if (epoch !== this.#epoch) {
+      try { opened?.executor?.stop?.(); } catch { /* уже остановлен */ }
+      try { opened?.release?.(); } catch { /* уже закрыт */ }
+      return this.view();
     }
     this.#adopt(opened, timeout.timeoutMs, compiled);
     this.#settings = settings;
     try {
       this.#installCircuit();
-      this.#simulation = await this.#circuit.createSimulation({ executor: this.#facade });
+      const simulation = await this.#circuit.createSimulation({ executor: this.#facade });
+      if (epoch !== this.#epoch) return this.view();
+      this.#simulation = simulation;
     } catch (error) {
+      if (epoch !== this.#epoch) return this.view();
       this.#halt();
       this.#status = "failed";
       this.#diagnostic = formatDiagnostic(error);
       throw error;
     }
+    if (epoch !== this.#epoch) return this.view();
     this.#revision += 1;
     this.#dirty = false;
     this.#status = "ready";
@@ -418,12 +478,14 @@ class EventScriptSession {
     return this.view();
   }
 
-  async #step() {
+  async #step(epoch = this.#epoch) {
     try {
       await this.#simulation.step();
     } catch (error) {
+      if (epoch !== this.#epoch) return this.view();
       return this.#afterFailure(error);
     }
+    if (epoch !== this.#epoch) return this.view();
     this.#status = "ready";
     this.#diagnostic = null;
     return this.view();
@@ -453,32 +515,40 @@ class EventScriptSession {
     ));
   }
 
-  async #finishStop() {
+  async #finishStop(epoch = this.#epoch) {
+    if (epoch !== this.#epoch || !this.#simulation) return this.view();
     const snapshot = this.#simulation.capture();
     try {
       await this.#replaceWorker();
+      if (epoch !== this.#epoch) return this.view();
       await this.#simulation.restore(snapshot);
     } catch (error) {
+      if (epoch !== this.#epoch) return this.view();
       this.#stopped = true;
       this.#status = "failed";
       this.#diagnostic = formatDiagnostic(error);
       throw error;
     }
+    if (epoch !== this.#epoch) return this.view();
     this.#status = "paused";
     this.#diagnostic = null;
     return this.view();
   }
 
-  async #finishReset() {
+  async #finishReset(epoch = this.#epoch) {
+    if (epoch !== this.#epoch || !this.#simulation) return this.view();
     try {
       await this.#replaceWorker();
+      if (epoch !== this.#epoch) return this.view();
       await this.#simulation.reset();
     } catch (error) {
+      if (epoch !== this.#epoch) return this.view();
       this.#stopped = true;
       this.#status = "failed";
       this.#diagnostic = formatDiagnostic(error);
       throw error;
     }
+    if (epoch !== this.#epoch) return this.view();
     this.#status = "ready";
     this.#dirty = false;
     this.#diagnostic = null;

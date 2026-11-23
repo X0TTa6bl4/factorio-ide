@@ -6,7 +6,9 @@ import { mountCaretComplete } from "../caret-complete.js";
 import { mountCodePaint, paintConfiguration } from "../code-paint.js";
 import { createPlayback, intervalForSpeed, paintPlaybackButton } from "../debugger/playback.js";
 import { statusView } from "../editor-status.js";
-const DRAFT_KEY = "f-logic.editor-draft.v1";
+import { mountEventSession } from "../event/session-ui.js";
+import { createWorkViews } from "../../ui/scripts/workbench-views.js";
+import { DRAFT_KEY, mountTopbarMenu } from "../topbar-menu.js";
 
 const editor = createConfigurationEditor(readDraft() === null ? {} : { text: readDraft() });
 const source = document.querySelector("#document");
@@ -33,14 +35,14 @@ const diagnostics = document.querySelector("#diagnostics");
 const liveSignals = document.querySelector("#live-signals");
 const signalFilter = document.querySelector("#signal-filter");
 const signalPanel = document.querySelector("#signal-panel");
+const signalMode = document.querySelector("#signal-mode");
 const workbench = document.querySelector("[data-workbench]");
-const codePanel = document.querySelector("#code-panel");
-const networksColumn = document.querySelector("#networks-column");
-const codeView = workbench.querySelector('[data-work-view="code"]');
-const networksView = workbench.querySelector('[data-work-view="networks"]');
-const layoutQuery = window.matchMedia("(max-width: 900px)");
-let networksOpen = true;
-let narrowView = "code";
+let workPrimary = "code";
+let eventUi = null;
+let eventPast = [""];
+let eventAt = 0;
+let eventWriting = false;
+let views = null;
 
 let writing = false;
 let inputCaret = null;
@@ -82,14 +84,6 @@ function storeDraft(text) {
   }
 }
 
-function forgetDraft() {
-  try {
-    sessionStorage.removeItem(DRAFT_KEY);
-  } catch {
-    /* хранилище вкладки недоступно */
-  }
-}
-
 function colorLabel(color) {
   if (color === "red") return "красная";
   if (color === "green") return "зелёная";
@@ -103,35 +97,8 @@ function stopPlayback() {
   checking = false;
 }
 
-function narrowLayout() {
-  return layoutQuery.matches;
-}
-
-function paintWorkbench() {
-  const narrow = narrowLayout();
-  const showCode = narrow ? narrowView === "code" : true;
-  const showNetworks = narrow ? narrowView === "networks" : networksOpen;
-  codePanel.hidden = !showCode;
-  networksColumn.hidden = !showNetworks;
-  workbench.dataset.networks = String(networksOpen);
-  codeView.setAttribute("aria-expanded", String(showCode));
-  networksView.setAttribute("aria-expanded", String(showNetworks));
-}
-
-function keepFocusedPanel() {
-  const active = document.activeElement;
-  if (codePanel.contains(active)) narrowView = "code";
-  else if (networksColumn.contains(active)) {
-    narrowView = "networks";
-    networksOpen = true;
-  }
-}
-
 function revealRange(range) {
-  if (narrowLayout()) {
-    narrowView = "code";
-    paintWorkbench();
-  }
+  views?.show("code");
   const start = Math.max(0, range?.start ?? 0);
   const end = Math.max(start, Math.min(source.value.length, range?.end ?? start));
   source.focus();
@@ -289,19 +256,12 @@ function render() {
   stepButton.disabled = !runnable || playback.mode === "running" || Boolean(playback.pending);
   backButton.disabled = !view.canStepBack || playback.mode !== "paused" || Boolean(playback.pending);
   resetButton.disabled = !currentText || !view.canLaunch || Boolean(playback.pending);
-  undoButton.disabled = !editor.canUndo;
-  redoButton.disabled = !editor.canRedo;
+  paintHistoryButtons();
   toolbar.dataset.playback = playback.mode;
   toolbar.setAttribute("aria-busy", playback.pending ? "true" : "false");
   tickValue.textContent = publication ? String(publication.tick) : "—";
   tickValue.dataset.current = publication ? "true" : "false";
-  if (publication) renderSignals(publication, "current");
-  else if (view.staleRun) renderSignals(view.staleRun, "stale");
-  else renderSignals(null, "none");
-  staleNote.hidden = !view.staleRun || Boolean(publication);
-  staleNote.textContent = view.staleRun
-    ? `Старый прогон, ревизия ${view.staleRun.revision ?? "—"}, тик ${view.staleRun.tick}. Это не текущий текст.`
-    : "";
+  paintSignalTable();
 
   renderStatus(view);
 }
@@ -487,6 +447,10 @@ function keepsLocalHistory(node) {
 }
 
 function applyHistory(action) {
+  if (workPrimary === "events") {
+    applyEventHistory(action);
+    return;
+  }
   const available = action === "redo" ? editor.canRedo : editor.canUndo;
   if (!available) return;
   stopPlayback();
@@ -542,24 +506,6 @@ function placeCaret(cursor) {
   source.setSelectionRange(start, end);
 }
 
-codeView.addEventListener("click", () => {
-  if (narrowLayout()) narrowView = "code";
-  paintWorkbench();
-});
-
-networksView.addEventListener("click", () => {
-  if (narrowLayout()) narrowView = "networks";
-  else networksOpen = !networksOpen;
-  paintWorkbench();
-});
-
-function syncWorkbenchLayout() {
-  keepFocusedPanel();
-  paintWorkbench();
-}
-
-layoutQuery.addEventListener("change", syncWorkbenchLayout);
-
 statusJump.addEventListener("click", () => {
   if (source.value !== editor.text) return;
   const first = editor.diagnostics[0];
@@ -580,18 +526,21 @@ document.addEventListener("keydown", (event) => {
   statusList.focus();
 });
 
-document.querySelector("#new-draft").addEventListener("click", () => {
-  if (editor.text !== CONFIGURATION_EXAMPLE) {
-    const replace = window.confirm("Заменить текущий текст примером? Черновик этой вкладки будет забыт.");
-    if (!replace) return;
-  }
+function applyProjectClear() {
   stopPlayback();
-  forgetDraft();
+  playbackError = "";
+  checking = false;
+  listOpen = false;
   editor.replace(CONFIGURATION_EXAMPLE);
+  editor.clearRun();
   if (source.value !== editor.text) source.value = editor.text;
-  storeDraft(editor.text);
+  eventUi.resetDraft();
+  eventPast = [eventUi.source.value];
+  eventAt = 0;
+  codePaint();
   render();
-});
+  paintHistoryButtons();
+}
 
 document.querySelectorAll("a[href]").forEach((link) => {
   link.addEventListener("click", leaveEditor);
@@ -699,8 +648,128 @@ mountCaretComplete(source, {
   },
 });
 
+function eventSignalName(entry) {
+  const signal = entry.signal;
+  if (signal.quality && signal.quality !== "normal") {
+    return `${signal.type}/${signal.name}/${signal.quality}`;
+  }
+  return `${signal.type}/${signal.name}`;
+}
+
+function renderEventBundle(view) {
+  if (view.runId === null) {
+    renderSignals(null, "none");
+    return;
+  }
+  renderSignals({
+    tick: view.tick ?? 0,
+    networks: [
+      {
+        name: "red_1",
+        color: "red",
+        signals: view.red.map((entry) => ({ name: eventSignalName(entry), constant: entry.constant })),
+      },
+      {
+        name: "green_1",
+        color: "green",
+        signals: view.green.map((entry) => ({ name: eventSignalName(entry), constant: entry.constant })),
+      },
+    ],
+  }, "current");
+}
+
+function paintSignalTable() {
+  const events = workPrimary === "events";
+  signalMode.textContent = events ? "События" : "Схема";
+  signalPanel.dataset.source = events ? "events" : "scheme";
+  if (events) {
+    staleNote.hidden = true;
+    renderEventBundle(eventUi.view());
+    return;
+  }
+  const current = editor.view();
+  if (current.publication) renderSignals(current.publication, "current");
+  else if (current.staleRun) renderSignals(current.staleRun, "stale");
+  else renderSignals(null, "none");
+  staleNote.hidden = !current.staleRun || Boolean(current.publication);
+  staleNote.textContent = current.staleRun
+    ? `Старый прогон, ревизия ${current.staleRun.revision ?? "—"}, тик ${current.staleRun.tick}. Это не текущий текст.`
+    : "";
+}
+
+function paintHistoryButtons() {
+  if (workPrimary === "events") {
+    undoButton.disabled = eventAt <= 0;
+    redoButton.disabled = eventAt >= eventPast.length - 1;
+    return;
+  }
+  undoButton.disabled = !editor.canUndo;
+  redoButton.disabled = !editor.canRedo;
+}
+
+function rememberEventText(event) {
+  if (eventWriting) return;
+  const value = eventUi.source.value;
+  if (eventPast[eventAt] === value) return;
+  if (event?.inputType === "historyUndo" && eventPast[eventAt - 1] === value) {
+    eventAt -= 1;
+    paintHistoryButtons();
+    return;
+  }
+  if (event?.inputType === "historyRedo" && eventPast[eventAt + 1] === value) {
+    eventAt += 1;
+    paintHistoryButtons();
+    return;
+  }
+  eventPast = eventPast.slice(0, eventAt + 1);
+  eventPast.push(value);
+  eventAt = eventPast.length - 1;
+  paintHistoryButtons();
+}
+
+function applyEventHistory(action) {
+  const next = eventAt + (action === "undo" ? -1 : 1);
+  if (next < 0 || next >= eventPast.length) return;
+  eventAt = next;
+  eventWriting = true;
+  eventUi.source.focus();
+  eventUi.source.value = eventPast[eventAt];
+  const end = eventUi.source.value.length;
+  eventUi.source.setSelectionRange(end, end);
+  eventUi.source.dispatchEvent(new InputEvent("input", { bubbles: true }));
+  eventWriting = false;
+  paintHistoryButtons();
+}
+
+eventUi = mountEventSession(document, {
+  suggest: "event-caret",
+  paintNetworks(view) {
+    if (workPrimary !== "events") return;
+    signalMode.textContent = "События";
+    signalPanel.dataset.source = "events";
+    staleNote.hidden = true;
+    renderEventBundle(view);
+  },
+});
+eventPast = [eventUi.source.value];
+eventAt = 0;
+eventUi.source.addEventListener("input", rememberEventText);
+mountTopbarMenu({
+  changed() {
+    return editor.text !== CONFIGURATION_EXAMPLE || eventUi.isPristine() === false;
+  },
+  apply: applyProjectClear,
+});
+
+views = createWorkViews(workbench, {
+  onChange(state) {
+    workPrimary = state.primary;
+    paintSignalTable();
+    paintHistoryButtons();
+  },
+});
+
 codePaint = mountCodePaint(source, paintConfiguration, gutter);
-paintWorkbench();
 render();
 
 function suggestionChoice(item) {

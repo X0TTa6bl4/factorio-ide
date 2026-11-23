@@ -1,6 +1,6 @@
 /* Канонический образец документации. Подключать после tokens/components/layout. */
 .fl-docs { --fl-docs-header-height: 84px; color: var(--fl-text); }
-.fl-docs__header { position: sticky; top: 0; z-index: 10; }
+.fl-docs__header { position: sticky; top: 0; z-index: 20; }
 .fl-docs__header .fl-topnav { align-items: center; }
 .fl-docs__header .fl-topnav a[aria-current] { color: var(--fl-accent); }
 .fl-docs__layout { display: grid; grid-template-columns: 240px minmax(0, 76ch) 208px; align-items: start; justify-content: center; gap: 32px; max-width: 1600px; margin: auto; padding: 40px 28px 72px; }

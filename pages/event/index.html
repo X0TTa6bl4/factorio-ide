@@ -16,24 +16,30 @@
     <a class="fl-brand" href="../../index.html"><span class="fl-brand__mark" aria-hidden="true">ƒ.</span>f logic</a>
     <h1 class="fl-screen-name">Сценарий</h1>
     <a class="fl-button" id="open-editor" href="../../index.html?draft=1">Обычные комбинаторы</a>
-    <a class="fl-button fl-topbar__docs" href="../docs/index.html">Документация</a>
+    <details class="fl-menu fl-topbar__menu" data-topbar-menu>
+      <summary role="button" aria-label="Меню"><span class="fl-button fl-button--icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><span class="fl-sr">Меню</span></summary>
+      <div class="fl-menu__items">
+        <a href="../docs/index.html">Документация</a>
+        <button type="button" data-clear-project>Очистить проект</button>
+      </div>
+    </details>
   </header>
   <main class="fl-screen" id="main">
     <section class="fl-screen__tools" aria-label="Управление симуляцией">
-      <div class="fl-toolbar fl-compact-toolbar fl-event-toolbar" id="toolbar">
+      <div class="fl-toolbar fl-compact-toolbar fl-event-toolbar" id="toolbar" data-event-toolbar>
         <div class="fl-toolbar__actions">
-          <button class="fl-button fl-button--primary" type="button" id="check">Проверить</button>
-          <button class="fl-button fl-button--icon" type="button" id="step" aria-label="Шаг" title="Шаг">
+          <button class="fl-button fl-button--primary" type="button" id="check" data-event-check>Проверить</button>
+          <button class="fl-button fl-button--icon" type="button" id="step" data-event-step aria-label="Шаг" title="Шаг">
             <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 5 10 7-10 7ZM19 5v14"/></svg>
           </button>
-          <button class="fl-button fl-button--icon" type="button" id="reset" aria-label="Сброс" title="Сброс">
+          <button class="fl-button fl-button--icon" type="button" id="reset" data-event-reset aria-label="Сброс" title="Сброс">
             <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 0 5M4 4v6h6"/></svg>
           </button>
-          <button class="fl-button" type="button" id="stop">Остановить</button>
+          <button class="fl-button" type="button" id="stop" data-event-stop>Остановить</button>
         </div>
-        <span class="fl-badge" id="run-status" data-status="idle"><span class="fl-dot"></span><span id="run-status-text">Не проверен</span></span>
+        <span class="fl-badge" id="run-status" data-event-status data-status="idle"><span class="fl-dot"></span><span id="run-status-text" data-event-status-text>Не проверен</span></span>
         <span class="fl-sr" id="tick-name">Текущий тик</span>
-        <output class="fl-compact-tick" id="tick-value" aria-labelledby="tick-name tick-value">—</output>
+        <output class="fl-compact-tick" id="tick-value" data-event-tick aria-labelledby="tick-name tick-value">—</output>
       </div>
     </section>
 
@@ -51,28 +57,28 @@
           <section class="fl-panel" id="code-panel" aria-labelledby="code-title">
             <h2 id="code-title" class="fl-sr">Код</h2>
             <div class="fl-editor">
-              <div class="fl-editor__gutter" id="code-gutter" aria-hidden="true">01</div>
+              <div class="fl-editor__gutter" id="code-gutter" data-event-gutter aria-hidden="true">01</div>
               <label class="fl-sr" for="script-source">JavaScript сценария, класс extends EventCombinator</label>
-              <textarea id="script-source" class="fl-textarea" wrap="off" spellcheck="false" autocomplete="off"></textarea>
+              <textarea id="script-source" data-event-source class="fl-textarea" wrap="off" spellcheck="false" autocomplete="off"></textarea>
             </div>
-            <div class="fl-editor__status" id="editor-status" data-kind="ok">
-              <p id="edit-status" class="fl-editor__status-text" aria-live="polite">Не проверен</p>
-              <button class="fl-button fl-button--quiet" type="button" id="diagnostic-toggle" hidden aria-expanded="false" aria-controls="diagnostic">Подробнее</button>
-              <div id="diagnostic" class="fl-editor__diagnostics" hidden></div>
+            <div class="fl-editor__status" id="editor-status" data-event-editor-status data-kind="ok">
+              <p id="edit-status" data-event-edit-status class="fl-editor__status-text" aria-live="polite">Не проверен</p>
+              <button class="fl-button fl-button--quiet" type="button" id="diagnostic-toggle" data-event-diagnostic-toggle hidden aria-expanded="false" aria-controls="diagnostic">Подробнее</button>
+              <div id="diagnostic" data-event-diagnostic class="fl-editor__diagnostics" hidden></div>
             </div>
             <div class="fl-event-fold">
               <details id="event-settings">
                 <summary>Настройки и подключения</summary>
                 <div class="fl-stack">
-                  <p class="fl-field__hint">Оболочка страницы — <span id="shell-name">EventCombinator</span>. Метод main выполняется в Worker классом <span id="class-name">—</span>.</p>
-                  <p class="fl-field__hint" id="demo-expect"></p>
-                  <label class="fl-check"><input id="every-tick" type="checkbox" checked>Выполнять каждый тик</label>
-                  <label class="fl-check"><input id="input-changed" type="checkbox">Выполнять при изменении входов</label>
+                  <p class="fl-field__hint">Оболочка страницы — <span id="shell-name" data-event-shell>EventCombinator</span>. Метод main выполняется в Worker классом <span id="class-name" data-event-class>—</span>.</p>
+                  <p class="fl-field__hint" id="demo-expect" data-event-demo></p>
+                  <label class="fl-check"><input id="every-tick" data-event-every type="checkbox" checked>Выполнять каждый тик</label>
+                  <label class="fl-check"><input id="input-changed" data-event-changed type="checkbox">Выполнять при изменении входов</label>
                   <label class="fl-field">Начальное состояние · JSON
-                    <textarea id="state-json" class="fl-textarea fl-textarea--compact" spellcheck="false">{}</textarea>
+                    <textarea id="state-json" data-event-state class="fl-textarea fl-textarea--compact" spellcheck="false">{}</textarea>
                   </label>
                   <label class="fl-field">Лимит исполнителя, мс
-                    <input id="timeout-ms" class="fl-input fl-mono" type="number" min="1" step="1" value="1000" inputmode="numeric">
+                    <input id="timeout-ms" data-event-timeout class="fl-input fl-mono" type="number" min="1" step="1" value="1000" inputmode="numeric">
                     <span class="fl-field__hint">Столько миллисекунд хост ждёт ответ Worker. Это не длительность виртуального тика.</span>
                   </label>
                   <p class="fl-field__hint">Входы</p>
@@ -81,23 +87,23 @@
                   <div class="fl-row"><span class="fl-port fl-red">R · red_1</span><span class="fl-port fl-green">G · green_1</span></div>
                   <p class="fl-field__hint">Вход и выход одного цвета смотрят в одну сеть стенда: следующий шаг читает уже опубликованный выход.</p>
                   <p class="fl-field__hint">Текст сценария не исполняется на странице. Проверка передаёт модуль только в Worker.</p>
-                  <p class="fl-field__hint" id="run-meta">Ревизия сценария — · прогон —. Лимит исполнителя не меняет номер тика.</p>
-                  <p class="fl-field__hint" id="ui-alive">Интерфейс: ожидание</p>
-                  <button class="fl-button fl-button--quiet" type="button" id="ui-ping">Отклик</button>
+                  <p class="fl-field__hint" id="run-meta" data-event-meta>Ревизия сценария — · прогон —. Лимит исполнителя не меняет номер тика.</p>
+                  <p class="fl-field__hint" id="ui-alive" data-event-alive>Интерфейс: ожидание</p>
+                  <button class="fl-button fl-button--quiet" type="button" id="ui-ping" data-event-ping>Отклик</button>
                 </div>
               </details>
               <details id="event-state">
                 <summary>Состояние, сообщения и снимок</summary>
                 <div class="fl-stack">
-                  <pre class="fl-code" id="device-state" tabindex="0">{}</pre>
+                  <pre class="fl-code" id="device-state" data-event-device-state tabindex="0">{}</pre>
                   <div class="fl-table-wrap" tabindex="0" role="region" aria-label="Сообщения блока, таблица с прокруткой">
                     <table class="fl-table">
                       <caption class="fl-sr">Сообщения, видимые на опубликованной границе</caption>
                       <thead><tr><th scope="col">Тип</th><th scope="col">Доставка</th></tr></thead>
-                      <tbody id="message-body"></tbody>
+                      <tbody id="message-body" data-event-messages></tbody>
                     </table>
                   </div>
-                  <button class="fl-button" type="button" id="open-snapshot">Снимок границы</button>
+                  <button class="fl-button" type="button" id="open-snapshot" data-event-open-snapshot>Снимок границы</button>
                 </div>
               </details>
             </div>
@@ -133,7 +139,7 @@
     </div>
   </main>
 
-  <dialog class="fl-dialog" id="snapshot-dialog" aria-labelledby="snapshot-title">
+  <dialog class="fl-dialog" id="snapshot-dialog" data-event-dialog aria-labelledby="snapshot-title">
     <form method="dialog">
       <div class="fl-panel__head">
         <h2 id="snapshot-title">Опубликованная граница</h2>
@@ -141,15 +147,16 @@
       </div>
       <div class="fl-panel__body fl-stack">
         <p>Восстановление подставляет запомненный снимок. init не вызывается, номер прогона не меняется.</p>
-        <p class="fl-muted" id="snapshot-summary">Снимок ещё не запомнен.</p>
+        <p class="fl-muted" id="snapshot-summary" data-event-snapshot-summary>Снимок ещё не запомнен.</p>
         <div class="fl-row">
-          <button class="fl-button" type="button" id="remember">Запомнить границу</button>
-          <button class="fl-button fl-button--primary" type="button" id="restore">Восстановить</button>
+          <button class="fl-button" type="button" id="remember" data-event-remember>Запомнить границу</button>
+          <button class="fl-button fl-button--primary" type="button" id="restore" data-event-restore>Восстановить</button>
         </div>
       </div>
     </form>
   </dialog>
-  <template id="error-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m9 9 6 6m0-6-6 6"/></svg></template>
+  <template id="error-icon" data-event-error-icon><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m9 9 6 6m0-6-6 6"/></svg></template>
+  <script type="module" src="../topbar-menu.js"></script>
   <script type="module" src="../../ui/scripts/widgets.js"></script>
   <script type="module" src="./page.js"></script>
 </body>

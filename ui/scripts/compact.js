@@ -1,4 +1,6 @@
 // Демонстрация состояний UI. Не запускает пользовательский код и движок.
+import { createWorkViews } from "./workbench-views.js";
+
 export function mountCompact(root = document) {
   root.querySelectorAll('[data-compact-toolbar]').forEach(toolbar => {
     if (toolbar.dataset.compactReady) return;
@@ -23,67 +25,56 @@ export function mountCompact(root = document) {
   root.querySelectorAll('[data-compact-workbench]').forEach(work => {
     if (work.dataset.compactReady) return;
     work.dataset.compactReady = 'true';
-    const views = [...work.querySelectorAll('[data-work-view]')];
-    const panels = Object.fromEntries(views.map(button => [button.dataset.workView, document.getElementById(button.getAttribute('aria-controls'))]));
-    const media = matchMedia('(max-width:900px)');
-    let primary = 'code';
-    let mobileView = 'code';
-    let networks = true;
-    const paint = () => {
-      const visible = name => media.matches ? mobileView === name : name === 'networks' ? networks : primary === name;
-      views.forEach(button => {
-        const name = button.dataset.workView;
-        button.setAttribute('aria-expanded', String(visible(name)));
-        panels[name].hidden = !visible(name);
-      });
-      work.querySelector('.fl-compact-stage').dataset.networks = String(visible('networks'));
-      work.querySelector('.fl-compact-edit').hidden = !visible('code');
-    };
-    views.forEach(button => button.addEventListener('click', () => {
-      const name = button.dataset.workView;
-      if (media.matches) mobileView = name;
-      else if (name === 'networks') networks = !networks;
-      else primary = name;
-      paint();
-    }));
-    media.addEventListener('change', () => {
-      // Не прятать активный фокус при переходе через breakpoint.
-      const activePanel = Object.entries(panels).find(([, panel]) => panel.contains(document.activeElement));
-      if (activePanel) {
-        mobileView = activePanel[0];
-        if (mobileView !== 'networks') primary = mobileView;
-      }
-      paint();
-    });
-    paint();
-    const area = work.querySelector('#compact-source, textarea');
-    const gutter = work.querySelector('.fl-editor__gutter');
+    const area = work.querySelector('#compact-source, .fl-compact-editor textarea');
+    const eventArea = work.querySelector('[data-event-source]');
+    const gutter = work.querySelector('.fl-compact-editor .fl-editor__gutter');
     const status = work.querySelector('[data-compact-status]');
     const jump = work.querySelector('[data-demo-jump]');
     const undo = work.querySelector('[data-demo-undo]');
     const redo = work.querySelector('[data-demo-redo]');
-    const history = [area.value];
-    let index = 0;
+    const histories = new Map([
+      ['code', { area, values: [area.value], index: 0 }],
+      ['events', { area: eventArea, values: [eventArea.value], index: 0 }],
+    ]);
+    let views;
+    const activeHistory = () => histories.get(views?.primary === 'events' ? 'events' : 'code');
     const refresh = () => {
+      const history = activeHistory();
       gutter.textContent = area.value.split('\n').map((_, i) => String(i + 1).padStart(2, '0')).join('\n');
       gutter.scrollTop = area.scrollTop;
       gutter.scrollLeft = 0;
-      undo.disabled = index === 0;
-      redo.disabled = index === history.length - 1;
+      undo.disabled = history.index === 0;
+      redo.disabled = history.index === history.values.length - 1;
     };
-    area.addEventListener('input', () => {
-      history.splice(index + 1);
-      history.push(area.value);
-      index++;
-      status.textContent = 'Изменено · требуется проверка';
-      jump.hidden = true;
-      refresh();
+    views = createWorkViews(work, {
+      stateTarget: work.querySelector('.fl-compact-stage'),
+      onChange: refresh,
     });
+    for (const [name, history] of histories) {
+      history.area.addEventListener('input', () => {
+        if (history.writing) return;
+        history.values.splice(history.index + 1);
+        history.values.push(history.area.value);
+        history.index += 1;
+        if (name === 'code') {
+          status.textContent = 'Изменено · требуется проверка';
+          jump.hidden = true;
+        }
+        refresh();
+      });
+    }
     [[undo, -1], [redo, 1]].forEach(([button, delta]) => button.addEventListener('click', () => {
-      index += delta;
-      area.value = history[index];
-      status.textContent = 'Изменено · требуется проверка';
-      jump.hidden = true;
+      const history = activeHistory();
+      const next = history.index + delta;
+      if (next < 0 || next >= history.values.length) return;
+      history.index = next;
+      history.writing = true;
+      history.area.value = history.values[next];
+      history.writing = false;
+      if (history.area === area) {
+        status.textContent = 'Изменено · требуется проверка';
+        jump.hidden = true;
+      }
       refresh();
     }));
     work.querySelector('[data-demo-error]').addEventListener('click', () => {

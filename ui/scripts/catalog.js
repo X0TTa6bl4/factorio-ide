@@ -1,6 +1,7 @@
 import { mountWidgets } from "./widgets.js";
 import { mountCompact } from "./compact.js";
 import { mountDocumentation } from "./docs.js";
+import { mountDetailsMenu } from "./details-menu.js";
 
 // Demo-only composition. Production pages can use these HTML fragments directly.
 const componentURL = new URL("../components/", import.meta.url);
@@ -89,6 +90,17 @@ function wireTabs(root) {
 }
 
 function wireDemo() {
+  document.querySelectorAll("[data-topbar-menu]").forEach(mountDetailsMenu);
+  document.querySelectorAll("[data-clear-project]").forEach((button) => {
+    if (button.closest("[data-clear-bound='app']") || button.dataset.clearBound === "demo") return;
+    button.dataset.clearBound = "demo";
+    button.addEventListener("click", () => {
+      const feedback = button.closest("[data-ui]")?.querySelector("[data-menu-feedback]");
+      if (feedback) feedback.textContent = "Образец: черновик редактора не изменялся.";
+      const menu = button.closest("details");
+      if (menu && !menu.classList.contains("fl-menu--static")) menu.open = false;
+    });
+  });
   document.querySelectorAll("[data-tabs]").forEach(wireTabs);
   document.querySelectorAll("[data-operand-kind]").forEach(select => {
     select.addEventListener("change", () => {

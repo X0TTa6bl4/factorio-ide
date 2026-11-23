@@ -17,10 +17,14 @@
     <header class="fl-topbar fl-docs__header" data-doc-header>
       <a class="fl-brand" href="../../index.html"><span class="fl-brand__mark" aria-hidden="true">ƒ.</span>f logic</a>
       <span class="fl-screen-name">Документация</span>
-      <nav class="fl-topnav" aria-label="Разделы приложения">
-        <a class="fl-button" href="./index.html" aria-current="page">Документация</a>
-        <a class="fl-button" href="../../index.html">В редактор</a>
-      </nav>
+      <a class="fl-button" href="../../index.html">В редактор</a>
+      <details class="fl-menu fl-topbar__menu" data-topbar-menu>
+        <summary role="button" aria-label="Меню"><span class="fl-button fl-button--icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><span class="fl-sr">Меню</span></summary>
+        <div class="fl-menu__items">
+          <a href="./index.html" aria-current="page">Документация</a>
+          <button type="button" data-clear-project>Очистить проект</button>
+        </div>
+      </details>
     </header>
     <main id="docs-main">
       <div class="fl-docs__layout">
@@ -47,6 +51,7 @@
       </div>
     </main>
   </div>
+  <script type="module" src="../topbar-menu.js"></script>
   <script type="module" src="./page.js"></script>
 </body>
 </html>

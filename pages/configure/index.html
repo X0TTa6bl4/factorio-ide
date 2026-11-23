@@ -15,7 +15,13 @@
   <header class="fl-topbar">
     <a class="fl-brand" href="../../index.html"><span class="fl-brand__mark" aria-hidden="true">ƒ.</span>f logic</a>
     <h1 class="fl-sr">Редактор</h1>
-    <a class="fl-button fl-topbar__docs" href="../docs/index.html">Документация</a>
+    <details class="fl-menu fl-topbar__menu" data-topbar-menu data-topbar-owner>
+      <summary role="button" aria-label="Меню"><span class="fl-button fl-button--icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><span class="fl-sr">Меню</span></summary>
+      <div class="fl-menu__items">
+        <a href="../docs/index.html">Документация</a>
+        <button type="button" data-clear-project>Очистить проект</button>
+      </div>
+    </details>
   </header>
   <main class="fl-screen" id="main">
     <section class="fl-screen__tools" aria-label="Управление симуляцией">
@@ -44,47 +50,108 @@
 
     <div class="fl-screen__stage">
       <section class="fl-panel fl-workbench" data-workbench aria-label="Рабочая область редактора">
-        <div class="fl-panel__head">
-          <div class="fl-work-views">
-            <div role="group" aria-label="Рабочие панели">
-              <button class="fl-button fl-button--quiet" type="button" data-work-view="code" aria-expanded="true" aria-controls="code-panel">Код</button>
-              <button class="fl-button fl-button--quiet" type="button" data-work-view="networks" aria-expanded="true" aria-controls="networks-column">Сети</button>
-            </div>
-            <a class="fl-button fl-button--quiet fl-work-link" id="open-events" href="../event/index.html" title="Отдельная страница событийных комбинаторов. Общего прогона с этой схемой нет.">События</a>
-          </div>
-          <div class="fl-work-doc" role="group" aria-label="Действия документа">
-            <button class="fl-button" type="button" id="new-draft">Новый черновик</button>
-          </div>
-          <div class="fl-work-edit" role="group" aria-label="Редактирование кода">
-            <span class="fl-tip" data-tooltip>
-              <button class="fl-button fl-button--icon" type="button" id="undo" aria-label="Отменить правку" aria-describedby="undo-tip" disabled><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8.5 7.5 4 12l4.5 4.5"/><path d="M4 12h9c3.5 0 6 2.2 6 5.2S16.5 22 13 22H10"/></svg></button>
-              <span class="fl-tooltip" id="undo-tip" role="tooltip">Отменить правку · Ctrl+Z</span>
-            </span>
-            <span class="fl-tip" data-tooltip>
-              <button class="fl-button fl-button--icon" type="button" id="redo" aria-label="Повторить правку" aria-describedby="redo-tip" disabled><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15.5 7.5 4.5 4.5-4.5 4.5"/><path d="M20 12h-9c-3.5 0-6 2.2-6 5.2S7.5 22 11 22h3"/></svg></button>
-              <span class="fl-tooltip" id="redo-tip" role="tooltip">Повторить правку · Ctrl+Y</span>
-            </span>
-          </div>
-        </div>
         <div class="fl-editor-stage">
           <section class="fl-panel" id="code-panel" aria-labelledby="document-title">
-            <h2 id="document-title" class="fl-sr">Код</h2>
-            <label class="fl-sr" for="document">Текст конфигурации схемы</label>
-            <div class="fl-editor">
-              <div class="fl-editor__gutter" id="gutter" aria-hidden="true">01</div>
-              <textarea id="document" class="fl-textarea" wrap="off" spellcheck="false" autocomplete="off"></textarea>
+            <div class="fl-panel__head">
+              <div class="fl-work-views">
+                <div role="group" aria-label="Рабочие панели">
+                  <button class="fl-button fl-button--quiet" type="button" data-work-view="code" aria-expanded="true" aria-controls="scheme-view">Код</button>
+                  <button class="fl-button fl-button--quiet" type="button" data-work-view="networks" aria-expanded="true" aria-controls="networks-column">Сети</button>
+                  <button class="fl-button fl-button--quiet" type="button" data-work-view="events" aria-expanded="false" aria-controls="events-view">События</button>
+                </div>
+              </div>
+              <div class="fl-work-edit" role="group" aria-label="Редактирование кода">
+                <span class="fl-tip" data-tooltip>
+                  <button class="fl-button fl-button--icon" type="button" id="undo" aria-label="Отменить правку" aria-describedby="undo-tip" disabled><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8.5 7.5 4 12l4.5 4.5"/><path d="M4 12h9c3.5 0 6 2.2 6 5.2S16.5 22 13 22H10"/></svg></button>
+                  <span class="fl-tooltip" id="undo-tip" role="tooltip">Отменить правку · Ctrl+Z</span>
+                </span>
+                <span class="fl-tip" data-tooltip>
+                  <button class="fl-button fl-button--icon" type="button" id="redo" aria-label="Повторить правку" aria-describedby="redo-tip" disabled><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15.5 7.5 4.5 4.5-4.5 4.5"/><path d="M20 12h-9c-3.5 0-6 2.2-6 5.2S7.5 22 11 22h3"/></svg></button>
+                  <span class="fl-tooltip" id="redo-tip" role="tooltip">Повторить правку · Ctrl+Y</span>
+                </span>
+              </div>
             </div>
-            <div class="fl-editor__status" id="editor-status" data-kind="ok">
-              <p id="document-state" class="fl-editor__status-text">Код проверен</p>
-              <button class="fl-button fl-button--quiet" type="button" id="status-jump" hidden>К месту</button>
-              <button class="fl-button fl-button--quiet" type="button" id="status-list" hidden aria-expanded="false" aria-controls="diagnostics">Список</button>
-              <div id="diagnostics" class="fl-editor__diagnostics" hidden></div>
-              <div id="document-live" class="fl-sr" aria-live="polite" aria-atomic="true"></div>
+            <div id="scheme-view" class="fl-work-body">
+              <h2 id="document-title" class="fl-sr">Код</h2>
+              <label class="fl-sr" for="document">Текст конфигурации схемы</label>
+              <div class="fl-editor">
+                <div class="fl-editor__gutter" id="gutter" aria-hidden="true">01</div>
+                <textarea id="document" class="fl-textarea" wrap="off" spellcheck="false" autocomplete="off"></textarea>
+              </div>
+              <div class="fl-editor__status" id="editor-status" data-kind="ok">
+                <p id="document-state" class="fl-editor__status-text">Код проверен</p>
+                <button class="fl-button fl-button--quiet" type="button" id="status-jump" hidden>К месту</button>
+                <button class="fl-button fl-button--quiet" type="button" id="status-list" hidden aria-expanded="false" aria-controls="diagnostics">Список</button>
+                <div id="diagnostics" class="fl-editor__diagnostics" hidden></div>
+                <div id="document-live" class="fl-sr" aria-live="polite" aria-atomic="true"></div>
+              </div>
+            </div>
+            <div id="events-view" class="fl-work-body" role="region" aria-label="Событийный сценарий" hidden>
+              <div class="fl-event-actions" data-event-toolbar>
+                <button class="fl-button fl-button--primary" type="button" id="event-check" data-event-check>Проверить</button>
+                <button class="fl-button fl-button--icon" type="button" id="event-step" data-event-step aria-label="Шаг" title="Шаг"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 5 10 7-10 7ZM19 5v14"/></svg></button>
+                <button class="fl-button fl-button--icon" type="button" id="event-reset" data-event-reset aria-label="Сброс" title="Сброс"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 0 5M4 4v6h6"/></svg></button>
+                <button class="fl-button" type="button" id="event-stop" data-event-stop>Остановить</button>
+                <span class="fl-badge" id="event-run-status" data-event-status data-status="idle"><span class="fl-dot"></span><span id="event-run-status-text" data-event-status-text>Не проверен</span></span>
+                <span class="fl-sr" id="event-tick-name">Текущий тик сценария</span>
+                <output class="fl-compact-tick" id="event-tick" data-event-tick aria-labelledby="event-tick-name event-tick">—</output>
+              </div>
+              <div class="fl-editor">
+                <div class="fl-editor__gutter" id="event-gutter" data-event-gutter aria-hidden="true">01</div>
+                <label class="fl-sr" for="event-source">JavaScript сценария, класс extends EventCombinator</label>
+                <textarea id="event-source" data-event-source class="fl-textarea" wrap="off" spellcheck="false" autocomplete="off"></textarea>
+              </div>
+              <div class="fl-editor__status" id="event-editor-status" data-event-editor-status data-kind="ok">
+                <p id="event-edit-status" data-event-edit-status class="fl-editor__status-text" aria-live="polite">Не проверен</p>
+                <button class="fl-button fl-button--quiet" type="button" id="event-diagnostic-toggle" data-event-diagnostic-toggle hidden aria-expanded="false" aria-controls="event-diagnostic">Подробнее</button>
+                <div id="event-diagnostic" data-event-diagnostic class="fl-editor__diagnostics" hidden></div>
+              </div>
+              <div class="fl-event-fold">
+                <details id="event-settings">
+                  <summary>Настройки и подключения</summary>
+                  <div class="fl-stack">
+                    <p class="fl-field__hint">Оболочка страницы — <span data-event-shell>EventCombinator</span>. Метод main выполняется в Worker классом <span id="event-class-name" data-event-class>—</span>.</p>
+                    <p class="fl-field__hint" data-event-demo></p>
+                    <label class="fl-check"><input id="event-every-tick" data-event-every type="checkbox" checked>Выполнять каждый тик</label>
+                    <label class="fl-check"><input id="event-input-changed" data-event-changed type="checkbox">Выполнять при изменении входов</label>
+                    <label class="fl-field">Начальное состояние · JSON
+                      <textarea id="event-state-json" data-event-state class="fl-textarea fl-textarea--compact" spellcheck="false">{}</textarea>
+                    </label>
+                    <label class="fl-field">Лимит исполнителя, мс
+                      <input id="event-timeout" data-event-timeout class="fl-input fl-mono" type="number" min="1" step="1" value="1000" inputmode="numeric">
+                      <span class="fl-field__hint">Столько миллисекунд хост ждёт ответ Worker. Это не длительность виртуального тика.</span>
+                    </label>
+                    <p class="fl-field__hint">Входы</p>
+                    <div class="fl-row"><span class="fl-port fl-red">R · red_1</span><span class="fl-port fl-green">G · green_1</span></div>
+                    <p class="fl-field__hint">Выходы</p>
+                    <div class="fl-row"><span class="fl-port fl-red">R · red_1</span><span class="fl-port fl-green">G · green_1</span></div>
+                    <p class="fl-field__hint">Вход и выход одного цвета смотрят в одну сеть стенда: следующий шаг читает уже опубликованный выход.</p>
+                    <p class="fl-field__hint">Текст сценария не исполняется на странице. Проверка передаёт модуль только в Worker.</p>
+                    <p class="fl-field__hint" data-event-meta>Ревизия сценария — · прогон —. Лимит исполнителя не меняет номер тика.</p>
+                    <p class="fl-field__hint" id="event-alive" data-event-alive>Интерфейс: ожидание</p>
+                    <button class="fl-button fl-button--quiet" type="button" id="event-ping" data-event-ping>Отклик</button>
+                  </div>
+                </details>
+                <details id="event-state">
+                  <summary>Состояние, сообщения и снимок</summary>
+                  <div class="fl-stack">
+                    <pre class="fl-code" id="event-device-state" data-event-device-state tabindex="0">{}</pre>
+                    <div class="fl-table-wrap" tabindex="0" role="region" aria-label="Сообщения блока, таблица с прокруткой">
+                      <table class="fl-table">
+                        <caption class="fl-sr">Сообщения, видимые на опубликованной границе</caption>
+                        <thead><tr><th scope="col">Тип</th><th scope="col">Доставка</th></tr></thead>
+                        <tbody id="event-messages" data-event-messages></tbody>
+                      </table>
+                    </div>
+                    <button class="fl-button" type="button" id="event-open-snapshot" data-event-open-snapshot>Снимок границы</button>
+                  </div>
+                </details>
+              </div>
             </div>
           </section>
           <aside class="fl-editor-inspector" id="networks-column" aria-label="Сети и настройки">
-            <section class="fl-panel" id="signal-panel" data-run="none" aria-labelledby="signals-title">
-              <div class="fl-panel__head"><h2 id="signals-title">Сети</h2></div>
+            <section class="fl-panel" id="signal-panel" data-run="none" data-source="scheme" aria-labelledby="signals-title">
+              <div class="fl-panel__head"><h2 id="signals-title">Сети</h2><span class="fl-badge" id="signal-mode">Схема</span></div>
               <div class="fl-panel__body fl-stack">
                 <label class="fl-field">Фильтр
                   <input class="fl-input" id="signal-filter" type="text" autocomplete="off" spellcheck="false" placeholder="Сеть или сигнал">
@@ -104,6 +171,23 @@
       </section>
     </div>
   </main>
+  <dialog class="fl-dialog" id="event-snapshot-dialog" data-event-dialog aria-labelledby="event-snapshot-title">
+    <form method="dialog">
+      <div class="fl-panel__head">
+        <h2 id="event-snapshot-title">Опубликованная граница</h2>
+        <button class="fl-button fl-button--icon fl-button--quiet" type="submit" value="cancel" aria-label="Закрыть диалог">×</button>
+      </div>
+      <div class="fl-panel__body fl-stack">
+        <p>Восстановление подставляет запомненный снимок. init не вызывается, номер прогона не меняется.</p>
+        <p class="fl-muted" id="event-snapshot-summary" data-event-snapshot-summary>Снимок ещё не запомнен.</p>
+        <div class="fl-row">
+          <button class="fl-button" type="button" id="event-remember" data-event-remember>Запомнить границу</button>
+          <button class="fl-button fl-button--primary" type="button" id="event-restore" data-event-restore>Восстановить</button>
+        </div>
+      </div>
+    </form>
+  </dialog>
+  <template id="event-error-icon" data-event-error-icon><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m9 9 6 6m0-6-6 6"/></svg></template>
   <script type="module" src="../../ui/scripts/widgets.js"></script>
   <script type="module" src="./page.js"></script>
 </body>

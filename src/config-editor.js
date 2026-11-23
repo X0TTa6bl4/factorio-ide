@@ -431,6 +431,13 @@ export function createConfigurationEditor(options = {}) {
       state.status = state.diagnostics.length > 0 ? "invalid" : "editing";
       return { revision: state.revision, publication: null };
     },
+    clearRun() {
+      state.simulation = null;
+      state.runRevision = null;
+      state.staleRun = null;
+      state.status = state.diagnostics.length > 0 ? "invalid" : "editing";
+      return { revision: state.revision, publication: null };
+    },
     publication() {
       if (!state.simulation) return null;
       return {

@@ -2,10 +2,10 @@
 
 let serial = 0;
 
-export function mountCaretComplete(textarea, provider) {
+export function mountCaretComplete(textarea, provider, { suggest = "caret" } = {}) {
   const menu = document.createElement("div");
   menu.className = "fl-suggest";
-  menu.dataset.suggest = "caret";
+  menu.dataset.suggest = suggest;
   menu.setAttribute("popover", "manual");
   menu.setAttribute("role", "listbox");
   menu.setAttribute("aria-label", "Подсказки");

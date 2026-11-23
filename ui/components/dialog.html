@@ -1,6 +1,18 @@
 <div class="fl-panel">
   <div class="fl-panel__body fl-stack">
-    <div class="fl-row fl-between"><h3>Диалог и меню</h3><details class="fl-menu"><summary class="fl-button fl-button--icon" aria-label="Открыть меню примера"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h.01M12 12h.01M19 12h.01"/><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg></summary><div class="fl-menu__items"><a href="./workspace.html">Открыть пример страницы</a><a href="./README.md">Документация библиотеки</a></div></details></div>
+    <div class="fl-stack">
+      <div class="fl-row fl-between"><h3>Диалог и меню</h3>
+        <details class="fl-menu" data-topbar-menu>
+          <summary role="button" aria-label="Меню"><span class="fl-button fl-button--icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><span class="fl-sr">Меню</span></summary>
+          <div class="fl-menu__items"><a href="./docs.html">Документация</a><button type="button" data-clear-project>Очистить проект</button></div>
+        </details>
+      </div>
+      <details class="fl-menu fl-menu--static" open>
+        <summary role="button" aria-label="Меню, открытый образец"><span class="fl-button fl-button--icon" aria-hidden="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><span class="fl-sr">Меню, открытый образец</span></summary>
+        <div class="fl-menu__items"><a href="./docs.html">Документация</a><button type="button" data-clear-project>Очистить проект</button></div>
+      </details>
+      <p class="fl-field__hint" data-menu-feedback>Закрытое меню и открытый образец. На рабочих страницах пункт очищает черновик редактора.</p>
+    </div>
     <p class="fl-muted">Нативный диалог удерживает фокус, закрывается через Escape и возвращает фокус к кнопке.</p>
     <button class="fl-button" type="button" data-open-dialog="network-dialog">Создать сеть · демо</button>
     <p class="fl-field__hint" data-dialog-feedback aria-live="polite">Данные диалога не сохраняются в схему.</p>
