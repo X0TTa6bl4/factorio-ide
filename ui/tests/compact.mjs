@@ -18,6 +18,7 @@ try {
    const errors = [];
    page.on('pageerror', error => errors.push(error.message));
    for (const prefix of ['/ui/', '/factorio-ide/ui/']) {
+    const gutterWidths = [];
     for (const width of [320, 390, 768, 900, 901, 1440, 1920]) {
      await page.setViewportSize({width, height:600});
      await page.goto(`${base}${prefix}compact.html`);
@@ -63,6 +64,33 @@ try {
      assert.ok(await area.evaluate(el => el.scrollTop) > before);
      const scrolling = await work.evaluate(el => { const a=el.querySelector('textarea'),g=el.querySelector('.fl-editor__gutter'); return {a:a.scrollTop,g:g.scrollTop, ah:a.clientHeight,gh:g.clientHeight,as:a.scrollHeight,gs:g.scrollHeight}; });
      assert.ok(Math.abs(scrolling.a-scrolling.g)<2,JSON.stringify({name,prefix,width,...scrolling}));
+     const gutterShape = await work.locator('.fl-editor__gutter').evaluate(el => {
+      const box = el.getBoundingClientRect();
+      const node = el.firstChild;
+      const parts = el.textContent.split('\n');
+      const range = document.createRange();
+      let cursor = 0;
+      let extra = 0;
+      const right = new Set();
+      if (node && node.nodeType === Node.TEXT_NODE) {
+       for (const line of parts) {
+        if (line) {
+         range.setStart(node, cursor);
+         range.setEnd(node, cursor + line.length);
+         const rects = [...range.getClientRects()].filter(item => item.width > 0.5);
+         if (rects.length > 1) extra += 1;
+         for (const item of rects) right.add(Math.round(item.right));
+        }
+        cursor += line.length + 1;
+       }
+      }
+      return {w: box.width, extra, rights: right.size, scroll: el.scrollWidth, client: el.clientWidth, area: el.parentElement.getBoundingClientRect().width};
+     });
+     assert.equal(gutterShape.extra, 0, JSON.stringify({name, prefix, width, gutterShape}));
+     assert.ok(gutterShape.rights <= 2, JSON.stringify({name, prefix, width, gutterShape}));
+     assert.ok(gutterShape.w < 40 && gutterShape.w * 4 < gutterShape.area, JSON.stringify({name, prefix, width, gutterShape}));
+     assert.ok(gutterShape.scroll <= gutterShape.client + 1, JSON.stringify({name, prefix, width, gutterShape}));
+     gutterWidths.push(gutterShape.w);
      const longText = await area.inputValue();
      await area.fill('Edited');
      await work.locator('[data-demo-undo]').click();
@@ -90,6 +118,8 @@ try {
      }
      results.push({browser:name,prefix,width,height:600,ok:true});
     }
+    assert.equal(gutterWidths.length, 7);
+    assert.ok(gutterWidths.every((value) => Math.abs(value - gutterWidths[0]) < 1), JSON.stringify({name, prefix, gutterWidths}));
    }
    await page.setViewportSize({width:390,height:900});
    await page.goto(`${base}/ui/compact.html`); await page.waitForFunction(()=>document.documentElement.dataset.uiReady==='true');

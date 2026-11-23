@@ -65,7 +65,7 @@ test("корень, события и смешанная схема проход
     const draft = "Arithmetic({ return: Signal.Signals.signal_Z })";
     await page.locator("#document").fill(draft);
     await page.waitForFunction((marker) => sessionStorage.getItem("f-logic.editor-draft.v1")?.includes(marker), draft);
-    await page.locator("#open-events").click();
+    await page.goto(`http://127.0.0.1:${port}/pages/event/`);
     await page.waitForSelector("#check");
     assert.equal(await page.locator("h1").textContent(), "Сценарий");
     await page.waitForFunction(() => (document.querySelector("#demo-expect")?.textContent ?? "").includes("signal-A = 1"));

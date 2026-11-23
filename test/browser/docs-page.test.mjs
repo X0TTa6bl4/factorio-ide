@@ -55,6 +55,9 @@ test("с каждого рабочего экрана открывается р�
         await page.waitForSelector(ready);
         assert.equal(await page.locator(".fl-more").count(), 0, pathname);
         assert.equal(await page.getByRole("button", { name: "Совместимость" }).count(), 0, pathname);
+        const menu = page.getByRole("button", { name: "Меню" });
+        assert.equal(await menu.count(), 1, pathname);
+        await menu.click();
         const docs = page.getByRole("link", { name: "Документация" });
         assert.equal(await docs.count(), 1, pathname);
         await docs.click();
@@ -181,21 +184,22 @@ test("мобильная панель, копирование, черновик 
   }
 });
 
-test("новый черновик остаётся в заголовке кода и спрашивает подтверждение", { timeout: 120_000 }, async () => {
+test("очистка проекта в меню шапки спрашивает подтверждение", { timeout: 120_000 }, async () => {
   for (const pathname of ["/", "/factorio-ide/pages/configure/"]) {
     const { context, page, errors } = await openPage("", pathname.startsWith("/factorio-ide") ? "/factorio-ide/pages/configure/" : "/");
     try {
       await page.waitForSelector("#document");
-      assert.equal(await page.locator("#toolbar #new-draft").count(), 0);
-      assert.equal(await page.locator("#new-draft").count(), 1);
-      assert.equal(await page.locator("#new-draft").evaluate((node) => node.closest("[aria-label='Действия документа']") !== null), true);
+      assert.equal(await page.locator("#new-draft").count(), 0);
+      assert.equal(await page.getByRole("button", { name: "Новый черновик" }).count(), 0);
       await page.locator("#document").fill("temporary draft");
       await page.waitForFunction(() => document.querySelector("#document").value === "temporary draft");
+      await page.getByRole("button", { name: "Меню" }).click();
       page.once("dialog", (dialog) => dialog.dismiss());
-      await page.locator("#new-draft").click();
+      await page.getByRole("button", { name: "Очистить проект" }).click();
       assert.equal(await page.locator("#document").inputValue(), "temporary draft");
+      await page.getByRole("button", { name: "Меню" }).click();
       page.once("dialog", (dialog) => dialog.accept());
-      await page.locator("#new-draft").click();
+      await page.getByRole("button", { name: "Очистить проект" }).click();
       await page.waitForFunction(() => document.querySelector("#document").value.includes("wooden_chest"));
       assert.equal(errors.length, 0, errors.join("\n"));
     } finally {

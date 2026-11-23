@@ -52,7 +52,9 @@ test("экраны держатся в окне, выбор не нативны�
       if (!pathname.startsWith("/ui")) {
         assert.equal(await page.locator(".fl-more").count(), 0, pathname);
         assert.equal(await page.getByRole("button", { name: "Совместимость" }).count(), 0, pathname);
+        await page.getByRole("button", { name: "Меню" }).click();
         assert.equal(await page.getByRole("link", { name: "Документация" }).count(), 1, pathname);
+        await page.keyboard.press("Escape");
       }
       const about = page.getByRole("button", { name: "Совместимость" });
       if (await about.count()) {

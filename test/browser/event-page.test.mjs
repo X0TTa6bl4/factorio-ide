@@ -580,11 +580,15 @@ test("номера строк сценария прокручиваются вм
     const programmed = await read();
     assert.ok(programmed.scrollTop > 100);
     assertSync(programmed, "program");
+    const narrowGutter = box.width;
+    assert.ok(narrowGutter < 40, `gutter ${narrowGutter}`);
     await page.setViewportSize({ width: 1440, height: 700 });
     await page.evaluate(() => new Promise((resolve) => {
       requestAnimationFrame(() => requestAnimationFrame(resolve));
     }));
     assertSync(await read(), "resize");
+    const wideGutter = (await gutter.boundingBox()).width;
+    assert.ok(Math.abs(wideGutter - narrowGutter) < 1, `gutter ${narrowGutter}->${wideGutter}`);
     assert.deepEqual(errors, []);
   } finally {
     await page.close();

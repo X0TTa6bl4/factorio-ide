@@ -42,7 +42,9 @@ test.after(async () => {
 test("страница показывает A=3, после шага B=5 и возвращает границу 0", { timeout: 60_000 }, async () => {
   const { page, errors } = await openCircuit();
   try {
+    await page.getByRole("button", { name: "Меню" }).click();
     assert.equal(await page.getByRole("link", { name: "Документация" }).count(), 1);
+    await page.keyboard.press("Escape");
     assert.equal(await page.locator("#tick-value").textContent(), "0");
     assert.match(await page.locator("#red-body").textContent(), /signal-A/);
     assert.match(await page.locator("#red-body").textContent(), /3/);

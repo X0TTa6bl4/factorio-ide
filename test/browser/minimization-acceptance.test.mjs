@@ -193,7 +193,9 @@ test("редактор: пульт, складки, диагностика, кл
       assert.equal(await page.locator("#document-hint").count(), 0);
       assert.equal(await page.locator(".fl-more").count(), 0);
       assert.equal(await page.getByRole("button", { name: "Совместимость" }).count(), 0);
+      await page.getByRole("button", { name: "Меню" }).click();
       assert.equal(await page.getByRole("link", { name: "Документация" }).count(), 1);
+      await page.keyboard.press("Escape");
       assert.equal(await page.locator("h1").evaluate((node) => node.classList.contains("fl-sr")), true);
       assert.equal(await page.locator("#toolbar #undo, #toolbar #redo").count(), 0);
       assert.equal(await page.locator(".fl-work-edit #undo").count(), 1);

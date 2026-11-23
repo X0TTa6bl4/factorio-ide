@@ -238,9 +238,9 @@ test("корень показывает редактор, прогон и две
       assert.equal(await page.locator("#demo-rows").count(), 0);
       assert.equal(await page.locator("#forms-panel, #devices-panel").count(), 0);
       assert.equal(await page.locator("#diagnostics-panel, #document-hint").count(), 0);
-      assert.equal((await page.locator("#open-events").textContent()).trim(), "События");
-      assert.equal(await page.locator("#open-events").getAttribute("aria-expanded"), null);
-      assert.equal(await page.locator(".fl-topbar #open-events").count(), 0);
+      assert.equal(await page.locator("#open-events").count(), 0);
+      assert.equal((await page.locator("[data-work-view='events']").textContent()).trim(), "События");
+      assert.equal(await page.locator("[data-work-view='events']").evaluate((node) => node.tagName), "BUTTON");
       const widths = await page.evaluate(() => ({
         code: document.querySelector("#document").closest("section").getBoundingClientRect().width,
         signals: document.querySelector("#signal-panel").getBoundingClientRect().width,
@@ -340,7 +340,7 @@ test("ошибка открывает место в тексте, чернови
     await page.goto(`http://127.0.0.1:${port}/factorio-ide/`);
     await page.waitForSelector("#document");
     await page.locator("#document").fill("Arithmetic({ left_operand: { red: true, green: false, signal: Signal.Signals.signal_Z } })");
-    await page.locator("#open-events").click();
+    await page.goto(`http://127.0.0.1:${port}/factorio-ide/pages/event/`);
     await page.waitForSelector("#open-editor");
     await page.locator("#open-editor").click();
     await page.waitForFunction(() => (document.querySelector("#document")?.value ?? "").includes("signal_Z"));
@@ -926,12 +926,12 @@ test("иконки отмены и повтора, tooltip и область х�
   const area = page.locator("#document");
   try {
     const toolbarBefore = await page.locator("#toolbar").boundingBox();
-    const headBefore = await page.locator("[data-workbench] > .fl-panel__head").boundingBox();
+    const headBefore = await page.locator("#code-panel > .fl-panel__head").boundingBox();
     await page.locator("#redo").locator("xpath=ancestor::*[@data-tooltip][1]").hover();
     await page.waitForFunction(() => document.querySelector("#redo-tip")?.dataset.open === "true");
     assert.match(await page.locator("#redo-tip").innerText(), /Повторить правку · Ctrl\+Y/);
     const toolbarAfter = await page.locator("#toolbar").boundingBox();
-    const headAfter = await page.locator("[data-workbench] > .fl-panel__head").boundingBox();
+    const headAfter = await page.locator("#code-panel > .fl-panel__head").boundingBox();
     assert.equal(toolbarAfter.height, toolbarBefore.height);
     assert.equal(toolbarAfter.width, toolbarBefore.width);
     assert.equal(headAfter.height, headBefore.height);
@@ -1433,11 +1433,15 @@ test("номера строк прокручиваются вместе с ко�
         assertEditorScroll(await editorScroll(page, 8), `${pathname} ${width} undo`);
 
         if (width === 1440) {
+          const beforeResize = (await gutter.boundingBox()).width;
+          assert.ok(beforeResize < 40, `${pathname} gutter ${beforeResize}`);
           await page.setViewportSize({ width: 390, height: 640 });
           await page.evaluate(() => new Promise((resolve) => {
             requestAnimationFrame(() => requestAnimationFrame(resolve));
           }));
           assertEditorScroll(await editorScroll(page, 8), `${pathname} resize`);
+          const afterResize = (await gutter.boundingBox()).width;
+          assert.ok(Math.abs(afterResize - beforeResize) < 1, `${pathname} gutter ${beforeResize}->${afterResize}`);
           await page.setViewportSize({ width: 1440, height: 900 });
         }
 
@@ -1459,6 +1463,112 @@ test("номера строк прокручиваются вместе с ко�
       } finally {
         await opened.context.close();
       }
+    }
+  }
+});
+
+test("ширина gutter зависит от числа цифр и не от stage", { timeout: 120_000 }, async () => {
+  const measure = (page, selector) => page.evaluate((selector) => {
+    const gutter = document.querySelector(selector);
+    const editor = gutter.closest(".fl-editor");
+    const area = editor.querySelector("textarea");
+    const node = gutter.firstChild;
+    const parts = gutter.textContent.split("\n");
+    const range = document.createRange();
+    const box = gutter.getBoundingClientRect();
+    let cursor = 0;
+    let extra = 0;
+    let clipped = 0;
+    if (node?.nodeType === Node.TEXT_NODE) {
+      for (const line of parts) {
+        if (line) {
+          range.setStart(node, cursor);
+          range.setEnd(node, cursor + line.length);
+          const rects = [...range.getClientRects()].filter((item) => item.width > 0.5);
+          if (rects.length > 1) extra += 1;
+          for (const item of rects) {
+            if (item.right > box.right + 1 || item.left < box.left - 1) clipped += 1;
+          }
+        }
+        cursor += line.length + 1;
+      }
+    }
+    return {
+      gutter: box.width,
+      editor: editor.getBoundingClientRect().width,
+      area: area.getBoundingClientRect().width,
+      extra,
+      clipped,
+      scroll: gutter.scrollWidth,
+      client: gutter.clientWidth,
+      lines: parts.length,
+    };
+  }, selector);
+
+  async function writeLines(page, selector, count) {
+    await page.evaluate(({ selector, count }) => {
+      const area = document.querySelector(selector);
+      area.focus();
+      area.value = Array.from({ length: count }, (_, index) => `const line${index + 1} = ${index + 1};`).join("\n");
+      area.dispatchEvent(new InputEvent("input", { bubbles: true, inputType: "insertFromPaste" }));
+    }, { selector, count });
+    await page.waitForFunction(({ selector, count }) => {
+      const area = document.querySelector(selector);
+      const gutter = area.closest(".fl-editor")?.querySelector(".fl-editor__gutter");
+      return gutter?.textContent.split("\n").length === count;
+    }, { selector, count });
+  }
+
+  for (const pathname of ["/factorio-ide/", "/factorio-ide/pages/configure/"]) {
+    const opened = await openConfigure(1440, pathname);
+    opened.page.on("dialog", (dialog) => dialog.accept());
+    const { page } = opened;
+    try {
+      const widths = {};
+      for (const width of [901, 1440, 1920, 390, 320]) {
+        await page.setViewportSize({ width, height: 900 });
+        await writeLines(page, "#document", 40);
+        const shape = await measure(page, "#gutter");
+        assert.equal(shape.lines, 40, pathname);
+        assert.equal(shape.extra, 0, `${pathname} ${width} ${JSON.stringify(shape)}`);
+        assert.equal(shape.clipped, 0, `${pathname} ${width} ${JSON.stringify(shape)}`);
+        assert.ok(shape.scroll <= shape.client + 1, `${pathname} ${width} ${JSON.stringify(shape)}`);
+        assert.ok(shape.gutter < 40 && shape.gutter * 4 < shape.editor, `${pathname} ${width} ${JSON.stringify(shape)}`);
+        assert.ok(shape.area > 160, `${pathname} ${width} ${JSON.stringify(shape)}`);
+        widths[width] = shape.gutter;
+      }
+      assert.ok(Math.abs(widths[901] - widths[1440]) < 1, JSON.stringify(widths));
+      assert.ok(Math.abs(widths[1440] - widths[1920]) < 1, JSON.stringify(widths));
+      await page.setViewportSize({ width: 1920, height: 900 });
+      await writeLines(page, "#document", 100);
+      const hundred = await measure(page, "#gutter");
+      await writeLines(page, "#document", 1000);
+      const thousand = await measure(page, "#gutter");
+      assert.ok(hundred.gutter > widths[1920] + 1, JSON.stringify({ widths, hundred }));
+      assert.ok(thousand.gutter > hundred.gutter + 1, JSON.stringify({ hundred, thousand }));
+      assert.equal(hundred.extra, 0);
+      assert.equal(thousand.extra, 0);
+      assert.equal(hundred.clipped, 0);
+      assert.equal(thousand.clipped, 0);
+      assert.ok(thousand.scroll <= thousand.client + 1, JSON.stringify(thousand));
+      await page.locator('[data-work-view="events"]').click();
+      await writeLines(page, "#event-source", 40);
+      const events = await measure(page, "#event-gutter");
+      assert.ok(Math.abs(events.gutter - widths[1920]) < 1, JSON.stringify({ events, widths }));
+      assert.equal(events.extra, 0);
+      assert.equal(events.clipped, 0);
+      await page.locator("#event-source").evaluate((node) => { node.scrollTop = 180; node.scrollLeft = 40; });
+      await page.waitForFunction(() => {
+        const field = document.querySelector("#event-source");
+        const numbers = document.querySelector("#event-gutter");
+        const paint = field.closest(".fl-editor").querySelector(".fl-editor__paint");
+        return Math.abs(field.scrollTop - numbers.scrollTop) < 1
+          && numbers.scrollLeft === 0
+          && paint.style.transform === `translate(${-field.scrollLeft}px, ${-field.scrollTop}px)`;
+      });
+      assert.deepEqual(opened.errors, []);
+    } finally {
+      await opened.context.close();
     }
   }
 });

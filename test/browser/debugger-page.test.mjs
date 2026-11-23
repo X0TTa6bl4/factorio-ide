@@ -50,7 +50,9 @@ test.after(async () => {
 test("автозапуск и ручные шаги совпадают, пауза и смена скорости не добавляют тик", { timeout: 60_000 }, async () => {
   const { page, errors } = await openDebugger();
   try {
+    await page.getByRole("button", { name: "Меню" }).click();
     assert.equal(await page.getByRole("link", { name: "Документация" }).count(), 1);
+    await page.keyboard.press("Escape");
     await choose(page, "counter");
     await chooseSelect(page, "speed", "10");
     await page.locator("#play").click();

@@ -66,7 +66,9 @@ test("примеры открываются со своей страницы и 
     try {
       assert.equal(await page.getByRole("button", { name: "Совместимость" }).count(), 0);
       assert.equal(await page.locator(".fl-more").count(), 0);
+      await page.getByRole("button", { name: "Меню" }).click();
       assert.equal(await page.getByRole("link", { name: "Документация" }).count(), 1);
+      await page.keyboard.press("Escape");
       assert.equal(await page.locator("#demo-rows tr").count(), 8);
       const resources = await page.evaluate(() => performance.getEntriesByType("resource").map((entry) => entry.name));
       assert.equal(resources.some((name) => name.includes("/pages/examples/page.js")), true);
@@ -167,7 +169,9 @@ test("сценарий Arrival публикует signal-A на границе 1
   try {
     await page.goto(`http://127.0.0.1:${port}/factorio-ide/pages/event/`);
     await page.waitForFunction(() => (document.querySelector("#demo-expect")?.textContent ?? "").includes("signal-A = 1"));
+    await page.getByRole("button", { name: "Меню" }).click();
     assert.equal(await page.getByRole("link", { name: "Документация" }).count(), 1);
+    await page.keyboard.press("Escape");
     await page.locator("#check").click();
     await page.waitForFunction(() => document.querySelector("#run-status")?.dataset.status === "ready");
     assert.equal(await page.locator("#tick-value").textContent(), "0");

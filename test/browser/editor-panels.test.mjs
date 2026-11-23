@@ -46,11 +46,15 @@ test("переключение панелей сохраняет схему, и�
     const { page, context, errors } = await openEditor(1280, 800, pathname);
     try {
       assert.equal(await page.locator('[role="tablist"]').count(), 0);
-      assert.equal(await page.locator('[role="group"] [data-work-view]').count(), 2);
-      assert.equal(await page.locator('[role="group"] #open-events').count(), 0);
-      assert.equal(await page.locator("#open-events").getAttribute("aria-expanded"), null);
-      assert.match(await page.locator("#open-events").getAttribute("href"), /event\/index\.html$/);
-      assert.match(await page.locator("#open-events").getAttribute("title"), /Общего прогона/);
+      assert.equal(await page.locator("#open-events").count(), 0);
+      assert.equal(await page.locator("#code-panel > .fl-panel__head [role='group'] [data-work-view]").count(), 3);
+      const viewButtons = page.locator("#code-panel > .fl-panel__head [data-work-view]");
+      assert.deepEqual(await viewButtons.evaluateAll((nodes) => nodes.map((node) => node.tagName)), ["BUTTON", "BUTTON", "BUTTON"]);
+      assert.deepEqual(await viewButtons.evaluateAll((nodes) => nodes.map((node) => node.className)), [
+        "fl-button fl-button--quiet",
+        "fl-button fl-button--quiet",
+        "fl-button fl-button--quiet",
+      ]);
       assert.equal(await page.locator("#toolbar #undo").count(), 0);
       assert.equal(await page.locator("#live-signals").count(), 1);
       assert.equal(await page.locator("#document").count(), 1);
@@ -120,11 +124,13 @@ test("узкая ширина показывает одну панель и не
     assert.ok(narrowUndo.y + narrowUndo.height <= 701);
 
     await page.locator('[data-work-view="networks"]').click();
-    assert.equal(await page.locator("#code-panel").isHidden(), true);
+    assert.equal(await page.locator("#code-panel").isHidden(), false);
+    assert.equal(await page.locator("#scheme-view").isHidden(), true);
+    assert.equal(await page.locator("#code-panel .fl-panel__head [data-work-view='code']").isVisible(), true);
     assert.equal(await page.locator("#networks-column").isHidden(), false);
     assert.equal(await page.locator("#live-signals").count(), 1);
     await page.locator('[data-work-view="code"]').click();
-    assert.equal(await page.locator("#code-panel").isHidden(), false);
+    assert.equal(await page.locator("#scheme-view").isHidden(), false);
 
     await page.locator("#document").focus();
     await page.setViewportSize({ width: 1440, height: 800 });
@@ -134,7 +140,8 @@ test("узкая ширина показывает одну панель и не
 
     await page.locator("#signal-filter").focus();
     await page.setViewportSize({ width: 390, height: 700 });
-    await page.waitForFunction(() => getComputedStyle(document.querySelector("#code-panel")).display === "none"
+    await page.waitForFunction(() => getComputedStyle(document.querySelector("#scheme-view")).display === "none"
+      && getComputedStyle(document.querySelector("#code-panel")).display !== "none"
       && document.activeElement?.id === "signal-filter");
     assert.equal(await page.locator("#networks-column").isHidden(), false);
     const text = await page.locator("#document").inputValue();
@@ -179,5 +186,157 @@ test("грубый указатель увеличивает кнопки ист
     assert.deepEqual(errors, []);
   } finally {
     await context.close();
+  }
+});
+
+const INFINITE = `export class Spin extends EventCombinator {
+  main() {
+    while (true) {}
+  }
+}
+`;
+
+test("три представления одной страницы держат тексты, историю и таблицу режима", { timeout: 180_000 }, async () => {
+  for (const pathname of ["/", "/pages/configure/"]) {
+    const { page, context, errors } = await openEditor(1280, 800, pathname);
+    try {
+      const address = page.url();
+      const controls = await page.evaluate(() => {
+        const buttons = [...document.querySelectorAll("#code-panel > .fl-panel__head [data-work-view]")];
+        const ids = buttons.map((button) => button.getAttribute("aria-controls"));
+        return {
+          labels: buttons.map((button) => button.textContent.trim()),
+          ids,
+          unique: new Set(ids).size === ids.length,
+          present: ids.every((id) => document.getElementById(id)),
+          tables: document.querySelectorAll("#live-signals").length,
+          headInside: document.querySelector("#code-panel > .fl-panel__head") !== null,
+          separateHead: document.querySelector("[data-workbench] > .fl-panel__head") === null,
+        };
+      });
+      assert.deepEqual(controls.labels, ["Код", "Сети", "События"]);
+      assert.equal(controls.unique, true);
+      assert.equal(controls.present, true);
+      assert.equal(controls.tables, 1);
+      assert.equal(controls.headInside, true);
+      assert.equal(controls.separateHead, true);
+
+      await page.locator("#step").click();
+      await page.waitForFunction(() => document.querySelector("#tick-value")?.textContent === "0");
+      const circuitRows = await page.locator("#live-signals tr[data-network]").count();
+      assert.ok(circuitRows > 0, pathname);
+      const scheme = await page.locator("#document").inputValue();
+      await page.locator("[data-work-view='events']").click();
+      assert.equal(page.url(), address);
+      assert.equal(await page.locator("#live-signals tr[data-network]").count(), 0);
+      assert.match(await page.locator("#live-signals").textContent(), /Нет прогона/);
+      await page.locator("[data-work-view='code']").click();
+      assert.equal(await page.locator("#live-signals tr[data-network]").count(), circuitRows);
+      assert.equal(await page.locator("#tick-value").textContent(), "0");
+      await page.locator("#document").focus();
+      await page.locator("#document").evaluate((node) => node.setSelectionRange(node.value.length, node.value.length));
+      await page.keyboard.type("Q");
+      const editedScheme = `${scheme}Q`;
+
+      await page.locator("[data-work-view='events']").click();
+      assert.equal(page.url(), address);
+      assert.equal(await page.locator("#code-panel > .fl-panel__head").isVisible(), true);
+      assert.equal(await page.locator("#scheme-view").isHidden(), true);
+      assert.equal(await page.locator("#events-view").isHidden(), false);
+      assert.equal(await page.locator("#signal-mode").textContent(), "События");
+      assert.equal(await page.locator("#signal-panel").getAttribute("data-source"), "events");
+      assert.equal(await page.locator("#live-signals tr[data-network]").count(), 0);
+
+      const script = await page.locator("#event-source").inputValue();
+      assert.match(script, /class Arrival/);
+      await page.locator("#event-settings summary").click();
+      await page.locator("#event-timeout").fill("2500");
+      await page.locator("#event-every-tick").uncheck();
+      await page.locator("#event-source").fill(`${script}\n// mark`);
+      await page.locator("#undo").click();
+      assert.equal(await page.locator("#event-source").inputValue(), script);
+      assert.equal(await page.locator("#document").inputValue(), editedScheme);
+      await page.locator("#redo").click();
+      assert.match(await page.locator("#event-source").inputValue(), /\/\/ mark/);
+
+      await page.locator("[data-work-view='code']").click();
+      assert.equal(page.url(), address);
+      assert.equal(await page.locator("#signal-mode").textContent(), "Схема");
+      assert.equal(await page.locator("#document").inputValue(), editedScheme);
+      await page.locator("#undo").click();
+      assert.equal(await page.locator("#document").inputValue(), scheme);
+      assert.match(await page.locator("#event-source").inputValue(), /\/\/ mark/);
+      assert.equal(await page.locator("#event-timeout").inputValue(), "2500");
+      assert.equal(await page.locator("#event-every-tick").isChecked(), false);
+
+      const stored = await page.evaluate(() => sessionStorage.getItem("f-logic.editor-draft.v1"));
+      assert.equal(stored.includes("// mark"), false);
+      assert.match(stored, /Constant|Circuit|Arithmetic|wire/);
+      await page.reload();
+      await page.waitForFunction(() => document.querySelector("#document-state")?.textContent === "Код проверен");
+      assert.equal(await page.locator("#document").inputValue(), scheme);
+      assert.match(await page.locator("#event-source").inputValue(), /class Arrival/);
+      assert.equal((await page.locator("#event-source").inputValue()).includes("// mark"), false);
+
+      await page.locator("[data-work-view='events']").click();
+      const circuitTick = await page.locator("#tick-value").textContent();
+      await page.locator("#event-check").click();
+      await page.waitForFunction(() => document.querySelector("#event-run-status")?.dataset.status === "ready");
+      await page.locator("#event-step").click();
+      await page.waitForFunction(() => document.querySelector("#event-tick")?.textContent === "1");
+      assert.match(await page.locator("#live-signals").textContent(), /signal-A/);
+      assert.equal(await page.locator("#live-signals").count(), 1);
+      assert.equal(await page.locator("#red-body").count(), 0);
+      const eventTick = await page.locator("#event-tick").textContent();
+      const runMeta = await page.locator("[data-event-meta]").textContent();
+      await page.locator("[data-work-view='networks']").click();
+      await page.locator("[data-work-view='networks']").click();
+      await page.locator("[data-work-view='code']").click();
+      await page.locator("[data-work-view='events']").click();
+      assert.equal(await page.locator("#event-tick").textContent(), eventTick);
+      assert.equal(await page.locator("[data-event-meta]").textContent(), runMeta);
+      assert.equal(page.url(), address);
+
+      await page.locator("#event-stop").click();
+      await page.waitForFunction(() => document.querySelector("#event-run-status")?.dataset.status === "paused");
+      assert.equal(await page.locator("#event-tick").textContent(), "1");
+
+      await page.locator("#event-source").fill("export class Bad extends EventCombinator {\n  main(\n}\n");
+      await page.locator("#event-check").click();
+      await page.waitForFunction(() => document.querySelector("#event-run-status")?.dataset.status === "failed");
+      assert.notEqual((await page.locator("#event-edit-status").textContent()).trim(), "");
+
+      if (!(await page.locator("#event-settings").evaluate((node) => node.open))) {
+        await page.locator("#event-settings summary").click();
+      }
+      await page.locator("#event-timeout").fill("300");
+      await page.locator("#event-source").fill(INFINITE);
+      await page.locator("#event-check").click();
+      await page.waitForFunction(() => document.querySelector("#event-run-status")?.dataset.status === "ready");
+      await page.locator("#event-step").click();
+      await page.locator("#event-ping").click();
+      assert.equal(await page.locator("#event-alive").textContent(), "Интерфейс: alive");
+      await page.waitForFunction(() => document.querySelector("#event-run-status")?.dataset.status === "paused"
+        && (document.querySelector("#event-diagnostic")?.textContent ?? "").includes("timeout"));
+      assert.equal(await page.locator("#event-tick").textContent(), "0");
+      assert.equal(await page.locator("#tick-value").textContent(), circuitTick);
+
+      await page.locator("#event-source").focus();
+      await page.setViewportSize({ width: 900, height: 700 });
+      await page.waitForFunction(() => window.matchMedia("(max-width: 900px)").matches
+        && document.querySelector("#events-view").hidden === false
+        && document.querySelector("#networks-column").hidden === true
+        && document.activeElement?.id === "event-source");
+      assert.equal(await page.locator("#code-panel > .fl-panel__head").isVisible(), true);
+      await page.setViewportSize({ width: 901, height: 700 });
+      await page.waitForFunction(() => !window.matchMedia("(max-width: 900px)").matches
+        && document.querySelector("#events-view").hidden === false
+        && document.querySelector("#networks-column").hidden === false
+        && document.activeElement?.id === "event-source");
+      assert.equal(await page.locator("#document").inputValue(), scheme);
+      assert.deepEqual(errors, []);
+    } finally {
+      await context.close();
+    }
   }
 });

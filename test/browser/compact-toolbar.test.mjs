@@ -82,8 +82,8 @@ test("редактор держит размер play/pause и не показы
       assert.equal((await page.locator("h1").textContent()).trim(), "Редактор");
       assert.equal(await page.locator("h1").evaluate((element) => element.classList.contains("fl-sr")), true);
       assert.equal(await page.locator(".fl-screen-name").count(), 0);
-      assert.equal(await page.locator("#toolbar #new-draft").count(), 0);
-      assert.equal(await page.locator("#new-draft").count(), 1);
+      assert.equal(await page.locator("#new-draft").count(), 0);
+      assert.equal(await page.getByRole("button", { name: "Меню" }).count(), 1);
       const back = await controlBox(page, "#back");
       assert.equal(back.disabled, true);
       assert.equal(back.label, "Шаг назад");
