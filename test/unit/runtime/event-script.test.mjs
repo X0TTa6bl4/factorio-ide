@@ -415,3 +415,44 @@ test("timeout и ошибка сценария оставляют границу
   assert.equal(bare.session.view().revision, 2);
   assert.equal(bare.box.released, 0);
 });
+
+test("discard снимает прогон и не принимает опоздавшее открытие", async () => {
+  const ready = harness();
+  await ready.session.check(input());
+  await ready.session.step();
+  const cleared = ready.session.discard();
+  assert.equal(cleared.status, "idle");
+  assert.equal(cleared.runId, null);
+  assert.equal(cleared.tick, null);
+  assert.equal(cleared.canStep, false);
+  assert.equal(ready.box.released >= 1, true);
+
+  let finish;
+  let released = 0;
+  const session = createEventScriptSession({
+    engineHref: "https://example.test/src/index.js",
+    openExecutor() {
+      return new Promise((resolve) => {
+        finish = resolve;
+      });
+    },
+  });
+  const pending = session.check(input());
+  await new Promise((resolve) => setTimeout(resolve, 0));
+  assert.equal(session.discard().status, "idle");
+  finish({
+    executor: {
+      prepare() {
+        return Promise.resolve(accept({ runId: 1, revision: 1, stepId: 1, phase: "init", tick: 0 }));
+      },
+      stop() {},
+    },
+    release() {
+      released += 1;
+    },
+  });
+  const view = await pending;
+  assert.equal(view.status, "idle");
+  assert.equal(view.runId, null);
+  assert.equal(released, 1);
+});
