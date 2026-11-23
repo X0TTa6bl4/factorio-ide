@@ -1,0 +1,45 @@
+{
+  "editors": {
+    "/": "scenario-ok",
+    "/pages/configure/": "scenario-ok",
+    "/factorio-ide/": "scenario-ok",
+    "/factorio-ide/pages/configure/": "scenario-ok"
+  },
+  "gutter": {
+    "901": 18,
+    "1440": 18,
+    "1920": 18,
+    "/pages/event/": 18,
+    "/factorio-ide/pages/event/": 18
+  },
+  "pages": [
+    "/",
+    "/pages/configure/",
+    "/pages/event/",
+    "/pages/debugger/",
+    "/pages/circuit/",
+    "/pages/networks/",
+    "/pages/project/",
+    "/pages/examples/",
+    "/pages/docs/",
+    "/factorio-ide/",
+    "/factorio-ide/pages/configure/",
+    "/factorio-ide/pages/event/",
+    "/factorio-ide/pages/debugger/",
+    "/factorio-ide/pages/circuit/",
+    "/factorio-ide/pages/networks/",
+    "/factorio-ide/pages/project/",
+    "/factorio-ide/pages/examples/",
+    "/factorio-ide/pages/docs/"
+  ],
+  "zoom": {
+    "wide": false,
+    "documentScrolls": false
+  },
+  "pointers": {
+    "touch": {
+      "undo": 36,
+      "events": true
+    }
+  }
+}
